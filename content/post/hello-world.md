@@ -43,7 +43,7 @@ _斜體_
 ## 圖片
 
 行內圖片
-![test](http://cdn.pcwallart.com/images/milky-way-wallpaper-3.jpg "Title")
+![test](https://cdn.pcwallart.com/images/milky-way-wallpaper-3.jpg "Title")
 
 參考圖片
 ![test2][img1]
@@ -78,6 +78,6 @@ console.log('Hello World!');
 
 [ref1]: https://google.com "Title"
 [ref2]: https://akccakcctw.github.io/ "Github"
-[img1]: http://cdn.pcwallart.com/images/milky-way-wallpaper-3.jpg
+[img1]: https://cdn.pcwallart.com/images/milky-way-wallpaper-3.jpg
 
 [^1]: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, provident.
