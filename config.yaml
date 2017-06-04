@@ -1,0 +1,31 @@
+baseURL : "https://akccakcctw.github.io/"
+languageCode : "en"
+theme: "hemingway"
+contentdir: "content"
+layoutdir: "layouts"
+publishdir: "public"
+author: "Rex Tsou"
+title : "Rex Tsou"
+hasCJKLanguage: true
+disqusshortname: ""
+googleAnalytics: ""
+
+taxonomies:
+  category: "categories"
+  tag: "tags"
+
+permalinks:
+  post: "/:year/:month/:title/"
+
+params:
+  author: "Rex Tsou"
+  copyright: '© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a>'
+  keywords:
+    - programming
+    - thinking
+    - writing
+  social:
+    - url: "https://github.com/akccakcctw"
+      fa_icon: "fa-github"
+    - url: "/index.xml"
+      fa_icon: "fa-rss"
