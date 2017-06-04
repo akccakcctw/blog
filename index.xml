@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rex Tsou</title>
+    <link>https://akccakcctw.github.io/</link>
+    <description>Recent content on Rex Tsou</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 05 Jun 2017 00:29:35 +0800</lastBuildDate>
+    
+	<atom:link href="https://akccakcctw.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hello World!</title>
+      <link>https://akccakcctw.github.io/2017/06/hello-world/</link>
+      <pubDate>Mon, 05 Jun 2017 00:29:35 +0800</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2017/06/hello-world/</guid>
+      <description>文字 粗體 斜體 引言引言引言引言引言 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia eaque tenetur eos alias officiis animi. In amet doloremque, fugiat quasi, illo, similique veniam praesentium ipsa distinctio perspiciatis dignissimos! Consequatur, quia. 第二層引言 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt error voluptate veniam mollitia, eos perferendis quibusdam officiis dolore at</description>
+    </item>
+    
+  </channel>
+</rss>
