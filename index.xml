@@ -21,5 +21,14 @@
       <description>文字 粗體 斜體 引言引言引言引言引言 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia eaque tenetur eos alias officiis animi. In amet doloremque, fugiat quasi, illo, similique veniam praesentium ipsa distinctio perspiciatis dignissimos! Consequatur, quia. 第二層引言 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt error voluptate veniam mollitia, eos perferendis quibusdam officiis dolore at</description>
     </item>
     
+    <item>
+      <title>在網頁中嵌入高亮程式碼</title>
+      <link>https://akccakcctw.github.io/2015/10/%E5%9C%A8%E7%B6%B2%E9%A0%81%E4%B8%AD%E5%B5%8C%E5%85%A5%E9%AB%98%E4%BA%AE%E7%A8%8B%E5%BC%8F%E7%A2%BC/</link>
+      <pubDate>Tue, 13 Oct 2015 16:05:00 +0800</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2015/10/%E5%9C%A8%E7%B6%B2%E9%A0%81%E4%B8%AD%E5%B5%8C%E5%85%A5%E9%AB%98%E4%BA%AE%E7%A8%8B%E5%BC%8F%E7%A2%BC/</guid>
+      <description>有時候，我們需要在頁面中分享程式碼，但可能會發現： 它居然被執行了！ 沒有 highlight 眼睛很痛…… 有 highlight，但是配色不好看 嵌入的方法有很多，以</description>
+    </item>
+    
   </channel>
 </rss>
