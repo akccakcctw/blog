@@ -1,7 +1,7 @@
 ---
-date = "2017-06-05T00:29:35+08:00"
-draft = false
-title = "Hello World!"
+date: "2017-06-05T00:29:35+08:00"
+draft: false
+title: "Hello World!"
 ---
 
 ## 文字
