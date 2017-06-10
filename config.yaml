@@ -9,6 +9,7 @@ title : "Rex Tsou"
 hasCJKLanguage: true
 disqusshortname: ""
 googleAnalytics: ""
+MetaDataFormat: "yaml"
 
 taxonomies:
   category: "categories"
