@@ -11,5 +11,41 @@
 	<atom:link href="https://akccakcctw.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Css</title>
+      <link>https://akccakcctw.github.io/categories/css/</link>
+      <pubDate>Tue, 20 Oct 2015 16:10:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/categories/css/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Front End</title>
+      <link>https://akccakcctw.github.io/categories/front-end/</link>
+      <pubDate>Mon, 09 Nov 2015 15:47:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/categories/front-end/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript</title>
+      <link>https://akccakcctw.github.io/categories/javascript/</link>
+      <pubDate>Tue, 20 Oct 2015 16:10:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/categories/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ux</title>
+      <link>https://akccakcctw.github.io/categories/ux/</link>
+      <pubDate>Sat, 28 Nov 2015 15:29:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/categories/ux/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

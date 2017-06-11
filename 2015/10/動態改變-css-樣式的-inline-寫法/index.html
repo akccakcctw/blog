@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>動態改變 CSS 樣式的 inline 寫法 | Rex Tsou</title>
+<link rel="stylesheet" href="https://akccakcctw.github.io//css/style.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://akccakcctw.github.io/"><h1 class="title is-4">Rex Tsou</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/akccakcctw">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">October 20, 2015</h2>
+    <h1 class="title">動態改變 CSS 樣式的 inline 寫法</h1>
+    <div class="content">
+      
+
+<p>某些 CSS 樣式無法使用 inline 寫法表示，必須要寫在<code>&lt;style&gt;</code>標籤裡面。比如說，我們想要改變某個連結的<code>hover</code>樣式，就只能去修改 style.css，或是<code>&lt;style&gt;</code>標籤裡面的<code>a:hover</code>。</p>
+
+<p>但有些時候，我們可能因為權限問題，沒辦法修改到主網站的樣式表，卻仍希望達到一些動態效果，該怎麼辦呢？</p>
+
+<h2 id="解決方案-onmouseover-onmouseout">解決方案：<code>onmouseover</code>、<code>onmouseout</code></h2>
+
+<p>直接實作如下</p>
+
+<p>原先程式碼長這樣：</p>
+
+<pre><code class="language-html">&lt;button id=&quot;aaa&quot; style=&quot;color:red&quot;&gt;滑鼠移上來沒啥變化&lt;/button&gt;
+</code></pre>
+
+<p>輸出 <button id="aaa" style="color:red">滑鼠移上來沒啥變化</button></p>
+
+<p>修改後，程式碼長這樣：</p>
+
+<pre><code class="language-html">&lt;button id=&quot;aaa&quot; style=&quot;color:red&quot; onmouseover=&quot;this.style.color='blue'&quot; onmouseout=&quot;this.style.color='red'&quot;&gt;滑鼠移上來試試&lt;/button&gt;
+</code></pre>
+
+<p>輸出 <button id="aaa" style="color:red" onmouseover="this.style.color='blue'" onmouseout="this.style.color='red'">滑鼠移上來試試</button></p>
+
+<hr />
+
+<p>又如果發現上面的寫法無效，可以嘗試把<code>this</code>改寫為<code>document.getElementById('aaa')</code>，像是這樣：</p>
+
+<pre><code class="language-html">&lt;button id=&quot;bbb&quot; style=&quot;color:red&quot; onmouseover=&quot;document.getElementById('bbb').style.color='blue'&quot; onmouseout=&quot;this.style.color='red'&quot;&gt;滑鼠移上來試試&lt;/button&gt;
+</code></pre>
+
+<p>輸出結果和上面是一樣的
+<button id="bbb" style="color:red" onmouseover="document.getElementById('bbb').style.color='blue'" onmouseout="this.style.color='red'">滑鼠移上來試試</button></p>
+
+<hr />
+
+<h2 id="進階-一次修改多種樣式">進階：一次修改多種樣式</h2>
+
+<pre><code class="language-html">&lt;button id=&quot;ccc&quot; style=&quot;color:red&quot; onmouseover=&quot;this.style.cssText='background-color:blue;font-size:20px;border:2px dashed;color:white;'&quot; onmouseout=&quot;this.style.cssText='background-color:lightgrey;font-size:14px;border:1px solid;color:red;'&quot;&gt;滑鼠移上來試試&lt;/button&gt;
+</code></pre>
+
+<p><button id="ccc" style="color:red" onmouseover="this.style.cssText='background-color:blue;font-size:20px;border:2px dashed;color:white;'" onmouseout="this.style.cssText='background-color:lightgrey;font-size:14px;border:1px solid;color:red;'">滑鼠移上來試試</button></p>
+
+<h2 id="備註">備註</h2>
+
+<p>如果遇到有<code>-</code>字號的樣式，要改用駝峰式寫法，不然瀏覽器會看不懂，
+例如<code>text-decoration</code>應該要寫成<code>textDecoration</code>，而<code>font-size</code>則應該寫成<code>fontSize</code></p>
+
+<p>具體寫法如下</p>
+
+<pre><code class="language-js">onmouseover=&quot;document.getElementById('ccc').style.fontSize='100px'&quot;
+</code></pre>
+
+<h2 id="參考資料">參考資料</h2>
+
+<ul>
+<li><a href="http://stackoverflow.com/questions/1033156">Stack Overflow：How to write a:hover in inline CSS?</a></li>
+<li><a href="http://www.w3schools.com/jsref/event_onmouseover.asp">w3schools：onmouseover事件</a></li>
+<li><a href="http://www.w3schools.com/jsref/prop_style_csstext.asp">w3schools：Style cssText Property</a></li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</section>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
