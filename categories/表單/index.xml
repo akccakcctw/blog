@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>表單 on Rex Tsou</title>
+    <link>https://akccakcctw.github.io/categories/%E8%A1%A8%E5%96%AE/</link>
+    <description>Recent content in 表單 on Rex Tsou</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 09 May 2016 07:19:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://akccakcctw.github.io/categories/%E8%A1%A8%E5%96%AE/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>contact 表單設計</title>
+      <link>https://akccakcctw.github.io/2016/05/contact-%E8%A1%A8%E5%96%AE%E8%A8%AD%E8%A8%88/</link>
+      <pubDate>Mon, 09 May 2016 07:19:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2016/05/contact-%E8%A1%A8%E5%96%AE%E8%A8%AD%E8%A8%88/</guid>
+      <description>上週逛 awwwards，看到這個網站的表單設計得不錯，手癢也來仿作了一個。 利用 Javascript，我在使用者輸入資料後（偵測到oninpu</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Command Line 資料重導向相關命令 | Rex Tsou</title>
+<link rel="stylesheet" href="https://akccakcctw.github.io//css/style.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://akccakcctw.github.io/"><h1 class="title is-4">Rex Tsou</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/akccakcctw">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">July 27, 2016</h2>
+    <h1 class="title">Command Line 資料重導向相關命令</h1>
+    <div class="content">
+      
+
+<h2 id="stdin-stdout-stderr"><code>stdin</code>、<code>stdout</code>、<code>stderr</code></h2>
+
+<ul>
+<li><code>0：stdin</code>（Standard input）標準輸入</li>
+<li><code>1：stdout</code>（Standard output）標準輸出</li>
+<li><code>2：stderr</code>（Standard error）標準錯誤輸出</li>
+</ul>
+
+<h2 id="toc_1"><code>&gt;</code></h2>
+
+<p><strong>redirect output to a file（將<code>stdout</code>導向檔案，會覆寫原有檔案）</strong></p>
+
+<pre><code class="language-bash"># 將現在路徑輸出至 path.txt
+pwd &gt; path.txt
+</code></pre>
+
+<h2 id="toc_2"><code>&gt;&gt;</code></h2>
+
+<p><strong>redirect output to an existing file（將<code>stdout</code>導向檔案末尾，原檔案內容保留）</strong></p>
+
+<pre><code class="language-bash"># 將現在路徑內的檔案列表輸出至 path.txt 末，但保留 path.txt 原有的資料
+ls &gt;&gt; path.txt
+</code></pre>
+
+<h2 id="toc_3"><code>&lt;</code></h2>
+
+<p><strong>read input from a file （將檔案當作<code>stdin</code>）</strong></p>
+
+<pre><code class="language-bash"># 列出 text.txt 內含有字元 t 的行
+grep t &lt; text.txt
+
+# 輸出至 output.txt
+grep t &lt; text.txt &gt; output.txt
+</code></pre>
+
+<h2 id="toc_4"><code>|</code></h2>
+
+<p><strong>pass output to another command（將<code>stdout</code>當作另一指令的<code>stdin</code>）</strong></p>
+
+<pre><code class="language-bash"># 列出現在資料夾內含有'a'字元的檔案
+ls | grep a
+
+# 將`ls -l`的輸出用`less`分頁
+ls -l | less
+</code></pre>
+
+<h2 id="tee"><code>tee</code></h2>
+
+<p><strong>both redirect output to a file and pass it to another command（<code>&gt;</code>和<code>|</code>的綜合，將<code>stdout</code>導向檔案之後，後面繼續接<code>|</code>，再將<code>stdout</code>當作另一指令的<code>stdin</code>），目的是為了導向到多個輸出。可以想像成大寫的 T，就很好理解它的管道概念了。</strong></p>
+
+<pre><code class="language-bash">ls | tee list.txt | grep a
+
+# -a：追加而不覆蓋目標文件
+ls | tee -a list.txt | grep a
+</code></pre>
+
+<h2 id="stderr-的重導"><code>stderr</code>的重導</h2>
+
+<p><strong><code>stderr</code>預設會輸出至終端，如果想要輸出至檔案，也可以用<code>|&amp;</code>代替<code>|</code>，則<code>stderr</code>會與<code>stdout</code>一起輸出至管道後方指定的程式或檔案。</strong></p>
+
+<h2 id="標準檔案控制代碼的重導">標準檔案控制代碼的重導</h2>
+
+<p>可將檔案描述符（數字）放在重導向符號前，影響重導向的資料流</p>
+
+<pre><code class="language-bash"># `stderr`會輸出至stderr.txt，`stdin`則一樣輸出到終端
+cat input.txt 2&gt; stderr.txt
+
+# `stderr`會與`stdin`融合輸出至result.txt
+find / -name .profile &gt; result.txt 2&gt;&amp;1
+</code></pre>
+
+<h2 id="參考資料">參考資料</h2>
+
+<ul>
+<li><a href="https://zh.wikipedia.org/wiki/%E6%A8%99%E6%BA%96%E4%B8%B2%E6%B5%81">維基百科：標準串流</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E7%AE%A1%E9%81%93_(Unix)">維基百科：管道（Unix）</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E9%87%8D%E5%AE%9A%E5%90%91_(%E8%AE%A1%E7%AE%97%E6%9C%BA)">維基百科：重新導向（電腦）</a></li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</section>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+

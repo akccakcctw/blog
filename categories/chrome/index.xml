@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chrome on Rex Tsou</title>
+    <link>https://akccakcctw.github.io/categories/chrome/</link>
+    <description>Recent content in Chrome on Rex Tsou</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
+    <lastBuildDate>Tue, 26 Jul 2016 14:56:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://akccakcctw.github.io/categories/chrome/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Chrome Devtools 事件偵測的幾個技巧</title>
+      <link>https://akccakcctw.github.io/2016/07/chrome-devtools-%E4%BA%8B%E4%BB%B6%E5%81%B5%E6%B8%AC%E7%9A%84%E5%B9%BE%E5%80%8B%E6%8A%80%E5%B7%A7/</link>
+      <pubDate>Tue, 26 Jul 2016 14:56:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2016/07/chrome-devtools-%E4%BA%8B%E4%BB%B6%E5%81%B5%E6%B8%AC%E7%9A%84%E5%B9%BE%E5%80%8B%E6%8A%80%E5%B7%A7/</guid>
+      <description>不得不說，Chrome 開發者工具愈來越好用了，除了一般常用的 HTML、CSS 編輯功能之外，最近也常利用 sources tab，直接在瀏覽器開啟 js 檔抓 bug 測試</description>
+    </item>
+    
+  </channel>
+</rss>

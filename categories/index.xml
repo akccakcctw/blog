@@ -31,11 +31,38 @@
     </item>
     
     <item>
+      <title>Bash</title>
+      <link>https://akccakcctw.github.io/categories/bash/</link>
+      <pubDate>Wed, 27 Jul 2016 01:11:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/categories/bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Bookmark</title>
       <link>https://akccakcctw.github.io/categories/bookmark/</link>
       <pubDate>Wed, 09 Mar 2016 10:48:00 +0000</pubDate>
       
       <guid>https://akccakcctw.github.io/categories/bookmark/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cheatsheet</title>
+      <link>https://akccakcctw.github.io/categories/cheatsheet/</link>
+      <pubDate>Thu, 19 May 2016 04:15:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/categories/cheatsheet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chrome</title>
+      <link>https://akccakcctw.github.io/categories/chrome/</link>
+      <pubDate>Tue, 26 Jul 2016 14:56:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/categories/chrome/</guid>
       <description></description>
     </item>
     
@@ -49,9 +76,18 @@
     </item>
     
     <item>
+      <title>Command Line</title>
+      <link>https://akccakcctw.github.io/categories/command-line/</link>
+      <pubDate>Wed, 27 Jul 2016 01:11:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/categories/command-line/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Css</title>
       <link>https://akccakcctw.github.io/categories/css/</link>
-      <pubDate>Wed, 09 Mar 2016 10:48:00 +0000</pubDate>
+      <pubDate>Mon, 09 May 2016 07:19:00 +0000</pubDate>
       
       <guid>https://akccakcctw.github.io/categories/css/</guid>
       <description></description>
@@ -67,11 +103,29 @@
     </item>
     
     <item>
+      <title>Devtools</title>
+      <link>https://akccakcctw.github.io/categories/devtools/</link>
+      <pubDate>Tue, 26 Jul 2016 14:56:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/categories/devtools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Download</title>
       <link>https://akccakcctw.github.io/categories/download/</link>
-      <pubDate>Sun, 20 Mar 2016 15:59:00 +0000</pubDate>
+      <pubDate>Thu, 19 May 2016 07:46:00 +0000</pubDate>
       
       <guid>https://akccakcctw.github.io/categories/download/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Form</title>
+      <link>https://akccakcctw.github.io/categories/form/</link>
+      <pubDate>Mon, 09 May 2016 07:19:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/categories/form/</guid>
       <description></description>
     </item>
     
@@ -94,6 +148,24 @@
     </item>
     
     <item>
+      <title>Html</title>
+      <link>https://akccakcctw.github.io/categories/html/</link>
+      <pubDate>Thu, 19 May 2016 04:15:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/categories/html/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Html5</title>
+      <link>https://akccakcctw.github.io/categories/html5/</link>
+      <pubDate>Tue, 19 Apr 2016 06:36:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/categories/html5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Http Server</title>
       <link>https://akccakcctw.github.io/categories/http-server/</link>
       <pubDate>Tue, 22 Mar 2016 14:20:00 +0000</pubDate>
@@ -105,7 +177,7 @@
     <item>
       <title>Javascript</title>
       <link>https://akccakcctw.github.io/categories/javascript/</link>
-      <pubDate>Tue, 15 Mar 2016 10:47:00 +0000</pubDate>
+      <pubDate>Tue, 26 Jul 2016 14:56:00 +0000</pubDate>
       
       <guid>https://akccakcctw.github.io/categories/javascript/</guid>
       <description></description>
@@ -202,11 +274,29 @@
     </item>
     
     <item>
+      <title>Wget</title>
+      <link>https://akccakcctw.github.io/categories/wget/</link>
+      <pubDate>Thu, 19 May 2016 07:46:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/categories/wget/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>動畫</title>
       <link>https://akccakcctw.github.io/categories/%E5%8B%95%E7%95%AB/</link>
       <pubDate>Thu, 24 Mar 2016 10:46:00 +0000</pubDate>
       
       <guid>https://akccakcctw.github.io/categories/%E5%8B%95%E7%95%AB/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>表單</title>
+      <link>https://akccakcctw.github.io/categories/%E8%A1%A8%E5%96%AE/</link>
+      <pubDate>Mon, 09 May 2016 07:19:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/categories/%E8%A1%A8%E5%96%AE/</guid>
       <description></description>
     </item>
     

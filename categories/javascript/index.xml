@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 15 Mar 2016 10:47:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 26 Jul 2016 14:56:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akccakcctw.github.io/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Chrome Devtools 事件偵測的幾個技巧</title>
+      <link>https://akccakcctw.github.io/2016/07/chrome-devtools-%E4%BA%8B%E4%BB%B6%E5%81%B5%E6%B8%AC%E7%9A%84%E5%B9%BE%E5%80%8B%E6%8A%80%E5%B7%A7/</link>
+      <pubDate>Tue, 26 Jul 2016 14:56:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2016/07/chrome-devtools-%E4%BA%8B%E4%BB%B6%E5%81%B5%E6%B8%AC%E7%9A%84%E5%B9%BE%E5%80%8B%E6%8A%80%E5%B7%A7/</guid>
+      <description>不得不說，Chrome 開發者工具愈來越好用了，除了一般常用的 HTML、CSS 編輯功能之外，最近也常利用 sources tab，直接在瀏覽器開啟 js 檔抓 bug 測試</description>
+    </item>
+    
+    <item>
+      <title>利用URL.createObjectURL方法，即時產生可下載檔案</title>
+      <link>https://akccakcctw.github.io/2016/04/%E5%88%A9%E7%94%A8url.createobjecturl%E6%96%B9%E6%B3%95%E5%8D%B3%E6%99%82%E7%94%A2%E7%94%9F%E5%8F%AF%E4%B8%8B%E8%BC%89%E6%AA%94%E6%A1%88/</link>
+      <pubDate>Tue, 19 Apr 2016 06:36:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2016/04/%E5%88%A9%E7%94%A8url.createobjecturl%E6%96%B9%E6%B3%95%E5%8D%B3%E6%99%82%E7%94%A2%E7%94%9F%E5%8F%AF%E4%B8%8B%E8%BC%89%E6%AA%94%E6%A1%88/</guid>
+      <description>最近在看 HTML5 的一些 API，發現有不少好用的功能，剛才看到黑暗執行緒這篇介紹，可以利用URL.createObjectURL，將物件內容暫時存在</description>
+    </item>
     
     <item>
       <title>Javascript 字串轉陣列</title>

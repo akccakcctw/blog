@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Download on Rex Tsou</title>
-    <link>https://akccakcctw.github.io/categories/download/</link>
-    <description>Recent content in Download on Rex Tsou</description>
+    <title>Command Line on Rex Tsou</title>
+    <link>https://akccakcctw.github.io/categories/command-line/</link>
+    <description>Recent content in Command Line on Rex Tsou</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 19 May 2016 07:46:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 27 Jul 2016 01:11:00 +0000</lastBuildDate>
     
-	<atom:link href="https://akccakcctw.github.io/categories/download/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://akccakcctw.github.io/categories/command-line/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Command Line 資料重導向相關命令</title>
+      <link>https://akccakcctw.github.io/2016/07/command-line-%E8%B3%87%E6%96%99%E9%87%8D%E5%B0%8E%E5%90%91%E7%9B%B8%E9%97%9C%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Wed, 27 Jul 2016 01:11:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2016/07/command-line-%E8%B3%87%E6%96%99%E9%87%8D%E5%B0%8E%E5%90%91%E7%9B%B8%E9%97%9C%E5%91%BD%E4%BB%A4/</guid>
+      <description>stdin、stdout、stderr 0：stdin（Standard input）標準輸入 1：stdout（Standard output）標</description>
+    </item>
     
     <item>
       <title>Wget 指令用途與範例</title>
@@ -19,15 +28,6 @@
       
       <guid>https://akccakcctw.github.io/2016/05/wget-%E6%8C%87%E4%BB%A4%E7%94%A8%E9%80%94%E8%88%87%E7%AF%84%E4%BE%8B/</guid>
       <description>範例用法 #下載指定url wget http://sample.xxx/ #將指定url輸出為指定檔案 wget http://sample.xxx/sample.html -O test.html #下載全站 wget -r http://sample.xxx/ #下載全站（進階版） wget -t0 -c -nH -np -m -P /targetdir http://sample.xxx/ #確認bookmark</description>
-    </item>
-    
-    <item>
-      <title>cURL指令備忘</title>
-      <link>https://akccakcctw.github.io/2016/03/curl%E6%8C%87%E4%BB%A4%E5%82%99%E5%BF%98/</link>
-      <pubDate>Sun, 20 Mar 2016 15:59:00 +0000</pubDate>
-      
-      <guid>https://akccakcctw.github.io/2016/03/curl%E6%8C%87%E4%BB%A4%E5%82%99%E5%BF%98/</guid>
-      <description>一般用法 # 顯示網頁原始碼 curl http://sample.xxx/ # 將網頁內容輸出為sample.html curl -o sample.html http://sample.xxx/ # 同上，但輸出時維持原檔名 curl -O http://sample.xxx # 用來下載檔案也沒問題 curl -O http://sample.xxx/image/image001.jpg # 批</description>
     </item>
     
   </channel>

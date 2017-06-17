@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cheatsheet on Rex Tsou</title>
+    <link>https://akccakcctw.github.io/categories/cheatsheet/</link>
+    <description>Recent content in Cheatsheet on Rex Tsou</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 19 May 2016 04:15:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://akccakcctw.github.io/categories/cheatsheet/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>HTML tag 速查表</title>
+      <link>https://akccakcctw.github.io/2016/05/html-tag-%E9%80%9F%E6%9F%A5%E8%A1%A8/</link>
+      <pubDate>Thu, 19 May 2016 04:15:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2016/05/html-tag-%E9%80%9F%E6%9F%A5%E8%A1%A8/</guid>
+      <description>Main Tag English 中文語義 !DOCTYPE document type 宣告文件類型 html html root HTML根元素 !&amp;ndash; &amp;ndash; html comment HTML注釋 Metadata Tag English 中文語義 head head HTML metadata title title HTML標題 base base 定義相對URL link link 外部匯入</description>
+    </item>
+    
+  </channel>
+</rss>

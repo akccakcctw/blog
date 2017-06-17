@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>利用URL.createObjectURL方法，即時產生可下載檔案 | Rex Tsou</title>
+<link rel="stylesheet" href="https://akccakcctw.github.io//css/style.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://akccakcctw.github.io/"><h1 class="title is-4">Rex Tsou</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/akccakcctw">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">April 19, 2016</h2>
+    <h1 class="title">利用URL.createObjectURL方法，即時產生可下載檔案</h1>
+    <div class="content">
+      
+
+<p>最近在看 HTML5 的一些 API，發現有不少好用的功能，剛才看到<a href="http://blog.darkthread.net/post-2014-03-12-html5-object-url.aspx">黑暗執行緒</a>這篇介紹，可以利用<code>URL.createObjectURL</code>，將物件內容暫時存在瀏覽器記憶體中，並且可以產生下載連結！</p>
+
+<p>馬上嘗試了一下，還挺好用的。話不多說，以下是程式碼，寫在這邊作為分享，也作為自己的備忘筆記：</p>
+
+<p><p data-height="370" data-theme-id="dark" data-slug-hash="wGXaQZ" data-default-tab="css,result" data-user="akccakcctw" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/akccakcctw/pen/wGXaQZ/">URL.createObjectURL demo</a> by Rex Tsou (<a href="http://codepen.io/akccakcctw">@akccakcctw</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script></p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;URL.createObjectURL demo&lt;/title&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.2.3.min.js&quot; integrity=&quot;sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+    &lt;style&gt;
+    body {
+        font-family: monospace;
+    }
+    
+    #file_content,
+    #file_name {
+        display: block;
+        background: #777;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 16px;
+        font-family: monospace;
+        margin-bottom: 5px;
+    }
+    
+    #create_file,
+    #revoke_file {
+        padding: 10px;
+        border: none;
+        color: #fff;
+        background: #333;
+        transition: 0.3s;
+        cursor: pointer;
+    }
+    
+    #create_file:hover,
+    #revoke_file:hover {
+        background: #777;
+    }
+    
+    #create_file:active,
+    #revoke_file:active {
+        background: #000;
+    }
+    
+    #download_link {
+        padding: 10px;
+    }
+    
+    .revoke {
+        text-decoration: line-through;
+        color: #f00;
+    }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;!-- 
+key code:
+URL.createObjectURL() 
+URL.revokeObjectURL()
+--&gt;
+    &lt;textarea id=&quot;file_content&quot; cols=&quot;30&quot; rows=&quot;10&quot; placeholder=&quot;file content&quot; title=&quot;file content&quot;&gt;&lt;/textarea&gt;
+    &lt;input id=&quot;file_name&quot; type=&quot;text&quot; placeholder=&quot;file name&quot; title=&quot;file name&quot;&gt;
+    &lt;button id=&quot;create_file&quot;&gt;Gen File&lt;/button&gt;
+    &lt;button id=&quot;revoke_file&quot;&gt;Revoke File&lt;/button&gt;
+    &lt;a id=&quot;download_link&quot; title=&quot;click to download&quot;&gt;&lt;/a&gt;
+    &lt;script&gt;
+    $(function() {
+        $(&quot;#create_file&quot;).click(function() {
+            $(&quot;#download_link&quot;).removeClass(&quot;revoke&quot;);
+            var blob = new Blob([$(&quot;#file_content&quot;).val()], {
+                type: &quot;application/octect-stream&quot;
+            });
+            var blobUrl = URL.createObjectURL(blob);
+            var fileName = $(&quot;#file_name&quot;).val();
+
+            $(&quot;#download_link&quot;).attr({
+                href: blobUrl,
+                download: fileName + &quot;.txt&quot;,
+
+            }).text(fileName + &quot;.txt&quot;);
+
+        });
+
+        $(&quot;#revoke_file&quot;).click(function() {
+            blobUrl = URL.revokeObjectURL($(&quot;#download_link&quot;).attr(&quot;href&quot;));
+            $(&quot;#download_link&quot;).addClass(&quot;revoke&quot;);
+        })
+    });
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+
+<h2 id="參考資料">參考資料</h2>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL">Mozilla Developer: createObjectURL</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/URL/revokeObjectURL">Mozilla Developer: revokeObjectURL</a></li>
+<li><a href="http://blog.darkthread.net/post-2014-03-12-html5-object-url.aspx">黑暗執行緒：HTML5筆記–Object URL</a></li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</section>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
