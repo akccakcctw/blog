@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Javascript 字串轉陣列 | Rex Tsou</title>
+<link rel="stylesheet" href="https://akccakcctw.github.io//css/style.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://akccakcctw.github.io/"><h1 class="title is-4">Rex Tsou</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/akccakcctw">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">March 15, 2016</h2>
+    <h1 class="title">Javascript 字串轉陣列</h1>
+    <div class="content">
+      
+
+<p>如果要將字串轉為陣列形式，可以利用 for 迴圈，配合 slice 切割字串
+請看程式碼：</p>
+
+<h2 id="利用-for-迴圈">利用 for 迴圈</h2>
+
+<p>首先是每隔一個字元存入陣列：</p>
+
+<pre><code class="language-js">var x = &quot;Hello world!&quot;;
+var myArray = [];
+
+function foo(x) {
+    for (var i = 0; i &lt; x.length; i++) {
+        myArray.push(x.slice(i, i + 1));
+    }
+    console.log(myArray);
+};
+foo(x); // [&quot;H&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;, &quot; &quot;, &quot;w&quot;, &quot;o&quot;, &quot;r&quot;, &quot;l&quot;, &quot;d&quot;, &quot;!&quot;]
+</code></pre>
+
+<p>也可以這麼寫</p>
+
+<pre><code class="language-js">var x = &quot;Hello world!&quot;;
+var myArray = [].slice.call(x);  // [&quot;H&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;, &quot; &quot;, &quot;w&quot;, &quot;o&quot;, &quot;r&quot;, &quot;l&quot;, &quot;d&quot;, &quot;!&quot;]
+</code></pre>
+
+<p>每隔任意字元存入陣列（以三個字元為例）：</p>
+
+<pre><code class="language-js">var x = &quot;Hello world!&quot;;
+var myArray = [];
+
+function foo(x) {
+    for (var i = 0; i &lt; x.length; i+=3) {
+        myArray.push(x.slice(i, i + 3));
+    }
+    console.log(myArray);
+}
+foo(x); // [&quot;Hel&quot;, &quot;lo &quot;, &quot;wor&quot;, &quot;ld!&quot;]
+</code></pre>
+
+<p>再來是進階版本！</p>
+
+<h2 id="利用regular-expression">利用Regular Expression</h2>
+
+<p>可以發現程式碼變得非常簡潔（當然<code>regex</code>挺讓人頭痛的）：</p>
+
+<pre><code class="language-js">var x = &quot;Hello world!&quot;;
+var myArray = x.match(/[\s\S]{1}/g) || [];
+console.log(myArray); // [&quot;H&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;, &quot; &quot;, &quot;w&quot;, &quot;o&quot;, &quot;r&quot;, &quot;l&quot;, &quot;d&quot;, &quot;!&quot;]
+</code></pre>
+
+<p>隔三個字元，這邊要注意，寫成<code>{1,3}</code>而不是<code>{3}</code>，否則字串長度不是 3 的倍數的話，最後會被切掉！</p>
+
+<pre><code class="language-js">var x = &quot;Hello world!&quot;;
+var myArray = x.match(/[\s\S]{1,3}/g) || [];
+console.log(myArray); // [&quot;Hel&quot;, &quot;lo &quot;, &quot;wor&quot;, &quot;ld!&quot;]
+</code></pre>
+
+<p>錯誤的版本也提供參考：</p>
+
+<pre><code class="language-js">var x = &quot;Hello&quot;;
+var myArray = x.match(/[\s\S]{3}/g) || [];
+console.log(myArray); // [&quot;Hel&quot;]
+</code></pre>
+
+<p>##參考資料：
+- <a href="http://stackoverflow.com/questions/6259515/javascript-elegant-way-to-split-string-into-segments-n-characters-long">Javascript elegant way to split string into segments n characters long</a></p>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</section>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+

@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 20 Oct 2015 16:10:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 15 Mar 2016 10:47:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akccakcctw.github.io/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Javascript 字串轉陣列</title>
+      <link>https://akccakcctw.github.io/2016/03/javascript-%E5%AD%97%E4%B8%B2%E8%BD%89%E9%99%A3%E5%88%97/</link>
+      <pubDate>Tue, 15 Mar 2016 10:47:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2016/03/javascript-%E5%AD%97%E4%B8%B2%E8%BD%89%E9%99%A3%E5%88%97/</guid>
+      <description>如果要將字串轉為陣列形式，可以利用 for 迴圈，配合 slice 切割字串 請看程式碼： 利用 for 迴圈 首先是每隔一個字元存入陣列： var x = &amp;quot;Hello world!&amp;quot;; var myArray = []; function foo(x) { for (var i = 0;</description>
+    </item>
+    
+    <item>
+      <title>各種讓網頁重新導向的方法</title>
+      <link>https://akccakcctw.github.io/2016/01/%E5%90%84%E7%A8%AE%E8%AE%93%E7%B6%B2%E9%A0%81%E9%87%8D%E6%96%B0%E5%B0%8E%E5%90%91%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Fri, 08 Jan 2016 15:50:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2016/01/%E5%90%84%E7%A8%AE%E8%AE%93%E7%B6%B2%E9%A0%81%E9%87%8D%E6%96%B0%E5%B0%8E%E5%90%91%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
+      <description>方法一：直接在錯誤頁裡重導 如果沒有強迫症不在乎伺服器裡多增加一個沒有用的檔案，這樣最簡單： PHP &amp;lt;?php header( &#39;Location: http://www.redirect-location.com&#39; ); exit(); ?&amp;gt; HTML &amp;lt;meta http-equiv=&amp;quot;refresh&amp;quot; content=&amp;quot;1;url=http://www.redirect-location.com&amp;quot;&amp;gt; 此處content屬性裡面</description>
+    </item>
     
     <item>
       <title>動態改變 CSS 樣式的 inline 寫法</title>

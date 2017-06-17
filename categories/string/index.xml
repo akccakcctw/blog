@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>String on Rex Tsou</title>
+    <link>https://akccakcctw.github.io/categories/string/</link>
+    <description>Recent content in String on Rex Tsou</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
+    <lastBuildDate>Tue, 15 Mar 2016 10:47:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://akccakcctw.github.io/categories/string/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Javascript 字串轉陣列</title>
+      <link>https://akccakcctw.github.io/2016/03/javascript-%E5%AD%97%E4%B8%B2%E8%BD%89%E9%99%A3%E5%88%97/</link>
+      <pubDate>Tue, 15 Mar 2016 10:47:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2016/03/javascript-%E5%AD%97%E4%B8%B2%E8%BD%89%E9%99%A3%E5%88%97/</guid>
+      <description>如果要將字串轉為陣列形式，可以利用 for 迴圈，配合 slice 切割字串 請看程式碼： 利用 for 迴圈 首先是每隔一個字元存入陣列： var x = &amp;quot;Hello world!&amp;quot;; var myArray = []; function foo(x) { for (var i = 0;</description>
+    </item>
+    
+  </channel>
+</rss>

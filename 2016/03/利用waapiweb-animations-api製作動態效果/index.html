@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>利用WAAPI(Web Animations API)製作動態效果 | Rex Tsou</title>
+<link rel="stylesheet" href="https://akccakcctw.github.io//css/style.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://akccakcctw.github.io/"><h1 class="title is-4">Rex Tsou</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/akccakcctw">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">March 24, 2016</h2>
+    <h1 class="title">利用WAAPI(Web Animations API)製作動態效果</h1>
+    <div class="content">
+      
+
+<p>一般來說，網頁動畫常使用 Javascript、CSS、SVG 等方式製作，尤其近期 SVG 動畫有越來越流行的趨勢，這些方法都各有優缺，<code>WAAPI</code>則企圖融合 CSS 的性能（支援硬體加速，但動態調整仍需依靠 Javascript），以及 Javascript 的易於調整，並以原生 API 來達成！</p>
+
+<p>我們先來看一下基本功</p>
+
+<h2 id="基本用法">基本用法：</h2>
+
+<pre><code class="language-js">element.animate(keyframes, timing);
+</code></pre>
+
+<p>只有短短一行。</p>
+
+<p><code>keyframes</code> 和 <code>timing</code> 是 WAAPI 需要的兩個參數，如果熟悉 CSS 動畫的寫法，應該會覺得非常容易：</p>
+
+<pre><code class="language-js">var keyframes = [{
+  background: &quot;#fff&quot;
+}, {
+  background: &quot;#f00&quot;
+}, {
+  background: &quot;#ff0&quot;
+}, {
+  background: &quot;#f0f&quot;
+}, {
+  background: &quot;#00f&quot;
+}, {
+  background: &quot;#0ff&quot;
+}];
+
+var timing = {
+  duration: 5000, // animation-duration(ms)
+  delay: 0, // animation-delay(ms)
+  iterations: 1, // animation-iteration-count: [number, Infinity...]
+  direction: 'alternate', // animation-direction: [normal, reverse...]
+  easing: 'ease-in-out', // animation-timing-function: [linear, ease, ease-in, ease-out...]
+  fill: 'both' // animation-fill-mode [none,forwards, backwards, both...]
+};
+
+</code></pre>
+
+<p>keyframes 的寫法就像是 CSS 中的<code>@keyframes</code>，
+timing 則是調整持續時間、delay、執行次數……等</p>
+
+<p>了解上面的基礎用法，我們就可以來寫一些簡單的動畫了：
+<strong>改變背景顏色</strong>
+<p data-height="268" data-theme-id="0" data-slug-hash="VabxOj" data-default-tab="result" data-user="akccakcctw" class="codepen">See the Pen <a href="http://codepen.io/akccakcctw/pen/VabxOj/">Web Animations API demo</a> by Rex Tsou (<a href="http://codepen.io/akccakcctw">@akccakcctw</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script></p>
+
+<h2 id="進階用法">進階用法</h2>
+
+<p>如果有仔細看上面的例子，應該會發現，動畫居然還可以做播放、暫停、倒帶等操作！
+要怎麼做呢？</p>
+
+<p>我們延續基本用法，定義一個animate的元素：</p>
+
+<pre><code class="language-js">var player = document.getElementById('toAnimate').animate()
+</code></pre>
+
+<p>此時我們的 player 總共會有五種狀態：&rdquo;<code>pending</code>&ldquo;、&rdquo;<code>paused</code>&ldquo;、&rdquo;<code>running</code>&ldquo;、&rdquo;<code>idle</code>&ldquo;、&rdquo;<code>finished</code>&ldquo;</p>
+
+<pre><code class="language-js">console.log(player.playState);
+// &quot;pending&quot;、&quot;paused&quot;、&quot;running&quot;、&quot;idle&quot;、&quot;finished&quot;
+</code></pre>
+
+<p>這五種狀態代表的意義如下，
+1. <code>pending</code>：播放或暫停即將發生時
+2. <code>paused</code>：暫停
+3. <code>running</code>：播放
+4. <code>idel</code>：初始
+5. <code>finished</code>：結束</p>
+
+<p>除了 pending 之外，我們透過其餘方法可以改變動畫的狀態：</p>
+
+<pre><code class="language-js">player.pause(); // &quot;paused&quot;
+player.play();  // &quot;running&quot;
+player.cancel(); // &quot;idle&quot;
+player.finish(); // &quot;finished&quot;
+</code></pre>
+
+<p>還可以透過<code>reverse()</code>倒帶：</p>
+
+<pre><code class="language-js">player.reverse();
+</code></pre>
+
+<p>以上算是 WAAPI 的入門介紹，另外附上一份控制元素移動、變形的 demo：
+<strong>控制元素移動、變形</strong>
+<p data-height="268" data-theme-id="0" data-slug-hash="EKmpbb" data-default-tab="result" data-user="akccakcctw" class="codepen">See the Pen <a href="http://codepen.io/akccakcctw/pen/EKmpbb/">Web Animations API demo 2</a> by Rex Tsou (<a href="http://codepen.io/akccakcctw">@akccakcctw</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script></p>
+
+<p>比較可惜的是，目前瀏覽器的支援還不夠完整（如下表），但是可先引入一份 <a href="https://github.com/web-animations/web-animations-js">polyfill</a> 來彌補，所以也不需要太擔心！
+不過還是希望瀏覽器廠商們可以趕快補足<code>WAAPI</code>的支援啦，敲碗~~~~
+<iframe style="width:100%;min-height:300px;" src="https://caniuse.com/web-animation/embed"></iframe></p>
+
+<h2 id="參考資料">參考資料</h2>
+
+<ul>
+<li><a href="http://danielcwilson.com/blog/2015/07/animations-intro/">Let’s talk about the Web Animations API</a></li>
+<li><a href="https://seejamescode.github.io/web-animations-intro/">The Web Animations API</a></li>
+<li><a href="http://www.alloyteam.com/2015/12/web-animation-api-from-entry-to-the-top/">Animation API 从入门到上座</a></li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</section>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+

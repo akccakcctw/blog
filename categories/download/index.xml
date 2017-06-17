@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Download on Rex Tsou</title>
+    <link>https://akccakcctw.github.io/categories/download/</link>
+    <description>Recent content in Download on Rex Tsou</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
+    <lastBuildDate>Sun, 20 Mar 2016 15:59:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://akccakcctw.github.io/categories/download/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>cURL指令備忘</title>
+      <link>https://akccakcctw.github.io/2016/03/curl%E6%8C%87%E4%BB%A4%E5%82%99%E5%BF%98/</link>
+      <pubDate>Sun, 20 Mar 2016 15:59:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2016/03/curl%E6%8C%87%E4%BB%A4%E5%82%99%E5%BF%98/</guid>
+      <description>一般用法 # 顯示網頁原始碼 curl http://sample.xxx/ # 將網頁內容輸出為sample.html curl -o sample.html http://sample.xxx/ # 同上，但輸出時維持原檔名 curl -O http://sample.xxx # 用來下載檔案也沒問題 curl -O http://sample.xxx/image/image001.jpg # 批</description>
+    </item>
+    
+  </channel>
+</rss>

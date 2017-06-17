@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>各種讓網頁重新導向的方法 | Rex Tsou</title>
+<link rel="stylesheet" href="https://akccakcctw.github.io//css/style.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://akccakcctw.github.io/"><h1 class="title is-4">Rex Tsou</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/akccakcctw">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">January 8, 2016</h2>
+    <h1 class="title">各種讓網頁重新導向的方法</h1>
+    <div class="content">
+      
+
+<h2 id="方法一-直接在錯誤頁裡重導">方法一：直接在錯誤頁裡重導</h2>
+
+<p>如果<s>沒有強迫症</s>不在乎伺服器裡多增加一個沒有用的檔案，這樣最簡單：</p>
+
+<h3 id="php">PHP</h3>
+
+<pre><code class="language-php">&lt;?php
+  header( 'Location: http://www.redirect-location.com' );
+  exit();
+?&gt;
+</code></pre>
+
+<h3 id="html">HTML</h3>
+
+<pre><code class="language-html">&lt;meta http-equiv=&quot;refresh&quot; content=&quot;1;url=http://www.redirect-location.com&quot;&gt;
+</code></pre>
+
+<p>此處<code>content</code>屬性裡面的「1」，代表延遲1秒，可以自行替換成其他數字</p>
+
+<p>當然，你可能會發現，每次連進 FTP 就看到一個無關緊要的垃圾在那邊……髒髒的不舒服，而且 user 要多等 1 秒才看得到真正的網頁，有沒有更好的辦法？
+有！請看以下方法二。</p>
+
+<h2 id="方法二-修改-htaccess-檔案">方法二：修改 .htaccess 檔案</h2>
+
+<p>其實也不難，把以下幾行字加進 .htaccess 的開頭就可以了</p>
+
+<pre><code>RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.html?$ / [NC,R,L]
+</code></pre>
+
+<h2 id="同場加映-javascript重導">同場加映：Javascript重導</h2>
+
+<pre><code class="language-js">// similar behavior as an HTTP redirect，不會留下歷史記錄
+window.location.replace(&quot;http://stackoverflow.com&quot;);
+
+// similar behavior as clicking on a link，會留下歷史記錄
+window.location.href = &quot;http://stackoverflow.com&quot;;
+</code></pre>
+
+<p><code>.replace()</code>可以避免使用者無法回到上一頁的情形發生，但有時還是會需要模擬點擊連結的效果，因此兩種都列出</p>
+
+<h2 id="參考資料">參考資料</h2>
+
+<ul>
+<li><a href="https://css-tricks.com/how-to-redirect-indexhtml-to-indexphp/">CSS-TRICKS：How to Redirect indexhtml to indexphp</a></li>
+<li><a href="http://stackoverflow.com/questions/503093/how-can-i-make-a-redirect-page-using-jquery">stackoverflow：How Can I Make A Redirect Page Using Jquery</a></li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</section>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+

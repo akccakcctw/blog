@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>cURL指令備忘 | Rex Tsou</title>
+<link rel="stylesheet" href="https://akccakcctw.github.io//css/style.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://akccakcctw.github.io/"><h1 class="title is-4">Rex Tsou</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/akccakcctw">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">March 20, 2016</h2>
+    <h1 class="title">cURL指令備忘</h1>
+    <div class="content">
+      
+
+<h2 id="一般用法">一般用法</h2>
+
+<pre><code class="language-sh"># 顯示網頁原始碼
+curl http://sample.xxx/
+
+# 將網頁內容輸出為sample.html
+curl -o sample.html http://sample.xxx/
+
+# 同上，但輸出時維持原檔名
+curl -O http://sample.xxx
+
+# 用來下載檔案也沒問題
+curl -O http://sample.xxx/image/image001.jpg
+
+# 批次下載檔名連續圖片
+curl -O http://sample.xxx/image/image[001-100].jpg
+</code></pre>
+
+<h2 id="進階用法">進階用法</h2>
+
+<pre><code class="language-sh"># 批次下載檔名連續圖片
+curl -O http://sample.xxx/image/{a,b}[001-100].jpg
+
+# 使用指定帳密上傳檔案
+curl -T localfile -u name:passwd ftp://upload_site:port/path/
+</code></pre>
+
+<p><code>-o</code>：輸出檔名
+<code>-O</code>：輸出為原檔名
+<code>-x</code>：指定proxy
+<code>-i</code>：取得header
+<code>-H</code>：指定header
+<code>-v</code>：顯示處理過程
+<code>-D</code>：輸出cookie
+<code>-b</code>：指定cookie
+<code>-A</code>：指定user-agent資訊
+<code>-e</code>：指定referrer</p>
+
+<h2 id="參考資料">參考資料：</h2>
+
+<p><a href="https://curl.haxx.se/docs/manpage.html">https://curl.haxx.se/docs/manpage.html</a></p>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</section>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+

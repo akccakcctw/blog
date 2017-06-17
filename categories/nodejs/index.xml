@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nodejs on Rex Tsou</title>
+    <link>https://akccakcctw.github.io/categories/nodejs/</link>
+    <description>Recent content in Nodejs on Rex Tsou</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
+    <lastBuildDate>Tue, 22 Mar 2016 14:20:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://akccakcctw.github.io/categories/nodejs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>利用 http-server 快速搭建一個 localhost 伺服器</title>
+      <link>https://akccakcctw.github.io/2016/03/%E5%88%A9%E7%94%A8-http-server-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%80%E5%80%8B-localhost-%E4%BC%BA%E6%9C%8D%E5%99%A8/</link>
+      <pubDate>Tue, 22 Mar 2016 14:20:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2016/03/%E5%88%A9%E7%94%A8-http-server-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%80%E5%80%8B-localhost-%E4%BC%BA%E6%9C%8D%E5%99%A8/</guid>
+      <description>搭建一個網站時，我們經常需要立即測試，方便修正與微調。但有些頁面因為安全性或是其他問題，必須要放上伺服器才能看到效果（比如 ajax，如果不是</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>瀑布流（masonry）圖片重疊問題 | Rex Tsou</title>
+<link rel="stylesheet" href="https://akccakcctw.github.io//css/style.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://akccakcctw.github.io/"><h1 class="title is-4">Rex Tsou</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/akccakcctw">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">February 22, 2016</h2>
+    <h1 class="title">瀑布流（masonry）圖片重疊問題</h1>
+    <div class="content">
+      
+
+<p>因為 <a href="https://www.pinterest.com/">pinterest</a> 的緣故，有不少網站喜歡使用瀑布流排版，其中最簡單好用的套件莫過於 <a href="http://masonry.desandro.com/">masonry</a> 了。</p>
+
+<p>然而在網頁載入時，圖片下載比較慢，若在整個網頁載入完成之前圖片還沒好，就會造成重疊。</p>
+
+<p>這種奇怪效果顯然不是我們想要的！</p>
+
+<p>解決方法有好幾種<s>，最簡單的一種就是不要用瀑布流</s>，或者參考以下替代作法：</p>
+
+<h2 id="把-jquery-的-ready-改成-load">把 jQuery 的 ready 改成 load</h2>
+
+<p>我們一般使用<code>$(document).ready(fn)</code>，會在網頁 DOM 載入完畢後就觸發，一般使用這種觸發方式不會有問題，但是遇到瀑布流排版可就沒辦法了。此時可以改成<code>$(window).load(fn)</code>，待網頁內引用的資源都載入完畢再觸發，就不會有圖片重疊的問題。</p>
+
+<pre><code class="language-js">jQuery(window).on('load', function(){
+    $('.grid').masonry({
+        // options
+        itemSelector: '.grid-item',
+        columnWidth: 10,
+    });
+});
+</code></pre>
+
+<h2 id="使用-imagesloaded-http-imagesloaded-desandro-com-插件">使用 <a href="http://imagesloaded.desandro.com/">imagesLoaded</a> 插件</h2>
+
+<p>其實和第一種方法大同小異，它會等到圖片載入完畢之後再來處理排版。</p>
+
+<h2 id="先下手為強-指定圖片高度">先下手為強，指定圖片高度</h2>
+
+<p>適用少量圖片，或是圖片高度固定的情況。因為 masonry 這個套件必須先指定每個 grid item 的寬度，因此圖片高度的不確定，正是造成重疊的元兇，我們可以預先利用 CSS 或是 html 指定圖片的高度，讓瀏覽器先把區塊空出來，就不會重疊了。</p>
+
+<p>##參考資料
+- <a href="http://stackoverflow.com/questions/18849296/masonry-js-overlapping-items">masonry js overlapping items</a>
+- <a href="http://blog.darkthread.net/blogs/darkthreadtw/archive/2009/06/05/jquery-ready-vs-load.aspx">黑暗執行緒：jQuery ready vs load</a>
+- <a href="http://imagesloaded.desandro.com/">http://imagesloaded.desandro.com/</a>
+- <a href="http://masonry.desandro.com/layout.html#imagesloaded">http://masonry.desandro.com/layout.html#imagesloaded</a></p>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</section>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+

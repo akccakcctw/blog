@@ -22,6 +22,69 @@
     </item>
     
     <item>
+      <title>利用WAAPI(Web Animations API)製作動態效果</title>
+      <link>https://akccakcctw.github.io/2016/03/%E5%88%A9%E7%94%A8waapiweb-animations-api%E8%A3%BD%E4%BD%9C%E5%8B%95%E6%85%8B%E6%95%88%E6%9E%9C/</link>
+      <pubDate>Thu, 24 Mar 2016 10:46:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2016/03/%E5%88%A9%E7%94%A8waapiweb-animations-api%E8%A3%BD%E4%BD%9C%E5%8B%95%E6%85%8B%E6%95%88%E6%9E%9C/</guid>
+      <description>一般來說，網頁動畫常使用 Javascript、CSS、SVG 等方式製作，尤其近期 SVG 動畫有越來越流行的趨勢，這些方法都各有優缺，WAAPI則企</description>
+    </item>
+    
+    <item>
+      <title>利用 http-server 快速搭建一個 localhost 伺服器</title>
+      <link>https://akccakcctw.github.io/2016/03/%E5%88%A9%E7%94%A8-http-server-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%80%E5%80%8B-localhost-%E4%BC%BA%E6%9C%8D%E5%99%A8/</link>
+      <pubDate>Tue, 22 Mar 2016 14:20:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2016/03/%E5%88%A9%E7%94%A8-http-server-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%80%E5%80%8B-localhost-%E4%BC%BA%E6%9C%8D%E5%99%A8/</guid>
+      <description>搭建一個網站時，我們經常需要立即測試，方便修正與微調。但有些頁面因為安全性或是其他問題，必須要放上伺服器才能看到效果（比如 ajax，如果不是</description>
+    </item>
+    
+    <item>
+      <title>cURL指令備忘</title>
+      <link>https://akccakcctw.github.io/2016/03/curl%E6%8C%87%E4%BB%A4%E5%82%99%E5%BF%98/</link>
+      <pubDate>Sun, 20 Mar 2016 15:59:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2016/03/curl%E6%8C%87%E4%BB%A4%E5%82%99%E5%BF%98/</guid>
+      <description>一般用法 # 顯示網頁原始碼 curl http://sample.xxx/ # 將網頁內容輸出為sample.html curl -o sample.html http://sample.xxx/ # 同上，但輸出時維持原檔名 curl -O http://sample.xxx # 用來下載檔案也沒問題 curl -O http://sample.xxx/image/image001.jpg # 批</description>
+    </item>
+    
+    <item>
+      <title>Javascript 字串轉陣列</title>
+      <link>https://akccakcctw.github.io/2016/03/javascript-%E5%AD%97%E4%B8%B2%E8%BD%89%E9%99%A3%E5%88%97/</link>
+      <pubDate>Tue, 15 Mar 2016 10:47:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2016/03/javascript-%E5%AD%97%E4%B8%B2%E8%BD%89%E9%99%A3%E5%88%97/</guid>
+      <description>如果要將字串轉為陣列形式，可以利用 for 迴圈，配合 slice 切割字串 請看程式碼： 利用 for 迴圈 首先是每隔一個字元存入陣列： var x = &amp;quot;Hello world!&amp;quot;; var myArray = []; function foo(x) { for (var i = 0;</description>
+    </item>
+    
+    <item>
+      <title>一鍵看光網頁排版</title>
+      <link>https://akccakcctw.github.io/2016/03/%E4%B8%80%E9%8D%B5%E7%9C%8B%E5%85%89%E7%B6%B2%E9%A0%81%E6%8E%92%E7%89%88/</link>
+      <pubDate>Wed, 09 Mar 2016 10:48:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2016/03/%E4%B8%80%E9%8D%B5%E7%9C%8B%E5%85%89%E7%B6%B2%E9%A0%81%E6%8E%92%E7%89%88/</guid>
+      <description>在設計網頁時，我經常會在網路上參考各種排版，吸取大神們的經驗與靈感。 一開始我習慣直接用眼睛感受，觀察各元素的大小、距離…… 當能力進階之後，我</description>
+    </item>
+    
+    <item>
+      <title>瀑布流（masonry）圖片重疊問題</title>
+      <link>https://akccakcctw.github.io/2016/02/%E7%80%91%E5%B8%83%E6%B5%81masonry%E5%9C%96%E7%89%87%E9%87%8D%E7%96%8A%E5%95%8F%E9%A1%8C/</link>
+      <pubDate>Mon, 22 Feb 2016 09:25:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2016/02/%E7%80%91%E5%B8%83%E6%B5%81masonry%E5%9C%96%E7%89%87%E9%87%8D%E7%96%8A%E5%95%8F%E9%A1%8C/</guid>
+      <description>因為 pinterest 的緣故，有不少網站喜歡使用瀑布流排版，其中最簡單好用的套件莫過於 masonry 了。 然而在網頁載入時，圖片下載比較慢，若在整個網頁載入完成之前圖片還</description>
+    </item>
+    
+    <item>
+      <title>各種讓網頁重新導向的方法</title>
+      <link>https://akccakcctw.github.io/2016/01/%E5%90%84%E7%A8%AE%E8%AE%93%E7%B6%B2%E9%A0%81%E9%87%8D%E6%96%B0%E5%B0%8E%E5%90%91%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Fri, 08 Jan 2016 15:50:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2016/01/%E5%90%84%E7%A8%AE%E8%AE%93%E7%B6%B2%E9%A0%81%E9%87%8D%E6%96%B0%E5%B0%8E%E5%90%91%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
+      <description>方法一：直接在錯誤頁裡重導 如果沒有強迫症不在乎伺服器裡多增加一個沒有用的檔案，這樣最簡單： PHP &amp;lt;?php header( &#39;Location: http://www.redirect-location.com&#39; ); exit(); ?&amp;gt; HTML &amp;lt;meta http-equiv=&amp;quot;refresh&amp;quot; content=&amp;quot;1;url=http://www.redirect-location.com&amp;quot;&amp;gt; 此處content屬性裡面</description>
+    </item>
+    
+    <item>
       <title>使用者等待時間與感受（行動版網頁）</title>
       <link>https://akccakcctw.github.io/2015/11/%E4%BD%BF%E7%94%A8%E8%80%85%E7%AD%89%E5%BE%85%E6%99%82%E9%96%93%E8%88%87%E6%84%9F%E5%8F%97%E8%A1%8C%E5%8B%95%E7%89%88%E7%B6%B2%E9%A0%81/</link>
       <pubDate>Sat, 28 Nov 2015 15:29:00 +0000</pubDate>

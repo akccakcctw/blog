@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Htaccess on Rex Tsou</title>
+    <link>https://akccakcctw.github.io/categories/htaccess/</link>
+    <description>Recent content in Htaccess on Rex Tsou</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
+    <lastBuildDate>Fri, 08 Jan 2016 15:50:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://akccakcctw.github.io/categories/htaccess/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>各種讓網頁重新導向的方法</title>
+      <link>https://akccakcctw.github.io/2016/01/%E5%90%84%E7%A8%AE%E8%AE%93%E7%B6%B2%E9%A0%81%E9%87%8D%E6%96%B0%E5%B0%8E%E5%90%91%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Fri, 08 Jan 2016 15:50:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2016/01/%E5%90%84%E7%A8%AE%E8%AE%93%E7%B6%B2%E9%A0%81%E9%87%8D%E6%96%B0%E5%B0%8E%E5%90%91%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
+      <description>方法一：直接在錯誤頁裡重導 如果沒有強迫症不在乎伺服器裡多增加一個沒有用的檔案，這樣最簡單： PHP &amp;lt;?php header( &#39;Location: http://www.redirect-location.com&#39; ); exit(); ?&amp;gt; HTML &amp;lt;meta http-equiv=&amp;quot;refresh&amp;quot; content=&amp;quot;1;url=http://www.redirect-location.com&amp;quot;&amp;gt; 此處content屬性裡面</description>
+    </item>
+    
+  </channel>
+</rss>

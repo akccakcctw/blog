@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>利用 http-server 快速搭建一個 localhost 伺服器 | Rex Tsou</title>
+<link rel="stylesheet" href="https://akccakcctw.github.io//css/style.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://akccakcctw.github.io/"><h1 class="title is-4">Rex Tsou</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/akccakcctw">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">March 22, 2016</h2>
+    <h1 class="title">利用 http-server 快速搭建一個 localhost 伺服器</h1>
+    <div class="content">
+      
+
+<p>搭建一個網站時，我們經常需要立即測試，方便修正與微調。但有些頁面因為安全性或是其他問題，必須要放上伺服器才能看到效果（比如 ajax，如果不是放在伺服器端，就會出現 XMLHttpRequest cannot load 的問題），屈就於此，在測試階段需要多一個部屬至伺服器的步驟，也造成我們的修正作業變得困難重重。</p>
+
+<p>如果一個問題很多人遇到，捲起袖子之前，在這個凡事開源的時代，我們可以先找找網路上是否有解決方案。遇到此問題，我們可以利用 <a href="https://github.com/indexzero/http-server">http-server</a> 這個小工具，快速搭建一個local 端的伺服器，加快我們的工作效率。</p>
+
+<p>下面我以npm為例，如果電腦裡沒有 npm，可以到 <a href="https://nodejs.org/en/">nodejs官網</a> 下載最新版的 node.js，裡面就有免費附贈 npm 了！</p>
+
+<h2 id="經由-npm-安裝-http-server">經由 npm 安裝 http-server</h2>
+
+<p>在 terminal 經由 npm 安裝 &ldquo;http-server&rdquo; 套件，npm 安裝套件的方式非常簡單，直接鍵入：</p>
+
+<pre><code class="language-bash">$ npm install http-server -g
+</code></pre>
+
+<p><code>-g</code> 是 global 的意思，代表全域安裝。如果需要使用套件的指令，就要選擇全域安裝。</p>
+
+<p>輸入之後稍微等幾秒鐘下載，應該就會跑出一串文字，告訴我們所安裝套件的版本訊息。</p>
+
+<h2 id="馬上來使用吧">馬上來使用吧！</h2>
+
+<p>在我們的專案資料夾開啟 terminal（這邊我是用 bash 示範，如果是 windows 環境，用 cmd 也可以）：</p>
+
+<pre><code class="language-bash">$ http-server -p 8000
+</code></pre>
+
+<p><code>-p</code>是用來調整 port 的參數，不調整的話，預設會是 8080。因為我的 8080 port已經被佔用了，所以我開啟 8000。按下 enter 之後，bash 會告訴我們：
+<img src="http://user-image.logdown.io/user/14750/blog/13947/post/668697/h9l9p1tATzGuBIKSo8Ye_bash.png" alt="bash.png" />
+然後就開好了，你沒看錯，就開好了！
+在瀏覽器網址列打上<code>localhost:8000</code>或是<code>127.0.0.1:8000</code>，就可以看見自己的網頁了。</p>
+
+<h2 id="進階-設定快取時間">進階，設定快取時間</h2>
+
+<pre><code class="language-bash"># 不快取(時間為-1)，若正在開發，建議不要快取
+$ http-server -c-1
+
+# 快取10秒
+$ http-server -c10
+</code></pre>
+
+<h2 id="參考資料">參考資料</h2>
+
+<ul>
+<li><a href="https://www.npmjs.com/package/http-server">NPM: http-server</a></li>
+<li><a href="https://github.com/indexzero/http-server">Github: http-server</a></li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</section>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
