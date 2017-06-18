@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>用 POST 介接訂房系統 API 遇到的問題 | Rex Tsou</title>
+<link rel="stylesheet" href="https://akccakcctw.github.io//css/style.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://akccakcctw.github.io/"><h1 class="title is-4">Rex Tsou</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/akccakcctw">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">December 22, 2016</h2>
+    <h1 class="title">用 POST 介接訂房系統 API 遇到的問題</h1>
+    <div class="content">
+      <p>最近製作某飯店集團網站，其中有個功能需要在網站內提供線上訂房的表單，當使用者選擇分館、入住日期、離開日期之後，按下快速訂房按鈕就直接查詢訂房系統（其他系統商），如圖：</p>
+
+<p><img src="http://user-image.logdown.io/user/14750/blog/13947/post/1234234/kPPq3MHsQoKtY3lRv07K_sp161222_151426.png" alt="sp161222_151426.png" /></p>
+
+<p>對方的 API 必須使用<code>POST</code>，不能用<code>GET</code>，一開始想法很簡單，覺得直接用 PHP 的<code>curl</code>就可以了吧，於是我這樣寫：</p>
+
+<pre><code class="language-php">// index.php
+
+&lt;form id=&quot;booking-form&quot; action=&quot;booking.php&quot; method=&quot;post&quot; target=&quot;_blank&quot;&gt;
+&lt;!-- 裡面省略 --&gt;
+&lt;/form&gt;
+
+</code></pre>
+
+<pre><code class="language-php">// booking.php
+
+$postData = array(
+  &quot;syear&quot;=&gt;$syear,
+  &quot;smonth&quot;=&gt;$smonth,
+  &quot;sday&quot;=&gt;$sday,
+  &quot;eyear&quot;=&gt;$eyear,
+  &quot;emonth&quot;=&gt;$emonth,
+  &quot;eday&quot;=&gt;$eday,
+  &quot;hid&quot;=&gt;$hid,
+  &quot;orcnt&quot;=&gt;$orcnt,
+  &quot;lang&quot;=&gt;$lang,
+);
+
+// cURL POST
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $toUrl);
+curl_setopt($ch, CURLOPT_POST, true); // 啟用POST
+curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postData)); 
+curl_exec($ch); 
+curl_close($ch);
+
+</code></pre>
+
+<p>當我按下查詢鍵，嗯～對方的網頁內容看起來都回傳成功了，而且網址還是我們的，看起來很專業！館別、語系、時間、blahblah&hellip;&hellip;都對了，咦，圖片怎麼全是叉燒包，看一下 F12，嗯～應該是相對路徑的問題，因為網址還是我們的，他們回傳的路徑應該要改成絕對路徑才對。</p>
+
+<p>於是我滿心歡喜的去找 PM，請系統商把網址都改成絕對路徑，過了不久，系統商來信說把圖片都幫我們改成絕對路徑了（真乖），嗯～圖片都出來了。就在這個 moment，當我覺得一切都沒問題的時候，我才發現事情不是我想的那麼單純，因為當我想在回傳的頁面（此時網址是我們的，但內容是他們的）點任何連結時，都會有問題，因為每一個連結都是相對路徑！</p>
+
+<p>OK，好，看來是我的問題。</p>
+
+<p>於是我開啟「google 工程師」模式（上網到處搜尋），外加問前輩，發現只能回歸最原始的方法，用純粹的 HTML <code>&lt;form&gt;</code>標籤解決，解法是<code>&lt;form&gt;</code>必須直接 submit 到系統商那邊，所以<code>action</code>的位置要修改。但是，由於這個網站架構比較大，有訂房表單的地方不只一個，訂房相關的 code 還是統一在<code>booking.php</code>內維護比較方便，因此我不打算修改前端，而是修改<code>booking.php</code>，從後端產出一個假的<code>form</code>，並配合 Javascript submit 來解決這個問題，以下是我的解法：</p>
+
+<pre><code class="language-php">
+// booking.php
+
+// 自動產生 form 且帶入 value 後，用 Javascript submit
+$hiddenInput='';
+foreach ($postData as $key =&gt; $value) {
+  $hiddenInput.= &lt;&lt;&lt;HTML
+    &lt;input type=&quot;hidden&quot; name=&quot;{$key}&quot; value=&quot;{$value}&quot;&gt;
+HTML;
+}
+
+echo &lt;&lt;&lt;HTML
+  &lt;form id=&quot;booking_form&quot; action=&quot;{$toUrl}&quot; method=&quot;post&quot;&gt;
+    {$hiddenInput}
+  &lt;/form&gt;
+  &lt;script&gt;
+    document.getElementById('booking_form').submit();
+  &lt;/script&gt;
+HTML;
+
+</code></pre>
+
+<p>耶，世界又恢復和平～</p>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</section>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
