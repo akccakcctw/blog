@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 26 Jul 2016 14:56:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 10 Oct 2016 09:46:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akccakcctw.github.io/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>如何實作 addClass, removeClass？</title>
+      <link>https://akccakcctw.github.io/2016/10/%E5%A6%82%E4%BD%95%E5%AF%A6%E4%BD%9C-addclass-removeclass/</link>
+      <pubDate>Mon, 10 Oct 2016 09:46:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2016/10/%E5%A6%82%E4%BD%95%E5%AF%A6%E4%BD%9C-addclass-removeclass/</guid>
+      <description>以下原始碼與想法，參考自 Sitepoint：Add or Remove a CSS Class with Vanilla JavaScript 並作改寫，為了撰寫方便，使用 ES6 語法，如需支援古老瀏覽器，仍需經過 Babel 轉換。 如</description>
+    </item>
     
     <item>
       <title>Chrome Devtools 事件偵測的幾個技巧</title>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>如何改變 Chrome for Android 的 toolbar 顏色？ | Rex Tsou</title>
+<link rel="stylesheet" href="https://akccakcctw.github.io//css/style.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://akccakcctw.github.io/"><h1 class="title is-4">Rex Tsou</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/akccakcctw">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">October 4, 2016</h2>
+    <h1 class="title">如何改變 Chrome for Android 的 toolbar 顏色？</h1>
+    <div class="content">
+      
+
+<p>超簡單，只要新增一個<code>name=&quot;theme-color&quot;</code>的<code>meta</code>標籤到<code>&lt;head&gt;</code>內即可，content 內容則可以指定任何 CSS 顏色，如以下範例：</p>
+
+<pre><code class="language-html">&lt;meta name=&quot;theme-color&quot; content=&quot;#ff0000&quot;&gt;
+</code></pre>
+
+<p>沒有意外的話，HTML 5.2 規格確定後，桌面版也將可以經由相同的方式來使用。</p>
+
+<p>除了 theme-color，android 會自動擷取最高解析度的 favicon，推薦使用 192 x 192 px 的 png 檔，依以下方式來指定：</p>
+
+<pre><code class="language-html">&lt;link rel=&quot;icon&quot; sizes=&quot;192x192&quot; href=&quot;nice-highres.png&quot;&gt;
+</code></pre>
+
+<h2 id="參考資料">參考資料：</h2>
+
+<ul>
+<li><a href="https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android">Google Developers: Support for theme-color in Chrome 39 for Android</a></li>
+<li><a href="https://developer.telerik.com/featured/welcome-to-html-5-2/#toc_6">Welcome to HTML 5.2!</a></li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</section>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SVN 常用指令備忘 | Rex Tsou</title>
+<link rel="stylesheet" href="https://akccakcctw.github.io//css/style.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://akccakcctw.github.io/"><h1 class="title is-4">Rex Tsou</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/akccakcctw">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">September 8, 2016</h2>
+    <h1 class="title">SVN 常用指令備忘</h1>
+    <div class="content">
+      
+
+<h2 id="svn檔案狀態">svn檔案狀態</h2>
+
+<ul>
+<li>?: 此檔案不存在 svn 內</li>
+<li>A: 此次新增的檔案</li>
+<li>C: 此檔案無法成功合併</li>
+<li>D: 此次移除的檔案</li>
+<li>M: 此檔案有修改</li>
+<li>U: 此檔案有更新</li>
+</ul>
+
+<h2 id="status">status</h2>
+
+<p>查看 local 檔案與 svn server 版本異同，可簡寫為 <code>st</code></p>
+
+<pre><code class="language-sh">svn st
+</code></pre>
+
+<h2 id="list">list</h2>
+
+<p>將 svn server 的檔案 list 出來，可簡寫為 <code>ls</code></p>
+
+<pre><code class="language-sh">svn ls http://SVN_PATH/svn_project
+</code></pre>
+
+<h2 id="checkout">checkout</h2>
+
+<p>將資料 checkout 回來，可簡寫為 <code>co</code></p>
+
+<pre><code class="language-sh">svn co http://SVN_PATH/svn_project
+</code></pre>
+
+<h2 id="update">update</h2>
+
+<p>將 local 檔案更新成 svn server 最新版，可簡寫為 <code>up</code></p>
+
+<pre><code class="language-sh">svn up
+</code></pre>
+
+<h2 id="commit">commit</h2>
+
+<p>將目前所作修改 commit 回 svn server，可簡寫為 <code>ci</code></p>
+
+<pre><code class="language-sh">svn ci
+svn commit -m &quot;message&quot;
+</code></pre>
+
+<h2 id="import">import</h2>
+
+<p>將 project_directory 的資料匯入 svn server</p>
+
+<pre><code class="language-sh">svn import project_directory http://DOMAIN/svn_project
+</code></pre>
+
+<h2 id="add">add</h2>
+
+<p>將檔案或資料夾新增至 svn</p>
+
+<pre><code class="language-sh">svn add [filename | directory]
+</code></pre>
+
+<h2 id="mv">mv</h2>
+
+<p>改檔名，並保留此檔案先前記錄</p>
+
+<pre><code class="language-sh">svn mv filename new_filename
+</code></pre>
+
+<h2 id="revert">revert</h2>
+
+<p>在 commit 前執行，還原這次修改，回到前一版檔案狀態</p>
+
+<pre><code class="language-sh">svn revert [file | directory]
+</code></pre>
+
+<h2 id="merge">merge</h2>
+
+<p>合併檔案</p>
+
+<pre><code class="language-sh">
+</code></pre>
+
+<h2 id="建立新branch">建立新branch</h2>
+
+<pre><code class="language-sh">svn copy http://svnserver/calc/trunk http://svnserver/calc/branches/my-clac-branch -m &quot;create a branch&quot;
+</code></pre>
+
+<h2 id="建立release-tag">建立release tag</h2>
+
+<pre><code class="language-sh">svn copy http://svnserver/calc/trunk http://svnserver/calc/tags/Release-1.0.0 -m &quot;create Release tag for Release 1.0.0&quot;
+</code></pre>
+
+<h2 id="info">info</h2>
+
+<p>列出路徑、版本號、修改日期等資訊</p>
+
+<pre><code class="language-sh">svn info
+</code></pre>
+
+<h2 id="log">log</h2>
+
+<p>列出 commit log</p>
+
+<pre><code class="language-sh">svn log #列出所有log
+svn log -l 10 #列出10筆log
+svn log -c 100 #列出revision 100 的log
+svn log -v -c 100 #列出revision 100 的詳細log
+</code></pre>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</section>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+

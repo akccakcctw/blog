@@ -91,7 +91,9 @@ ls -l | less
 
 <h2 id="tee"><code>tee</code></h2>
 
-<p><strong>both redirect output to a file and pass it to another command（<code>&gt;</code>和<code>|</code>的綜合，將<code>stdout</code>導向檔案之後，後面繼續接<code>|</code>，再將<code>stdout</code>當作另一指令的<code>stdin</code>），目的是為了導向到多個輸出。可以想像成大寫的 T，就很好理解它的管道概念了。</strong></p>
+<p><strong>both redirect output to a file and pass it to another command（<code>&gt;</code>和<code>|</code>的綜合，將<code>stdout</code>導向檔案之後，後面繼續接<code>|</code>，再將<code>stdout</code>當作另一指令的<code>stdin</code>），目的是為了導向到多個輸出。</strong></p>
+
+<p>可以想像成大寫的 T，就很好理解它的管道概念了。</p>
 
 <pre><code class="language-bash">ls | tee list.txt | grep a
 

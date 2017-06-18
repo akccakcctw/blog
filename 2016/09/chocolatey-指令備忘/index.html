@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>chocolatey 指令備忘 | Rex Tsou</title>
+<link rel="stylesheet" href="https://akccakcctw.github.io//css/style.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://akccakcctw.github.io/"><h1 class="title is-4">Rex Tsou</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/akccakcctw">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">September 13, 2016</h2>
+    <h1 class="title">chocolatey 指令備忘</h1>
+    <div class="content">
+      
+
+<h2 id="搜尋-列出套件">搜尋／列出套件</h2>
+
+<pre><code class="language-bash">choco search &lt;filter&gt; [&lt;options&gt;/&lt;switches&gt;] # 搜尋套件
+choco list &lt;filter&gt; [&lt;options&gt;/&lt;switches&gt;] # 搜尋套件
+clist &lt;filter&gt; [&lt;options&gt;/&lt;switches&gt;] # 可簡寫為 clist
+
+#-----基礎用法-----
+choco search git # 搜尋git
+choco list --local-only # 列出已安裝套件
+choco list -l # -l:--local-only 的縮寫
+
+#-----進階用法-----
+choco search git -s &quot;'https://somewhere/out/there'&quot;
+choco search bob -s &quot;'https://somewhere/protected'&quot; -u user -p pass
+choco list -li # -i:--include-programs 的縮寫
+</code></pre>
+
+<h2 id="安裝套件">安裝套件</h2>
+
+<pre><code class="language-bash">choco install &lt;pkg|packages.config&gt; [&lt;pkg2&gt; &lt;pkgN&gt;] [&lt;options/switches&gt;] # 安裝套件
+cinst &lt;pkg|packages.config&gt; [&lt;pkg2&gt; &lt;pkgN&gt;] [&lt;optins/switches&gt;] # 簡寫
+
+#-----基礎用法-----
+choco install git #安裝 git
+choco install git -y #安裝 git 並跳過確認訊息
+
+#-----進階用法-----
+choco install nodejs.install --version 0.10.35 # 指定安裝版本
+choco install ruby --version 1.9.3.55100 -my # -m:--allow-multiple-versions 可安裝多版本
+choco install ruby --version 2.1.5 -my
+</code></pre>
+
+<h2 id="移除套件">移除套件</h2>
+
+<pre><code class="language-bash">choco uninstall &lt;pkg|all&gt; [pkg2 pkgN] [options/switches] # 移除套件
+cuninst &lt;pkg|all&gt; [pkg2 pkgN] [options/switches] # 縮寫
+
+#-----基礎用法-----
+choco uninstall git # 移除 git
+
+#-----進階用法-----
+choco uninstall notepadplusplus googlechrome atom # 移除多個套件
+choco uninstall ruby --version 1.8.7.37402 # 移除指定版本
+choco uninstall nodejs.install --all-versions # 移除全版本
+</code></pre>
+
+<h2 id="升級套件">升級套件</h2>
+
+<pre><code class="language-bash">choco upgrade &lt;pkg|all&gt; [&lt;pkg2&gt; &lt;pkgN&gt;] [&lt;options/switches&gt;] # 升級套件
+cup &lt;pkg|all&gt; [&lt;pkg2&gt; &lt;pkgN&gt;] [&lt;options/switches&gt;] # 縮寫
+
+#-----基礎用法-----
+choco upgrade chocolatey # 升級 chocolatey
+choco upgrade all # 升級全部套件
+
+#-----進階用法-----
+choco upgrade all --except=&quot;'skype,conemu'&quot;
+choco upgrade git -s &quot;'https://somewhere/protected'&quot; -u user -p pass
+</code></pre>
+
+<h2 id="查看需要更新的套件">查看需要更新的套件</h2>
+
+<pre><code class="language-bash">choco outdated [&lt;options/switches&gt;]
+
+#-----基礎用法-----
+choco outdated # 列出需要更新的套件
+
+#-----進階用法-----
+choco outdated -s https://somewhere/out/there
+choco outdated -s &quot;'https://somewhere/protected'&quot; -u user -p pass
+</code></pre>
+
+<h2 id="套件資訊">套件資訊</h2>
+
+<pre><code class="language-bash">choco info &lt;pkgname&gt; # 列出套件資訊
+</code></pre>
+
+<h2 id="參考資料">參考資料</h2>
+
+<ul>
+<li><a href="https://github.com/chocolatey/choco/wiki/CommandsReference">Github: chocolatey</a></li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</section>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+

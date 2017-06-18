@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>如何實作 addClass, removeClass？ | Rex Tsou</title>
+<link rel="stylesheet" href="https://akccakcctw.github.io//css/style.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://akccakcctw.github.io/"><h1 class="title is-4">Rex Tsou</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/akccakcctw">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">October 10, 2016</h2>
+    <h1 class="title">如何實作 addClass, removeClass？</h1>
+    <div class="content">
+      
+
+<p>以下原始碼與想法，參考自 <a href="https://www.sitepoint.com/add-remove-css-class-vanilla-js/">Sitepoint：Add or Remove a CSS Class with Vanilla JavaScript</a> 並作改寫，為了撰寫方便，使用 ES6 語法，如需支援古老瀏覽器，仍需經過 <a href="https://babeljs.io/">Babel</a> 轉換。</p>
+
+<p>如果不使用 jQuery，只想用 Vanilla Javascript 來新增移除<code>Class</code>，我們可以利用<code>className</code>（IE8+）或<code>classList</code>（IE10+）來實作。</p>
+
+<h2 id="ie8">IE8+</h2>
+
+<h3 id="addclass">addClass</h3>
+
+<pre><code class="language-js">const addClass = (el, myClass) =&gt; {
+  //檢查element是否存在
+  if (!el) {
+    return;
+  }
+  
+  //取得所有element(s)
+  if (typeof(el) === 'string') {
+    el = document.querySelectorAll(el);
+  } else if (el.tagName) {
+    el = [el];
+  }
+
+  for (let i = el.length - 1; i &gt;= 0; i--) {
+    //檢查欲新增的class是否已經存在
+    //注意前後的space，這樣可以避免使用RegExp
+    if ((` ${el[i].className} `).indexOf(` ${myClass} `) &lt; 0) { 
+      el[i].className += ` ${myClass}`;//key code
+    }
+  }
+}
+</code></pre>
+
+<h3 id="removeclass">removeClass</h3>
+
+<pre><code class="language-js">const removeClass = (el, myClass) =&gt; {
+  //檢查element是否存在
+  if (!el) {
+    return;
+  }
+
+  //取得所有element(s)
+  if (typeof(el) === 'string') {
+    el = document.querySelectorAll(el);
+  } else if (el.tagName) {
+    el = [el];
+  }
+
+  //利用RegExp找到此class
+  let reg = new RegExp(`(^| )${myClass}($| )`, 'g')
+
+  for (let i = el.length - 1; i &gt;= 0; i--) {
+    el[i].className = el[i].className.replace(reg, ' ');//key code
+  }
+}
+</code></pre>
+
+<h2 id="ie10">IE10+</h2>
+
+<h3 id="addclass-1">addClass</h3>
+
+<pre><code class="language-js">const addClass = (selector, myClass) =&gt; {
+  //取得所有element(s)
+  el = document.querySelectorAll(selector);
+
+  for (let i = el.length - 1; i &gt;= 0; i--) {
+    el[i].classList.add(myClass);//key code
+  }
+}
+</code></pre>
+
+<h3 id="removeclass-1">removeClass</h3>
+
+<pre><code class="language-js">const removeClass = (selector, myClass) =&gt; {
+  //取得所有element(s)
+  el = document.querySelectorAll(selector);
+
+  for (let i = el.length - 1; i &gt;= 0; i--) {
+    el[i].classList.remove(myClass);//key code
+  }
+}
+</code></pre>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</section>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+

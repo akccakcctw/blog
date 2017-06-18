@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 26 Jul 2016 14:56:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 04 Oct 2016 06:05:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akccakcctw.github.io/categories/chrome/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>如何改變 Chrome for Android 的 toolbar 顏色？</title>
+      <link>https://akccakcctw.github.io/2016/10/%E5%A6%82%E4%BD%95%E6%94%B9%E8%AE%8A-chrome-for-android-%E7%9A%84-toolbar-%E9%A1%8F%E8%89%B2/</link>
+      <pubDate>Tue, 04 Oct 2016 06:05:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2016/10/%E5%A6%82%E4%BD%95%E6%94%B9%E8%AE%8A-chrome-for-android-%E7%9A%84-toolbar-%E9%A1%8F%E8%89%B2/</guid>
+      <description>超簡單，只要新增一個name=&amp;quot;theme-color&amp;quot;的meta標籤到&amp;lt;head&amp;gt;內即可，content 內</description>
+    </item>
     
     <item>
       <title>Chrome Devtools 事件偵測的幾個技巧</title>
