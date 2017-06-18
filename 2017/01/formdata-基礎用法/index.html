@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FormData 基礎用法 | Rex Tsou</title>
+<link rel="stylesheet" href="https://akccakcctw.github.io//css/style.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://akccakcctw.github.io/"><h1 class="title is-4">Rex Tsou</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/akccakcctw">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">January 6, 2017</h2>
+    <h1 class="title">FormData 基礎用法</h1>
+    <div class="content">
+      
+
+<h2 id="創建-formdata-物件">創建 <code>FormData</code> 物件</h2>
+
+<pre><code class="language-js">// 語法： var formData = new FormData(form);
+
+// new 一個空的 FormData
+var formData = new FormData();
+
+// 或者從現有的 form 取得資料，並 new FormData
+var formData = new FormData(document.querySelector('form'));
+</code></pre>
+
+<h2 id="新增-formdata-append">新增 (FormData.append)</h2>
+
+<pre><code class="language-js">// 語法： formData.append(name, value[, filename]);
+
+// 新增一筆 username 資料，值為 Rex
+// 可以新增多個值在同一個 name 裡面
+formData.append('username', 'Rex');
+formData.append('username', 'Kate');
+
+// 新增一筆 userpic 資料，內含照片檔，檔名為 'rex.jpg'
+formData.append('userpic', myFileInput.files[0], 'rex.jpg');
+
+// 也可使用 Blob
+var content = '&lt;a id=&quot;a&quot;&gt;&lt;b id=&quot;b&quot;&gt;hey!&lt;/b&gt;&lt;/a&gt;';
+var blob = new Blob([content], {type: 'text/xml'});
+formData.append('heyfile', blob);
+</code></pre>
+
+<h2 id="取得-formdata-get">取得 (FormData.get)</h2>
+
+<pre><code class="language-js">// 語法： formData.get(name);
+// 或取得多筆 formData.getAll(name);
+ 
+formData.get('username'); // &quot;Rex&quot;
+formData.getAll('username'); // [&quot;Rex&quot;, &quot;Kate&quot;]
+</code></pre>
+
+<h2 id="修改-formdata-set">修改 (FormData.set)</h2>
+
+<pre><code class="language-js">// 語法： formData.set(name, value[, filename]);
+formData.set('username', 'Rex2');
+</code></pre>
+
+<h2 id="刪除-formdata-delete">刪除 (FormData.delete)</h2>
+
+<pre><code class="language-js">// 語法： formData.delete(name);
+formData.delete('username');
+</code></pre>
+
+<h2 id="post">POST</h2>
+
+<pre><code class="language-js">var request = new XMLHttpRequest();
+request.open('POST', 'http://xxx.xxx/xxx.php');
+request.send(formData);
+
+// 或者用 jQuery
+$.ajax({
+    url: 'xxx.php',
+    type: 'POST',
+    data: formData,
+    contentType: false,
+    processData: false,
+    // ... Other options like success and etc
+});
+</code></pre>
+
+<h2 id="參考資料">參考資料</h2>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData">MDN: FormData</a></li>
+<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/API/FormData/Using_FormData_Objects">MDN: Using FromData Objects</a></li>
+<li><a href="http://stackoverflow.com/questions/21044798/how-to-use-formdata-for-ajax-file-upload">How to use FormData for ajax file upload</a></li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</section>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+

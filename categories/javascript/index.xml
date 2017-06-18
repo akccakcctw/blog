@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 10 Oct 2016 09:46:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 06 Mar 2017 09:47:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akccakcctw.github.io/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Javascript 轉換型別小技巧</title>
+      <link>https://akccakcctw.github.io/2017/03/javascript-%E8%BD%89%E6%8F%9B%E5%9E%8B%E5%88%A5%E5%B0%8F%E6%8A%80%E5%B7%A7/</link>
+      <pubDate>Mon, 06 Mar 2017 09:47:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2017/03/javascript-%E8%BD%89%E6%8F%9B%E5%9E%8B%E5%88%A5%E5%B0%8F%E6%8A%80%E5%B7%A7/</guid>
+      <description>var number = 1; var string = &#39;1&#39;; var bool = true; string === number; // false bool === number; // false bool === string; // false string 與 number 轉換 string === &#39;&#39; + number; // true +string === number; // true boolean 與 number 轉換 +bool === number; // true bool === !!number // true boolean 與string 轉換 bool</description>
+    </item>
+    
+    <item>
+      <title>Javascript 判斷小數是否相等</title>
+      <link>https://akccakcctw.github.io/2017/02/javascript-%E5%88%A4%E6%96%B7%E5%B0%8F%E6%95%B8%E6%98%AF%E5%90%A6%E7%9B%B8%E7%AD%89/</link>
+      <pubDate>Wed, 08 Feb 2017 03:29:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2017/02/javascript-%E5%88%A4%E6%96%B7%E5%B0%8F%E6%95%B8%E6%98%AF%E5%90%A6%E7%9B%B8%E7%AD%89/</guid>
+      <description>大家都知道，在 Javascript 裡，0.1 + 0.2 !== 0.3，因為浮點數並不是精確值。 那麼需要比較小數的時候怎麼辦呢？只要定義好誤差範圍即可，依據 IEEE 754 的標準，64</description>
+    </item>
+    
+    <item>
+      <title>FormData 基礎用法</title>
+      <link>https://akccakcctw.github.io/2017/01/formdata-%E5%9F%BA%E7%A4%8E%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Fri, 06 Jan 2017 02:53:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2017/01/formdata-%E5%9F%BA%E7%A4%8E%E7%94%A8%E6%B3%95/</guid>
+      <description>創建 FormData 物件 // 語法： var formData = new FormData(form); // new 一個空的 FormData var formData = new FormData(); // 或者從現有的 form 取得資料，並 new FormData var formData = new FormData(document.querySelector(&#39;form&#39;)); 新增 (FormData.append) // 語法： formData.append(name, value[, filename]); // 新增一筆 username 資料，值為 Rex //</description>
+    </item>
     
     <item>
       <title>如何實作 addClass, removeClass？</title>

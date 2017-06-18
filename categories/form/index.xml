@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 22 Dec 2016 08:02:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 06 Jan 2017 02:53:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akccakcctw.github.io/categories/form/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>FormData 基礎用法</title>
+      <link>https://akccakcctw.github.io/2017/01/formdata-%E5%9F%BA%E7%A4%8E%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Fri, 06 Jan 2017 02:53:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2017/01/formdata-%E5%9F%BA%E7%A4%8E%E7%94%A8%E6%B3%95/</guid>
+      <description>創建 FormData 物件 // 語法： var formData = new FormData(form); // new 一個空的 FormData var formData = new FormData(); // 或者從現有的 form 取得資料，並 new FormData var formData = new FormData(document.querySelector(&#39;form&#39;)); 新增 (FormData.append) // 語法： formData.append(name, value[, filename]); // 新增一筆 username 資料，值為 Rex //</description>
+    </item>
     
     <item>
       <title>用 POST 介接訂房系統 API 遇到的問題</title>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>純 CSS 實現打字效果 | Rex Tsou</title>
+<link rel="stylesheet" href="https://akccakcctw.github.io//css/style.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://akccakcctw.github.io/"><h1 class="title is-4">Rex Tsou</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/akccakcctw">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">February 15, 2017</h2>
+    <h1 class="title">純 CSS 實現打字效果</h1>
+    <div class="content">
+      
+
+<p>剛剛看到這個<a href="https://tympanus.net/Development/SearchUIEffects/index11.html">搜尋樣式</a>，覺得在搜尋前使用 #tag 的方式提醒使用者可用的關鍵字不錯，應該會適合小網站或部落格。</p>
+
+<p>好奇就順便看了下程式碼，發現她的打字效果居然是純 CSS！利用<code>animation</code>配合<code>steps</code>和<code>ch</code>(charactor)這個長度單位來達成，類似這樣：</p>
+
+<pre><code class="language-css">.js .search--open .terminal__line {
+  animation: typing 1s steps(30, end), scaleUp 0.1s forwards;
+}
+
+/* 依據字數不同，設定不同的steps */
+.js .search--open .terminal__line:first-child {
+  animation-timing-function: steps(20, end), ease;
+}
+
+.js .search--open .terminal__line:nth-child(2),
+.js .search--open .terminal__line:nth-child(3) {
+  animation-timing-function: steps(27, end), ease;
+}
+
+.js .search--open .terminal__line:nth-child(4) {
+  animation-timing-function: steps(28, end), ease;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+</code></pre>
+
+<p>這個方法是 Lea Verou 想到的，她有寫了篇<a href="http://lea.verou.me/2012/02/simpler-css-typing-animation-with-the-ch-unit/">介紹</a>。只是這樣的方法需要字數固定，所以可以看到字數不同的話，step 的次數也需要調整。（字數不固定或許配合 JS 也可以？）</p>
+
+<p>此外，她的<code>scaleUp</code>利用到了<code>animation-fill-mode</code>的<code>forwards</code>，也很值得參考：</p>
+
+<pre><code class="language-css">.js .search--open .terminal__line {
+  animation: typing 1s steps(30, end), scaleUp 0.1s forwards;
+}
+
+@keyframes scaleUp {
+  from {
+    height: 0;
+  } to {
+    height: 1.5em;
+  }
+}
+
+</code></pre>
+
+<h2 id="參考資料">參考資料</h2>
+
+<ul>
+<li><a href="https://tympanus.net/codrops/2017/02/08/inspiration-search-ui-effects/">Inspiration for Search UI Effects</a></li>
+<li><a href="https://tympanus.net/Development/SearchUIEffects">Demo</a></li>
+<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/CSS/animation-fill-mode">animation-fill-mode</a></li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</section>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
