@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>分頁自動帶入 link-rel-prefetch function 試作 | Rex Tsou</title>
+<link rel="stylesheet" href="https://akccakcctw.github.io//css/style.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://akccakcctw.github.io/"><h1 class="title is-4">Rex Tsou</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/akccakcctw">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">April 20, 2017</h2>
+    <h1 class="title">分頁自動帶入 link-rel-prefetch function 試作</h1>
+    <div class="content">
+      
+
+<pre><code class="language-html">&lt;nav class=&quot;pages&quot;&gt;
+  &lt;ul class=&quot;list&quot;&gt;
+    &lt;li class=&quot;item&quot;&gt; &lt;a class=&quot;link&quot; href=&quot;/zh_TW&quot;&gt;首頁&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;item&quot;&gt; &lt;a class=&quot;link&quot; href=&quot;/zh_TW/news&quot;&gt;最新消息&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;item&quot;&gt; &lt;a class=&quot;link&quot; href=&quot;/zh_TW/product&quot;&gt;商品介紹&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;item&quot;&gt; &lt;a class=&quot;link&quot; href=&quot;/zh_TW/recipe&quot;&gt;推薦食譜&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;item&quot;&gt; &lt;a class=&quot;link&quot; href=&quot;/zh_TW/about&quot;&gt;關於我們&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;item&quot;&gt; &lt;a class=&quot;link&quot; href=&quot;/zh_TW/contact-us&quot;&gt;聯絡我們&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre>
+
+<p>假設網頁的選單結構像上面這樣，為了讓使用者的瀏覽體驗更順暢，可以在瀏覽器閒置時預先載入其他頁面，實作如下，可以放在最後靠近<code>&lt;/body&gt;</code>的位置，才不會影響當前頁面繪製。</p>
+
+<pre><code class="language-js">function prefetchLink(url){
+  var link = document.createElement('link');
+  link.rel = 'prefetch';
+  link.href = url;
+  document.head.appendChild(link);
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  var prefetchList = [];
+  [].forEach.call(document.querySelectorAll('nav.pages .item a'), function(e){
+    prefetchList.push(e);
+  });
+  prefetchList.forEach(prefetchLink);
+});
+</code></pre>
+
+<p>檢查<code>&lt;head&gt;</code>應該會出現：</p>
+
+<pre><code class="language-html">&lt;link rel=&quot;prefetch&quot; href=&quot;.../zh_TW&quot;&gt;
+&lt;link rel=&quot;prefetch&quot; href=&quot;.../zh_TW/news&quot;&gt;
+&lt;link rel=&quot;prefetch&quot; href=&quot;.../zh_TW/product&quot;&gt;
+&lt;link rel=&quot;prefetch&quot; href=&quot;.../zh_TW/recipe&quot;&gt;
+&lt;link rel=&quot;prefetch&quot; href=&quot;.../zh_TW/about&quot;&gt;
+&lt;link rel=&quot;prefetch&quot; href=&quot;.../zh_TW/contact-us&quot;&gt;
+</code></pre>
+
+<p>開啟 Developer Tools，也可以在 Network 標籤內看到這幾頁有預先載入，這樣就成功了！
+<img src="http://user-image.logdown.io/user/14750/blog/13947/post/1727744/lSXIEq5ETyeoGNhYl9Cn_sp170420_155826.png" alt="sp170420_155826.png" /></p>
+
+<h2 id="瀏覽器支援度">瀏覽器支援度</h2>
+
+<iframe style="width:100%;min-height:300px;" src="https://caniuse.com/link-rel-prefetch/embed"></iframe>
+
+<h2 id="參考資料">參考資料</h2>
+
+<ul>
+<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Link_prefetching_FAQ">MDN: Link prefetcing FAQ</a></li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</section>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
