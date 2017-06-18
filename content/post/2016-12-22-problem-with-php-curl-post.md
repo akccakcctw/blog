@@ -1,5 +1,5 @@
 ---
-title: "$_POST 介接訂房系統 API 遇到的問題"
+title: "用 POST 介接訂房系統 API 遇到的問題"
 date: "2016-12-22T08:02:00"
 categories: ["PHP", "form", "POST", "cURL"]
 ---
