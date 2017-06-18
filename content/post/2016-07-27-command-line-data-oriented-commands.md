@@ -44,7 +44,9 @@ ls -l | less
 ```
 
 ## `tee`
-**both redirect output to a file and pass it to another command（`>`和`|`的綜合，將`stdout`導向檔案之後，後面繼續接`|`，再將`stdout`當作另一指令的`stdin`），目的是為了導向到多個輸出。可以想像成大寫的 T，就很好理解它的管道概念了。**
+**both redirect output to a file and pass it to another command（`>`和`|`的綜合，將`stdout`導向檔案之後，後面繼續接`|`，再將`stdout`當作另一指令的`stdin`），目的是為了導向到多個輸出。**
+
+可以想像成大寫的 T，就很好理解它的管道概念了。
 ```bash
 ls | tee list.txt | grep a
 
