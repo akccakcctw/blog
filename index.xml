@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 05 Jun 2017 00:29:35 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 18 Jun 2017 17:46:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akccakcctw.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>解決 Nginx 403 Forbidden</title>
+      <link>https://akccakcctw.github.io/2017/06/%E8%A7%A3%E6%B1%BA-nginx-403-forbidden/</link>
+      <pubDate>Sun, 18 Jun 2017 17:46:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2017/06/%E8%A7%A3%E6%B1%BA-nginx-403-forbidden/</guid>
+      <description>檢查 error log 確定檔案權限為 755 確定 SElinux ll -Z /etc/nginx/conf.d/xxx.conf # 顯示出 [身分識別:角色:type] 的SElinux 訊息，type 最重要，可能會是 &amp;quot;httpd_config_t&amp;quot; ll -Z /srv/www # type可能</description>
+    </item>
     
     <item>
       <title>Hello World!</title>

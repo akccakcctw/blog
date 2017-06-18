@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>解決 Nginx 403 Forbidden | Rex Tsou</title>
+<link rel="stylesheet" href="https://akccakcctw.github.io//css/style.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://akccakcctw.github.io/"><h1 class="title is-4">Rex Tsou</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/akccakcctw">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="subtitle is-6">June 18, 2017</h2>
+    <h1 class="title">解決 Nginx 403 Forbidden</h1>
+    <div class="content">
+      
+
+<ol>
+<li>檢查 error log</li>
+<li>確定檔案權限為 755</li>
+<li>確定 SElinux</li>
+</ol>
+
+<pre><code class="language-sh">ll -Z /etc/nginx/conf.d/xxx.conf # 顯示出 [身分識別:角色:type] 的SElinux 訊息，type 最重要，可能會是 &quot;httpd_config_t&quot;
+ll -Z /srv/www # type可能是&quot;var_t&quot;或是其他，總之不是httpd開頭就會有權限問題
+
+restorecon -Rv /srv/www 
+# -R：連同子資料夾
+# -v：顯示過程
+# 此時 /srv/www 的 type 變成 &quot;httpd_sys_content_t&quot;，成功~
+</code></pre>
+
+<pre><code class="language-sh">su - # 進入root身分
+getsebool -a | grep httpd # 顯示 SElinux boolean 權限
+setsebool -P httpd_enable_homedirs 1
+setsebool -P httpd_can_network_connect 1 # -P flag = persist
+reboot # 重啟linux
+service nginx restart # 重啟nginx
+
+# 或是先關掉SElinux（不建議）
+vim /etc/sysconfig/selinux 
+getenforce # 取得 SElinux 狀態
+setenforce permissive # 寬容模式（enforcing, permissive, disabled）
+</code></pre>
+
+<h2 id="參考資料">參考資料</h2>
+
+<ul>
+<li><a href="http://linux.vbird.org/linux_basic/0440processcontrol.php#selinux">鳥哥的 Linux 私房菜：SELinux 初探</a></li>
+<li><a href="http://stackoverflow.com/questions/23948527/13-permission-denied-while-connecting-to-upstreamnginx">(13: Permission denied) while connecting to upstream:[nginx]</a></li>
+<li><a href="http://stackoverflow.com/questions/6795350/nginx-403-forbidden-for-all-files">Nginx 403 forbidden for all files</a></li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</section>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
