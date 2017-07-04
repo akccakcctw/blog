@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shell Script on Rex Tsou</title>
+    <link>https://akccakcctw.github.io/categories/shell-script/</link>
+    <description>Recent content in Shell Script on Rex Tsou</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
+    <lastBuildDate>Tue, 27 Jun 2017 14:21:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://akccakcctw.github.io/categories/shell-script/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>執行 .sh 時發生：&#39;env: node\r: No such file or directory&#39;</title>
+      <link>https://akccakcctw.github.io/2017/06/%E5%9F%B7%E8%A1%8C-.sh-%E6%99%82%E7%99%BC%E7%94%9Fenv-node/r-no-such-file-or-directory/</link>
+      <pubDate>Tue, 27 Jun 2017 14:21:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2017/06/%E5%9F%B7%E8%A1%8C-.sh-%E6%99%82%E7%99%BC%E7%94%9Fenv-node/r-no-such-file-or-directory/</guid>
+      <description>今天在 Linux 系統裡執行 .sh 時，遇到系統編碼格式不同所造成的問題 問題原因是因為 Windows 的結尾字符和 Linux 系統不一樣（Windows 就是喜歡加料&amp;hellip;</description>
+    </item>
+    
+  </channel>
+</rss>
