@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>利用 CSS 美化瀏覽器的 `console` | Rex Tsou</title>
+    <link rel="stylesheet" href="https://akccakcctw.github.io//css/style.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css"> 
+  </head>
+
+<header class="section header">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav__left">
+        <a class="nav__item" href="https://akccakcctw.github.io/"><h1 class="title">Rex Tsou</h1></a>
+      </div>
+      <div class="nav__right">
+        <nav class="nav__item">
+          
+          <a class="item__link" href="https://github.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="/index.xml" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <time class="date">July 6, 2017</time>
+    <h1 class="title">利用 CSS 美化瀏覽器的 `console`</h1>
+    <div class="content">
+      
+
+<p>瀏覽器的<code>console</code>功能不少，除了最常用的<code>log</code>之外，還有代表不同狀態的：</p>
+
+<ul>
+<li>info</li>
+<li>warn</li>
+<li>error</li>
+</ul>
+
+<p>也有不同功能的：</p>
+
+<ul>
+<li>time、timeEnd</li>
+<li>table</li>
+<li>dir</li>
+<li>group</li>
+<li>assert</li>
+</ul>
+
+<p>本篇主要介紹<code>console</code>裡利用 CSS 改變輸出樣式的做法。</p>
+
+<p>在<code>console</code>裡面，<code>%</code>這個符號代表 placeholder，它會依照順序將後面的<code>argument(s)</code>代入，比如<code>console.log('%s', '我是一串文字')</code>，會輸出<code>我是一串文字</code>，此處<code>%s</code>的 s 是 string 的意思，後面的 argument 1 會被當作字串看待。</p>
+
+<p>瞭解<code>%</code>的用法後，想要改變<code>console</code>的樣式就很簡單了，只要使用<code>%c</code>就行了，底下範例我為了讓程式碼看起來清爽，因此文字就不使用上面<code>%s</code>的做法，而是直接用變數配合 ES6 的 template literals 來代入：</p>
+
+<pre><code class="language-js">const style = [
+  'color:blue',
+  'background: white',
+  'font-size: 20px',
+  'border-radius: 5px',
+].join(';');
+
+const str = 'https://rex-tsou.com'; // 輸出的連結可以點！
+
+console.log(`%c ${str} `, style);
+</code></pre>
+
+<p>多重 Style 也沒問題唷：</p>
+
+<pre><code class="language-js">const style1 = [
+  'color: red',
+  'background: yellow',
+  'font-weight: bold',
+  'font-size: 20px',
+  'border-radius: 5px 0 0 5px',
+].join(';');
+
+const style2 = [
+  'color:blue',
+  'background: white',
+  'font-size: 20px',
+  'border-radius: 0 5px 5px 0',
+].join(';');
+
+const string1 = 'Hello World!';
+const string2 = 'Lorem ipsum.';
+
+console.log(`%c ${string1} %c ${string2} `, style1, style2);
+</code></pre>
+
+<h2 id="參考資料">參考資料</h2>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en/docs/Web/API/console">MDN: Console</a></li>
+<li><a href="https://medium.freecodecamp.org/how-to-get-the-most-out-of-the-javascript-console-b57ca9db3e6d">freeCodeCamp: How to get the most out of the JavaScript console</a></li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+
+<footer class="section footer">
+  <div class="container">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</footer>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
