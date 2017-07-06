@@ -1,4 +1,3 @@
-[submodule "themes/hemingway"]
-  path = themes/hemingway
-  url = https://github.com/akccakcctw/hemingway.git
-
+[submodule "themes/clean"]
+  path = themes/clean
+  url = https://github.com/akccakcctw/clean.git

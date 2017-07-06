@@ -1,6 +1,6 @@
 baseURL : "https://akccakcctw.github.io/"
 languageCode : "en"
-theme: "hemingway"
+theme: "clean"
 contentdir: "content"
 layoutdir: "layouts"
 publishdir: "public"
