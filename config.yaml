@@ -28,5 +28,7 @@ params:
   social:
     - url: "https://github.com/akccakcctw"
       fa_icon: "fa-github"
+    - url: "https://www.facebook.com/akccakcctw"
+      fa_icon: "fa-facebook-square"
     - url: "/index.xml"
       fa_icon: "fa-rss"
