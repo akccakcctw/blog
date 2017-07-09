@@ -9,11 +9,5 @@ cd akccakcctw.github.io
 git clone https://github.com/akccakcctw/akccakcctw.github.io.git --branch master public/
 
 # create folders if not exist
-folders=( "archetypes" "data" "layouts" "static" )
-for i in "${folders[@]}"
-do
-  if [ ! -d "$i" ] ; then
-    mkdir "$i"
-  fi
-done
+mkdir -p archetypes data layouts static
 
