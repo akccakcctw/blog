@@ -370,12 +370,6 @@
   </url>
   
   <url>
-    <loc>https://akccakcctw.github.io/</loc>
-    <lastmod>2017-07-06T10:34:09+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://akccakcctw.github.io/categories/samba/</loc>
     <lastmod>2017-04-12T16:48:00+00:00</lastmod>
     <priority>0</priority>
@@ -449,6 +443,12 @@
   <url>
     <loc>https://akccakcctw.github.io/categories/%E5%8B%95%E7%95%AB/</loc>
     <lastmod>2016-03-24T10:46:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://akccakcctw.github.io/</loc>
+    <lastmod>2017-07-06T10:34:09+08:00</lastmod>
     <priority>0</priority>
   </url>
   
