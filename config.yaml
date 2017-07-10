@@ -21,6 +21,9 @@ permalinks:
 params:
   author: "Rex Tsou"
   copyright: '© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a>'
+  title: "為了可能的聲音"
+  description: "為了可能的聲音"
+  ogType: "article"
   keywords:
     - programming
     - thinking
