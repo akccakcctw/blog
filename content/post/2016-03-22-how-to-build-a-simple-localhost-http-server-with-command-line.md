@@ -26,9 +26,9 @@ $ npm install http-server -g
 ```bash
 $ http-server -p 8000
 ```
-`-p`是用來調整 port 的參數，不調整的話，預設會是 8080。因為我的 8080 port已經被佔用了，所以我開啟 8000。按下 enter 之後，bash 會告訴我們：
-![bash.png](http://user-image.logdown.io/user/14750/blog/13947/post/668697/h9l9p1tATzGuBIKSo8Ye_bash.png)
-然後就開好了，你沒看錯，就開好了！
+`-p`是用來調整 port 的參數，不調整的話，預設會是 8080。因為我的 8080 port已經被佔用了，所以我開啟 8000。按下 enter 之後，bash 會告訴我們：  
+![bash.png](http://user-image.logdown.io/user/14750/blog/13947/post/668697/h9l9p1tATzGuBIKSo8Ye_bash.png)  
+然後就開好了，你沒看錯，就開好了！  
 在瀏覽器網址列打上`localhost:8000`或是`127.0.0.1:8000`，就可以看見自己的網頁了。
 
 ## 進階，設定快取時間
