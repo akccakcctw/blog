@@ -54,7 +54,7 @@ date: 2017-08-21T11:59:09+08:00
 | \| | Vertical bar | 垂直線 |
 | / | Slash | 斜線 |
 | // | Double slash | 雙斜線 |
-| \ | Backslace | 反斜線 |
+| \\ | Backslash | 反斜線 |
 | 《 》 | French quotes | 書名號 |
 
 ## 其他符號
