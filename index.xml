@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 06 Jul 2017 10:34:09 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 21 Aug 2017 11:59:09 +0800</lastBuildDate>
     
 	<atom:link href="https://akccakcctw.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>各種符號的英文讀法</title>
+      <link>https://akccakcctw.github.io/2017/08/%E5%90%84%E7%A8%AE%E7%AC%A6%E8%99%9F%E7%9A%84%E8%8B%B1%E6%96%87%E8%AE%80%E6%B3%95/</link>
+      <pubDate>Mon, 21 Aug 2017 11:59:09 +0800</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2017/08/%E5%90%84%E7%A8%AE%E7%AC%A6%E8%99%9F%E7%9A%84%E8%8B%B1%E6%96%87%E8%AE%80%E6%B3%95/</guid>
+      <description>運算符號 Symbol Description 中文說法 + Plus, And 加號、正號 - Minus, Negative 減號、負號 * Times, Multiplied by 乘號 / Devided by 除號 % Percent 百分號 = Equals 等號 ( ) Open(close) parenthesis, Parentheses 小括號 [ ] Open(close) bracket, Square brackets 方括號 { } Open(close) brace, Open(close) curly, Curly</description>
+    </item>
     
     <item>
       <title>利用 CSS 美化瀏覽器的 `console`</title>
