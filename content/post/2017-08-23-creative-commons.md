@@ -11,7 +11,26 @@ date: 2017-08-23T17:50:00+08:00
 
 > With a network of staff, board, and affiliates around the world, Creative Commons provides free, easy-to-use copyright licenses to make a simple and standardized way to give the public permission to share and use your creative work–on conditions of your choice.
 
-簡單來說，就是希望分享作品可以更簡單，省得還要處理一堆麻煩事。
+簡而言之，就是希望分享作品可以更簡單，省得還要處理一堆麻煩事。
+
+## 在地化（iCommons）
+
+由於原始的 CC 條款是依據美國法律設計，因此他們從 2003 年開始推動 iCommons 計畫，因應各國家／地區不同法律用詞與國情，進行在地化。
+
+台灣在 2003 年 11 月，由中研院資訊所主持翻譯與討論，「創用 CC」為台灣在 2005 年 10 月決定正式使用的本地譯名。（中國：「知識共享」、香港：「共享創意」）。
+
+## 版本差異
+
+後面的數字代表版本，目前發表的版本有：
+| 版本 | 發表年月 |
+| --- | --- |
+| 1.0 | 2002.12 |
+| 2.0 | 2004.5 |
+| 2.5 | 2005.6 |
+| 3.0 | 2007.2 |
+| 4.0 | 2013.11 |
+
+以上這五種。主要的差別可以到[官方維基](https://wiki.creativecommons.org/wiki/License_Versions)去看。需要注意的是，**4.0 版之後統一為國際版，沒有在地化的差異。**
 
 ## 四種可指定的授權條件
 
@@ -34,6 +53,8 @@ date: 2017-08-23T17:50:00+08:00
 + CC BY-SA
 + CC BY-NC-ND
 + CC BY-NC-SA
+
+如果還是不太懂該怎麼選，官網甚至提供了[簡便的工具](https://creativecommons.org/choose/)協助選擇。
 
 ## 參考資料
 + [Wikipedia: 創用CC](https://zh.wikipedia.org/wiki/%E5%88%9B%E4%BD%9C%E5%85%B1%E7%94%A8)
