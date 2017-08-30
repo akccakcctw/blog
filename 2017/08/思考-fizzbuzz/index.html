@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="為了可能的聲音"> 
+    <meta name="author" content="Rex Tsou">
+    <meta name="copyright" content="Rex Tsou">
+    
+    <meta property="og:title" content="思考 FizzBuzz">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="為了可能的聲音">
+    
+    <meta itemprop="name" content="思考 FizzBuzz | 為了可能的聲音">
+    <meta itemprop="description" content="為了可能的聲音">
+    <title>思考 FizzBuzz | 為了可能的聲音</title>
+    <link rel="stylesheet" href="https://akccakcctw.github.io//css/style.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css"> 
+  </head>
+
+<header class="section header">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav__left">
+        <a class="nav__item" href="https://akccakcctw.github.io/"><h1 class="title">為了可能的聲音</h1></a>
+      </div>
+      <div class="nav__right">
+        <nav class="nav__item">
+          <a class="item__link" href="/post">Archives</a>
+        </nav>
+        <nav class="nav__item">
+          
+          <a class="item__link" href="https://github.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="https://www.facebook.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-facebook-square"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="/index.xml" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <time class="date">August 30, 2017</time>
+    <h1 class="title">思考 FizzBuzz</h1>
+    <div class="content">
+      <p>如果你沒看過 FizzBuzz，題目是這樣的：</p>
+
+<blockquote>
+<p>給定一串從 1 到 n 的數字：<br />
+<strong>a.</strong> 如果是 3 的倍數，就印出 &ldquo;Fizz&rdquo;<br />
+<strong>b.</strong> 如果是 5 的倍數，就印出 &ldquo;Buzz&rdquo;<br />
+<strong>c.</strong> 如果同時是 3 和 5 的倍數，就印出 &ldquo;FizzBuzz&rdquo;<br />
+<strong>d.</strong> 將印出的結果回傳為一個矩陣。</p>
+</blockquote>
+
+<p>一般來說，最直覺的想法就是用 for 迴圈，然後裡面用很多 if 判斷式</p>
+
+<pre><code class="language-js">const fizzBuzz = (n) =&gt; {
+  const result = [];
+  for ( let i = 0; i &lt; n; i++ ) {
+    if(n % 15 === 0) {
+      result[n] = 'FizzBuzz';
+    } else if(n % 3 === 0) {
+      result[n] = 'Fizz';
+    } else if(n % 5 === 0) {
+      result[n] = 'Buzz';
+    } else {
+      result[n] = '' + n; // output should be String
+    }
+  }
+  return result;
+};
+</code></pre>
+
+<p>但是這樣太過 <a href="https://zh.wikipedia.org/wiki/%E6%8C%87%E4%BB%A4%E5%BC%8F%E7%B7%A8%E7%A8%8B">imperative</a>，只是把解決步驟描述一遍，非常機械化，之後若回頭來看程式碼的時候，需要花比較多時間才能看懂。</p>
+
+<p>如果要再進階一點，for 迴圈與 if 判斷處可以修改一下，變成</p>
+
+<pre><code class="language-js">const fizzBuzz = (n) =&gt; {
+    const condition = n =&gt; 
+           ( n % 15 === 0 ) ? 'FizzBuzz' :
+           ( n % 3 === 0 )  ? 'Fizz'     :
+           ( n % 5 === 0 )  ? 'Buzz'     : '' + n;
+    const result = [];
+    Array.from(Array(n)).forEach((v, i) =&gt; {
+         result[i] = condition(i + 1);
+    });
+    return result;
+};
+</code></pre>
+
+<p>這是比較<a href="https://zh.wikipedia.org/wiki/%E5%AE%A3%E5%91%8A%E5%BC%8F%E7%B7%A8%E7%A8%8B">declarative</a> 的寫法，著重在描述想要達成的目的，而非流程與步驟</p>
+
+<p>所以可以看到，我除了用<code>forEach</code>代替<code>for</code>之外（盡量善用內建函式，也更不容易出錯），我還把條件判斷包成一個 function，好處是，在閱讀時可以讓我們對於整個<code>fizzBuzz()</code>的理解「分塊」進行，不需要讀完整段就能知道這段程式的「目的」。</p>
+
+<p>再然後，我看到有人這樣寫</p>
+
+<pre><code class="language-js">const fizzBuzz = (n) =&gt; new Array(n).fill(0).map((a, i) =&gt; 
+  (++i % 3 ? '' : 'Fizz') + (i % 5 ? '' : 'Buzz') || '' + i);
+</code></pre>
+
+<p>簡潔有力，我跪！</p>
+
+    </div>
+  </div>
+</section>
+
+
+<footer class="section footer">
+  <div class="container">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</footer>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-57924156-2', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
