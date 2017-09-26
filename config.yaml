@@ -7,6 +7,7 @@ publishdir: "public"
 author: "Rex Tsou"
 title : "Rex Tsou"
 hasCJKLanguage: true
+enableEmoji: true
 disqusshortname: ""
 googleAnalytics: "UA-57924156-2"
 MetaDataFormat: "yaml"
