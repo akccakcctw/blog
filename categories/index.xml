@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 24 Mar 2016 10:46:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 26 Sep 2017 11:10:26 +0800</lastBuildDate>
     
 	<atom:link href="https://akccakcctw.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Algorithm</title>
+      <link>https://akccakcctw.github.io/categories/algorithm/</link>
+      <pubDate>Tue, 26 Sep 2017 11:10:26 +0800</pubDate>
+      
+      <guid>https://akccakcctw.github.io/categories/algorithm/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Animation</title>
@@ -22,29 +31,11 @@
     </item>
     
     <item>
-      <title>Array</title>
-      <link>https://akccakcctw.github.io/categories/array/</link>
-      <pubDate>Tue, 15 Mar 2016 10:47:00 +0000</pubDate>
-      
-      <guid>https://akccakcctw.github.io/categories/array/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Bash</title>
       <link>https://akccakcctw.github.io/categories/bash/</link>
-      <pubDate>Tue, 10 Jan 2017 04:05:00 +0000</pubDate>
+      <pubDate>Tue, 27 Jun 2017 14:21:00 +0000</pubDate>
       
       <guid>https://akccakcctw.github.io/categories/bash/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Bookmark</title>
-      <link>https://akccakcctw.github.io/categories/bookmark/</link>
-      <pubDate>Wed, 09 Mar 2016 10:48:00 +0000</pubDate>
-      
-      <guid>https://akccakcctw.github.io/categories/bookmark/</guid>
       <description></description>
     </item>
     
@@ -69,43 +60,16 @@
     <item>
       <title>Chrome</title>
       <link>https://akccakcctw.github.io/categories/chrome/</link>
-      <pubDate>Tue, 04 Oct 2016 06:05:00 +0000</pubDate>
+      <pubDate>Thu, 06 Jul 2017 10:34:09 +0800</pubDate>
       
       <guid>https://akccakcctw.github.io/categories/chrome/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Cmd</title>
-      <link>https://akccakcctw.github.io/categories/cmd/</link>
-      <pubDate>Tue, 13 Sep 2016 09:42:00 +0000</pubDate>
-      
-      <guid>https://akccakcctw.github.io/categories/cmd/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Cmder</title>
-      <link>https://akccakcctw.github.io/categories/cmder/</link>
-      <pubDate>Tue, 10 Jan 2017 04:05:00 +0000</pubDate>
-      
-      <guid>https://akccakcctw.github.io/categories/cmder/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Command</title>
-      <link>https://akccakcctw.github.io/categories/command/</link>
-      <pubDate>Sun, 20 Mar 2016 15:59:00 +0000</pubDate>
-      
-      <guid>https://akccakcctw.github.io/categories/command/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Command Line</title>
       <link>https://akccakcctw.github.io/categories/command-line/</link>
-      <pubDate>Wed, 27 Jul 2016 01:11:00 +0000</pubDate>
+      <pubDate>Tue, 10 Jan 2017 04:05:00 +0000</pubDate>
       
       <guid>https://akccakcctw.github.io/categories/command-line/</guid>
       <description></description>
@@ -114,45 +78,45 @@
     <item>
       <title>Css</title>
       <link>https://akccakcctw.github.io/categories/css/</link>
-      <pubDate>Wed, 15 Feb 2017 02:22:00 +0000</pubDate>
+      <pubDate>Thu, 06 Jul 2017 10:34:09 +0800</pubDate>
       
       <guid>https://akccakcctw.github.io/categories/css/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Curl</title>
-      <link>https://akccakcctw.github.io/categories/curl/</link>
-      <pubDate>Thu, 22 Dec 2016 08:02:00 +0000</pubDate>
+      <title>Design</title>
+      <link>https://akccakcctw.github.io/categories/design/</link>
+      <pubDate>Mon, 09 May 2016 07:19:00 +0000</pubDate>
       
-      <guid>https://akccakcctw.github.io/categories/curl/</guid>
+      <guid>https://akccakcctw.github.io/categories/design/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Devtools</title>
       <link>https://akccakcctw.github.io/categories/devtools/</link>
-      <pubDate>Tue, 26 Jul 2016 14:56:00 +0000</pubDate>
+      <pubDate>Thu, 06 Jul 2017 10:34:09 +0800</pubDate>
       
       <guid>https://akccakcctw.github.io/categories/devtools/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Download</title>
-      <link>https://akccakcctw.github.io/categories/download/</link>
-      <pubDate>Thu, 19 May 2016 07:46:00 +0000</pubDate>
+      <title>File System</title>
+      <link>https://akccakcctw.github.io/categories/file-system/</link>
+      <pubDate>Wed, 12 Apr 2017 16:48:00 +0000</pubDate>
       
-      <guid>https://akccakcctw.github.io/categories/download/</guid>
+      <guid>https://akccakcctw.github.io/categories/file-system/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>File Format</title>
-      <link>https://akccakcctw.github.io/categories/file-format/</link>
-      <pubDate>Tue, 27 Jun 2017 14:21:00 +0000</pubDate>
+      <title>Font</title>
+      <link>https://akccakcctw.github.io/categories/font/</link>
+      <pubDate>Fri, 21 Oct 2016 16:19:00 +0000</pubDate>
       
-      <guid>https://akccakcctw.github.io/categories/file-format/</guid>
+      <guid>https://akccakcctw.github.io/categories/font/</guid>
       <description></description>
     </item>
     
@@ -175,74 +139,29 @@
     </item>
     
     <item>
-      <title>Htaccess</title>
-      <link>https://akccakcctw.github.io/categories/htaccess/</link>
-      <pubDate>Fri, 08 Jan 2016 15:50:00 +0000</pubDate>
-      
-      <guid>https://akccakcctw.github.io/categories/htaccess/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Html</title>
-      <link>https://akccakcctw.github.io/categories/html/</link>
-      <pubDate>Thu, 20 Apr 2017 07:34:00 +0000</pubDate>
-      
-      <guid>https://akccakcctw.github.io/categories/html/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Html5</title>
       <link>https://akccakcctw.github.io/categories/html5/</link>
-      <pubDate>Tue, 19 Apr 2016 06:36:00 +0000</pubDate>
+      <pubDate>Thu, 20 Apr 2017 07:34:00 +0000</pubDate>
       
       <guid>https://akccakcctw.github.io/categories/html5/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Http Server</title>
-      <link>https://akccakcctw.github.io/categories/http-server/</link>
-      <pubDate>Tue, 22 Mar 2016 14:20:00 +0000</pubDate>
-      
-      <guid>https://akccakcctw.github.io/categories/http-server/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Javascript</title>
       <link>https://akccakcctw.github.io/categories/javascript/</link>
-      <pubDate>Thu, 20 Apr 2017 07:34:00 +0000</pubDate>
+      <pubDate>Wed, 30 Aug 2017 19:47:26 +0800</pubDate>
       
       <guid>https://akccakcctw.github.io/categories/javascript/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Jquery</title>
-      <link>https://akccakcctw.github.io/categories/jquery/</link>
-      <pubDate>Mon, 22 Feb 2016 09:25:00 +0000</pubDate>
+      <title>License</title>
+      <link>https://akccakcctw.github.io/categories/license/</link>
+      <pubDate>Wed, 23 Aug 2017 17:50:00 +0800</pubDate>
       
-      <guid>https://akccakcctw.github.io/categories/jquery/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Localhost</title>
-      <link>https://akccakcctw.github.io/categories/localhost/</link>
-      <pubDate>Tue, 22 Mar 2016 14:20:00 +0000</pubDate>
-      
-      <guid>https://akccakcctw.github.io/categories/localhost/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Masonry</title>
-      <link>https://akccakcctw.github.io/categories/masonry/</link>
-      <pubDate>Mon, 22 Feb 2016 09:25:00 +0000</pubDate>
-      
-      <guid>https://akccakcctw.github.io/categories/masonry/</guid>
+      <guid>https://akccakcctw.github.io/categories/license/</guid>
       <description></description>
     </item>
     
@@ -252,15 +171,6 @@
       <pubDate>Sun, 18 Jun 2017 17:46:00 +0000</pubDate>
       
       <guid>https://akccakcctw.github.io/categories/nginx/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Nodejs</title>
-      <link>https://akccakcctw.github.io/categories/nodejs/</link>
-      <pubDate>Tue, 22 Mar 2016 14:20:00 +0000</pubDate>
-      
-      <guid>https://akccakcctw.github.io/categories/nodejs/</guid>
       <description></description>
     </item>
     
@@ -283,15 +193,6 @@
     </item>
     
     <item>
-      <title>Post</title>
-      <link>https://akccakcctw.github.io/categories/post/</link>
-      <pubDate>Thu, 22 Dec 2016 08:02:00 +0000</pubDate>
-      
-      <guid>https://akccakcctw.github.io/categories/post/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Samba</title>
       <link>https://akccakcctw.github.io/categories/samba/</link>
       <pubDate>Wed, 12 Apr 2017 16:48:00 +0000</pubDate>
@@ -301,38 +202,11 @@
     </item>
     
     <item>
-      <title>Selinux</title>
-      <link>https://akccakcctw.github.io/categories/selinux/</link>
-      <pubDate>Sun, 18 Jun 2017 17:46:00 +0000</pubDate>
-      
-      <guid>https://akccakcctw.github.io/categories/selinux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Server</title>
       <link>https://akccakcctw.github.io/categories/server/</link>
-      <pubDate>Fri, 08 Jan 2016 15:50:00 +0000</pubDate>
+      <pubDate>Sun, 18 Jun 2017 17:46:00 +0000</pubDate>
       
       <guid>https://akccakcctw.github.io/categories/server/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Shell Script</title>
-      <link>https://akccakcctw.github.io/categories/shell-script/</link>
-      <pubDate>Tue, 27 Jun 2017 14:21:00 +0000</pubDate>
-      
-      <guid>https://akccakcctw.github.io/categories/shell-script/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>String</title>
-      <link>https://akccakcctw.github.io/categories/string/</link>
-      <pubDate>Tue, 15 Mar 2016 10:47:00 +0000</pubDate>
-      
-      <guid>https://akccakcctw.github.io/categories/string/</guid>
       <description></description>
     </item>
     
@@ -364,20 +238,11 @@
     </item>
     
     <item>
-      <title>Waapi</title>
-      <link>https://akccakcctw.github.io/categories/waapi/</link>
-      <pubDate>Thu, 24 Mar 2016 10:46:00 +0000</pubDate>
+      <title>Vim</title>
+      <link>https://akccakcctw.github.io/categories/vim/</link>
+      <pubDate>Tue, 27 Jun 2017 14:21:00 +0000</pubDate>
       
-      <guid>https://akccakcctw.github.io/categories/waapi/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Wget</title>
-      <link>https://akccakcctw.github.io/categories/wget/</link>
-      <pubDate>Thu, 19 May 2016 07:46:00 +0000</pubDate>
-      
-      <guid>https://akccakcctw.github.io/categories/wget/</guid>
+      <guid>https://akccakcctw.github.io/categories/vim/</guid>
       <description></description>
     </item>
     
@@ -387,24 +252,6 @@
       <pubDate>Tue, 27 Jun 2017 14:21:00 +0000</pubDate>
       
       <guid>https://akccakcctw.github.io/categories/windows/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>動畫</title>
-      <link>https://akccakcctw.github.io/categories/%E5%8B%95%E7%95%AB/</link>
-      <pubDate>Thu, 24 Mar 2016 10:46:00 +0000</pubDate>
-      
-      <guid>https://akccakcctw.github.io/categories/%E5%8B%95%E7%95%AB/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>表單</title>
-      <link>https://akccakcctw.github.io/categories/%E8%A1%A8%E5%96%AE/</link>
-      <pubDate>Mon, 09 May 2016 07:19:00 +0000</pubDate>
-      
-      <guid>https://akccakcctw.github.io/categories/%E8%A1%A8%E5%96%AE/</guid>
       <description></description>
     </item>
     

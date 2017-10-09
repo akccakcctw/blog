@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 08 Jan 2016 15:50:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 18 Jun 2017 17:46:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akccakcctw.github.io/categories/server/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>解決 Nginx 403 Forbidden</title>
+      <link>https://akccakcctw.github.io/2017/06/%E8%A7%A3%E6%B1%BA-nginx-403-forbidden/</link>
+      <pubDate>Sun, 18 Jun 2017 17:46:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2017/06/%E8%A7%A3%E6%B1%BA-nginx-403-forbidden/</guid>
+      <description>檢查 error log 確定檔案權限為 755 確定 SElinux ll -Z /etc/nginx/conf.d/xxx.conf # 顯示出 [身分識別:角色:type] 的SElinux 訊息，type 最重要，可能會是 &amp;quot;httpd_config_t&amp;quot; ll -Z /srv/www # type可能</description>
+    </item>
+    
+    <item>
+      <title>利用 http-server 快速搭建一個 localhost 伺服器</title>
+      <link>https://akccakcctw.github.io/2016/03/%E5%88%A9%E7%94%A8-http-server-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%80%E5%80%8B-localhost-%E4%BC%BA%E6%9C%8D%E5%99%A8/</link>
+      <pubDate>Tue, 22 Mar 2016 14:20:00 +0000</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2016/03/%E5%88%A9%E7%94%A8-http-server-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%80%E5%80%8B-localhost-%E4%BC%BA%E6%9C%8D%E5%99%A8/</guid>
+      <description>搭建一個網站時，我們經常需要立即測試，方便修正與微調。但有些頁面因為安全性或是其他問題，必須要放上伺服器才能看到效果（比如 ajax，如果不是</description>
+    </item>
     
     <item>
       <title>各種讓網頁重新導向的方法</title>

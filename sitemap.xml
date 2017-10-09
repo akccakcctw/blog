@@ -193,32 +193,26 @@
   </url>
   
   <url>
+    <loc>https://akccakcctw.github.io/categories/algorithm/</loc>
+    <lastmod>2017-09-26T11:10:26+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://akccakcctw.github.io/categories/animation/</loc>
     <lastmod>2016-03-24T10:46:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://akccakcctw.github.io/categories/array/</loc>
-    <lastmod>2016-03-15T10:47:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://akccakcctw.github.io/categories/bash/</loc>
-    <lastmod>2017-01-10T04:05:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://akccakcctw.github.io/categories/bookmark/</loc>
-    <lastmod>2016-03-09T10:48:00+00:00</lastmod>
+    <lastmod>2017-06-27T14:21:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://akccakcctw.github.io/categories/</loc>
-    <lastmod>2016-03-24T10:46:00+00:00</lastmod>
+    <lastmod>2017-09-26T11:10:26+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -236,61 +230,43 @@
   
   <url>
     <loc>https://akccakcctw.github.io/categories/chrome/</loc>
-    <lastmod>2016-10-04T06:05:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://akccakcctw.github.io/categories/cmd/</loc>
-    <lastmod>2016-09-13T09:42:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://akccakcctw.github.io/categories/cmder/</loc>
-    <lastmod>2017-01-10T04:05:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://akccakcctw.github.io/categories/command/</loc>
-    <lastmod>2016-03-20T15:59:00+00:00</lastmod>
+    <lastmod>2017-07-06T10:34:09+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://akccakcctw.github.io/categories/command-line/</loc>
-    <lastmod>2016-07-27T01:11:00+00:00</lastmod>
+    <lastmod>2017-01-10T04:05:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://akccakcctw.github.io/categories/css/</loc>
-    <lastmod>2017-02-15T02:22:00+00:00</lastmod>
+    <lastmod>2017-07-06T10:34:09+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://akccakcctw.github.io/categories/curl/</loc>
-    <lastmod>2016-12-22T08:02:00+00:00</lastmod>
+    <loc>https://akccakcctw.github.io/categories/design/</loc>
+    <lastmod>2016-05-09T07:19:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://akccakcctw.github.io/categories/devtools/</loc>
-    <lastmod>2016-07-26T14:56:00+00:00</lastmod>
+    <lastmod>2017-07-06T10:34:09+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://akccakcctw.github.io/categories/download/</loc>
-    <lastmod>2016-05-19T07:46:00+00:00</lastmod>
+    <loc>https://akccakcctw.github.io/categories/file-system/</loc>
+    <lastmod>2017-04-12T16:48:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://akccakcctw.github.io/categories/file-format/</loc>
-    <lastmod>2017-06-27T14:21:00+00:00</lastmod>
+    <loc>https://akccakcctw.github.io/categories/font/</loc>
+    <lastmod>2016-10-21T16:19:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -307,62 +283,26 @@
   </url>
   
   <url>
-    <loc>https://akccakcctw.github.io/categories/htaccess/</loc>
-    <lastmod>2016-01-08T15:50:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://akccakcctw.github.io/categories/html/</loc>
-    <lastmod>2017-04-20T07:34:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://akccakcctw.github.io/categories/html5/</loc>
-    <lastmod>2016-04-19T06:36:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://akccakcctw.github.io/categories/http-server/</loc>
-    <lastmod>2016-03-22T14:20:00+00:00</lastmod>
+    <lastmod>2017-04-20T07:34:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://akccakcctw.github.io/categories/javascript/</loc>
-    <lastmod>2017-04-20T07:34:00+00:00</lastmod>
+    <lastmod>2017-08-30T19:47:26+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://akccakcctw.github.io/categories/jquery/</loc>
-    <lastmod>2016-02-22T09:25:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://akccakcctw.github.io/categories/localhost/</loc>
-    <lastmod>2016-03-22T14:20:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://akccakcctw.github.io/categories/masonry/</loc>
-    <lastmod>2016-02-22T09:25:00+00:00</lastmod>
+    <loc>https://akccakcctw.github.io/categories/license/</loc>
+    <lastmod>2017-08-23T17:50:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://akccakcctw.github.io/categories/nginx/</loc>
     <lastmod>2017-06-18T17:46:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://akccakcctw.github.io/categories/nodejs/</loc>
-    <lastmod>2016-03-22T14:20:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -374,12 +314,6 @@
   
   <url>
     <loc>https://akccakcctw.github.io/categories/php/</loc>
-    <lastmod>2016-12-22T08:02:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://akccakcctw.github.io/categories/post/</loc>
     <lastmod>2016-12-22T08:02:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -397,26 +331,8 @@
   </url>
   
   <url>
-    <loc>https://akccakcctw.github.io/categories/selinux/</loc>
-    <lastmod>2017-06-18T17:46:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://akccakcctw.github.io/categories/server/</loc>
-    <lastmod>2016-01-08T15:50:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://akccakcctw.github.io/categories/shell-script/</loc>
-    <lastmod>2017-06-27T14:21:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://akccakcctw.github.io/categories/string/</loc>
-    <lastmod>2016-03-15T10:47:00+00:00</lastmod>
+    <lastmod>2017-06-18T17:46:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -444,14 +360,8 @@
   </url>
   
   <url>
-    <loc>https://akccakcctw.github.io/categories/waapi/</loc>
-    <lastmod>2016-03-24T10:46:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://akccakcctw.github.io/categories/wget/</loc>
-    <lastmod>2016-05-19T07:46:00+00:00</lastmod>
+    <loc>https://akccakcctw.github.io/categories/vim/</loc>
+    <lastmod>2017-06-27T14:21:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -462,20 +372,8 @@
   </url>
   
   <url>
-    <loc>https://akccakcctw.github.io/categories/%E5%8B%95%E7%95%AB/</loc>
-    <lastmod>2016-03-24T10:46:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://akccakcctw.github.io/</loc>
     <lastmod>2017-09-26T11:10:26+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://akccakcctw.github.io/categories/%E8%A1%A8%E5%96%AE/</loc>
-    <lastmod>2016-05-09T07:19:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

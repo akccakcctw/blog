@@ -58,6 +58,24 @@
 <section class="section">
   <div class="container">
     <time class="date">January 8, 2016</time>
+    
+      <div class="category">
+  
+  <span class="category__item">
+    <a href="/categories/php">PHP</a>
+  </span>
+  
+  <span class="category__item">
+    <a href="/categories/javascript">JavaScript</a>
+  </span>
+  
+  <span class="category__item">
+    <a href="/categories/server">server</a>
+  </span>
+  
+</div>
+
+    
     <h1 class="title">各種讓網頁重新導向的方法</h1>
     <div class="content">
       
@@ -93,7 +111,7 @@ RewriteBase /
 RewriteRule ^index\.html?$ / [NC,R,L]
 </code></pre>
 
-<h2 id="同場加映-javascript重導">同場加映：Javascript重導</h2>
+<h2 id="同場加映-javascript重導">同場加映：JavaScript重導</h2>
 
 <pre><code class="language-js">// similar behavior as an HTTP redirect，不會留下歷史記錄
 window.location.replace(&quot;http://stackoverflow.com&quot;);
