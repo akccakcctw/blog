@@ -2,7 +2,10 @@
 title: "Windows Subsystem for Linux 筆記"
 date: "2017-06-01T07:42:00"
 draft: true
-categories: ["Windows Subsystem", "Linux"]
+categories:
+  - Windows Subsystem
+  - Windows
+  - Linux
 ---
 
 ## Ubuntu 14.04 -> 16.04

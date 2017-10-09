@@ -1,7 +1,10 @@
 ---
 title: "執行 .sh 時發生：'env: node\\r: No such file or directory'"
 date: "2017-06-27T14:21:00"
-categories: ["Shell Script", "File Format", "Windows"]
+categories:
+  - Bash
+  - Windows
+  - Vim
 ---
 
 今天在 Linux 系統裡執行 .sh 時，遇到系統編碼格式不同所造成的問題  

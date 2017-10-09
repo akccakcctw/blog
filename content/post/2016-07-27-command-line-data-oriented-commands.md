@@ -1,7 +1,9 @@
 ---
 title: "Command Line 資料重導向相關命令"
 date: "2016-07-27T01:11:00"
-categories: ["bash", "command-line"]
+categories:
+  - bash
+  - command-line
 ---
 
 ## `stdin`、`stdout`、`stderr`

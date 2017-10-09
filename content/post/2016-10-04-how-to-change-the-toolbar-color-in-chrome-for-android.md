@@ -1,7 +1,8 @@
 ---
 title: "如何改變 Chrome for Android 的 toolbar 顏色？"
 date: "2016-10-04T06:05:00"
-categories: ["chrome"]
+categories:
+  - Chrome
 ---
 
 超簡單，只要新增一個`name="theme-color"`的`meta`標籤到`<head>`內即可，content 內容則可以指定任何 CSS 顏色，如以下範例：

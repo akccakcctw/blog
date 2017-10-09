@@ -1,7 +1,8 @@
 ---
 title: "純 CSS 實現打字效果"
 date: "2017-02-15T02:22:00"
-categories: ["CSS"]
+categories:
+  - CSS
 ---
 
 剛剛看到這個[搜尋樣式](https://tympanus.net/Development/SearchUIEffects/index11.html)，覺得在搜尋前使用 #tag 的方式提醒使用者可用的關鍵字不錯，應該會適合小網站或部落格。

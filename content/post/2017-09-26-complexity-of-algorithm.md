@@ -1,6 +1,8 @@
 ---
 date: 2017-09-26T11:10:26+08:00
 title: 算法複雜度筆記
+categories:
+  - Algorithm
 ---
 
 <script type="text/javascript" async

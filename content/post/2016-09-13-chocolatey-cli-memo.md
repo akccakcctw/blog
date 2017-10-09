@@ -1,7 +1,9 @@
 ---
 title: "chocolatey 指令備忘"
 date: "2016-09-13T09:42:00"
-categories: ["cmd", "windows"]
+categories:
+  - command-line
+  - Windows
 ---
 
 ## 搜尋／列出套件

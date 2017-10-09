@@ -1,7 +1,9 @@
 ---
 title: "分頁自動帶入 link-rel-prefetch function 試作"
 date: "2017-04-20T07:34:00"
-categories: ["HTML", "Javascript"]
+categories:
+  - HTML5
+  - JavaScript
 ---
 
 ```html

@@ -1,7 +1,8 @@
 ---
 title: "瀑布流（masonry）圖片重疊問題"
 date: "2016-02-22T09:25:00"
-categories: ["jQuery", "masonry"]
+categories: 
+  - JavaScript
 ---
 
 因為 [pinterest](https://www.pinterest.com/) 的緣故，有不少網站喜歡使用瀑布流排版，其中最簡單好用的套件莫過於 [masonry](http://masonry.desandro.com/) 了。

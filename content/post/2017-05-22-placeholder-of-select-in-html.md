@@ -2,7 +2,8 @@
 title: "HTML select 的 placeholder 寫法"
 date: "2017-05-22T07:17:00"
 draft: true
-categories: ["HTML"]
+categories:
+  - HTML
 ---
 
 假如我有一個`select`表單，該如何讓它預設顯示`placeholder`呢？（這個預設值僅為提示用，不是選項之一）

@@ -1,7 +1,9 @@
 ---
 title: "SVN 常用指令備忘"
 date: "2016-09-08T09:21:00"
-categories: ["svn", "version control"]
+categories:
+  - svn
+  - version control
 ---
 
 ## svn檔案狀態

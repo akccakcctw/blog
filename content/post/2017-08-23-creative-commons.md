@@ -1,6 +1,8 @@
 ---
 title: 創用CC授權是什麼鬼？
 date: 2017-08-23T17:50:00+08:00
+categories:
+  - License
 ---
 
 ![CC BY-NC-ND](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-nd.png)  

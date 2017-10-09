@@ -1,7 +1,8 @@
 ---
 title: "Wget 指令用途與範例"
 date: "2016-05-19T07:46:00"
-categories: ["wget", "command-line", "download"]
+categories:
+  - command-line
 ---
 
 ## 範例用法

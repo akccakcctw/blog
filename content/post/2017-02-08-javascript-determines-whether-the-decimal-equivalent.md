@@ -1,7 +1,8 @@
 ---
 title: "Javascript 判斷小數是否相等"
 date: "2017-02-08T03:29:00"
-categories: ["Javascript"]
+categories:
+  - JavaScript
 ---
 
 ![IEEE_754_Double_Floating_Point_Format](https://i.imgur.com/AemLA5y.png)

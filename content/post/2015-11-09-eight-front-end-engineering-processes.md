@@ -1,7 +1,9 @@
 ---
 title: "前端工程八大流程"
 date: "2015-11-09T15:47:00"
-categories: ["front-end", "UX"]
+categories: 
+  - Front-end
+  - UX
 ---
 ## 1. 開發主題與需求確認（Topic Confirmation）
 

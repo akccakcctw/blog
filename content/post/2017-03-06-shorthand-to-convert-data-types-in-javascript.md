@@ -1,7 +1,8 @@
 ---
-title: "Javascript 轉換型別小技巧"
+title: "JavaScript 轉換型別小技巧"
 date: "2017-03-06T09:47:00"
-categories: ["Javascript"]
+categories:
+  - JavaScript
 ---
 
 ```js

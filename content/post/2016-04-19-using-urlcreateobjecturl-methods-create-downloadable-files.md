@@ -1,7 +1,9 @@
 ---
 title: "利用URL.createObjectURL方法，即時產生可下載檔案"
 date: "2016-04-19T06:36:00"
-categories: ["html5", "javascript"]
+categories:
+  - HTML5
+  - JavaScript
 ---
 
 最近在看 HTML5 的一些 API，發現有不少好用的功能，剛才看到[黑暗執行緒](http://blog.darkthread.net/post-2014-03-12-html5-object-url.aspx)這篇介紹，可以利用`URL.createObjectURL`，將物件內容暫時存在瀏覽器記憶體中，並且可以產生下載連結！

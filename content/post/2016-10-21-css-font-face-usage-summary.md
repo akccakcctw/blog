@@ -1,7 +1,9 @@
 ---
 title: "CSS @font-face 用法概要"
 date: "2016-10-21T16:19:00"
-categories: ["CSS"]
+categories:
+  - CSS
+  - Font
 ---
 
 在CSS檔開頭用`@font-face`宣告你的自定義字型，詳細語法說明如下：

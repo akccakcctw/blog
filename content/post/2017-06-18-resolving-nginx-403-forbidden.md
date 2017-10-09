@@ -1,7 +1,9 @@
 ---
 title: "解決 Nginx 403 Forbidden"
 date: "2017-06-18T17:46:00"
-categories: ["Nginx", "SElinux"]
+categories:
+  - Nginx
+  - Server
 ---
 
 1. 檢查 error log

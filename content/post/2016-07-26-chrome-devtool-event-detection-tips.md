@@ -1,7 +1,10 @@
 ---
 title: "Chrome Devtools 事件偵測的幾個技巧"
 date: "2016-07-26T14:56:00"
-categories: ["Devtools", "Javascript", "Chrome"]
+categories:
+  - Devtools
+  - JavaScript
+  - Chrome
 ---
 不得不說，Chrome 開發者工具愈來越好用了，除了一般常用的 HTML、CSS 編輯功能之外，最近也常利用 sources tab，直接在瀏覽器開啟 js 檔抓 bug 測試。不過因為功能多又更新快速，平常也是用編輯器為主，瀏覽器的開發者工具對我來說還是非常神秘啊～
 

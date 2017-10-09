@@ -1,7 +1,8 @@
 ---
 title: "cURL指令備忘"
 date: "2016-03-20T15:59:00"
-categories: ["curl", "command", "download"]
+categories:
+  - command-line
 ---
 
 ## 一般用法

@@ -2,7 +2,10 @@
 title: "解決 Bash for Windows 亂碼問題"
 date: "2016-09-03T07:50:00"
 draft: true
-categories: 
+categories:
+  - Windows
+  - Bash
+  - command-line
 ---
 
 winpty

@@ -1,7 +1,10 @@
 ---
 title: "利用 http-server 快速搭建一個 localhost 伺服器"
 date: "2016-03-22T14:20:00"
-categories: ["http-server", "nodejs", "npm", "localhost"]
+categories:
+  - command-line
+  - npm
+  - server
 ---
 
 搭建一個網站時，我們經常需要立即測試，方便修正與微調。但有些頁面因為安全性或是其他問題，必須要放上伺服器才能看到效果（比如 ajax，如果不是放在伺服器端，就會出現 XMLHttpRequest cannot load 的問題），屈就於此，在測試階段需要多一個部屬至伺服器的步驟，也造成我們的修正作業變得困難重重。

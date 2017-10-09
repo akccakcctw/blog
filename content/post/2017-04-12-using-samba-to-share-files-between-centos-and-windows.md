@@ -1,7 +1,11 @@
 ---
 title: "CentOS 設定 Samba server，與 Windows 共享檔案"
 date: "2017-04-12T16:48:00"
-categories: ["Samba", "CentOS", "Windows"]
+categories:
+  - Samba
+  - CentOS
+  - Windows
+  - File System
 ---
 
 以 CentOS 當作測試環境 server 時，如果習慣的開發環境是 Windows，會需要在 CentOS 內安裝 Samba，才能順利與 Windows 分享檔案。

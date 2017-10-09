@@ -1,7 +1,9 @@
 ---
 title: "Cmder 相關配置與問題解決"
 date: "2017-01-10T04:05:00"
-categories: ["bash", "cmder"]
+categories:
+  - bash
+  - command-line
 ---
 
 *目前版本 v1.3.2*

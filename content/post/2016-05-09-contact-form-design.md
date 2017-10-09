@@ -1,7 +1,10 @@
 ---
 title: "contact 表單設計"
 date: "2016-05-09T07:19:00"
-categories: ["CSS", "Form", "表單"]
+categories:
+  - CSS
+  - Design
+  - Form
 ---
 
 上週逛 awwwards，看到[這個網站](http://www.giantstepsmedias.com/contact)的表單設計得不錯，手癢也來仿作了一個。

@@ -1,7 +1,10 @@
 ---
 title: "各種讓網頁重新導向的方法"
 date: "2016-01-08T15:50:00"
-categories: ["server", "php", "javascript", "htaccess"]
+categories:
+  - PHP
+  - JavaScript
+  - server
 ---
 
 ## 方法一：直接在錯誤頁裡重導
@@ -34,7 +37,7 @@ RewriteBase /
 RewriteRule ^index\.html?$ / [NC,R,L]
 ```
 
-## 同場加映：Javascript重導
+## 同場加映：JavaScript重導
 ```js
 // similar behavior as an HTTP redirect，不會留下歷史記錄
 window.location.replace("http://stackoverflow.com");

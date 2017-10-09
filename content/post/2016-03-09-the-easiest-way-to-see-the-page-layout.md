@@ -2,7 +2,8 @@
 title: "一鍵看光網頁排版"
 date: "2016-03-09T10:48:00"
 comments: true
-categories: ["CSS", "bookmark"]
+categories:
+  - CSS
 ---
 
 在設計網頁時，我經常會在網路上參考各種排版，吸取大神們的經驗與靈感。
@@ -16,7 +17,7 @@ categories: ["CSS", "bookmark"]
 
 當然，辦法是有的，只要配合 Javascript 就可以快速達成！
 
-## 讓outline現出原形！
+## 讓 outline 現出原形！
 
 打開瀏覽器的開發者工具，以我習慣的 Chrome 為例，按下右鍵 → 檢查元素，或者直接按快捷鍵 F12 打開。
 （其實之前亂玩發現快捷鍵超多的，舉凡 Ctrl-Shift-i、Ctrl-Shift-j、Ctrl-Shift-c，都可以快速開啟開發者工具的不同功能）

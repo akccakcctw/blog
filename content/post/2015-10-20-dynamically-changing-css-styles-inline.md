@@ -1,7 +1,9 @@
 ---
 title: "動態改變 CSS 樣式的 inline 寫法"
 date: "2015-10-20T16:10:00"
-categories: ["CSS", "Javascript"]
+categories:
+  - CSS
+  - JavaScript
 ---
 
 某些 CSS 樣式無法使用 inline 寫法表示，必須要寫在`<style>`標籤裡面。比如說，我們想要改變某個連結的`hover`樣式，就只能去修改 style.css，或是`<style>`標籤裡面的`a:hover`。

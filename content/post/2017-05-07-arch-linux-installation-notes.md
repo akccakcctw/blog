@@ -2,7 +2,9 @@
 title: "Arch Linux 安裝筆記"
 date: "2017-05-07T16:56:00"
 draft: true
-categories: ["Linux", "Arch"]
+categories:
+  - Linux
+  - Arch
 ---
 
 ## 安裝步驟

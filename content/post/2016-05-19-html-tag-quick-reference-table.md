@@ -1,7 +1,9 @@
 ---
 title: "HTML tag 速查表"
 date: "2016-05-19T04:15:00"
-categories: ["html", "cheatsheet"]
+categories:
+  - HTML5
+  - cheatsheet
 ---
 
 ## Main

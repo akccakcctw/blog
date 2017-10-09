@@ -1,7 +1,9 @@
 ---
 title: "FormData 基礎用法"
 date: "2017-01-06T02:53:00"
-categories: ["Javascript", "Form"]
+categories:
+  - JavaScript
+  - Form
 ---
 ## 創建 `FormData` 物件
 ```js

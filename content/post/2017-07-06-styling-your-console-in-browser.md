@@ -1,6 +1,10 @@
 ---
 title: 利用 CSS 美化瀏覽器的 `console`
 date: 2017-07-06T10:34:09+08:00
+categories:
+  - CSS
+  - Devtools
+  - Chrome
 ---
 
 瀏覽器的`console`功能不少，除了最常用的`log`之外，還有代表不同狀態的：

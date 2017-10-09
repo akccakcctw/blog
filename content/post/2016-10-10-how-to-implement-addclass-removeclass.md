@@ -1,7 +1,8 @@
 ---
 title: "如何實作 addClass, removeClass？"
 date: "2016-10-10T09:46:00"
-categories: ["javascript"]
+categories:
+  - JavaScript
 ---
 
 以下原始碼與想法，參考自 [Sitepoint：Add or Remove a CSS Class with Vanilla JavaScript](https://www.sitepoint.com/add-remove-css-class-vanilla-js/) 並作改寫，為了撰寫方便，使用 ES6 語法，如需支援古老瀏覽器，仍需經過 [Babel](https://babeljs.io/) 轉換。

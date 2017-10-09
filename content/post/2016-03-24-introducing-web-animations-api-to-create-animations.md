@@ -1,7 +1,10 @@
 ---
 title: "利用WAAPI(Web Animations API)製作動態效果"
 date: "2016-03-24T10:46:00"
-categories: ["WAAPI", "animation", "動畫"]
+categories:
+  - JavaScript
+  - CSS
+  - animation
 ---
 
 一般來說，網頁動畫常使用 Javascript、CSS、SVG 等方式製作，尤其近期 SVG 動畫有越來越流行的趨勢，這些方法都各有優缺，`WAAPI`則企圖融合 CSS 的性能（支援硬體加速，但動態調整仍需依靠 Javascript），以及 Javascript 的易於調整，並以原生 API 來達成！

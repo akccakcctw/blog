@@ -1,7 +1,8 @@
 ---
 title: "Javascript 字串轉陣列"
 date: "2016-03-15T10:47:00"
-categories: ["javascript", "string", "array"]
+categories:
+  - JavaScript
 ---
 
 如果要將字串轉為陣列形式，可以利用 for 迴圈，配合 slice 切割字串
