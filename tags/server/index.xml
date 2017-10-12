@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Server on 為了可能的聲音</title>
+    <link>https://akccakcctw.github.io/tags/server/</link>
+    <description>Recent content in Server on 為了可能的聲音</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 11 Oct 2017 00:29:24 +0800</lastBuildDate>
+    
+	<atom:link href="https://akccakcctw.github.io/tags/server/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>利用 SSH Tunnel 做跳板（aka. 翻牆）</title>
+      <link>https://akccakcctw.github.io/2017/10/%E5%88%A9%E7%94%A8-ssh-tunnel-%E5%81%9A%E8%B7%B3%E6%9D%BFaka.-%E7%BF%BB%E7%89%86/</link>
+      <pubDate>Wed, 11 Oct 2017 00:29:24 +0800</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2017/10/%E5%88%A9%E7%94%A8-ssh-tunnel-%E5%81%9A%E8%B7%B3%E6%9D%BFaka.-%E7%BF%BB%E7%89%86/</guid>
+      <description>SSH參數說明： - N: 不執行任何指令 - f: 在背景執行 - L: 將 local port 轉向 - R: 將 remote port 轉向 - D: socks proxy 建立 SSH tunnel（正向） # syntax: ssh -L local_port:remote_address:remote_port username@server.com # 經過 ssh://localhost:2323 的連線，會</description>
+    </item>
+    
+  </channel>
+</rss>

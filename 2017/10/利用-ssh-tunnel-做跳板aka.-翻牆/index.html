@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="為了可能的聲音"> 
+    <meta name="author" content="Rex Tsou">
+    <meta name="copyright" content="Rex Tsou">
+    
+    <meta property="og:title" content="利用 SSH Tunnel 做跳板（aka. 翻牆）">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="為了可能的聲音">
+    
+    <meta itemprop="name" content="利用 SSH Tunnel 做跳板（aka. 翻牆） | 為了可能的聲音">
+    <meta itemprop="description" content="為了可能的聲音">
+    <title>利用 SSH Tunnel 做跳板（aka. 翻牆） | 為了可能的聲音</title>
+    <link rel="stylesheet" href="https://akccakcctw.github.io//css/style.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css"> 
+  </head>
+
+<header class="section header">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav__left">
+        <a class="nav__item" href="https://akccakcctw.github.io/"><h1 class="title">為了可能的聲音</h1></a>
+      </div>
+      <div class="nav__right">
+        <nav class="nav__item">
+          <a class="item__link" href="/post">Archives</a>
+        </nav>
+        <nav class="nav__item">
+          
+          <a class="item__link" href="https://github.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="https://www.facebook.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-facebook-square"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="/index.xml" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <time class="date">October 11, 2017</time>
+    
+      <div class="category">
+  
+  <span class="category__item">
+    <a href="/categories/command-line">command-line</a>
+  </span>
+  
+  <span class="category__item">
+    <a href="/categories/linux">Linux</a>
+  </span>
+  
+  <span class="category__item">
+    <a href="/categories/server">server</a>
+  </span>
+  
+</div>
+
+    
+    <h1 class="title">利用 SSH Tunnel 做跳板（aka. 翻牆）</h1>
+    <div class="content">
+      
+
+<p><code>SSH</code>參數說明：<br />
+- <code>N</code>: 不執行任何指令<br />
+- <code>f</code>: 在背景執行<br />
+- <code>L</code>: 將 local port 轉向<br />
+- <code>R</code>: 將 remote port 轉向<br />
+- <code>D</code>: socks proxy</p>
+
+<h2 id="建立-ssh-tunnel-正向">建立 SSH tunnel（正向）</h2>
+
+<pre><code class="language-sh"># syntax: ssh -L local_port:remote_address:remote_port username@server.com
+
+# 經過 ssh://localhost:2323 的連線，會藉由 serverB 作為跳板，再連到 ptt.cc:22
+[user@serverA]$ ssh -NfL 2323:ptt.cc:22 user@serverB
+
+# 連線
+[user@serverA]$ ssh bbsu@localhost -p 2323
+</code></pre>
+
+<h2 id="建立-ssh-tunnel-反向">建立 SSH tunnel（反向）</h2>
+
+<p><strong>注意</strong>，開啟反向 tunnel 之後，等於區網開了一個洞，外面的人可以連進來，可能會造成安全風險，請謹慎使用。<br />
+若配合<code>rdesktop</code> 之類的程式使用，甚至可以在桌面環境遠端遙控。</p>
+
+<pre><code class="language-sh"># syntax: ssh -R remote_port:local_address:local_port username@server.com
+
+# 經過 serverB:8888 的連線，都會 tunnel 到 serverA:1234
+[user@serverA]$ ssh -NfR 8888:localhost:1234 user@serverB
+
+# 連線
+[user@serverB]$ ssh user@localhost -p 8888
+
+# 遠端桌面
+[user@serverB]$ rdesktop localhost:8888
+</code></pre>
+
+<h2 id="建立-socks-proxy-server">建立 SOCKS proxy server</h2>
+
+<pre><code class="language-sh"># syntax: ssh -D port user@host
+
+[user@serverA]$ ssh -NfD 2323 user@serverB
+
+# 讓 chrome 透過 proxy 連線
+# 將以下設定加入啟動 chrome 的「目標」（右鍵 ➡️ 內容）後面
+--proxy-server=&quot;socks5://localhost:2323&quot;
+
+# 啟動以後，瀏覽所有網頁都會透過這台 proxy server
+</code></pre>
+
+<h2 id="參考資料">參考資料</h2>
+
+<ul>
+<li><a href="https://www.ubuntu-tw.org/modules/newbb/viewtopic.php?topic_id=17538">上班族 ssh tunnel 求生手冊</a></li>
+<li><a href="http://pre.tir.tw/008/blog/output/ssh-tunnel.html">ssh tunnel</a></li>
+<li><a href="https://ez3c.tw/2043">Reverse SSH Tunnel實際運用，搭配 auotssh 永不斷線，putty 建立反向 tunnel</a></li>
+<li><a href="https://serverfault.com/questions/78351/can-i-create-ssh-to-tunnel-http-through-server-like-it-was-proxy">serverfault: Can I create SSH to tunnel HTTP through server like it was proxy?</a></li>
+<li><a href="https://www.chromium.org/developers/design-documents/network-stack/socks-proxy">Configuring a SOCKS proxy server in Chrome</a></li>
+<li><a href="https://blog.longwin.com.tw/2010/01/linux-ssh-socks-firefox-pidgin-2010/">Linux 透過 SSH SOCKS 連線來使用 Firefox / Pidgin(MSN, GTalk..)</a></li>
+<li><a href="https://coldnew.github.io/59b43040/">使用 OpenShift 的 SSH 來架設跳板</a></li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+<section class="section disqus">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'akccakcctw';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<footer class="section footer">
+  <div class="container">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</footer>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-57924156-2', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
