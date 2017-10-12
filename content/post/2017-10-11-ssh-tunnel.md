@@ -12,12 +12,13 @@ tags:
 description: ""
 ---
 
-`SSH`參數說明：  
-- `N`: 不執行任何指令  
-- `f`: 在背景執行  
-- `L`: 將 local port 轉向  
-- `R`: 將 remote port 轉向  
-- `D`: socks proxy  
+`SSH`參數說明：
+
+- `-N` : 不執行任何指令  
+- `-f` : 在背景執行  
+- `-L` : 將 local port 轉向  
+- `-R` : 將 remote port 轉向  
+- `-D` : socks proxy  
 
 ## 建立 SSH tunnel（正向）
 ```sh
