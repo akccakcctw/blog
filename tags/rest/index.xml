@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rest on 為了可能的聲音</title>
+    <link>https://akccakcctw.github.io/tags/rest/</link>
+    <description>Recent content in Rest on 為了可能的聲音</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 19 Oct 2017 12:56:26 +0800</lastBuildDate>
+    
+	<atom:link href="https://akccakcctw.github.io/tags/rest/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>VSCode 實用套件： REST Client</title>
+      <link>https://akccakcctw.github.io/2017/10/vscode-%E5%AF%A6%E7%94%A8%E5%A5%97%E4%BB%B6-rest-client/</link>
+      <pubDate>Thu, 19 Oct 2017 12:56:26 +0800</pubDate>
+      
+      <guid>https://akccakcctw.github.io/2017/10/vscode-%E5%AF%A6%E7%94%A8%E5%A5%97%E4%BB%B6-rest-client/</guid>
+      <description>REST Client: 官方載點 REST Client: Github 專案 不多說，先直接上圖感受一下： 簡介 REST Client allows you to send HTTP request and view the response in Visual Studio Code directly. REST Client 這個套件可以讓 VSCode 擁有像 Postman 一樣，對 server 發送GET、P</description>
+    </item>
+    
+  </channel>
+</rss>

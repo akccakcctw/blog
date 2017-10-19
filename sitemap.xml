@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://akccakcctw.github.io/2017/10/vscode-%E5%AF%A6%E7%94%A8%E5%A5%97%E4%BB%B6-rest-client/</loc>
+    <lastmod>2017-10-19T12:56:26+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://akccakcctw.github.io/2017/10/%E5%88%A9%E7%94%A8-ssh-tunnel-%E5%81%9A%E8%B7%B3%E6%9D%BFaka.-%E7%BF%BB%E7%89%86/</loc>
     <lastmod>2017-10-11T00:29:24+08:00</lastmod>
   </url>
@@ -264,6 +269,12 @@
   </url>
   
   <url>
+    <loc>https://akccakcctw.github.io/categories/editor/</loc>
+    <lastmod>2017-10-19T12:56:26+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://akccakcctw.github.io/categories/file-system/</loc>
     <lastmod>2017-04-12T16:48:00+00:00</lastmod>
     <priority>0</priority>
@@ -331,7 +342,13 @@
   
   <url>
     <loc>https://akccakcctw.github.io/post/</loc>
-    <lastmod>2017-10-11T00:29:24+08:00</lastmod>
+    <lastmod>2017-10-19T12:56:26+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://akccakcctw.github.io/tags/rest/</loc>
+    <lastmod>2017-10-19T12:56:26+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -367,7 +384,7 @@
   
   <url>
     <loc>https://akccakcctw.github.io/tags/</loc>
-    <lastmod>2017-10-11T00:29:24+08:00</lastmod>
+    <lastmod>2017-10-19T12:56:26+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -396,6 +413,12 @@
   </url>
   
   <url>
+    <loc>https://akccakcctw.github.io/tags/vscode/</loc>
+    <lastmod>2017-10-19T12:56:26+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://akccakcctw.github.io/categories/windows/</loc>
     <lastmod>2017-06-27T14:21:00+00:00</lastmod>
     <priority>0</priority>
@@ -403,7 +426,7 @@
   
   <url>
     <loc>https://akccakcctw.github.io/</loc>
-    <lastmod>2017-10-11T00:29:24+08:00</lastmod>
+    <lastmod>2017-10-19T12:56:26+08:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 11 Oct 2017 00:29:24 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 19 Oct 2017 12:56:26 +0800</lastBuildDate>
     
 	<atom:link href="https://akccakcctw.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rest</title>
+      <link>https://akccakcctw.github.io/tags/rest/</link>
+      <pubDate>Thu, 19 Oct 2017 12:56:26 +0800</pubDate>
+      
+      <guid>https://akccakcctw.github.io/tags/rest/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Server</title>
@@ -36,6 +45,15 @@
       <pubDate>Wed, 11 Oct 2017 00:29:24 +0800</pubDate>
       
       <guid>https://akccakcctw.github.io/tags/tunnel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vscode</title>
+      <link>https://akccakcctw.github.io/tags/vscode/</link>
+      <pubDate>Thu, 19 Oct 2017 12:56:26 +0800</pubDate>
+      
+      <guid>https://akccakcctw.github.io/tags/vscode/</guid>
       <description></description>
     </item>
     

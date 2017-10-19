@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="為了可能的聲音"> 
+    <meta name="author" content="Rex Tsou">
+    <meta name="copyright" content="Rex Tsou">
+    
+    <meta property="og:title" content="VSCode 實用套件： REST Client">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="為了可能的聲音">
+    
+    <meta itemprop="name" content="VSCode 實用套件： REST Client | 為了可能的聲音">
+    <meta itemprop="description" content="為了可能的聲音">
+    <title>VSCode 實用套件： REST Client | 為了可能的聲音</title>
+    <link rel="stylesheet" href="https://akccakcctw.github.io//css/style.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css"> 
+  </head>
+
+<header class="section header">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav__left">
+        <a class="nav__item" href="https://akccakcctw.github.io/"><h1 class="title">為了可能的聲音</h1></a>
+      </div>
+      <div class="nav__right">
+        <nav class="nav__item">
+          <a class="item__link" href="/post">Archives</a>
+        </nav>
+        <nav class="nav__item">
+          
+          <a class="item__link" href="https://github.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="https://www.facebook.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-facebook-square"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="/index.xml" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <time class="date">October 19, 2017</time>
+    
+      <div class="category">
+  
+  <span class="category__item">
+    <a href="/categories/editor">Editor</a>
+  </span>
+  
+</div>
+
+    
+    <h1 class="title">VSCode 實用套件： REST Client</h1>
+    <div class="content">
+      
+
+<p><a href="https://marketplace.visualstudio.com/items?itemName=humao.rest-client">REST Client: 官方載點</a></p>
+
+<p><a href="https://github.com/Huachao/vscode-restclient">REST Client: Github 專案</a></p>
+
+<hr />
+
+<p>不多說，先直接上圖感受一下：</p>
+
+<p><img src="https://raw.githubusercontent.com/Huachao/vscode-restclient/master/images/usage.gif" alt="rest-client-usage" /></p>
+
+<h2 id="簡介">簡介</h2>
+
+<blockquote>
+<p>REST Client allows you to send HTTP request and view the response in Visual Studio Code directly.</p>
+</blockquote>
+
+<p>REST Client 這個套件可以讓 VSCode 擁有像 <a href="https://www.getpostman.com/">Postman</a> 一樣，對 server 發送<code>GET</code>、<code>POST</code>等等 HTTP 請求的能力。</p>
+
+<p>除了讓你不需要離開編輯器環境之外，它的強大之處在於，可以把這些 HTTP request 預先編輯成<code>*.http</code>文件，方便重複使用，而且還能儲存 request 的歷史紀錄，如果 request 的資源是圖片的話，甚至能直接在編輯器內顯示（身為一個瀏覽器，可以顯示圖片也是很合理的（無誤））。</p>
+
+<p>而且！它能夠依照你的 request 產生相對應的程式碼，非常方便。</p>
+
+<p>接下來，我們需要了解一下該怎麼使用。以下使用方式說明大多數取自<a href="https://github.com/Huachao/vscode-restclient/blob/master/README.md">官方文件</a>，如果習慣閱讀英文，可以直接前往閱讀。</p>
+
+<h2 id="使用方式">使用方式</h2>
+
+<p>最簡單的用法，就是直接在<code>*.http</code>的檔案內（或是在編輯器右下角暫時切換 syntax language），然後輸入網址即可。例如：</p>
+
+<pre><code class="language-http">https://example.com/comments/1
+</code></pre>
+
+<p>然後，你會發現網址上方多了<code>Send Request</code>的文字按鈕，點擊之後會自動打開一個 tab，裡面顯示的就是 response 結果。</p>
+
+<p>編輯器底下的狀態列也有這次 request 的詳細資訊，包含 Socket, DNS, TCP, First Byte 和 Download，只要把滑鼠移上圖示就可以看到詳細內容。</p>
+
+<p>你也可以發送符合 <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html">RFC 2616</a> 標準的 request，範例如下：</p>
+
+<pre><code class="language-http">POST https://example.com/comments HTTP/1.1
+content-type: application/json
+
+{
+    &quot;name&quot;: &quot;sample&quot;,
+    &quot;time&quot;: &quot;Wed, 21 Oct 2015 18:27:50 GMT&quot;
+}
+</code></pre>
+
+<p>如果要在一份檔案內保留不同的 request，只要以三個或三個以上的<code>#</code>作為分隔符即可：</p>
+
+<pre><code class="language-http">GET https://example.com/comments/1 HTTP/1.1
+
+###
+
+GET https://example.com/topics/1 HTTP/1.1
+
+###
+
+POST https://example.com/comments HTTP/1.1
+content-type: application/json
+
+{
+    &quot;name&quot;: &quot;sample&quot;,
+    &quot;time&quot;: &quot;Wed, 21 Oct 2015 18:27:50 GMT&quot;
+}
+</code></pre>
+
+<h2 id="進階使用">進階使用</h2>
+
+<h3 id="query-strings">Query Strings</h3>
+
+<p>request 可以包含 query strings，而且 query strings 可以分行書寫：</p>
+
+<pre><code class="language-http">GET https://example.com/comments?page=2&amp;pageSize=10
+
+###
+
+GET https://example.com/comments
+    ?page=2
+    &amp;pageSize=10
+</code></pre>
+
+<h3 id="request-headers">Request Headers</h3>
+
+<p>在 request line 之後，可以緊接著（中間無空行）自訂 header 資訊：</p>
+
+<pre><code class="language-http">User-Agent: rest-client
+Accept-Language: en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4
+Content-Type: application/json
+</code></pre>
+
+<h3 id="request-body">Request Body</h3>
+
+<p>還可以自訂 body 資訊：</p>
+
+<pre><code class="language-http">POST https://example.com/comments HTTP/1.1
+Content-Type: application/xml
+Authorization: token xxx
+
+&lt;request&gt;
+    &lt;name&gt;sample&lt;/name&gt;
+    &lt;time&gt;Wed, 21 Oct 2015 18:27:50 GMT&lt;/time&gt;
+&lt;/request&gt;
+</code></pre>
+
+<p>body 資訊不一定要寫在同一份檔案內，可以引用方式添加，前方須以<code>&lt;</code>開頭：</p>
+
+<pre><code class="language-http">POST https://example.com/comments HTTP/1.1
+Content-Type: application/xml
+Authorization: token xxx
+
+&lt; ./demo.xml
+</code></pre>
+
+<h3 id="表單資料">表單資料</h3>
+
+<p>有時我們需要測試表單的 POST 提交，可以用 <a href="https://stackoverflow.com/questions/4526273/what-does-enctype-multipart-form-data-mean"><code>multipart/form-data</code></a> 的方式：</p>
+
+<pre><code class="language-http">POST https://api.example.com/user/upload
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name=&quot;text&quot;
+
+title
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name=&quot;image&quot;; filename=&quot;1.png&quot;
+Content-Type: image/png
+
+&lt; ./1.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+</code></pre>
+
+<h3 id="curl">cURL</h3>
+
+<p>REST Client 還支援了 cURL request，寫法就像你在終端機裡面一樣，但請注意並非支援 cURL 的所有功能，根據官方文件，目前支援功能如下：</p>
+
+<ul>
+<li>-X, &ndash;request</li>
+<li>-L, &ndash;location, &ndash;url</li>
+<li>-H, &ndash;header(no @ support)</li>
+<li>-b, &ndash;cookie(no cookie jar file support)</li>
+<li>-u, &ndash;user(Basic auth support only)</li>
+<li>-d, &ndash;data, &ndash;data-binary</li>
+</ul>
+
+<h3 id="歷史紀錄">歷史紀錄</h3>
+
+<p>曾經發出的 request 會有紀錄，可以利用快捷鍵<code>Ctrl + Alt + H</code>（MAC 為<code>Cmd + Alt + H</code>）或是<code>F1</code>叫出指令列後搜尋 Request History。</p>
+
+<h3 id="另存-response">另存 Response</h3>
+
+<p><img src="https://raw.githubusercontent.com/Huachao/vscode-restclient/master/images/response.gif" alt="save full response" /></p>
+
+<p>在預覽的那個 Tab 右上角會有儲存的按鈕，按下去即可儲存。</p>
+
+<h3 id="產生-code-snippet">產生 Code Snippet</h3>
+
+<p><img src="https://raw.githubusercontent.com/Huachao/vscode-restclient/master/images/code-snippet.gif" alt="generate code snippet" /></p>
+
+<p>這個功能非常實用，可以依照欲傳送的 request 反推出各語言的程式碼。</p>
+
+<p>其他還有許多更進階的功能，就請直接參照文件使用了。</p>
+
+<hr />
+
+<h2 id="參考資料">參考資料</h2>
+
+<ul>
+<li><a href="http://josephwoodward.co.uk/2017/10/rest-%20client-for-vs-code-an-elegant-alternative-postman">REST Client for VS Code, an elegant alternative to Postman</a></li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+<section class="section disqus">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'akccakcctw';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<footer class="section footer">
+  <div class="container">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</footer>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-57924156-2', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
