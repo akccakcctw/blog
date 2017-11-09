@@ -2,58 +2,58 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on 為了可能的聲音</title>
-    <link>https://akccakcctw.github.io/tags/</link>
+    <link>https://blog.rex-tsou.com/tags/</link>
     <description>Recent content in Tags on 為了可能的聲音</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
     <lastBuildDate>Thu, 19 Oct 2017 12:56:26 +0800</lastBuildDate>
     
-	<atom:link href="https://akccakcctw.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.rex-tsou.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Rest</title>
-      <link>https://akccakcctw.github.io/tags/rest/</link>
+      <link>https://blog.rex-tsou.com/tags/rest/</link>
       <pubDate>Thu, 19 Oct 2017 12:56:26 +0800</pubDate>
       
-      <guid>https://akccakcctw.github.io/tags/rest/</guid>
+      <guid>https://blog.rex-tsou.com/tags/rest/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Server</title>
-      <link>https://akccakcctw.github.io/tags/server/</link>
+      <link>https://blog.rex-tsou.com/tags/server/</link>
       <pubDate>Wed, 11 Oct 2017 00:29:24 +0800</pubDate>
       
-      <guid>https://akccakcctw.github.io/tags/server/</guid>
+      <guid>https://blog.rex-tsou.com/tags/server/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ssh</title>
-      <link>https://akccakcctw.github.io/tags/ssh/</link>
+      <link>https://blog.rex-tsou.com/tags/ssh/</link>
       <pubDate>Wed, 11 Oct 2017 00:29:24 +0800</pubDate>
       
-      <guid>https://akccakcctw.github.io/tags/ssh/</guid>
+      <guid>https://blog.rex-tsou.com/tags/ssh/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tunnel</title>
-      <link>https://akccakcctw.github.io/tags/tunnel/</link>
+      <link>https://blog.rex-tsou.com/tags/tunnel/</link>
       <pubDate>Wed, 11 Oct 2017 00:29:24 +0800</pubDate>
       
-      <guid>https://akccakcctw.github.io/tags/tunnel/</guid>
+      <guid>https://blog.rex-tsou.com/tags/tunnel/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Vscode</title>
-      <link>https://akccakcctw.github.io/tags/vscode/</link>
+      <link>https://blog.rex-tsou.com/tags/vscode/</link>
       <pubDate>Thu, 19 Oct 2017 12:56:26 +0800</pubDate>
       
-      <guid>https://akccakcctw.github.io/tags/vscode/</guid>
+      <guid>https://blog.rex-tsou.com/tags/vscode/</guid>
       <description></description>
     </item>
     

@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bash on 為了可能的聲音</title>
-    <link>https://akccakcctw.github.io/categories/bash/</link>
+    <link>https://blog.rex-tsou.com/categories/bash/</link>
     <description>Recent content in Bash on 為了可能的聲音</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
     <lastBuildDate>Tue, 27 Jun 2017 14:21:00 +0000</lastBuildDate>
     
-	<atom:link href="https://akccakcctw.github.io/categories/bash/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.rex-tsou.com/categories/bash/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>執行 .sh 時發生：&#39;env: node\r: No such file or directory&#39;</title>
-      <link>https://akccakcctw.github.io/2017/06/%E5%9F%B7%E8%A1%8C-.sh-%E6%99%82%E7%99%BC%E7%94%9Fenv-node/r-no-such-file-or-directory/</link>
+      <link>https://blog.rex-tsou.com/2017/06/%E5%9F%B7%E8%A1%8C-.sh-%E6%99%82%E7%99%BC%E7%94%9Fenv-node/r-no-such-file-or-directory/</link>
       <pubDate>Tue, 27 Jun 2017 14:21:00 +0000</pubDate>
       
-      <guid>https://akccakcctw.github.io/2017/06/%E5%9F%B7%E8%A1%8C-.sh-%E6%99%82%E7%99%BC%E7%94%9Fenv-node/r-no-such-file-or-directory/</guid>
+      <guid>https://blog.rex-tsou.com/2017/06/%E5%9F%B7%E8%A1%8C-.sh-%E6%99%82%E7%99%BC%E7%94%9Fenv-node/r-no-such-file-or-directory/</guid>
       <description>今天在 Linux 系統裡執行 .sh 時，遇到系統編碼格式不同所造成的問題 問題原因是因為 Windows 的結尾字符和 Linux 系統不一樣（Windows 就是喜歡加料&amp;hellip;</description>
     </item>
     
     <item>
       <title>Cmder 相關配置與問題解決</title>
-      <link>https://akccakcctw.github.io/2017/01/cmder-%E7%9B%B8%E9%97%9C%E9%85%8D%E7%BD%AE%E8%88%87%E5%95%8F%E9%A1%8C%E8%A7%A3%E6%B1%BA/</link>
+      <link>https://blog.rex-tsou.com/2017/01/cmder-%E7%9B%B8%E9%97%9C%E9%85%8D%E7%BD%AE%E8%88%87%E5%95%8F%E9%A1%8C%E8%A7%A3%E6%B1%BA/</link>
       <pubDate>Tue, 10 Jan 2017 04:05:00 +0000</pubDate>
       
-      <guid>https://akccakcctw.github.io/2017/01/cmder-%E7%9B%B8%E9%97%9C%E9%85%8D%E7%BD%AE%E8%88%87%E5%95%8F%E9%A1%8C%E8%A7%A3%E6%B1%BA/</guid>
+      <guid>https://blog.rex-tsou.com/2017/01/cmder-%E7%9B%B8%E9%97%9C%E9%85%8D%E7%BD%AE%E8%88%87%E5%95%8F%E9%A1%8C%E8%A7%A3%E6%B1%BA/</guid>
       <description>目前版本 v1.3.2 下載位置： 官網 http://cmder.net/ GitHub Repo Releases 中文亂碼 修改 Settings/Startup/Environment (Win+Alt+P 可打開設定介面)， 在底下新增一行 set LANG=zh_TW.UTF8 啟動資料夾更改為所在位置(current directory) 修改 Settings/Startup/Tasks 內的 Task Commands</description>
     </item>
     
     <item>
       <title>Command Line 資料重導向相關命令</title>
-      <link>https://akccakcctw.github.io/2016/07/command-line-%E8%B3%87%E6%96%99%E9%87%8D%E5%B0%8E%E5%90%91%E7%9B%B8%E9%97%9C%E5%91%BD%E4%BB%A4/</link>
+      <link>https://blog.rex-tsou.com/2016/07/command-line-%E8%B3%87%E6%96%99%E9%87%8D%E5%B0%8E%E5%90%91%E7%9B%B8%E9%97%9C%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Wed, 27 Jul 2016 01:11:00 +0000</pubDate>
       
-      <guid>https://akccakcctw.github.io/2016/07/command-line-%E8%B3%87%E6%96%99%E9%87%8D%E5%B0%8E%E5%90%91%E7%9B%B8%E9%97%9C%E5%91%BD%E4%BB%A4/</guid>
+      <guid>https://blog.rex-tsou.com/2016/07/command-line-%E8%B3%87%E6%96%99%E9%87%8D%E5%B0%8E%E5%90%91%E7%9B%B8%E9%97%9C%E5%91%BD%E4%BB%A4/</guid>
       <description>stdin、stdout、stderr 0：stdin（Standard input）標準輸入 1：stdout（Standard output）標</description>
     </item>
     

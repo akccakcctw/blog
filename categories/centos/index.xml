@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Centos on 為了可能的聲音</title>
-    <link>https://akccakcctw.github.io/categories/centos/</link>
+    <link>https://blog.rex-tsou.com/categories/centos/</link>
     <description>Recent content in Centos on 為了可能的聲音</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
     <lastBuildDate>Wed, 12 Apr 2017 16:48:00 +0000</lastBuildDate>
     
-	<atom:link href="https://akccakcctw.github.io/categories/centos/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.rex-tsou.com/categories/centos/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>CentOS 設定 Samba server，與 Windows 共享檔案</title>
-      <link>https://akccakcctw.github.io/2017/04/centos-%E8%A8%AD%E5%AE%9A-samba-server%E8%88%87-windows-%E5%85%B1%E4%BA%AB%E6%AA%94%E6%A1%88/</link>
+      <link>https://blog.rex-tsou.com/2017/04/centos-%E8%A8%AD%E5%AE%9A-samba-server%E8%88%87-windows-%E5%85%B1%E4%BA%AB%E6%AA%94%E6%A1%88/</link>
       <pubDate>Wed, 12 Apr 2017 16:48:00 +0000</pubDate>
       
-      <guid>https://akccakcctw.github.io/2017/04/centos-%E8%A8%AD%E5%AE%9A-samba-server%E8%88%87-windows-%E5%85%B1%E4%BA%AB%E6%AA%94%E6%A1%88/</guid>
+      <guid>https://blog.rex-tsou.com/2017/04/centos-%E8%A8%AD%E5%AE%9A-samba-server%E8%88%87-windows-%E5%85%B1%E4%BA%AB%E6%AA%94%E6%A1%88/</guid>
       <description>以 CentOS 當作測試環境 server 時，如果習慣的開發環境是 Windows，會需要在 CentOS 內安裝 Samba，才能順利與 Windows 分享檔案。 先簡述一下我目前的開發環境： 正式</description>
     </item>
     

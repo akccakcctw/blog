@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Version Control on 為了可能的聲音</title>
-    <link>https://akccakcctw.github.io/categories/version-control/</link>
+    <link>https://blog.rex-tsou.com/categories/version-control/</link>
     <description>Recent content in Version Control on 為了可能的聲音</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
     <lastBuildDate>Thu, 08 Sep 2016 09:21:00 +0000</lastBuildDate>
     
-	<atom:link href="https://akccakcctw.github.io/categories/version-control/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.rex-tsou.com/categories/version-control/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>SVN 常用指令備忘</title>
-      <link>https://akccakcctw.github.io/2016/09/svn-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E5%82%99%E5%BF%98/</link>
+      <link>https://blog.rex-tsou.com/2016/09/svn-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E5%82%99%E5%BF%98/</link>
       <pubDate>Thu, 08 Sep 2016 09:21:00 +0000</pubDate>
       
-      <guid>https://akccakcctw.github.io/2016/09/svn-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E5%82%99%E5%BF%98/</guid>
+      <guid>https://blog.rex-tsou.com/2016/09/svn-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E5%82%99%E5%BF%98/</guid>
       <description>svn檔案狀態 ?: 此檔案不存在 svn 內 A: 此次新增的檔案 C: 此檔案無法成功合併 D: 此次移除的檔案 M: 此檔案有修改 U: 此檔案有更新 status 查看 local 檔案與 svn server 版本異同，</description>
     </item>
     

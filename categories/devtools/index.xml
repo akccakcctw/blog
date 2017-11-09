@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Devtools on 為了可能的聲音</title>
-    <link>https://akccakcctw.github.io/categories/devtools/</link>
+    <link>https://blog.rex-tsou.com/categories/devtools/</link>
     <description>Recent content in Devtools on 為了可能的聲音</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
     <lastBuildDate>Thu, 06 Jul 2017 10:34:09 +0800</lastBuildDate>
     
-	<atom:link href="https://akccakcctw.github.io/categories/devtools/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.rex-tsou.com/categories/devtools/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>利用 CSS 美化瀏覽器的 `console`</title>
-      <link>https://akccakcctw.github.io/2017/07/%E5%88%A9%E7%94%A8-css-%E7%BE%8E%E5%8C%96%E7%80%8F%E8%A6%BD%E5%99%A8%E7%9A%84-console/</link>
+      <link>https://blog.rex-tsou.com/2017/07/%E5%88%A9%E7%94%A8-css-%E7%BE%8E%E5%8C%96%E7%80%8F%E8%A6%BD%E5%99%A8%E7%9A%84-console/</link>
       <pubDate>Thu, 06 Jul 2017 10:34:09 +0800</pubDate>
       
-      <guid>https://akccakcctw.github.io/2017/07/%E5%88%A9%E7%94%A8-css-%E7%BE%8E%E5%8C%96%E7%80%8F%E8%A6%BD%E5%99%A8%E7%9A%84-console/</guid>
+      <guid>https://blog.rex-tsou.com/2017/07/%E5%88%A9%E7%94%A8-css-%E7%BE%8E%E5%8C%96%E7%80%8F%E8%A6%BD%E5%99%A8%E7%9A%84-console/</guid>
       <description>瀏覽器的console功能不少，除了最常用的log之外，還有代表不同狀態的： info warn error 也有不同功能的： time、timeEnd table dir group assert 本篇主要介</description>
     </item>
     
     <item>
       <title>Chrome Devtools 事件偵測的幾個技巧</title>
-      <link>https://akccakcctw.github.io/2016/07/chrome-devtools-%E4%BA%8B%E4%BB%B6%E5%81%B5%E6%B8%AC%E7%9A%84%E5%B9%BE%E5%80%8B%E6%8A%80%E5%B7%A7/</link>
+      <link>https://blog.rex-tsou.com/2016/07/chrome-devtools-%E4%BA%8B%E4%BB%B6%E5%81%B5%E6%B8%AC%E7%9A%84%E5%B9%BE%E5%80%8B%E6%8A%80%E5%B7%A7/</link>
       <pubDate>Tue, 26 Jul 2016 14:56:00 +0000</pubDate>
       
-      <guid>https://akccakcctw.github.io/2016/07/chrome-devtools-%E4%BA%8B%E4%BB%B6%E5%81%B5%E6%B8%AC%E7%9A%84%E5%B9%BE%E5%80%8B%E6%8A%80%E5%B7%A7/</guid>
+      <guid>https://blog.rex-tsou.com/2016/07/chrome-devtools-%E4%BA%8B%E4%BB%B6%E5%81%B5%E6%B8%AC%E7%9A%84%E5%B9%BE%E5%80%8B%E6%8A%80%E5%B7%A7/</guid>
       <description>不得不說，Chrome 開發者工具愈來越好用了，除了一般常用的 HTML、CSS 編輯功能之外，最近也常利用 sources tab，直接在瀏覽器開啟 js 檔抓 bug 測試</description>
     </item>
     
