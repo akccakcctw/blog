@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Event Loop on 為了可能的聲音</title>
+    <link>https://blog.rex-tsou.com/tags/event-loop/</link>
+    <description>Recent content in Event Loop on 為了可能的聲音</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 20 Nov 2017 00:08:12 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.rex-tsou.com/tags/event-loop/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Event Loop in JavaScript</title>
+      <link>https://blog.rex-tsou.com/2017/11/event-loop-in-javascript/</link>
+      <pubDate>Mon, 20 Nov 2017 00:08:12 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/2017/11/event-loop-in-javascript/</guid>
+      <description>前兩天面試被問到對於 JavaScript Event Loop 的理解，覺得自己回答得不夠好，又去查了不少資料來補強，為加深印象，決定做個筆記。 JavaScript 是單執行緒（single thre</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 19 Oct 2017 12:56:26 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 20 Nov 2017 00:08:12 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.rex-tsou.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Event Loop</title>
+      <link>https://blog.rex-tsou.com/tags/event-loop/</link>
+      <pubDate>Mon, 20 Nov 2017 00:08:12 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/tags/event-loop/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Rest</title>
