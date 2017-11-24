@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="為了可能的聲音"> 
+    <meta name="author" content="Rex Tsou">
+    <meta name="copyright" content="Rex Tsou">
+    
+    <meta property="og:title" content="用 AVA 作單元測試遇到的坑">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="為了可能的聲音">
+    
+    <meta itemprop="name" content="用 AVA 作單元測試遇到的坑 | 為了可能的聲音">
+    <meta itemprop="description" content="為了可能的聲音">
+    <title>用 AVA 作單元測試遇到的坑 | 為了可能的聲音</title>
+    <link rel="stylesheet" href="https://blog.rex-tsou.com/css/style.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css"> 
+  </head>
+
+<header class="section header">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav__left">
+        <a class="nav__item" href="https://blog.rex-tsou.com"><h1 class="title">為了可能的聲音</h1></a>
+      </div>
+      <div class="nav__right">
+        <nav class="nav__item">
+          <a class="item__link" href="/post">Archives</a>
+        </nav>
+        <nav class="nav__item">
+          
+          <a class="item__link" href="https://github.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="https://www.facebook.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-facebook-square"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="/index.xml" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <time class="date">November 24, 2017</time>
+    
+      <div class="category">
+  
+  <span class="category__item">
+    <a href="/categories/javascript">JavaScript</a>
+  </span>
+  
+  <span class="category__item">
+    <a href="/categories/front-end">Front-end</a>
+  </span>
+  
+</div>
+
+    
+    <h1 class="title">用 AVA 作單元測試遇到的坑</h1>
+    <div class="content">
+      <p>最近在開發的 Lightbox 套件 <a href="https://github.com/akccakcctw/darkli">Darkli</a> 功能越來越完善了，所以就想說來幫它寫些測試吧。上網查現在比較紅的框架有哪些，發現還滿多的，除了主流的 Mocha，還有 Facebook 主推的 Jest、主打易用的 Tape、以及 Jasmine 等等，參考<a href="https://raygun.com/blog/javascript-unit-testing-frameworks/">這篇</a>，以及利用 Github 上面星星數比較的結果，最後挑了多產大神 <a href="https://github.com/sindresorhus">Sindre Sorhus</a> 的 <a href="https://github.com/avajs/ava">AVA</a> 來用。</p>
+
+<p>不愧是<a href="https://twitter.com/tjholowaychuk/status/709612159458611200">連 TJ 都說讚</a>的框架，才剛上手就覺得非常好用，沒什麼學習曲線，而且文件說明也挺足夠。重點是它原生支援好多新語法呀：</p>
+
+<ul>
+<li><a href="https://github.com/avajs/ava#es2017-support">ES2017 support</a></li>
+<li><a href="https://github.com/avajs/ava#typescript-support">TypeScript support</a></li>
+<li><a href="https://github.com/avajs/ava#transpiling-imported-modules">Transpiling imported modules</a></li>
+<li><a href="https://github.com/avajs/ava#promise-support">Promise support</a></li>
+<li><a href="https://github.com/avajs/ava#promise-support">Generator function support</a></li>
+<li><a href="https://github.com/avajs/ava#async-function-support">Async function support</a></li>
+<li><a href="https://github.com/avajs/ava#observable-support">Observable support</a></li>
+</ul>
+
+<p>然而，因為 Darkli 這個專案同時使用 Babel + Rollup 來打包，加上我使用比較新的<code>import</code>、<code>export</code>語法，產生了套件之間水火不容的相容問題。在測試時，總是提示<code>SyntaxError: Unexpected token import</code>，按照使用說明書（README），以及查到<a href="http://www.damianmullins.com/unit-testing-front-end-javacript-with-ava-and-jsdom/">這篇</a>說明，發現 AVA 預設只會在你的測試裡面傳輸程式碼，而那些測試以外的模組 import 就不予理會，如此才能確保 AVA 對你的 production 環境沒有影響。</p>
+
+<blockquote>
+<p>AVA will transpile ES2015 code in your tests; however, it won’t transpile code in modules imported from outside those tests. This is so that AVA has zero impact on your production environment.</p>
+</blockquote>
+
+<p>所以依照說明書的範例，安裝了<code>babel-register</code>，然後把<code>package.json</code>改寫，在<code>ava</code>區塊新增<code>require</code>以及<code>babel</code>設定如下：</p>
+
+<pre><code class="language-json">...
+&quot;ava&quot;: {
+  &quot;files&quot;: [
+    &quot;test/unit/**/*.test.js&quot;
+  ],
+  &quot;require&quot;: [
+    &quot;babel-register&quot;
+  ],
+  &quot;babel&quot;: &quot;inherit&quot;
+}
+</code></pre>
+
+<p>再跑一次測試，覺得應該是沒問題了吧！</p>
+
+<p>當然！還是一樣&hellip;</p>
+
+<p>◢▆▅▄▃ 崩╰(〒皿〒)╯潰 ▃▄▅▆◣</p>
+
+<hr />
+
+<p>於是再繼續找找找，終於發現是<code>.babelrc</code>那段<code>&quot;modules&quot;: false</code>造成的問題，下面是<code>.babelrc</code>的內容：</p>
+
+<pre><code class="language-json">{
+  &quot;build&quot;: {
+    &quot;presets&quot;: [
+      [
+        &quot;es2015&quot;,
+        {
+          &quot;modules&quot;: false
+        }
+      ]
+    ]
+  }
+}
+</code></pre>
+
+<p>把它移掉之後，AVA 終於正常運作了，可是換成 babel + rollup 跳腳啦，說要把<code>&quot;modules&quot;: false</code>加回來，不然就繼續罷工 XD，我陷入一個地雷馬的處境。</p>
+
+<p>最後決定，讓 test 和 build 的 babel 設定分開，於是<code>.babelrc</code>變成這樣（<code>env</code>就靠你了！）：</p>
+
+<pre><code class="language-json">{
+  &quot;env&quot;: {
+    &quot;build&quot;: {
+      &quot;presets&quot;: [
+        [
+          &quot;es2015&quot;,
+          {
+            &quot;modules&quot;: false
+          }
+        ]
+      ]
+    },
+    &quot;test&quot;: {
+      &quot;presets&quot;: [
+        &quot;es2015&quot;
+      ]
+    }
+  }
+}
+</code></pre>
+
+<p>因為我是在 Windows 開發，為了使用 env 的設定，還需要另外安裝 <code>cross-env</code> 這個套件，才能正常使用</p>
+
+<pre><code>yarn add -D cross-env
+</code></pre>
+
+<p>最後，再依據不同的 npm script 手動加上不同的環境設定就大功告成了，<code>package.json</code>片段如下：</p>
+
+<pre><code class="language-json">...
+&quot;scripts&quot;: {
+  &quot;test&quot;: &quot;cross-env BABEL_ENV=test gulp lint &amp;&amp; yarn run ava&quot;,
+  &quot;ava&quot;: &quot;cross-env BABEL_ENV=test ava --verbose&quot;,
+  &quot;ava:watch&quot;: &quot;cross-env BABEL_ENV=test ava --verbose --watch&quot;,
+  &quot;gulp&quot;: &quot;cross-env BABEL_ENV=build gulp&quot;,
+  &quot;tree&quot;: &quot;node bin/tree.js&quot;,
+  &quot;build:js&quot;: &quot;rollup -c&quot;,
+  &quot;compress:js&quot;: &quot;uglifyjs dist/darkli.js -o dist/darkli.min.js -c -m --comments /^!/&quot;,
+  &quot;watch:js&quot;: &quot;rollup -c -w -m&quot;
+}
+</code></pre>
+
+<p>花了很多時間才把這個坑填起來，不知道會不會有人和我遇到一樣的問題，希望上面的解法對你有幫助，如果有錯誤或我沒注意到的部分也歡迎留言分享。</p>
+
+    </div>
+  </div>
+</section>
+
+<section class="section disqus">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'akccakcctw';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<footer class="section footer">
+  <div class="container">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</footer>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-57924156-2', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
