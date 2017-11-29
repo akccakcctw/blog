@@ -71,3 +71,4 @@ description: ""
 - [Configuring a SOCKS proxy server in Chrome](https://www.chromium.org/developers/design-documents/network-stack/socks-proxy)
 - [Linux 透過 SSH SOCKS 連線來使用 Firefox / Pidgin(MSN, GTalk..)](https://blog.longwin.com.tw/2010/01/linux-ssh-socks-firefox-pidgin-2010/)
 - [使用 OpenShift 的 SSH 來架設跳板](https://coldnew.github.io/59b43040/)
+- [调试利器-SSH隧道](https://github.com/gwuhaolin/blog/issues/11)
