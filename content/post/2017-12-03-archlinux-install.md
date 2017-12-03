@@ -11,7 +11,7 @@ description: ""
 
 ## 準備開機碟
 
-先到[官網](https://www.archlinux.org/download/)下載 .iso 檔，Arch 映像檔由於只包含基礎需求，大約只有 500MB 左右，可以燒成光碟或是 USB flash，現在比較少看到用光碟了，都是 USB flash 為主，製作方式可以直接參考[官方維基](https://wiki.archlinux.org/index.php/USB_flash_installation_media)。
+先到[官網](https://www.archlinux.org/download/)下載 .iso 檔，Arch 映像檔由於只包含基礎需求，大約只有 500MB 左右，可以燒成光碟或是 USB drive，現在比較少看到用光碟了，都是 USB drive 為主，製作方式可以直接參考[官方維基](https://wiki.archlinux.org/index.php/USB_flash_installation_media)。
 
 簡單來說，如果手邊有 Linux 環境，可以直接用 `dd`，只有 Windows 的話，官方推薦使用 Rufus、USBwriter 這些軟體（也可以使用 [dd for Windows](https://chocolatey.org/packages/dd/0.5)）。
 
@@ -87,32 +87,34 @@ cgdisk /dev/sda
 gdisk /dev/sda
 ```
 
-我切出三個分割區
-- **swap**： sda1 (4G)
-- **/root**： sda2 (20G)
-- **/home**： sda3 (85G) 
+我切出四個分割區：
 
-然後用 `mkswap`, `mkfs` 格式化，磁碟使用 `ext4` 檔案系統：
-（如果你是 UEFI 開機，會需要一個 EFI 分割區，並格式化成 `FAT32`）
+- **/boot**: sda1 (2M)
+- **swap**： sda2 (2G)
+- **/root**： sda3 (20G)
+- **/home**： sda4 (89.8G)
+
+然後用 `mkswap`、 `mkfs` 格式化，磁碟使用 `ext4` 檔案系統：
+（如果你是 UEFI 開機，會需要一個 EFI 分割區，並格式化成 `FAT32`，指令是 `mkfs.fat -F32 /dev/sda1`）
 
 ```sh
-mkswap /dev/sda1
-mkfs.ext4 /dev/sda2
-mkfs.ext4 /dev/sda3
+mkswap /dev/sda2 # swap
+mkfs.ext4 /dev/sda3 # root
+mkfs.ext4 /dev/sda4 # /home
 ```
 
 格式化之後，就可以一一掛載起來：
 
 ```sh
 # 把 root 掛到 /mnt
-mount /dev/sda2 /mnt
+mount /dev/sda3 /mnt
 
 # 然後把 /home 掛到 /root 下面
 mkdir /mnt/home
-mount /dev/sda3 /mnt/home
+mount /dev/sda4 /mnt/home
 
 # 記得要啟用 swap
-swapon /dev/sda1
+swapon /dev/sda2
 ```
 
 
@@ -130,21 +132,23 @@ vim /etc/pacman.d/mirrorlist
 
 用 `pacstrap` 開始安裝套件。
 
-如果依照官方流程，可以先裝 `base` 和 `base-devel`，其他等 `chroot` 步驟時再用 `pacman` 裝，我覺得一次裝完比較方便，下面範例是我會用到的套件，可以依自己需求增減：
+如果依照官方流程，可以先裝 `base` 和 `base-devel`，其他等 `chroot` 步驟時再用 `pacman` 裝。
+我覺得在這邊一次裝完比較方便，下面範例是我會用到的套件，可以依自己需求增減：
 
 ```sh
 pacstrap /mnt base base-devel \
 intel-ucode \ # 如果是 intel 的 cpu
-zsh tmux git openssh rsync sshfs neovim gvim \ # 一些常用工具
+zsh tmux git openssh rsync sshfs neovim gvim \ # 這三行是一些常用工具
 python python-pip python-neovim xclip \
 htop exa ripgrep fd-rs \
-nodejs npm yarn \ # 語言及相關工具
+nodejs npm yarn \ # 程式語言及相關工具
 gnome gnome-tweak-tool \ # GNOME 桌面
 noto-fonts noto-fonts-cjk adobe-source-code-pro-fonts \ # 字型
-firefox
+firefox # 瀏覽器
 ```
 
-安裝套件時如果遇到 PGP signature 的問題，例如：
+安裝套件時如果遇到 PGP signature 的問題：
+（之前使用舊的 .iso 有遇到這個問題，換新的 .iso （archlinux-2017.12.01-x86_64）就沒遇到了）
 
 ```sh
 error: libcap: signature from "Anatol Pomozov <avatol.pomozov@gmail.com>" is unknown trust
@@ -171,12 +175,12 @@ pacman-key -r 0xFC1B547C8D8172C8
 
 ### 產生 fstab 檔
 
-/etc/fstab 是開機時的設定檔，開機時會依這個檔案的內容掛載檔案系統。
+`/etc/fstab` 是開機時的設定檔，開機時會依這個檔案的內容掛載檔案系統。
 
 ```sh
 genfstab -U /mnt | sed -e 's/relatime/noatime/g' >> /mnt/etc/fstab
 
-# 確認是否正確
+# 確認 UUID 是否正確（和 blkid 比對）
 vim /mnt/etc/fstab
 ```
 
@@ -229,16 +233,17 @@ sed -ie 's/#\(WaylandEnable\)/\1/' /etc/gdm/custom.conf
 > Creates an initial ramdisk environment for booting the linux kernel.
 
 ```sh
+vim /etc/mkinitcpio.conf # (optional) 看有沒有要修改
 mkinitcpio -p linux
 ```
 
-### 安裝與設定開機程式 `grub`
+### 安裝與設定開機程式（bootloader）
 
 詳細介紹請參考[這篇](https://wiki.archlinux.org/index.php/GRUB)。
 
 ```sh
 pacman -S grub
-grub-install --target=i386-pc --recheck /dev/sda --force
+grub-install --target=i386-pc --recheck /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg # 建立 grub 設定檔
 ```
 
@@ -266,3 +271,4 @@ reboot
 
 [Arch Linux: Installation guide](https://wiki.archlinux.org/index.php/installation_guide)
 [Arch Linux 安裝筆記](https://leomao.github.io/2017/09/archlinux-install-note/)
+[Arch Linux Quick Installation with GPT in BIOS](https://blog.m157q.tw/posts/2013/12/30/arch-linux-quick-installation-with-gpt-in-bios/)
