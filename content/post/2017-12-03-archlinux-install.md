@@ -1,9 +1,12 @@
 ---
 title: "Arch Linux 安裝筆記"
 date: 2017-12-03T11:34:20+08:00
-draft: true
 categories:
+  - Linux
+  - command-line
 tags:
+  - Archlinux
+  - Linux
 description: ""
 ---
 
@@ -40,7 +43,8 @@ ping 8.8.8.8
 ping archlinux.org
 ```
 
-如果網路沒通，就要自己寫設定檔，再使用 `netctl` 手動連接了，相關流程如下：
+如果網路沒通，就要自己寫設定檔，再使用 `netctl` 手動連接了，  
+相關流程如下：
 
 ```sh
 # 查詢網卡 interface name。有線網卡會是 e 開頭，無線網卡則會是 w 開頭
@@ -71,7 +75,10 @@ netctl start ethernet-static # 然後 ping 看看有沒有通
 
 ## 分割硬碟
 
-如果不熟悉硬碟分割相關知識，可以參考鳥哥[分割規劃](http://linux.vbird.org/linux_basic/0130designlinux.php#partition)和[分割指令](http://linux.vbird.org/linux_basic/0230filesystem.php#disk)來熟悉一下。官方維基對於硬碟分割的說明則[在這邊](https://wiki.archlinux.org/index.php/partitioning)。我們可能用到的指令有 `lsblk`、`blkid`、`parted`、`gdisk`、`cgdisk` 等等：
+如果不熟悉硬碟分割相關知識，可以參考鳥哥[分割規劃](http://linux.vbird.org/linux_basic/0130designlinux.php#partition)和[分割指令](http://linux.vbird.org/linux_basic/0230filesystem.php#disk)來熟悉一下。  
+官方維基對於硬碟分割的說明則[在這邊](https://wiki.archlinux.org/index.php/partitioning)。
+
+我們可能用到的指令有 `lsblk`、`blkid`、`parted`、`gdisk`、`cgdisk` 等等：
 
 ```sh
 # 檢查目前硬碟分割情況
@@ -94,7 +101,7 @@ gdisk /dev/sda
 - **/root**： sda3 (20G)
 - **/home**： sda4 (89.8G)
 
-然後用 `mkswap`、 `mkfs` 格式化，磁碟使用 `ext4` 檔案系統：
+然後用 `mkswap`、 `mkfs` 格式化，磁碟使用 `ext4` 檔案系統：  
 （如果你是 UEFI 開機，會需要一個 EFI 分割區，並格式化成 `FAT32`，指令是 `mkfs.fat -F32 /dev/sda1`）
 
 ```sh
@@ -132,7 +139,7 @@ vim /etc/pacman.d/mirrorlist
 
 用 `pacstrap` 開始安裝套件。
 
-如果依照官方流程，可以先裝 `base` 和 `base-devel`，其他等 `chroot` 步驟時再用 `pacman` 裝。
+如果依照官方流程，可以先裝 `base` 和 `base-devel`，其他等 `chroot` 步驟時再用 `pacman` 裝。  
 我覺得在這邊一次裝完比較方便，下面範例是我會用到的套件，可以依自己需求增減：
 
 ```sh
@@ -147,8 +154,7 @@ noto-fonts noto-fonts-cjk adobe-source-code-pro-fonts \ # 字型
 firefox # 瀏覽器
 ```
 
-安裝套件時如果遇到 PGP signature 的問題：
-（之前使用舊的 .iso 有遇到這個問題，換新的 .iso （archlinux-2017.12.01-x86_64）就沒遇到了）
+安裝套件時如果遇到 PGP signature 的問題（之前使用舊的 .iso 有遇到這個問題，換新的 .iso （archlinux-2017.12.01-x86_64）就沒遇到了）：
 
 ```sh
 error: libcap: signature from "Anatol Pomozov <avatol.pomozov@gmail.com>" is unknown trust
@@ -230,6 +236,7 @@ sed -ie 's/#\(WaylandEnable\)/\1/' /etc/gdm/custom.conf
 ### 建立開機映像
 
 用途：
+
 > Creates an initial ramdisk environment for booting the linux kernel.
 
 ```sh
@@ -269,6 +276,6 @@ reboot
 
 ## 參考資料
 
-[Arch Linux: Installation guide](https://wiki.archlinux.org/index.php/installation_guide)
-[Arch Linux 安裝筆記](https://leomao.github.io/2017/09/archlinux-install-note/)
-[Arch Linux Quick Installation with GPT in BIOS](https://blog.m157q.tw/posts/2013/12/30/arch-linux-quick-installation-with-gpt-in-bios/)
+- [Arch Linux: Installation guide](https://wiki.archlinux.org/index.php/installation_guide)
+- [Arch Linux 安裝筆記](https://leomao.github.io/2017/09/archlinux-install-note/)
+- [Arch Linux Quick Installation with GPT in BIOS](https://blog.m157q.tw/posts/2013/12/30/arch-linux-quick-installation-with-gpt-in-bios/)
