@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 03 Dec 2017 11:34:20 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 09 Dec 2017 23:51:08 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.rex-tsou.com/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Arch Linux：套件管理工具 pacman</title>
+      <link>https://blog.rex-tsou.com/2017/12/arch-linux%E5%A5%97%E4%BB%B6%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-pacman/</link>
+      <pubDate>Sat, 09 Dec 2017 23:51:08 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/2017/12/arch-linux%E5%A5%97%E4%BB%B6%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-pacman/</guid>
+      <description>The pacman package manager is one of the major distinguishing features of Arch Linux. It combines a simple binary package format with an easy-to-use build system. The goal of pacman is to make it possible to easily manage packages, whether they are from the official repositories or the user&amp;rsquo;s own builds. 簡單來說，pacman 類似 Ubuntu 的 apt 或者 CentOS</description>
+    </item>
     
     <item>
       <title>Arch Linux 安裝筆記</title>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="簡單來說，pacman 類似 Ubuntu 的 apt 或者 CentOS 的 yum。只是它是專門給 arch 用的。它的設定檔位置在：/etc/pacman.conf，如果有特殊需求，可參閱 Arch Wiki 有比較詳細的設定說明。"> 
+    <meta name="author" content="Rex Tsou">
+    <meta name="copyright" content="Rex Tsou">
+    
+    <meta property="og:title" content="Arch Linux：套件管理工具 pacman">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="簡單來說，pacman 類似 Ubuntu 的 apt 或者 CentOS 的 yum。只是它是專門給 arch 用的。它的設定檔位置在：/etc/pacman.conf，如果有特殊需求，可參閱 Arch Wiki 有比較詳細的設定說明。">
+    
+    <meta itemprop="name" content="Arch Linux：套件管理工具 pacman | 為了可能的聲音">
+    <meta itemprop="description" content="簡單來說，pacman 類似 Ubuntu 的 apt 或者 CentOS 的 yum。只是它是專門給 arch 用的。它的設定檔位置在：/etc/pacman.conf，如果有特殊需求，可參閱 Arch Wiki 有比較詳細的設定說明。">
+    <title>Arch Linux：套件管理工具 pacman | 為了可能的聲音</title>
+    <link rel="stylesheet" href="https://blog.rex-tsou.com/css/style.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css"> 
+  </head>
+
+<header class="section header">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav__left">
+        <a class="nav__item" href="https://blog.rex-tsou.com"><h1 class="title">為了可能的聲音</h1></a>
+      </div>
+      <div class="nav__right">
+        <nav class="nav__item">
+          <a class="item__link" href="/post">Archives</a>
+        </nav>
+        <nav class="nav__item">
+          
+          <a class="item__link" href="https://github.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="https://www.facebook.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-facebook-square"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="/index.xml" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <time class="date">December 9, 2017</time>
+    
+      <div class="category">
+  
+  <span class="category__item">
+    <a href="/categories/linux">Linux</a>
+  </span>
+  
+  <span class="category__item">
+    <a href="/categories/command-line">command-line</a>
+  </span>
+  
+</div>
+
+    
+    <h1 class="title">Arch Linux：套件管理工具 pacman</h1>
+    <div class="content">
+      
+
+<blockquote>
+<p>The <code>pacman</code> package manager is one of the major distinguishing features of Arch Linux. It combines a simple binary package format with an easy-to-use build system. The goal of pacman is to make it possible to easily manage packages, whether they are from the official repositories or the user&rsquo;s own builds.</p>
+</blockquote>
+
+<p>簡單來說，<code>pacman</code> 類似 Ubuntu 的 <code>apt</code> 或者 CentOS 的 <code>yum</code>。只是它是專門給 arch 用的。它的設定檔位置在：<code>/etc/pacman.conf</code>，如果有特殊需求，可參閱 <a href="https://wiki.archlinux.org/index.php/Pacman_(%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87)#.E8.A8.AD.E5.AE.9A">Arch Wiki</a> 有比較詳細的設定說明。</p>
+
+<h2 id="相關檔案位置">相關檔案位置：</h2>
+
+<ul>
+<li>設定檔：<code>/etc/pacman.conf</code></li>
+<li>套件資料庫資訊：<code>/var/lib/pacman/</code></li>
+<li>暫存檔案位置：<code>/var/cache/pacman/pkg/</code> （安裝或是更新套件時，這些套件都會先被下載到這邊暫存，再進行安裝）</li>
+</ul>
+
+<h2 id="常用指令">常用指令</h2>
+
+<p>相較其他 package manager 使用指令式（例如 <code>apt-get install</code>，比較直觀），<code>pacman</code> 使用 flag（其實都是縮寫，也可以打全稱），而且數量滿多的，需要花點時間熟悉，但是熟悉之後用起來很快。<br />
+常用的話應該不會忘，如果忘記再 <code>man pacman</code> 或是 <code>tldr pacman</code> 就好，常用的指令第一個 flag 都是大寫：</p>
+
+<h3 id="安裝">安裝</h3>
+
+<pre><code class="language-sh"># 安裝套件
+# -S: sync
+pacman -S &lt;package&gt;
+
+# 安裝套件並更新套件資料庫資訊
+pacman -Sy &lt;package&gt; # 建議不要這樣使用，可能會造成 dependency issue
+pacman -Syu &lt;package&gt; # 建議這樣用
+
+# 安裝不在檔案庫的 package（例如 AUR 的 package）
+pacman -U /path/to/package/package_name-version.pkg.tar.xz
+pacman -U http://www.example.com/repo/example.pkg.tar.xz # 也可以從網址安裝
+</code></pre>
+
+<h3 id="移除">移除</h3>
+
+<pre><code class="language-sh"># 移除套件
+# -R: remove
+pacman -R &lt;package&gt;
+
+# 移除套件及其相依套件
+# -s: recursive
+pacman -Rs &lt;package&gt;
+</code></pre>
+
+<h3 id="更新">更新</h3>
+
+<pre><code># 更新套件（全系統）
+# -u: upgrade
+pacman -Syu
+</code></pre>
+
+<h3 id="查詢">查詢</h3>
+
+<pre><code class="language-sh"># 查詢套件
+# -s: search
+pacman -Ss &lt;search_pattern&gt;
+
+# 查詢套件安裝的檔案列表
+# -Q: query
+pacman -Ql &lt;package&gt; | less
+
+# 查詢已安裝的套件
+pacman -Q
+pacman -Qs string # 用關鍵字查詢
+pacman -Q | grep &lt;package&gt; # 也可以配合 grep 使用
+
+# 查詢套件詳細資訊
+# -i: info
+pacman -Qi &lt;package&gt;
+
+# 查詢外來套件
+pacman -Qm
+
+# 從路徑反查套件
+# -o: owner
+pacman -Qo /path/to/package
+</code></pre>
+
+<h3 id="暫存">暫存</h3>
+
+<pre><code class="language-sh"># 清除暫存檔以及未用到的套件資料庫資訊
+# -c: clean
+pacman -Scc
+
+# 僅清除目前未使用的暫存檔
+pacman -Sc
+</code></pre>
+
+<h3 id="其他相關">其他相關</h3>
+
+<pre><code class="language-sh"># 列出套件的依賴樹
+pactree &lt;package&gt;
+pactree -r &lt;package&gt;
+</code></pre>
+
+<h2 id="aur-arch-user-repository">AUR（Arch User Repository）</h2>
+
+<blockquote>
+<p>Arch 使用者軟體倉庫 (AUR) 是由社群推動的使用者軟體庫。它包含了軟體包描述單 (PKGBUILD)，可以用 <code>makepkg</code> 從原始碼編譯軟體包，並透過 <code>pacman</code> 安裝。 透過 AUR 可以在社群間分享、組織新進軟體包，熱門的軟體包有機會被收錄進軟體庫。<a href="#1">Arch Wiki</a></p>
+</blockquote>
+
+<p>簡單來說，AUR 是社群分享的軟體庫，裡面包含有軟體的 PKGBUILD，用 <code>makepkg</code> 編完之後，就可以使用 <code>pacman</code> 來管理了，它的網址在 <a href="https://aur.archlinux.org/">https://aur.archlinux.org/</a>。</p>
+
+<p>你可以選擇手動安裝，或者使用 helper（例如 <code>pacaur</code>）來安裝，一般來說使用 helper 較方便。</p>
+
+<h3 id="手動安裝-aur-package">手動安裝 AUR package</h3>
+
+<pre><code class="language-sh"># 下載 package
+cd ~/builds
+curl -O https://aur.archlinux.org/packages/fo/foo/foo.tar.gz
+
+# 檢查是否有惡意程式碼
+cd foo
+vim PKGBUILD
+vim foo.install
+
+# 編譯
+makepkg -s
+
+# 安裝，語法為：`&lt;程式名稱&gt;-&lt;程式版本號&gt;-&lt;程式修訂版號&gt;-&lt;架構&gt;.pkg.tar.xz`
+pacman -U foo-0.1.1-i686.pkg.tar.xz
+
+</code></pre>
+
+<h3 id="pacaur"><code>pacaur</code></h3>
+
+<p><code>pacaur</code> 可以輔助 <code>pacman</code> 來使用，會自動從 AUR 取得軟體進行編譯與安裝。</p>
+
+<p>底下為 <code>pacaur</code> 安裝方式，或者也可以參考<a href="https://gist.github.com/Tadly/0e65d30f279a34c33e9b">這裡</a>安裝。</p>
+
+<pre><code class="language-sh"># 安裝 pacaur
+gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53 # 匯入金鑰
+bash &lt;(curl aur.sh) -si cower pacaur
+rm -r cower pacaur # cleanup
+
+# 用法
+pacaur -S &lt;package&gt;
+</code></pre>
+
+<h2 id="參考資料">參考資料</h2>
+
+<p><a href="http://www.netadmin.com.tw/article_content.aspx?sn=1502020003&amp;jump=2">特色Linux發行版—Arch Linux（中）</a></p>
+
+<p><a href="https://wiki.archlinux.org/index.php/pacman">Arch Wiki: pacman</a></p>
+
+    </div>
+  </div>
+</section>
+
+<section class="section disqus">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'akccakcctw';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<footer class="section footer">
+  <div class="container">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</footer>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-57924156-2', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
