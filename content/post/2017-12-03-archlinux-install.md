@@ -1,5 +1,5 @@
 ---
-title: "Arch Linux 安裝筆記"
+title: "Arch Linux：安裝筆記"
 date: 2017-12-03T11:34:20+08:00
 categories:
   - Linux

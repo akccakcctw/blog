@@ -114,7 +114,7 @@ pactree -r <package>
 
 ## AUR（Arch User Repository）
 
-> Arch 使用者軟體倉庫 (AUR) 是由社群推動的使用者軟體庫。它包含了軟體包描述單 (PKGBUILD)，可以用 `makepkg` 從原始碼編譯軟體包，並透過 `pacman` 安裝。 透過 AUR 可以在社群間分享、組織新進軟體包，熱門的軟體包有機會被收錄進軟體庫。[Arch Wiki](#1)
+> Arch 使用者軟體倉庫 (AUR) 是由社群推動的使用者軟體庫。它包含了軟體包描述單 (PKGBUILD)，可以用 `makepkg` 從原始碼編譯軟體包，並透過 `pacman` 安裝。 透過 AUR 可以在社群間分享、組織新進軟體包，熱門的軟體包有機會被收錄進軟體庫。[^1]
 
 簡單來說，AUR 是社群分享的軟體庫，裡面包含有軟體的 PKGBUILD，用 `makepkg` 編完之後，就可以使用 `pacman` 來管理了，它的網址在 [https://aur.archlinux.org/](https://aur.archlinux.org/)。
 
@@ -162,4 +162,4 @@ pacaur -S <package>
 
 [Arch Wiki: pacman](https://wiki.archlinux.org/index.php/pacman)
 
-[1]: https://wiki.archlinux.org/index.php/Arch_User_Repository_(%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87)
+[^1]: https://wiki.archlinux.org/index.php/Arch_User_Repository_(%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87)
