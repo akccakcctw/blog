@@ -127,6 +127,10 @@ pacman -S libreoffice
 # [Site](https://aur.archlinux.org/packages/materia-theme)
 # [GitHub repo](https://github.com/nana-4/materia-theme)
 pacaur -S materia-theme
+
+# Paper Icon
+# [Site](https://snwh.org/paper)
+pacaur -S paper
 ```
 
 ### 其他
