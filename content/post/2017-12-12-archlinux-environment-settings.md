@@ -1,7 +1,6 @@
 ---
 title: "Arch Linux：環境設定與常用套件"
 date: 2017-12-12T11:40:55+08:00
-draft: true
 categories:
   - Linux
   - command-line
@@ -101,15 +100,19 @@ pacaur -S visual-studio-code
 
 ```sh
 # GIMP
+# 點陣繪圖與編輯，類似 Adobe Photoshop
 pacman -S gimp
 
 # Krita
+# 點陣繪圖與編輯，類似 Adobe Photoshop
 pacman -S krita
 
 # mypaint
+# 著重繪圖功能，類似 Corel Painter
 pacman -S mypaint
 
 # Inkscape
+# 向量繪圖，類似 Adobe Illustrator
 pacman -S inkscape
 ```
 
@@ -144,6 +147,5 @@ pacaur -S google-chrome
 
 ## 參考資料
 
-[Apricity OS 安裝中文輸入法](fcitx-chewinghttps://cyku.tw/apricity-os-fcitx-chewing/)
-
-[Where are GNOME keyboard shortcuts stored?](https://askubuntu.com/questions/26056/where-are-gnome-keyboard-shortcuts-stored)
+- [Apricity OS 安裝中文輸入法](fcitx-chewinghttps://cyku.tw/apricity-os-fcitx-chewing/)
+- [Where are GNOME keyboard shortcuts stored?](https://askubuntu.com/questions/26056/where-are-gnome-keyboard-shortcuts-stored)
