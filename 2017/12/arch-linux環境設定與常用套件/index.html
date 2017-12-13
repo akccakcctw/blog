@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="為了可能的聲音"> 
+    <meta name="author" content="Rex Tsou">
+    <meta name="copyright" content="Rex Tsou">
+    
+    <meta property="og:title" content="Arch Linux：環境設定與常用套件">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="為了可能的聲音">
+    
+    <meta itemprop="name" content="Arch Linux：環境設定與常用套件 | 為了可能的聲音">
+    <meta itemprop="description" content="為了可能的聲音">
+    <title>Arch Linux：環境設定與常用套件 | 為了可能的聲音</title>
+    <link rel="stylesheet" href="https://blog.rex-tsou.com/css/style.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css"> 
+  </head>
+
+<header class="section header">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav__left">
+        <a class="nav__item" href="https://blog.rex-tsou.com"><h1 class="title">為了可能的聲音</h1></a>
+      </div>
+      <div class="nav__right">
+        <nav class="nav__item">
+          <a class="item__link" href="/post">Archives</a>
+        </nav>
+        <nav class="nav__item">
+          
+          <a class="item__link" href="https://github.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="https://www.facebook.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-facebook-square"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="/index.xml" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <time class="date">December 12, 2017</time>
+    
+      <div class="category">
+  
+  <span class="category__item">
+    <a href="/categories/linux">Linux</a>
+  </span>
+  
+  <span class="category__item">
+    <a href="/categories/command-line">command-line</a>
+  </span>
+  
+</div>
+
+    
+    <h1 class="title">Arch Linux：環境設定與常用套件</h1>
+    <div class="content">
+      
+
+<h2 id="gnome-桌面設定">GNOME 桌面設定</h2>
+
+<h3 id="匯出與匯入設定檔">匯出與匯入設定檔</h3>
+
+<pre><code class="language-sh"># 匯出
+dconf dump / &gt;~/.config/dconf/user.conf
+
+# 匯入
+dconf load / &lt;~/.config/dconf/user.conf
+</code></pre>
+
+<h2 id="中文輸入法以及中文環境">中文輸入法以及中文環境</h2>
+
+<h3 id="安裝-fcitx-注音">安裝 fcitx（注音）</h3>
+
+<p>fcitx 相關說明<a href="https://wiki.archlinux.org/index.php/Fcitx">維基</a>寫得很清楚，建議看一下。</p>
+
+<pre><code class="language-sh"># fcitx-im 會一併安裝需要用到的附加套件，內含 fcitx, fcitx-gtk2, fcitx-gtk3 等等
+pacman -S fcitx-im fcitx-configtool fcitx-chewing
+</code></pre>
+
+<p>安裝之後編輯 <code>~/.xprofile</code>：</p>
+
+<pre><code class="language-sh"># for fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=&quot;@im=fcitx&quot;
+
+export LANG=zh_TW.UTF-8 # 加入這行，預設語言會變成中文
+export LC_CTYPE=zh_TW.UTF-8  # 能輸入中文
+</code></pre>
+
+<p>編輯完後存檔， <code>reboot</code> 之後系統就會變成中文的了，如果還是無法輸入中文的話，可以嘗試使用 <code>fcitx-diagnose</code> 來偵錯。</p>
+
+<h2 id="其它實用的套件">其它實用的套件</h2>
+
+<h3 id="工具類">工具類</h3>
+
+<pre><code class="language-sh"># Docker =&gt;
+pacman -S docker
+systemctl enable docker # 開機時啟用
+
+# tldr =&gt;
+# 懶得看 --help 時很好用
+pacman -S tldr
+
+# libinput =&gt;
+# 用來看 input 的硬體設備
+pacaur -S libinput
+
+# alsa =&gt;
+# 音訊控制
+pacman -S alsa-utils
+# 用法（GUI）
+alsamixer
+
+# asciinema =&gt;
+# 錄製與分享 terminal 影片，產生的檔案非常小。
+# [Site](https://asciinema.org/)
+pacman -S asciinema # install
+# 錄製
+asciinema rec # recording，&lt;Ctrl-d&gt; 或輸入 `exit` 停止
+asciinema rec /tmp/my_rec.json # 錄製影片，存到本機端
+asciinema rec -w 0.2 # 設定每次按鍵的時間間隔
+# 播放
+asciinema play https://asciinema.org/path
+asciinema play /path/to/your.json
+
+# ccat
+# 用法和 `cat` 一樣，但支援語法 highlight。
+pacaur -S ccat
+</code></pre>
+
+<h3 id="編輯器">編輯器</h3>
+
+<pre><code class="language-sh"># VSCode
+# [Site](https://aur.archlinux.org/packages/visual-studio-code/)
+pacaur -S visual-studio-code
+</code></pre>
+
+<h3 id="繪圖類">繪圖類</h3>
+
+<pre><code class="language-sh"># GIMP
+# 點陣繪圖與編輯，類似 Adobe Photoshop
+pacman -S gimp
+
+# Krita
+# 點陣繪圖與編輯，類似 Adobe Photoshop
+pacman -S krita
+
+# mypaint
+# 著重繪圖功能，類似 Corel Painter
+pacman -S mypaint
+
+# Inkscape
+# 向量繪圖，類似 Adobe Illustrator
+pacman -S inkscape
+</code></pre>
+
+<h3 id="文書編輯">文書編輯</h3>
+
+<pre><code class="language-sh"># LibreOffice
+pacman -S libreoffice
+</code></pre>
+
+<h3 id="gnome-ui">GNOME UI</h3>
+
+<pre><code class="language-sh"># Materia theme
+# [Site](https://aur.archlinux.org/packages/materia-theme)
+# [GitHub repo](https://github.com/nana-4/materia-theme)
+pacaur -S materia-theme
+
+# Paper Icon
+# [Site](https://snwh.org/paper)
+pacaur -S paper
+</code></pre>
+
+<h3 id="其他">其他</h3>
+
+<pre><code class="language-sh"># Chrome
+# [Site](https://aur.archlinux.org/packages/google-chrome/)
+pacaur -S google-chrome
+</code></pre>
+
+<h2 id="參考資料">參考資料</h2>
+
+<ul>
+<li><a href="fcitx-chewinghttps://cyku.tw/apricity-os-fcitx-chewing/">Apricity OS 安裝中文輸入法</a></li>
+<li><a href="https://askubuntu.com/questions/26056/where-are-gnome-keyboard-shortcuts-stored">Where are GNOME keyboard shortcuts stored?</a></li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+<section class="section disqus">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'akccakcctw';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<footer class="section footer">
+  <div class="container">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</footer>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-57924156-2', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
