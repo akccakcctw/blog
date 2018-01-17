@@ -320,6 +320,7 @@ wifi 斷線的問題比較煩，因為這確實會影響到基本使用，期待
 
 ## 參考資料
 
-[JOHN RAMSDEN: Arch Linux on The Surface Pro 4](https://ramsdenj.com/2016/08/29/arch-linux-on-the-surface-pro-4.html#setup-the-root-pool)
-[youtube: Arch Linux on surface pro 4 - with multitouch, pen and sensitivity working](https://www.youtube.com/watch?v=Z0bIYOf3_rY)
-[jakeday's Kernel for Surface Book/Pro 4](https://www.reddit.com/r/SurfaceLinux/comments/6tbnqx/jakedays_kernel_for_surface_bookpro_4/)
+  - [JOHN RAMSDEN: Arch Linux on The Surface Pro 4](https://ramsdenj.com/2016/08/29/arch-linux-on-the-surface-pro-4.html#setup-the-root-pool)
+  - [youtube: Arch Linux on surface pro 4 - with multitouch, pen and sensitivity working](https://www.youtube.com/watch?v=Z0bIYOf3_rY)
+  - [jakeday's Kernel for Surface Book/Pro 4](https://www.reddit.com/r/SurfaceLinux/comments/6tbnqx/jakedays_kernel_for_surface_bookpro_4/)
+
