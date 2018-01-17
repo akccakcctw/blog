@@ -1,7 +1,6 @@
 ---
 title: "Arch Linux：Surface Pro 4 安裝筆記"
 date: 2017-12-31T01:37:20+08:00
-draft: true
 categories:
   - Linux
   - command-line
@@ -93,6 +92,7 @@ Surface Pro 螢幕解析度很高，因此進入 Arch 文字安裝介面後，�
 setfont /usr/share/kbd/consolefonts/latarcyrheb-sun32.psfu.gz
 ```
 
+
 ## 連上網路
 
 可以參考[Arch Linux 安裝筆記](https://blog.rex-tsou.com/2017/12/arch-linux-%E5%AE%89%E8%A3%9D%E7%AD%86%E8%A8%98/#準備網路) 
@@ -144,6 +144,7 @@ mount /dev/nvme0n7 /mnt/home # 掛載 home
 
 swapon /dev/nvme0n5 # 啟用 swap
 ```
+
 
 ## 安裝套件
 
@@ -244,9 +245,11 @@ umount -R /mnt
 reboot
 ```
 
+
 ## 開機！
 
-開機之後就可以使用 8 成的功能了，但因為 Surface Pro 4 的硬體設備比較特殊，需一
+開機之後就可以使用 8 成的功能了，但因為 Surface Pro 4 的硬體設備比較特殊，所以硬體支援需要特別處理
+
 
 ## 解決硬體支援問題
 
@@ -254,9 +257,8 @@ reboot
 
   1. 觸控螢幕
   1. 觸控筆
-  
 
-目前給 Surface 最新的 Linux kernal 在[這個 Github Repo](https://github.com/jakeday/linux-surface/)  
+目前 Surface 可用的最新版本 Linux kernal 在[這個 GitHub Repo](https://github.com/jakeday/linux-surface/)  
 然後這裡有 [pacaur 的打包](https://aur.archlinux.org/packages/linux-surface4/)
 
 **注意**，安裝底下的套件會重新編譯核心，需要很～長的時間（我是 i5 版，大概花了 3 小時吧，），請確認電腦有接上電源，並且沒什麼事要急著處理：
@@ -272,7 +274,7 @@ uname -r # 確認現在使用的核心版本
 # 修改 boot loader
 sudo -i # 以下需使用 root 權限
 cp /boot/loader/entries/arch.conf /boot/loader/entries/surface.conf # 複製原本的 arch.conf 為 surface.conf
-vim /boot/loader/entries/surface.conf # 修改如下
+vim /boot/loader/entries/surface.conf # surface.conf 修改如下
 ```
 
 ```conf
@@ -292,6 +294,8 @@ default surface # 主要修改這行
 timeout 3
 editor  0
 ```
+其他就是繼續依照 GitHub 的說明來安裝～
+
 
 ## 下載 firmware（ipts）
 
@@ -304,12 +308,14 @@ unzip ipts_firmware_v78.zip -d /lib/firmware/intel/ipts
 
 ## 待解決問題
 
-  1. wifi 一段時間會斷線
-  1. 電力消耗速度比 Windows 快一些
-  1. 休眠後無法喚醒
+  1. wifi 一段時間後有機率斷線（而且要重新開機才會恢復）
+  1. 休眠後有機率無法喚醒
   1. Applications 選單 icon 拖曳時，GDM 會當掉
+  1. 電力消耗速度比 Windows 快一些
 
 好像跟這個 [issue](https://www.reddit.com/r/archlinux/comments/7iadeq/dragging_icon_from_dock_on_gnome_freezes_mouse/) 描述的狀況一樣。目前只能先小心，不要去拖曳到那些 icon。如果不幸當掉，只好到其他的 tty 下指令 `reboot`，或是 `pkill gdm`，讓桌面環境重開。
+
+wifi 斷線的問題比較煩，因為這確實會影響到基本使用，期待這個 Bug 能盡快修復！
 
 
 ## 參考資料
