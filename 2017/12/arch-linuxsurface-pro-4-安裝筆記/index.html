@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="為了可能的聲音"> 
+    <meta name="author" content="Rex Tsou">
+    <meta name="copyright" content="Rex Tsou">
+    
+    <meta property="og:title" content="Arch Linux：Surface Pro 4 安裝筆記">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="為了可能的聲音">
+    
+    <meta itemprop="name" content="Arch Linux：Surface Pro 4 安裝筆記 | 為了可能的聲音">
+    <meta itemprop="description" content="為了可能的聲音">
+    <title>Arch Linux：Surface Pro 4 安裝筆記 | 為了可能的聲音</title>
+    <link rel="stylesheet" href="https://blog.rex-tsou.com/css/style.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css"> 
+  </head>
+
+<header class="section header">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav__left">
+        <a class="nav__item" href="https://blog.rex-tsou.com"><h1 class="title">為了可能的聲音</h1></a>
+      </div>
+      <div class="nav__right">
+        <nav class="nav__item">
+          <a class="item__link" href="/post">Archives</a>
+        </nav>
+        <nav class="nav__item">
+          
+          <a class="item__link" href="https://github.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="https://www.facebook.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-facebook-square"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="/index.xml" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <time class="date">December 31, 2017</time>
+    
+      <div class="category">
+  
+  <span class="category__item">
+    <a href="/categories/linux">Linux</a>
+  </span>
+  
+  <span class="category__item">
+    <a href="/categories/command-line">command-line</a>
+  </span>
+  
+</div>
+
+    
+    <h1 class="title">Arch Linux：Surface Pro 4 安裝筆記</h1>
+    <div class="content">
+      
+
+<p>八月多買了 Surface Pro 4 之後，就想著要灌 Linux 方便寫程式，但是擔心硬體支援度（觸控螢幕、雙鏡頭、鍵盤保護蓋、手寫筆……）還有<a href="https://www.reddit.com/r/SurfaceLinux/comments/3uf3sy/psa_installing_linux_on_your_surface_pro_4_will/">保固</a>，一些有的沒有的問題，所以遲遲沒有動手。</p>
+
+<p>前幾天練習灌 Arch Linux，2009 年買的老筆電（Lenovo y550）竟然改頭換面，變得超順手的（當然除了重量太重以外），就決定要來搞一下我的新筆電。網路上查到一篇<a href="https://ramsdenj.com/2016/08/29/arch-linux-on-the-surface-pro-4.html#setup-the-root-pool">超級詳細的文章</a>，也讓我增加不少信心。</p>
+
+<p>另外，這篇筆記主要是給我自己備忘用的，因此有些地方可能寫得比較不清楚，如果過程中有遇到什麼問題、或是解決了什麼問題，都歡迎留言和我說。<br />
+然後建議是對 Linux 系統、CLI 介面有基本瞭解再嘗試，你可以從 Ubuntu 之類的開始熟悉，不然你一定會遇到很多困難 XD</p>
+
+<p>先簡述一下環境：</p>
+
+<hr />
+
+<p>硬體：</p>
+
+<ul>
+<li>主機：Surface Pro 4（i5、8G ram、256G SSD）</li>
+<li>配件：鍵盤保護蓋（Type Cover）</li>
+<li>配件：藍芽滑鼠（Surface Arc Mouse）</li>
+<li>配件：手寫筆（Surface Pen）</li>
+</ul>
+
+<p>安裝後環境：</p>
+
+<ul>
+<li>開機模式：UEFI</li>
+<li>分割表：GPT</li>
+<li>開機選單：Linux + Windows（開機時有選項，預設是進入 Arch）</li>
+<li></li>
+</ul>
+
+<hr />
+
+<h2 id="準備硬碟">準備硬碟</h2>
+
+<p>先進入 Windows，作一些事前的準備工作，建議先把磁碟加密的功能關掉。</p>
+
+<h3 id="清理磁碟">清理磁碟</h3>
+
+<p>左下角按搜尋（搜尋快捷鍵：win + s），找「磁碟清理」，把不必要的檔案都清掉，騰出多一點空間。</p>
+
+<h3 id="壓縮磁碟">壓縮磁碟</h3>
+
+<p>如果你之前已經有分割過了，建議把資料先備份一下，重新規劃分割。</p>
+
+<p>進入磁碟管理（快捷鍵：win + x），右鍵點選 C 槽壓縮一下，我大概壓到 Windows 和 Linux 各佔一半。另外特別注意的是，Windows 會在硬碟最後面切一塊還原分割，那是讓 Windows 出問題時還原用的。要不要保留看自己（我有保留），如果不留的話，Windows 就無法使用還原功能。</p>
+
+<h2 id="建立-usb-開機碟">建立 USB 開機碟</h2>
+
+<p>在<a href="https://blog.rex-tsou.com/2017/12/arch-linux-%E5%AE%89%E8%A3%9D%E7%AD%86%E8%A8%98/#準備開機碟">這篇</a>提到的 MultiBootUSB，似乎無法在我的 Surface 上使用，不知道什麼問題，因此使用下面的方法來手動製作。</p>
+
+<p>在 Windows 環境，下載好官網的 .iso 之後（我的版本是 <code>archlinux-2017.12.01-x86_64.iso</code>），直接用 <code>powershell</code> 掛載映像檔，指令如下：</p>
+
+<pre><code class="language-powershell">Mount-DiskImage -ImagePath &quot;D:\path\to\source.iso&quot;
+</code></pre>
+
+<p>這指令就跟虛擬光碟機的效果一樣，所以你可以在光碟機（F 槽之類的）看見掛載上去的檔案。<br />
+然後，準備好你的 USB 碟，格式化為 <code>FAT32</code>，再把光碟機裡面的所有檔案直接複製到 USB 上就完成了！</p>
+
+<h2 id="從-usb-開機">從 USB 開機</h2>
+
+<p>首先要進入 UEFI 介面，有兩種方式：</p>
+
+<ol>
+<li>開機時，按著音量增加鍵</li>
+<li>在 Windows 點選重新啟動按鈕時按著 Shift 鍵，會出現隱藏選單，選擇進入 UEFI</li>
+</ol>
+
+<p>進入 UEFI 介面後，發現還是可以使用觸控螢幕，滿方便的。</p>
+
+<h3 id="關閉-secure-boot">關閉 Secure Boot</h3>
+
+<p>關閉 Secure Boot 功能之後，才能從 Arch Linux ISO 開機，因此要在 UEFI 裡面把這個功能關閉。</p>
+
+<h3 id="調整開機順序">調整開機順序</h3>
+
+<p>把 USB 開機順序拖曳到最上面，然後重新開機。</p>
+
+<h2 id="調整文字大小">調整文字大小</h2>
+
+<p>Surface Pro 螢幕解析度很高，因此進入 Arch 文字安裝介面後，應該會發現字超級小的，可以用 <code>setfont</code> 改變字體來調整文字大小，底下這個 32 號字看起來還行。</p>
+
+<pre><code class="language-sh">setfont /usr/share/kbd/consolefonts/latarcyrheb-sun32.psfu.gz
+</code></pre>
+
+<h2 id="連上網路">連上網路</h2>
+
+<p>可以參考<a href="https://blog.rex-tsou.com/2017/12/arch-linux-%E5%AE%89%E8%A3%9D%E7%AD%86%E8%A8%98/#準備網路">Arch Linux 安裝筆記</a>
+我使用無線網路：</p>
+
+<pre><code class="language-sh">wifi-menu
+ping 8.8.8.8
+</code></pre>
+
+<h2 id="分割硬碟">分割硬碟</h2>
+
+<p>Surface Pro 的硬碟名稱比較奇怪，不是常見的 <code>sdx</code> 而是叫作 <code>nvme0n1</code>，去查了下發現是因為硬碟的連接介面不是 <code>SATA</code> 而是 <code>NVM Express port</code>，好像有比較厲害。</p>
+
+<p>分割的指令就不細講了，請參考<a href="https://blog.rex-tsou.com/2017/12/arch-linux-%E5%AE%89%E8%A3%9D%E7%AD%86%E8%A8%98/#分割硬碟">Arch Linux 安裝筆記</a>。</p>
+
+<p>我的分割方式如下（用 <code>parted</code> 看，注意編號順序有點不一樣，我新增的是編號 5、6、7）：</p>
+
+<table>
+<thead>
+<tr>
+<th>Number</th>
+<th>Size</th>
+<th>File system</th>
+<th>Name</th>
+<th>Flags</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1</td>
+<td>273MB</td>
+<td>fat32</td>
+<td>EFI system partition</td>
+<td>boot, esp</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>134MB</td>
+<td></td>
+<td>Microsoft reserved partition</td>
+<td>msftres</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>125G</td>
+<td>ntfs</td>
+<td>Basic data partition</td>
+<td>msfdata</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>2147MB</td>
+<td>swap</td>
+<td>swap</td>
+<td></td>
+</tr>
+
+<tr>
+<td>6</td>
+<td>21.5GB</td>
+<td>ext4</td>
+<td>/root</td>
+<td></td>
+</tr>
+
+<tr>
+<td>7</td>
+<td>106GB</td>
+<td>ext4</td>
+<td>/home</td>
+<td></td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>1835MB</td>
+<td>ntfs</td>
+<td>Basic data partition</td>
+<td>hidden, diag</td>
+</tr>
+</tbody>
+</table>
+
+<p>如果有跨作業系統共用檔案的需求，共用分割區的檔案系統建議使用 <code>NTFS</code>，否則 Windows 會看不懂。</p>
+
+<h2 id="格式化-掛載">格式化、掛載</h2>
+
+<p><strong>小心</strong>不要格式化到 Windows：</p>
+
+<pre><code class="language-sh">mkswap /dev/nvme0n5 # swap
+mkfs.ext4 /dev/nvme0n6 # /
+mkfs.ext4 /dev/nvme0n7 # /home
+
+mount /dev/nvme0n6 /mnt # 掛載 root
+
+mkdir /mnt/boot
+mount /dev/nvme0n1 /boot # 掛載 EFI
+
+mkdir /mnt/home
+mount /dev/nvme0n7 /mnt/home # 掛載 home
+
+swapon /dev/nvme0n5 # 啟用 swap
+</code></pre>
+
+<h2 id="安裝套件">安裝套件</h2>
+
+<p>參考<a href="https://blog.rex-tsou.com/2017/12/arch-linux-%E5%AE%89%E8%A3%9D%E7%AD%86%E8%A8%98/#安裝">Arch Linux 安裝筆記</a></p>
+
+<h3 id="mirrorlist">mirrorlist</h3>
+
+<pre><code class="language-sh">vim /etc/pacman.d/mirrorlist
+</code></pre>
+
+<h3 id="開始安裝">開始安裝</h3>
+
+<pre><code class="language-sh">pacstrap /mnt base base-devel \
+intel-ucode \ # cpu
+zsh tmux git openssh rsync sshfs neovim gvim \ # 這三行是一些常用工具
+python python-pip python-neovim xclip \
+htop exa ripgrep fd-rs \
+nodejs npm yarn \ # 程式語言及相關工具
+gnome gnome-tweak-tool \ # GNOME 桌面
+noto-fonts noto-fonts-cjk adobe-source-code-pro-fonts \ # 字型
+firefox # 瀏覽器
+</code></pre>
+
+<h2 id="設定系統">設定系統</h2>
+
+<h3 id="產生-fstab">產生 fstab</h3>
+
+<pre><code class="language-sh">genfstab -U /mnt | sed -e 's/relatime/noatime/g' &gt;&gt; /mnt/etc/fstab
+</code></pre>
+
+<h3 id="chroot">chroot</h3>
+
+<pre><code class="language-sh">arch-chroot /mnt
+</code></pre>
+
+<h3 id="一些基本設定">一些基本設定</h3>
+
+<p>後面這些設定重複性滿高的，可以直接參考<a href="https://leomao.github.io/2017/09/archlinux-install-note/#設定系統">這篇</a></p>
+
+<pre><code class="language-sh"># 語系
+sed -i -e 's/^#\(en_US\|zh_TW\)\(\.UTF-8\)/\1\2/g' /etc/locale.gen
+locale-gen
+echo &quot;LANG=en_US.UTF-8&quot; &gt; /etc/locale.conf
+# 時間
+export TIMEZONE=Asia/Taipei # 台北時區
+ln -sf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime
+hwclock --systohc
+systemctl enable systemd-timesyncd
+# hostname 相關
+export HOSTNAME=&lt;hostname&gt; # 給電腦取個名字
+echo $HOSTNAME &gt; /etc/hostname
+sed -ie &quot;8i 127.0.1.1\t$HOSTNAME.localdomain\t$HOSTNAME&quot; /etc/hosts
+# 一些需要開機做的事
+systemctl enable fstrim.timer # 有 SSD 才需要
+systemctl enable NetworkManager
+systemctl enable gdm
+sed -ie 's/#\(WaylandEnable\)/\1/' /etc/gdm/custom.conf # Wayland 還不太穩...
+systemctl enable cups-browsed # 如果要用 printer
+# boot loader
+bootctl install
+cat &gt; /boot/loader/loader.conf &lt;&lt; EOF
+default	arch
+timeout	3
+editor	0
+EOF
+cat &gt; /boot/loader/entries/arch.conf &lt;&lt; EOF
+title	Arch Linux
+linux	/vmlinuz-linux
+initrd	/intel-ucode.img
+initrd	/initramfs-linux.img
+options root=PARTUUID=&lt;PARTUUID&gt; rw
+EOF
+# assume root partition is /dev/nvme0n6
+export PARTUUID=$(blkid -s PARTUUID -o value /dev/nvme0n6)
+sed -ie &quot;s/&lt;PARTUUID&gt;/${PARTUUID}/&quot; /boot/loader/entries/arch.conf
+# sudo
+sed -ie 's/# \(%wheel ALL=(ALL) ALL\)/\1/' /etc/sudoers
+</code></pre>
+
+<h3 id="新增使用者">新增使用者</h3>
+
+<pre><code class="language-sh">export USERNAME=&lt;username&gt;
+useradd -mG wheel,storage,power,video,audio $USERNAME
+passwd $USERNAME # 設定密碼
+</code></pre>
+
+<h3 id="退出-chroot-重新開機">退出 chroot、重新開機</h3>
+
+<pre><code class="language-sh">exit
+umount -R /mnt
+reboot
+</code></pre>
+
+<h2 id="開機">開機！</h2>
+
+<p>開機之後就可以使用 8 成的功能了，但因為 Surface Pro 4 的硬體設備比較特殊，所以硬體支援需要特別處理</p>
+
+<h2 id="解決硬體支援問題">解決硬體支援問題</h2>
+
+<p>待解決的幾乎都是硬體設備的支援問題，需要更新核心（kernal）。</p>
+
+<ol>
+<li>觸控螢幕</li>
+<li>觸控筆</li>
+</ol>
+
+<p>目前 Surface 可用的最新版本 Linux kernal 在<a href="https://github.com/jakeday/linux-surface/">這個 GitHub Repo</a><br />
+然後這裡有 <a href="https://aur.archlinux.org/packages/linux-surface4/">pacaur 的打包</a></p>
+
+<p><strong>注意</strong>，安裝底下的套件會重新編譯核心，需要很～長的時間（我是 i5 版，大概花了 3 小時吧，），請確認電腦有接上電源，並且沒什麼事要急著處理：</p>
+
+<pre><code class="language-sh">gpg --recv-keys --keyserver hkp://keys.gnupg.net 38DBBDC86092693E # 匯入 Greg Kroah-Hartman 的金鑰 
+pacaur -S linux-surface4
+</code></pre>
+
+<pre><code class="language-sh">uname -r # 確認現在使用的核心版本
+
+# 修改 boot loader
+sudo -i # 以下需使用 root 權限
+cp /boot/loader/entries/arch.conf /boot/loader/entries/surface.conf # 複製原本的 arch.conf 為 surface.conf
+vim /boot/loader/entries/surface.conf # surface.conf 修改如下
+</code></pre>
+
+<pre><code class="language-conf">title   Arch Linux
+linux   /vmlinuz-linux-serface4 # 原來是 /vmlinuz-linux
+initrd  /intel-ucode.img
+initrd  /initramfs-linuz-surface4.img # 原來應該是 /initramfs-linuz.img
+option  root=PARTUUID=&lt;UUID&gt; rw # &lt;UUID&gt; 是你 / 分割區的 UUID
+</code></pre>
+
+<pre><code class="language-sh">vim /boot/loader/loader.conf # 修改如下
+</code></pre>
+
+<pre><code class="language-conf">default surface # 主要修改這行
+timeout 3
+editor  0
+</code></pre>
+
+<p>其他就是繼續依照 GitHub 的說明來安裝～</p>
+
+<h2 id="下載-firmware-ipts">下載 firmware（ipts）</h2>
+
+<p>下載 <code>ipts_firmware_v78.zip</code>
+解壓縮放到 <code>/lib/firmware/intel/ipts</code></p>
+
+<pre><code class="language-sh">unzip ipts_firmware_v78.zip -d /lib/firmware/intel/ipts
+</code></pre>
+
+<h2 id="待解決問題">待解決問題</h2>
+
+<ol>
+<li>wifi 一段時間後有機率斷線（而且要重新開機才會恢復）</li>
+<li>休眠後有機率無法喚醒</li>
+<li>Applications 選單 icon 拖曳時，GDM 會當掉</li>
+<li>電力消耗速度比 Windows 快一些</li>
+</ol>
+
+<p>好像跟這個 <a href="https://www.reddit.com/r/archlinux/comments/7iadeq/dragging_icon_from_dock_on_gnome_freezes_mouse/">issue</a> 描述的狀況一樣。目前只能先小心，不要去拖曳到那些 icon。如果不幸當掉，只好到其他的 tty 下指令 <code>reboot</code>，或是 <code>pkill gdm</code>，讓桌面環境重開。</p>
+
+<p>wifi 斷線的問題比較煩，因為這確實會影響到基本使用，期待這個 Bug 能盡快修復！</p>
+
+<h2 id="參考資料">參考資料</h2>
+
+<p><a href="https://ramsdenj.com/2016/08/29/arch-linux-on-the-surface-pro-4.html#setup-the-root-pool">JOHN RAMSDEN: Arch Linux on The Surface Pro 4</a>
+<a href="https://www.youtube.com/watch?v=Z0bIYOf3_rY">youtube: Arch Linux on surface pro 4 - with multitouch, pen and sensitivity working</a>
+<a href="https://www.reddit.com/r/SurfaceLinux/comments/6tbnqx/jakedays_kernel_for_surface_bookpro_4/">jakeday&rsquo;s Kernel for Surface Book/Pro 4</a></p>
+
+    </div>
+  </div>
+</section>
+
+<section class="section disqus">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'akccakcctw';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<footer class="section footer">
+  <div class="container">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</footer>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-57924156-2', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+

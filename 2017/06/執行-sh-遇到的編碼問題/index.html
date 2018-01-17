@@ -91,12 +91,14 @@
 
 <p>解決方法都一樣，使用 vim 開啟該檔案，使用以下命令查看文件格式，先確定是編碼問題</p>
 
-<pre><code class="language-vim">:set ff  &quot; 或是 :set fileformat
+<pre><code>:set ff  
+# 或是 
+:set fileformat
 </code></pre>
 
 <p>如果看到<code>fileformat=dos</code>，那就是了，只要修改文件格式為<code>unix</code>，然後存檔覆蓋即可</p>
 
-<pre><code class="language-vim">:set ff=unix
+<pre><code>:set ff=unix
 :wq
 </code></pre>
 

@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.rex-tsou.com/2017/12/arch-linuxsurface-pro-4-%E5%AE%89%E8%A3%9D%E7%AD%86%E8%A8%98/</loc>
+    <lastmod>2017-12-31T01:37:20+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2017/12/arch-linux%E7%92%B0%E5%A2%83%E8%A8%AD%E5%AE%9A%E8%88%87%E5%B8%B8%E7%94%A8%E5%A5%97%E4%BB%B6/</loc>
     <lastmod>2017-12-12T11:40:55+08:00</lastmod>
   </url>
@@ -241,7 +246,7 @@
   
   <url>
     <loc>https://blog.rex-tsou.com/tags/archlinux/</loc>
-    <lastmod>2017-12-12T11:40:55+08:00</lastmod>
+    <lastmod>2017-12-31T01:37:20+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -277,7 +282,7 @@
   
   <url>
     <loc>https://blog.rex-tsou.com/categories/command-line/</loc>
-    <lastmod>2017-12-12T11:40:55+08:00</lastmod>
+    <lastmod>2017-12-31T01:37:20+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -355,13 +360,13 @@
   
   <url>
     <loc>https://blog.rex-tsou.com/tags/linux/</loc>
-    <lastmod>2017-12-12T11:40:55+08:00</lastmod>
+    <lastmod>2017-12-31T01:37:20+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://blog.rex-tsou.com/categories/linux/</loc>
-    <lastmod>2017-12-12T11:40:55+08:00</lastmod>
+    <lastmod>2017-12-31T01:37:20+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -385,7 +390,7 @@
   
   <url>
     <loc>https://blog.rex-tsou.com/post/</loc>
-    <lastmod>2017-12-12T11:40:55+08:00</lastmod>
+    <lastmod>2017-12-31T01:37:20+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -427,7 +432,7 @@
   
   <url>
     <loc>https://blog.rex-tsou.com/tags/</loc>
-    <lastmod>2017-12-12T11:40:55+08:00</lastmod>
+    <lastmod>2017-12-31T01:37:20+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -475,7 +480,7 @@
   
   <url>
     <loc>https://blog.rex-tsou.com/</loc>
-    <lastmod>2017-12-12T11:40:55+08:00</lastmod>
+    <lastmod>2017-12-31T01:37:20+08:00</lastmod>
     <priority>0</priority>
   </url>
   
