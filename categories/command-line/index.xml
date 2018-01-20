@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 31 Dec 2017 01:37:20 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 20 Jan 2018 17:32:21 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.rex-tsou.com/categories/command-line/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linux command-line: find 指令用法</title>
+      <link>https://blog.rex-tsou.com/2018/01/linux-command-line-find-%E6%8C%87%E4%BB%A4%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Sat, 20 Jan 2018 17:32:21 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/2018/01/linux-command-line-find-%E6%8C%87%E4%BB%A4%E7%94%A8%E6%B3%95/</guid>
+      <description>常用參數 type f: file d: directory l: symbolic p: pipe s: socket name iname: ignore case path mtime: modify time (day) atime: access time (day) ctime: create time (day) mmin: (minute) amin: (minute) cmin: (minute) size or: 可以簡寫為 -o not: 可以簡寫為 ! exec: execute delete 基本用法 # name find . -name findme # 找 &#39;findme&#39; find</description>
+    </item>
     
     <item>
       <title>Arch Linux：Surface Pro 4 安裝筆記</title>

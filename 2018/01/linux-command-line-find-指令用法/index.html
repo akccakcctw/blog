@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="為了可能的聲音"> 
+    <meta name="author" content="Rex Tsou">
+    <meta name="copyright" content="Rex Tsou">
+    
+    <meta property="og:title" content="Linux command-line: find 指令用法">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="為了可能的聲音">
+    
+    <meta itemprop="name" content="Linux command-line: find 指令用法 | 為了可能的聲音">
+    <meta itemprop="description" content="為了可能的聲音">
+    <title>Linux command-line: find 指令用法 | 為了可能的聲音</title>
+    <link rel="stylesheet" href="https://blog.rex-tsou.com/css/style.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css"> 
+  </head>
+
+<header class="section header">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav__left">
+        <a class="nav__item" href="https://blog.rex-tsou.com"><h1 class="title">為了可能的聲音</h1></a>
+      </div>
+      <div class="nav__right">
+        <nav class="nav__item">
+          <a class="item__link" href="/post">Archives</a>
+        </nav>
+        <nav class="nav__item">
+          
+          <a class="item__link" href="https://github.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="https://www.facebook.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-facebook-square"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="/index.xml" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <time class="date">January 20, 2018</time>
+    
+      <div class="category">
+  
+  <span class="category__item">
+    <a href="/categories/command-line">command-line</a>
+  </span>
+  
+  <span class="category__item">
+    <a href="/categories/linux">Linux</a>
+  </span>
+  
+</div>
+
+    
+    <h1 class="title">Linux command-line: find 指令用法</h1>
+    <div class="content">
+      
+
+<h2 id="常用參數">常用參數</h2>
+
+<ul>
+<li><code>type</code>
+
+<ul>
+<li><code>f</code>: file</li>
+<li><code>d</code>: directory</li>
+<li><code>l</code>: symbolic</li>
+<li><code>p</code>: pipe</li>
+<li><code>s</code>: socket</li>
+</ul></li>
+<li><code>name</code></li>
+<li><code>iname</code>: ignore case</li>
+<li><code>path</code></li>
+<li><code>mtime</code>: modify time (day)</li>
+<li><code>atime</code>: access time (day)</li>
+<li><code>ctime</code>: create time (day)</li>
+<li><code>mmin</code>: (minute)</li>
+<li><code>amin</code>: (minute)</li>
+<li><code>cmin</code>: (minute)</li>
+<li><code>size</code></li>
+<li><code>or</code>: 可以簡寫為 -o</li>
+<li><code>not</code>: 可以簡寫為 !</li>
+<li><code>exec</code>: execute</li>
+<li><code>delete</code></li>
+</ul>
+
+<h2 id="基本用法">基本用法</h2>
+
+<pre><code class="language-sh"># name
+find . -name findme # 找 'findme'
+find . -name '*.js' # 找當前目錄底下的 js 檔
+find . -name '*.py' -or -name '*.r' # 增加條件
+find . -name '*.js' -not -path '*/node_modules/*' # 排除條件
+
+# path
+find . -path '**/lib/**/*.ext' # 找當前目錄底下路徑包含 lib 且為 .ext 的檔案
+
+# time
+find . -mtime 2 # 找 2 天前修改過的檔案
+find . -mtime -1 # 找當前目錄底下 1 天內有修改過的檔案
+find . -mtime +1 # 找當前目錄底下超過 1 天前有修改過的檔案
+
+# type &amp;&amp; size &amp;&amp; iname
+find /var -type f -size +50MB # 找 /var 底下大於 50MB 的檔案
+find ~/Download -size +500k -size -10MB -iname '*.Tar.gZ'
+
+# exec
+# {} 代表的是所取得的 file 路徑
+# （find 配合 rm 使用請非常小心）
+find /tmp -mtime +180 -exec rm {} \; # 刪除 /tmp 底下修改時間超過 180 天的檔案
+</code></pre>
+
+<h2 id="進階參數">進階參數</h2>
+
+<ul>
+<li><code>ok</code></li>
+<li><code>execdir</code></li>
+<li><code>okdir</code></li>
+<li><code>user</code></li>
+<li><code>group</code></li>
+<li><code>regex</code></li>
+<li><code>empty</code></li>
+<li><code>perm</code>: permission</li>
+</ul>
+
+<h2 id="一些使用情境">一些使用情境</h2>
+
+<pre><code class="language-sh"># 不小心把檔案解壓，想要刪除 5 分鐘內建立的檔案..
+find . -cmin -5 -exec rm -i {} \;
+</code></pre>
+
+<h2 id="其他進階用法">其他進階用法</h2>
+
+<pre><code class="language-sh"># ok
+# 執行指令前需要一一確認
+find . -name '*.txt' -ok rm {} \;
+
+# empty
+# 在所有空目錄裡增加 .gitkeep
+find . -type d -empty -exec touch {}/.gitkeep \;
+
+# perm
+find . -type f -perm 0777
+find . -type f -not -perm 0777
+
+# user
+# 搜尋特定使用者的檔案
+find /home -user rextsou -name '*.txt'
+
+# group
+# 指定檔案群組
+find /home -group developer
+</code></pre>
+
+<h2 id="參考資料">參考資料</h2>
+
+<ul>
+<li><a href="https://www.networkworld.com/article/3233305/linux/using-the-linux-find-command-with-caution.html">Using the Linux find command with caution</a></li>
+<li><a href="https://blog.gtwang.org/linux/unix-linux-find-command-examples/">Unix/Linux 的 find 指令使用教學、技巧與範例整理</a></li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+<section class="section disqus">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'akccakcctw';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<footer class="section footer">
+  <div class="container">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</footer>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-57924156-2', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
