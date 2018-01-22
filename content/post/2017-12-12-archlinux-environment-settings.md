@@ -133,7 +133,8 @@ pacaur -S materia-theme
 
 # Paper Icon
 # [Site](https://snwh.org/paper)
-pacaur -S paper
+# [GitHub repo](https://github.com/snwh/paper-icon-theme)
+pacaur -S paper-icon-theme
 ```
 
 ### 其他
