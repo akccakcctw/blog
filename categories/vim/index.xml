@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 27 Jun 2017 14:21:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 25 Jan 2018 11:11:11 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.rex-tsou.com/categories/vim/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>更新 Homebrew 後，啟動 vim 的問題</title>
+      <link>https://blog.rex-tsou.com/2018/01/%E6%9B%B4%E6%96%B0-homebrew-%E5%BE%8C%E5%95%9F%E5%8B%95-vim-%E7%9A%84%E5%95%8F%E9%A1%8C/</link>
+      <pubDate>Thu, 25 Jan 2018 11:11:11 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/2018/01/%E6%9B%B4%E6%96%B0-homebrew-%E5%BE%8C%E5%95%9F%E5%8B%95-vim-%E7%9A%84%E5%95%8F%E9%A1%8C/</guid>
+      <description>今天更新 Homebrew 之後，啟動 vim 時顯示錯誤： dyld: Library not loaded: /usr/local/opt/ruby/lib/libruby.2.4.3.dylib Referenced from: /usr/local/bin/vim Reason: image not found [1] 52248 abort vim 找到類似問題，原因是 vim 依賴舊版的 ruby，所以更新後無法啟動，解決方法是重</description>
+    </item>
     
     <item>
       <title>執行 sh 遇到的編碼問題</title>

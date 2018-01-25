@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.rex-tsou.com/2018/01/%E6%9B%B4%E6%96%B0-homebrew-%E5%BE%8C%E5%95%9F%E5%8B%95-vim-%E7%9A%84%E5%95%8F%E9%A1%8C/</loc>
+    <lastmod>2018-01-25T11:11:11+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2018/01/linux-command-line-find-%E6%8C%87%E4%BB%A4%E7%94%A8%E6%B3%95/</loc>
     <lastmod>2018-01-20T17:32:21+08:00</lastmod>
   </url>
@@ -401,7 +406,7 @@
   
   <url>
     <loc>https://blog.rex-tsou.com/post/</loc>
-    <lastmod>2018-01-20T17:32:21+08:00</lastmod>
+    <lastmod>2018-01-25T11:11:11+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -473,7 +478,7 @@
   
   <url>
     <loc>https://blog.rex-tsou.com/categories/vim/</loc>
-    <lastmod>2017-06-27T14:21:00+08:00</lastmod>
+    <lastmod>2018-01-25T11:11:11+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -491,7 +496,7 @@
   
   <url>
     <loc>https://blog.rex-tsou.com/</loc>
-    <lastmod>2018-01-20T17:32:21+08:00</lastmod>
+    <lastmod>2018-01-25T11:11:11+08:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="為了可能的聲音"> 
+    <meta name="author" content="Rex Tsou">
+    <meta name="copyright" content="Rex Tsou">
+    
+    <meta property="og:title" content="更新 Homebrew 後，啟動 vim 的問題">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="為了可能的聲音">
+    
+    <meta itemprop="name" content="更新 Homebrew 後，啟動 vim 的問題 | 為了可能的聲音">
+    <meta itemprop="description" content="為了可能的聲音">
+    <title>更新 Homebrew 後，啟動 vim 的問題 | 為了可能的聲音</title>
+    <link rel="stylesheet" href="https://blog.rex-tsou.com/css/style.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css"> 
+  </head>
+
+<header class="section header">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav__left">
+        <a class="nav__item" href="https://blog.rex-tsou.com"><h1 class="title">為了可能的聲音</h1></a>
+      </div>
+      <div class="nav__right">
+        <nav class="nav__item">
+          <a class="item__link" href="/post">Archives</a>
+        </nav>
+        <nav class="nav__item">
+          
+          <a class="item__link" href="https://github.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="https://www.facebook.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-facebook-square"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="/index.xml" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <time class="date">January 25, 2018</time>
+    
+      <div class="category">
+  
+  <span class="category__item">
+    <a href="/categories/vim">vim</a>
+  </span>
+  
+</div>
+
+    
+    <h1 class="title">更新 Homebrew 後，啟動 vim 的問題</h1>
+    <div class="content">
+      
+
+<p>今天更新 Homebrew 之後，啟動 vim 時顯示錯誤：</p>
+
+<pre><code class="language-sh">dyld: Library not loaded: /usr/local/opt/ruby/lib/libruby.2.4.3.dylib
+  Referenced from: /usr/local/bin/vim
+  Reason: image not found
+[1]    52248 abort      vim
+</code></pre>
+
+<p>找到<a href="https://superuser.com/questions/1096438/brew-upgrade-broke-vim-on-os-x-dyld-library-not-loaded">類似問題</a>，原因是 vim 依賴舊版的 ruby，所以更新後無法啟動，解決方法是重裝 ruby 和 vim：</p>
+
+<pre><code class="language-sh">brew reinstall ruby vim
+</code></pre>
+
+<p>但我重裝之後仍然無法使用，顯示如下錯誤訊息：</p>
+
+<pre><code class="language-sh">Error: The `brew link` step did not complete successfully
+The formula built, but is not symlinked into /usr/local
+Could not symlink bin/rake
+Target /usr/local/bin/rake
+already exists. You may want to remove it:
+  rm '/usr/local/bin/rake'
+
+To force the link and overwrite all conflicting files:
+  brew link --overwrite ruby
+
+To list all files that would be deleted:
+  brew link --overwrite --dry-run ruby
+</code></pre>
+
+<p>照著提示使用 <code>brew link --overwrite ruby</code>，再重新更新 vim：</p>
+
+<pre><code class="language-sh">brew upgrade vim
+</code></pre>
+
+<p>如此一來，ruby 成功更新到最新版，且 vim 的依賴也是新版的 ruby，就能正常啟動了！</p>
+
+<hr />
+
+<p>另外，如果不想更新 vim，其實也可以直接讓 ruby 降版（參考<a href="https://stackoverflow.com/questions/3987683/homebrew-install-specific-version-of-formula">這篇</a>）：</p>
+
+<pre><code class="language-sh"># 確認目前有哪些版本
+brew info ruby
+
+# 顯示訊息如下
+ruby: stable 2.5.0 (bottled), HEAD
+Powerful, clean, object-oriented scripting language
+https://www.ruby-lang.org/
+/usr/local/Cellar/ruby/2.4.3_1 (3,043 files, 16.3MB)
+  Poured from bottle on 2017-12-22 at 00:00:26
+/usr/local/Cellar/ruby/2.5.0 (3,323 files, 18.4MB)
+  Poured from bottle on 2018-01-25 at 10:21:10
+
+# 切換版本
+brew switch ruby 2.4.3_1
+</code></pre>
+
+<h2 id="參考資料">參考資料</h2>
+
+<ul>
+<li><a href="https://superuser.com/questions/1096438/brew-upgrade-broke-vim-on-os-x-dyld-library-not-loaded">superuser: brew upgrade broke Vim on OS X (dyld: Library not loaded)</a></li>
+<li><a href="https://stackoverflow.com/questions/3987683/homebrew-install-specific-version-of-formula">stackoverflow: Homebrew install specific version of formula?</a></li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+<section class="section disqus">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'akccakcctw';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<footer class="section footer">
+  <div class="container">
+    <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</footer>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-57924156-2', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
