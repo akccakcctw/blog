@@ -161,4 +161,5 @@ pacaur -S <package>
 - [特色Linux發行版—Arch Linux（中）](http://www.netadmin.com.tw/article_content.aspx?sn=1502020003&jump=2)
 - [Arch Wiki: pacman](https://wiki.archlinux.org/index.php/pacman)
 
-[^1]: https://wiki.archlinux.org/index.php/Arch_User_Repository_(%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87)
+[^1]: [Arch User Repository (正體中文)](https://wiki.archlinux.org/index.php/Arch_User_Repository_(正體中文))
+
