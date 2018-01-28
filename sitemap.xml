@@ -93,6 +93,11 @@
   </url>
   
   <url>
+    <loc>https://blog.rex-tsou.com/2017/05/html-select-%E7%9A%84-placeholder-%E5%AF%AB%E6%B3%95/</loc>
+    <lastmod>2017-05-22T07:17:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2017/04/%E5%88%86%E9%A0%81%E8%87%AA%E5%8B%95%E5%B8%B6%E5%85%A5-link-rel-prefetch-function-%E8%A9%A6%E4%BD%9C/</loc>
     <lastmod>2017-04-20T07:34:00+00:00</lastmod>
   </url>
@@ -357,6 +362,12 @@
   </url>
   
   <url>
+    <loc>https://blog.rex-tsou.com/categories/html/</loc>
+    <lastmod>2017-05-22T07:17:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/categories/html5/</loc>
     <lastmod>2017-04-20T07:34:00+00:00</lastmod>
     <priority>0</priority>
@@ -375,14 +386,14 @@
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/tags/linux/</loc>
-    <lastmod>2017-12-31T01:37:20+08:00</lastmod>
+    <loc>https://blog.rex-tsou.com/categories/linux/</loc>
+    <lastmod>2018-01-20T17:32:21+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/categories/linux/</loc>
-    <lastmod>2018-01-20T17:32:21+08:00</lastmod>
+    <loc>https://blog.rex-tsou.com/tags/linux/</loc>
+    <lastmod>2017-12-31T01:37:20+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -423,13 +434,13 @@
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/tags/server/</loc>
+    <loc>https://blog.rex-tsou.com/categories/server/</loc>
     <lastmod>2017-10-11T00:29:24+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/categories/server/</loc>
+    <loc>https://blog.rex-tsou.com/tags/server/</loc>
     <lastmod>2017-10-11T00:29:24+08:00</lastmod>
     <priority>0</priority>
   </url>
