@@ -62,6 +62,10 @@ description: ""
 # 啟動以後，瀏覽所有網頁都會透過這台 proxy server
 ```
 
+## 列出使用中的 ssh tunnel
+```sh
+ps aux | grep ssh
+```
 
 ## 參考資料
 - [上班族 ssh tunnel 求生手冊](https://www.ubuntu-tw.org/modules/newbb/viewtopic.php?topic_id=17538)
@@ -72,3 +76,4 @@ description: ""
 - [Linux 透過 SSH SOCKS 連線來使用 Firefox / Pidgin(MSN, GTalk..)](https://blog.longwin.com.tw/2010/01/linux-ssh-socks-firefox-pidgin-2010/)
 - [使用 OpenShift 的 SSH 來架設跳板](https://coldnew.github.io/59b43040/)
 - [调试利器-SSH隧道](https://github.com/gwuhaolin/blog/issues/11)
+- [superuser: List open SSH tunnels](https://superuser.com/questions/248389/list-open-ssh-tunnels)
