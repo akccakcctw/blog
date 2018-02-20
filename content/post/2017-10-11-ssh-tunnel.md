@@ -50,14 +50,21 @@ description: ""
 
 
 ## 建立 SOCKS proxy server
+
 ```sh
 # syntax: ssh -D port user@host
 
 [user@serverA]$ ssh -NfD 2323 user@serverB
 
-# 讓 chrome 透過 proxy 連線
-# 將以下設定加入啟動 chrome 的「目標」（右鍵 ➡️ 內容）後面
+# 讓 Chrome 透過 proxy 連線（須先關閉所有運行中的 Chrome）
+
+# Linux/Windows
+# 將以下設定加入啟動 Chrome 的「目標」（右鍵 ➡️ 內容）後面
 --proxy-server="socks5://localhost:2323"
+
+# macOS
+# 在 terminal 內使用指令方式開啟 Chrome
+open -a "Google Chrome" --args --proxy-server="socks5://localhost:2323"
 
 # 啟動以後，瀏覽所有網頁都會透過這台 proxy server
 ```
