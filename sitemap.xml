@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.rex-tsou.com/2018/03/vim-%E5%A6%82%E4%BD%95%E5%9C%A8-insert-mode-%E6%8F%9B%E8%A1%8C/</loc>
+    <lastmod>2018-03-08T23:19:33+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2018/01/%E6%9B%B4%E6%96%B0-homebrew-%E5%BE%8C%E5%95%9F%E5%8B%95-vim-%E7%9A%84%E5%95%8F%E9%A1%8C/</loc>
     <lastmod>2018-01-25T11:11:11+08:00</lastmod>
   </url>
@@ -417,7 +422,7 @@
   
   <url>
     <loc>https://blog.rex-tsou.com/post/</loc>
-    <lastmod>2018-01-25T11:11:11+08:00</lastmod>
+    <lastmod>2018-03-08T23:19:33+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -489,7 +494,7 @@
   
   <url>
     <loc>https://blog.rex-tsou.com/categories/vim/</loc>
-    <lastmod>2018-01-25T11:11:11+08:00</lastmod>
+    <lastmod>2018-03-08T23:19:33+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -507,7 +512,7 @@
   
   <url>
     <loc>https://blog.rex-tsou.com/</loc>
-    <lastmod>2018-01-25T11:11:11+08:00</lastmod>
+    <lastmod>2018-03-08T23:19:33+08:00</lastmod>
     <priority>0</priority>
   </url>
   

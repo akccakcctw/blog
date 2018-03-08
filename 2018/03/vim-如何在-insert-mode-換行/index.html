@@ -7,13 +7,13 @@
     <meta name="author" content="Rex Tsou">
     <meta name="copyright" content="Rex Tsou">
     
-    <meta property="og:title" content="為了可能的聲音">
+    <meta property="og:title" content="Vim 如何在 insert mode 換行">
     <meta property="og:type" content="article">
     <meta property="og:description" content="為了可能的聲音">
     
-    <meta itemprop="name" content="Vim | 為了可能的聲音">
+    <meta itemprop="name" content="Vim 如何在 insert mode 換行 | 為了可能的聲音">
     <meta itemprop="description" content="為了可能的聲音">
-    <title>Vim | 為了可能的聲音</title>
+    <title>Vim 如何在 insert mode 換行 | 為了可能的聲音</title>
     <link rel="stylesheet" href="https://blog.rex-tsou.com/css/style.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"> 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css"> 
@@ -55,29 +55,55 @@
   </div>
 </header>
 
-<section class="section archives">
+<section class="section">
   <div class="container">
-    <h1 class="title">Blog Archives</h1>
-    <ul class="list">
+    <time class="date">March 8, 2018</time>
+    
+      <div class="category">
+  
+  <span class="category__item">
+    <a href="/categories/vim">vim</a>
+  </span>
+  
+</div>
+
+    
+    <h1 class="title">Vim 如何在 insert mode 換行</h1>
+    <div class="content">
       
-      <li class="list__item">
-        <a href="https://blog.rex-tsou.com/2018/03/vim-%E5%A6%82%E4%BD%95%E5%9C%A8-insert-mode-%E6%8F%9B%E8%A1%8C/"><span class="item__title">Vim 如何在 insert mode 換行</span></a>
-        <time datetime='2018-3-8'>March 8, 2018</time>
-      </li>
-      
-      <li class="list__item">
-        <a href="https://blog.rex-tsou.com/2018/01/%E6%9B%B4%E6%96%B0-homebrew-%E5%BE%8C%E5%95%9F%E5%8B%95-vim-%E7%9A%84%E5%95%8F%E9%A1%8C/"><span class="item__title">更新 Homebrew 後，啟動 vim 的問題</span></a>
-        <time datetime='2018-1-25'>January 25, 2018</time>
-      </li>
-      
-      <li class="list__item">
-        <a href="https://blog.rex-tsou.com/2017/06/%E5%9F%B7%E8%A1%8C-sh-%E9%81%87%E5%88%B0%E7%9A%84%E7%B7%A8%E7%A2%BC%E5%95%8F%E9%A1%8C/"><span class="item__title">執行 sh 遇到的編碼問題</span></a>
-        <time datetime='2017-6-27'>June 27, 2017</time>
-      </li>
-      
-    </ul>
+
+<p>使用 Vim 好一陣子了，但一直有個地方覺得不順，就是在打到要換行的時候，需要先按 <code>&lt;Esc&gt;</code> 回到 Normal mode 再按 <code>o</code>。儘管可以用 <code>&lt;C-[&gt;</code> 代替 Esc，右手還是有按錯的可能性，而且不那麼直覺（對我來說啦）。</p>
+
+<p>今天終於找到比較好按的方式：<code>&lt;C-o&gt; o</code>。先按 <code>&lt;C-o&gt;</code> 可以暫時回到 Normal mode，然後再用 <code>o</code> 換行，由於右手按的都是比較近的 <code>o</code>，而且又是連續按，因此錯誤率以及速度比原來快上不少！</p>
+
+<p>依樣畫葫蘆，<code>&lt;C-o&gt;</code> 也可以配合其他指令，例如移位、換行、刪除行等等，真的是很有用的快捷鍵呀！（用了那麼久的 Vim 才知道 <code>&lt;C-o&gt;</code> 可以暫時回到 Normal mode⋯⋯）</p>
+
+<h2 id="參考資料">參考資料</h2>
+
+<ul>
+<li><a href="https://stackoverflow.com/questions/18139047/create-new-line-while-in-insert-mode">stackoverflow: Create New Line While in Insert Mode</a></li>
+</ul>
+
+    </div>
   </div>
 </section>
+
+<section class="section disqus">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'akccakcctw';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
 <footer class="section footer">
   <div class="container">
     <p>© 2017 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>

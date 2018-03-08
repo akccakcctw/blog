@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2017 &lt;a href=&#34;https://github.com/akccakcctw&#34; target=&#34;_blank&#34;&gt;Rex Tsou&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 25 Jan 2018 11:11:11 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 08 Mar 2018 23:19:33 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.rex-tsou.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vim 如何在 insert mode 換行</title>
+      <link>https://blog.rex-tsou.com/2018/03/vim-%E5%A6%82%E4%BD%95%E5%9C%A8-insert-mode-%E6%8F%9B%E8%A1%8C/</link>
+      <pubDate>Thu, 08 Mar 2018 23:19:33 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/2018/03/vim-%E5%A6%82%E4%BD%95%E5%9C%A8-insert-mode-%E6%8F%9B%E8%A1%8C/</guid>
+      <description>使用 Vim 好一陣子了，但一直有個地方覺得不順，就是在打到要換行的時候，需要先按 &amp;lt;Esc&amp;gt; 回到 Normal mode 再按 o。儘管可以用 &amp;lt;C-[&amp;gt; 代替 Esc，右手還是有按錯的可能性，</description>
+    </item>
     
     <item>
       <title>更新 Homebrew 後，啟動 vim 的問題</title>
