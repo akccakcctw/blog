@@ -6,10 +6,19 @@
     <description>Recent content on 為了可能的聲音</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 10 Mar 2018 15:49:48 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Apr 2018 17:45:39 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.rex-tsou.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Checkout Github Pull Request Locally</title>
+      <link>https://blog.rex-tsou.com/2018/04/checkout-github-pull-request-locally/</link>
+      <pubDate>Mon, 02 Apr 2018 17:45:39 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/2018/04/checkout-github-pull-request-locally/</guid>
+      <description>專案目錄底下的 .git/config 檔案內，記錄有 github 的 remote url，長相類似這樣： [remote &amp;quot;origin&amp;quot;] url = git@github.com:akccakcctw/project.git fetch = +refs/heads/*:refs/remotes/origin/* 只要在下面新增一行 fetch = +refs/pull/*/head:refs</description>
+    </item>
     
     <item>
       <title>在 macOS 上安裝 Docker</title>

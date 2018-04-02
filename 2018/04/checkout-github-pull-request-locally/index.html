@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="為了可能的聲音"> 
+    <meta name="author" content="Rex Tsou">
+    <meta name="copyright" content="Rex Tsou">
+    
+    <meta property="og:title" content="Checkout Github Pull Request Locally">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="為了可能的聲音">
+    
+    <meta itemprop="name" content="Checkout Github Pull Request Locally | 為了可能的聲音">
+    <meta itemprop="description" content="為了可能的聲音">
+    <title>Checkout Github Pull Request Locally | 為了可能的聲音</title>
+    <link rel="stylesheet" href="https://blog.rex-tsou.com/css/style.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css"> 
+  </head>
+
+<header class="section header">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav__left">
+        <a class="nav__item" href="https://blog.rex-tsou.com"><h1 class="title">為了可能的聲音</h1></a>
+      </div>
+      <div class="nav__right">
+        <nav class="nav__item">
+          <a class="item__link" href="/post">Archives</a>
+        </nav>
+        <nav class="nav__item">
+          
+          <a class="item__link" href="https://github.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="https://www.facebook.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-facebook-square"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="/index.xml" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <time class="date">April 2, 2018</time>
+    
+      <div class="category">
+  
+  <span class="category__item">
+    <a href="/categories/git">Git</a>
+  </span>
+  
+</div>
+
+    
+    <h1 class="title">Checkout Github Pull Request Locally</h1>
+    <div class="content">
+      
+
+<p>專案目錄底下的 <code>.git/config</code> 檔案內，記錄有 github 的 remote url，長相類似這樣：</p>
+
+<pre><code>[remote &quot;origin&quot;]
+  url = git@github.com:akccakcctw/project.git
+  fetch = +refs/heads/*:refs/remotes/origin/*
+</code></pre>
+
+<p>只要在下面新增一行 <code>fetch = +refs/pull/*/head:refs/remotes/origin/pr/*</code>，像這樣：</p>
+
+<pre><code>[remote &quot;origin&quot;]
+  url = git@github.com:akccakcctw/project.git
+  fetch = +refs/heads/*:refs/remotes/origin/*
+  fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
+</code></pre>
+
+<p>使用 <code>git fetch origin</code> 時就可以 fetch 到 PR 的 branch：</p>
+
+<pre><code>$ git fetch origin
+From github.com:akccakcctw/project
+ * [new ref]         refs/pull/1000/head -&gt; origin/pr/1000
+ * [new ref]         refs/pull/1002/head -&gt; origin/pr/1002
+ * [new ref]         refs/pull/1004/head -&gt; origin/pr/1004
+ * [new ref]         refs/pull/1009/head -&gt; origin/pr/1009
+...
+</code></pre>
+
+<p>成功 fetch 後就能 checkout 到該 branch 了：</p>
+
+<pre><code>$ git checkout pr/1002
+Branch pr/1002 set up to track remote branch pr/1002 from origin.
+Switched to a new branch 'pr/1002'
+</code></pre>
+
+<h2 id="參考資料">參考資料</h2>
+
+<ul>
+<li><a href="https://gist.github.com/piscisaureus/3342247">Gist: piscisaureus/pr.md</a></li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+<section class="section disqus">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'akccakcctw';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<footer class="section footer">
+  <div class="container">
+    <p></p>
+  </div>
+</footer>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-57924156-2', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
