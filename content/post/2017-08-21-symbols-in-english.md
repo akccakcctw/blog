@@ -63,7 +63,7 @@ date: 2017-08-21T11:59:09+08:00
 | → | Arrow | 箭號 |
 | ~ | Tilde, Swung dash | 波浪號 |
 | ∞ | Infinity | 無限大 |
-| < > | Angle brackets | 尖括號 |
+| < > | Angle brackets, Chevrons | 尖括號、角括號 |
 | ￡ | Pound sign | 英鎊符號 |
 | $ | Dollar sign | 錢號 |
 | °C | Centigrade, Celsius | 攝氏 |
