@@ -6,10 +6,19 @@
     <description>Recent content on 為了可能的聲音</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 22 May 2018 22:52:20 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 16 Jun 2018 00:32:19 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.rex-tsou.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DevTools: Retrieving objects which were created from the constructor</title>
+      <link>https://blog.rex-tsou.com/2018/06/devtools-retrieving-objects-which-were-created-from-the-constructor/</link>
+      <pubDate>Sat, 16 Jun 2018 00:32:19 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/2018/06/devtools-retrieving-objects-which-were-created-from-the-constructor/</guid>
+      <description>Chrome 的 DevTools 原先就內建很多實用的 Command Line API，現在又多一個好用的 queryObjects(Constructor)，ummar 照慣例錄了一段 .gif ，附在</description>
+    </item>
     
     <item>
       <title>ES2018：RegExp 新功能介紹</title>

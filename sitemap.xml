@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.rex-tsou.com/2018/06/devtools-retrieving-objects-which-were-created-from-the-constructor/</loc>
+    <lastmod>2018-06-16T00:32:19+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2018/05/es2018regexp-%E6%96%B0%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%B4%B9/</loc>
     <lastmod>2018-05-22T22:52:20+08:00</lastmod>
   </url>
@@ -345,6 +350,12 @@
   </url>
   
   <url>
+    <loc>https://blog.rex-tsou.com/tags/devtools/</loc>
+    <lastmod>2018-06-16T00:32:19+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/categories/editor/</loc>
     <lastmod>2017-10-19T12:56:26+08:00</lastmod>
     <priority>0</priority>
@@ -417,14 +428,14 @@
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/tags/linux/</loc>
-    <lastmod>2017-12-31T01:37:20+08:00</lastmod>
+    <loc>https://blog.rex-tsou.com/categories/linux/</loc>
+    <lastmod>2018-05-12T11:56:05+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/categories/linux/</loc>
-    <lastmod>2018-05-12T11:56:05+08:00</lastmod>
+    <loc>https://blog.rex-tsou.com/tags/linux/</loc>
+    <lastmod>2017-12-31T01:37:20+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -448,7 +459,7 @@
   
   <url>
     <loc>https://blog.rex-tsou.com/post/</loc>
-    <lastmod>2018-05-22T22:52:20+08:00</lastmod>
+    <lastmod>2018-06-16T00:32:19+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -471,13 +482,13 @@
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/tags/server/</loc>
+    <loc>https://blog.rex-tsou.com/categories/server/</loc>
     <lastmod>2017-10-11T00:29:24+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/categories/server/</loc>
+    <loc>https://blog.rex-tsou.com/tags/server/</loc>
     <lastmod>2017-10-11T00:29:24+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -544,7 +555,7 @@
   
   <url>
     <loc>https://blog.rex-tsou.com/</loc>
-    <lastmod>2018-05-22T22:52:20+08:00</lastmod>
+    <lastmod>2018-06-16T00:32:19+08:00</lastmod>
     <priority>0</priority>
   </url>
   
