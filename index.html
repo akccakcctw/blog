@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" >
   <head>
-	<meta name="generator" content="Hugo 0.40.3" />
+	<meta name="generator" content="Hugo 0.42.1" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="為了可能的聲音"> 
@@ -58,6 +58,24 @@
 
 <section class="section">
   <div class="container">
+    
+    <article>
+      <time class="date">May 22, 2018</time>
+      <h1 class="title"><a href="https://blog.rex-tsou.com/2018/05/es2018regexp-%E6%96%B0%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%B4%B9/">ES2018：RegExp 新功能介紹</a></h1>
+      <div class="content">
+        /s flag 為了解決目前的 dot(.) 無法比對到換行字元，因此新的 /s flag 又稱 dotAll mode。 const input = ` Lorem ipsum dolor sit amet, consectetur adipiscing hello world elit. Nam sit amet elit id risus aliquam porta. `; /hello.world/u.test(input); // false workarounds: /hello[\s\S]world/u.test(input); // true /hello[^]world/u.test(input) // true 新語法
+        
+        …
+        <br>
+        <a class="btn btn--more" href="https://blog.rex-tsou.com/2018/05/es2018regexp-%E6%96%B0%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%B4%B9/" style="height:28px">
+          Read more
+          <span class="icon is-small">
+            <i class="fa fa-angle-double-right"></i>
+          </span>
+        </a>
+        
+      </div>
+    </article>
     
     <article>
       <time class="date">May 12, 2018</time>
@@ -221,24 +239,6 @@
       </div>
     </article>
     
-    <article>
-      <time class="date">December 3, 2017</time>
-      <h1 class="title"><a href="https://blog.rex-tsou.com/2017/12/arch-linux%E5%AE%89%E8%A3%9D%E7%AD%86%E8%A8%98/">Arch Linux：安裝筆記</a></h1>
-      <div class="content">
-        本文使用 BIOS + GPT 開機。如果開機方式不同的話，有些地方會不完全適用，要特別注意。 準備開機碟 先到官網下載 .iso 檔，Arch 映像檔由於只包含基礎需求，大
-        
-        …
-        <br>
-        <a class="btn btn--more" href="https://blog.rex-tsou.com/2017/12/arch-linux%E5%AE%89%E8%A3%9D%E7%AD%86%E8%A8%98/" style="height:28px">
-          Read more
-          <span class="icon is-small">
-            <i class="fa fa-angle-double-right"></i>
-          </span>
-        </a>
-        
-      </div>
-    </article>
-    
   </div>
 </section>
 <section class="section">
@@ -277,11 +277,15 @@
 
 
 <script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-57924156-2', 'auto');
-ga('send', 'pageview');
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-57924156-2', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" >
   <head>
-	<meta name="generator" content="Hugo 0.40.3" />
+	<meta name="generator" content="Hugo 0.42.1" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="為了可能的聲音"> 
@@ -58,6 +58,24 @@
 
 <section class="section">
   <div class="container">
+    
+    <article>
+      <time class="date">January 6, 2017</time>
+      <h1 class="title"><a href="https://blog.rex-tsou.com/2017/01/formdata-%E5%9F%BA%E7%A4%8E%E7%94%A8%E6%B3%95/">FormData 基礎用法</a></h1>
+      <div class="content">
+        創建 FormData 物件 // 語法： var formData = new FormData(form); // new 一個空的 FormData var formData = new FormData(); // 或者從現有的 form 取得資料，並 new FormData var formData = new FormData(document.querySelector('form')); 新增 (FormData.append) // 語法： formData.append(name, value[, filename]); // 新增一筆 username 資料，值為 Rex //
+        
+        …
+        <br>
+        <a class="btn btn--more" href="https://blog.rex-tsou.com/2017/01/formdata-%E5%9F%BA%E7%A4%8E%E7%94%A8%E6%B3%95/" style="height:28px">
+          Read more
+          <span class="icon is-small">
+            <i class="fa fa-angle-double-right"></i>
+          </span>
+        </a>
+        
+      </div>
+    </article>
     
     <article>
       <time class="date">December 22, 2016</time>
@@ -221,24 +239,6 @@
       </div>
     </article>
     
-    <article>
-      <time class="date">May 19, 2016</time>
-      <h1 class="title"><a href="https://blog.rex-tsou.com/2016/05/html-tag-%E9%80%9F%E6%9F%A5%E8%A1%A8/">HTML tag 速查表</a></h1>
-      <div class="content">
-        Main Tag English 中文語義 !DOCTYPE document type 宣告文件類型 html html root HTML 根元素 !-- -- html comment HTML 注釋 Metadata Tag English 中文語義 head head HTML metadata title title HTML 標題 base base 定義相對 URL link link 外部匯入 JS 或 CSS meta meta 定義其他 metadata style
-        
-        …
-        <br>
-        <a class="btn btn--more" href="https://blog.rex-tsou.com/2016/05/html-tag-%E9%80%9F%E6%9F%A5%E8%A1%A8/" style="height:28px">
-          Read more
-          <span class="icon is-small">
-            <i class="fa fa-angle-double-right"></i>
-          </span>
-        </a>
-        
-      </div>
-    </article>
-    
   </div>
 </section>
 <section class="section">
@@ -277,11 +277,15 @@
 
 
 <script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-57924156-2', 'auto');
-ga('send', 'pageview');
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-57924156-2', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 

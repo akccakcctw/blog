@@ -6,10 +6,19 @@
     <description>Recent content on 為了可能的聲音</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 12 May 2018 11:56:05 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 22 May 2018 22:52:20 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.rex-tsou.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ES2018：RegExp 新功能介紹</title>
+      <link>https://blog.rex-tsou.com/2018/05/es2018regexp-%E6%96%B0%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%B4%B9/</link>
+      <pubDate>Tue, 22 May 2018 22:52:20 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/2018/05/es2018regexp-%E6%96%B0%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%B4%B9/</guid>
+      <description>/s flag 為了解決目前的 dot(.) 無法比對到換行字元，因此新的 /s flag 又稱 dotAll mode。 const input = ` Lorem ipsum dolor sit amet, consectetur adipiscing hello world elit. Nam sit amet elit id risus aliquam porta. `; /hello.world/u.test(input); // false workarounds: /hello[\s\S]world/u.test(input); // true /hello[^]world/u.test(input) // true 新語法</description>
+    </item>
     
     <item>
       <title>Bash/Zsh 環境變數載入順序</title>

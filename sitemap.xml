@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.rex-tsou.com/2018/05/es2018regexp-%E6%96%B0%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%B4%B9/</loc>
+    <lastmod>2018-05-22T22:52:20+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2018/05/bash/zsh-%E7%92%B0%E5%A2%83%E8%AE%8A%E6%95%B8%E8%BC%89%E5%85%A5%E9%A0%86%E5%BA%8F/</loc>
     <lastmod>2018-05-12T11:56:05+08:00</lastmod>
   </url>
@@ -401,7 +406,7 @@
   
   <url>
     <loc>https://blog.rex-tsou.com/categories/javascript/</loc>
-    <lastmod>2017-11-24T21:53:12+08:00</lastmod>
+    <lastmod>2018-05-22T22:52:20+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -412,14 +417,14 @@
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/categories/linux/</loc>
-    <lastmod>2018-05-12T11:56:05+08:00</lastmod>
+    <loc>https://blog.rex-tsou.com/tags/linux/</loc>
+    <lastmod>2017-12-31T01:37:20+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/tags/linux/</loc>
-    <lastmod>2017-12-31T01:37:20+08:00</lastmod>
+    <loc>https://blog.rex-tsou.com/categories/linux/</loc>
+    <lastmod>2018-05-12T11:56:05+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -443,7 +448,13 @@
   
   <url>
     <loc>https://blog.rex-tsou.com/post/</loc>
-    <lastmod>2018-05-12T11:56:05+08:00</lastmod>
+    <lastmod>2018-05-22T22:52:20+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/tags/regex/</loc>
+    <lastmod>2018-05-22T22:52:20+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -460,13 +471,13 @@
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/categories/server/</loc>
+    <loc>https://blog.rex-tsou.com/tags/server/</loc>
     <lastmod>2017-10-11T00:29:24+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/tags/server/</loc>
+    <loc>https://blog.rex-tsou.com/categories/server/</loc>
     <lastmod>2017-10-11T00:29:24+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -533,7 +544,7 @@
   
   <url>
     <loc>https://blog.rex-tsou.com/</loc>
-    <lastmod>2018-05-12T11:56:05+08:00</lastmod>
+    <lastmod>2018-05-22T22:52:20+08:00</lastmod>
     <priority>0</priority>
   </url>
   

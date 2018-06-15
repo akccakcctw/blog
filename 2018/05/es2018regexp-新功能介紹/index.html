@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="為了可能的聲音"> 
+    <meta name="author" content="Rex Tsou">
+    <meta name="copyright" content="Rex Tsou">
+    
+    <meta property="og:title" content="ES2018：RegExp 新功能介紹">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="為了可能的聲音">
+    
+    <meta itemprop="name" content="ES2018：RegExp 新功能介紹 | 為了可能的聲音">
+    <meta itemprop="description" content="為了可能的聲音">
+    <title>ES2018：RegExp 新功能介紹 | 為了可能的聲音</title>
+    <link rel="stylesheet" href="https://blog.rex-tsou.com/css/style.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css"> 
+  </head>
+
+<header class="section header">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav__left">
+        <a class="nav__item" href="https://blog.rex-tsou.com"><h1 class="title">為了可能的聲音</h1></a>
+      </div>
+      <div class="nav__right">
+        <nav class="nav__item">
+          <a class="item__link" href="/post">Archives</a>
+        </nav>
+        <nav class="nav__item">
+          
+          <a class="item__link" href="https://github.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="https://www.facebook.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-facebook-square"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="/index.xml" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <time class="date">May 22, 2018</time>
+    
+      <div class="category">
+  
+  <span class="category__item">
+    <a href="/categories/javascript">JavaScript</a>
+  </span>
+  
+</div>
+
+    
+    <h1 class="title">ES2018：RegExp 新功能介紹</h1>
+    <div class="content">
+      
+
+<h2 id="s-flag"><code>/s</code> flag</h2>
+
+<p>為了解決目前的 dot(.) 無法比對到換行字元，因此新的 <code>/s</code> flag 又稱 dotAll mode。</p>
+
+<pre><code class="language-javascript">const input = `
+Lorem ipsum dolor sit amet, consectetur adipiscing hello
+world elit. Nam sit amet elit id risus aliquam porta.
+`;
+</code></pre>
+
+<pre><code class="language-javascript">/hello.world/u.test(input);
+// false
+</code></pre>
+
+<p>workarounds:</p>
+
+<pre><code class="language-javascript">/hello[\s\S]world/u.test(input);
+// true
+
+/hello[^]world/u.test(input)
+// true
+</code></pre>
+
+<p>新語法：</p>
+
+<pre><code class="language-javascript">/hello.world/su.test(input);
+// true
+</code></pre>
+
+<h2 id="named-capture-groups">Named capture groups</h2>
+
+<p><a href="https://github.com/tc39/proposal-regexp-named-groups">tc39/proposal-regexp-named-groups</a></p>
+
+<pre><code class="language-javascript">const pattern = /(\d{4})-(\d{2})-(\d{2})/u;
+const result = pattern.exec('2018-05-09');
+// result[0] === '2018-05-09'
+// result[1] === '2018'
+// result[2] === '05'
+// result[3] === '09'
+</code></pre>
+
+<p>capture groups 可以取名了！<br />
+新語法：</p>
+
+<pre><code class="language-javascript">const pattern = /(?&lt;year&gt;\d{4})-(?&lt;month&gt;\d{2})-(?&lt;day&gt;\d{2})/u;
+const result = pattern.exec('2018-05-09');
+// result.groups.year === '2018'
+// result.groups.month === '05'
+// result.groups.day === '09'
+</code></pre>
+
+<h2 id="unicode-property-escapes">Unicode property escapes</h2>
+
+<p><a href="https://github.com/tc39/proposal-regexp-unicode-property-escapes">tc39/proposal-regexp-unicode-property-escapes</a></p>
+
+<pre><code class="language-javascript">const regexGreek = /\p{Script_Extensions=Greek}/u;
+regexGreek.test('π');
+// true
+
+const regexAscii = /\p{ASCII}/u;
+regexAscii.test('_');
+// true
+
+const regexMath = /\p{Math}/u;
+regexMath.test('≠');
+// true
+
+const pattern = /[\p{Letter}\p{White_Space}]+/u;
+pattern.test('πüé μετά Grüß');
+// true
+</code></pre>
+
+<p>一個實用的例子：</p>
+
+<pre><code class="language-html">&lt;style&gt;
+  :valid { background: lightgreen; }
+  :invalid { background: pink; }
+&lt;/style&gt;
+&lt;input pattern=&quot;[\p{Letter}\p{White_Space}]+&quot; value=&quot;your input string&quot;&gt;
+</code></pre>
+
+<h2 id="lookbehind-assertions">Lookbehind assertions</h2>
+
+<p><a href="https://github.com/tc39/proposal-regexp-lookbehind">tc39/proposal-regexp-lookbehind</a></p>
+
+<p>lookbehind 語法很像 lookahead 的語法 <code>(?=...)</code>、<code>(?!...)</code>：</p>
+
+<pre><code class="language-javascript">// Positive lookahead:
+const pattern = /\d+(?= dollars)/u;
+const result = pattern.exec('42 dollars');
+// result[0] === '42'
+
+// Negative lookahead:
+const pattern = /\d+(?! dollars)/u;
+const result = pattern.exec('42 rupees');
+// result[0] === '42'
+</code></pre>
+
+<p>來看看新的 lookbehind 語法 <code>(?&lt;=...)</code>、<code>(?&lt;!...)</code>：</p>
+
+<pre><code class="language-javascript">// Positive lookbehind:
+const pattern = /(?&lt;=\$)\d+/u;
+const result = pattern.exec('$42');
+// result[0] === '42'
+
+// Negative lookbehind:
+const pattern = /(?&lt;!\$)\d+/u;
+const result = pattern.exec('#42');
+// result[0] === '42';
+</code></pre>
+
+<h2 id="string-prototype-matchall"><code>String.prototype.matchAll</code></h2>
+
+<p><a href="https://github.com/tc39/proposal-string-matchall">tc39/proposal-string-matchall</a></p>
+
+<pre><code class="language-javascript">const string = 'Magic hex numbers: DEADBEEF CAFE 8BADF00D';
+const regex = /\b\p{ASCII_Hex_Digit}+\b/gu;
+let match;
+
+// 以前要這樣寫
+while (match = regex.exec(string)) {
+  console.log(match);
+}
+
+// matchAll:
+for (const match of string.matchAll(regex)) {
+  console.log(match);
+}
+</code></pre>
+
+<h2 id="參考資料">參考資料</h2>
+
+<p><a href="https://www.youtube.com/watch?v=mIWCLOftfRw&amp;t=20m">Build the future of the web with modern JavaScript (Google I/O ’18)</a><br />
+<a href="http://2ality.com/2017/07/regexp-dotall-flag.html">ES2018: s (dotAll) flag for regular expressions</a><br />
+<a href="http://2ality.com/2017/05/regexp-named-capture-groups.html">ES2018: RegExp named capture groups</a><br />
+<a href="http://2ality.com/2017/07/regexp-unicode-property-escapes.html">ES2018: RegExp Unicode property escapes</a><br />
+<a href="http://2ality.com/2017/05/regexp-lookbehind-assertions.html">ES2018: RegExp lookbehind assertions</a><br />
+<a href="http://2ality.com/2018/02/string-prototype-matchall.html">ES proposal: String.prototype.matchAll</a></p>
+
+    </div>
+  </div>
+</section>
+
+<section class="section disqus">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'akccakcctw';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<footer class="section footer">
+  <div class="container">
+    <p></p>
+  </div>
+</footer>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-57924156-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
