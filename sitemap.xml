@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.rex-tsou.com/2018/06/%E8%A7%A3%E6%9E%90%E7%B6%B2%E5%9D%80%E5%B0%B1%E7%94%A8-a-%E5%90%A7/</loc>
+    <lastmod>2018-06-20T20:40:12+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2018/06/devtools-retrieving-objects-which-were-created-from-the-constructor/</loc>
     <lastmod>2018-06-16T00:32:19+08:00</lastmod>
   </url>
@@ -459,7 +464,7 @@
   
   <url>
     <loc>https://blog.rex-tsou.com/post/</loc>
-    <lastmod>2018-06-16T00:32:19+08:00</lastmod>
+    <lastmod>2018-06-20T20:40:12+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -555,7 +560,7 @@
   
   <url>
     <loc>https://blog.rex-tsou.com/</loc>
-    <lastmod>2018-06-16T00:32:19+08:00</lastmod>
+    <lastmod>2018-06-20T20:40:12+08:00</lastmod>
     <priority>0</priority>
   </url>
   
