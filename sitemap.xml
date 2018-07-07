@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.rex-tsou.com/2018/07/spotlight-%E6%89%BE%E4%B8%8D%E5%88%B0%E7%A8%8B%E5%BC%8F/</loc>
+    <lastmod>2018-07-07T10:05:34+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2018/06/%E8%A7%A3%E6%9E%90%E7%B6%B2%E5%9D%80%E5%B0%B1%E7%94%A8-a-%E5%90%A7/</loc>
     <lastmod>2018-06-20T20:40:12+08:00</lastmod>
   </url>
@@ -421,6 +426,12 @@
   </url>
   
   <url>
+    <loc>https://blog.rex-tsou.com/tags/iterm/</loc>
+    <lastmod>2018-07-07T10:05:34+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/categories/javascript/</loc>
     <lastmod>2018-05-22T22:52:20+08:00</lastmod>
     <priority>0</priority>
@@ -445,6 +456,12 @@
   </url>
   
   <url>
+    <loc>https://blog.rex-tsou.com/tags/macos/</loc>
+    <lastmod>2018-07-07T10:05:34+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/categories/nginx/</loc>
     <lastmod>2017-06-18T17:46:00+00:00</lastmod>
     <priority>0</priority>
@@ -464,7 +481,7 @@
   
   <url>
     <loc>https://blog.rex-tsou.com/post/</loc>
-    <lastmod>2018-06-20T20:40:12+08:00</lastmod>
+    <lastmod>2018-07-07T10:05:34+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -560,7 +577,7 @@
   
   <url>
     <loc>https://blog.rex-tsou.com/</loc>
-    <lastmod>2018-06-20T20:40:12+08:00</lastmod>
+    <lastmod>2018-07-07T10:05:34+08:00</lastmod>
     <priority>0</priority>
   </url>
   
