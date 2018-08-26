@@ -36,3 +36,5 @@ params:
       fa_icon: "fa-facebook-square"
     - url: "/index.xml"
       fa_icon: "fa-rss"
+  highlight:
+    style: "solarized-dark"
