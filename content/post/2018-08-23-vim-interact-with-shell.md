@@ -10,19 +10,19 @@ tags:
 
 語法為 `:!{command}`。
 
-```
-:!date # 取得今天的日期
-:!ls # 列出目前資料夾內的檔案
+```vim
+:!date " 取得今天的日期
+:!ls " 列出目前資料夾內的檔案
 ```
 
 如果在前面加上 `r` 的話，則可以將 shell command 的 output 內容插入 Vim 正在編輯的文件中：
 
-```
-# 語法為 `:r !{command}`。
+```vim
+" 語法為 `:r !{command}`。
 
-:r !date # 插入 date  
-:r !ls # 資料夾內檔案
-:r !pwd # 所在資料夾路徑
+:r !date " 插入 date  
+:r !ls " 資料夾內檔案
+:r !pwd " 所在資料夾路徑
 ```
 
 ## 參考資料
