@@ -38,3 +38,6 @@ params:
       fa_icon: "fa-rss"
   highlight:
     style: "solarized-dark"
+    languages:
+      - vim
+      - scss
