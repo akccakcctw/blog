@@ -17,7 +17,7 @@
       <pubDate>Thu, 23 Aug 2018 11:44:31 +0800</pubDate>
       
       <guid>https://blog.rex-tsou.com/2018/08/%E5%9C%A8-vim-%E8%A3%A1%E9%9D%A2%E4%BD%BF%E7%94%A8-shell-command/</guid>
-      <description>在 Vim 裡面驚嘆號指令挺常用的，可以在不離開 Vim 的狀態下執行 shell 指令，這也是 Vim 相對於其他編輯器最大的優勢。 語法為 :!{command}。 :!date # 取得今天</description>
+      <description>在 Vim 裡面驚嘆號指令挺常用的，可以在不離開 Vim 的狀態下執行 shell 指令，這也是 Vim 相對於其他編輯器最大的優勢。 語法為 :!{command}。 :!date &amp;quot; 取得今天</description>
     </item>
     
     <item>

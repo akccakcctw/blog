@@ -76,17 +76,17 @@
 
 <p>語法為 <code>:!{command}</code>。</p>
 
-<pre><code>:!date # 取得今天的日期
-:!ls # 列出目前資料夾內的檔案
+<pre><code class="language-vim">:!date &quot; 取得今天的日期
+:!ls &quot; 列出目前資料夾內的檔案
 </code></pre>
 
 <p>如果在前面加上 <code>r</code> 的話，則可以將 shell command 的 output 內容插入 Vim 正在編輯的文件中：</p>
 
-<pre><code># 語法為 `:r !{command}`。
+<pre><code class="language-vim">&quot; 語法為 `:r !{command}`。
 
-:r !date # 插入 date  
-:r !ls # 資料夾內檔案
-:r !pwd # 所在資料夾路徑
+:r !date &quot; 插入 date  
+:r !ls &quot; 資料夾內檔案
+:r !pwd &quot; 所在資料夾路徑
 </code></pre>
 
 <h2 id="參考資料">參考資料</h2>
