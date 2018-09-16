@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="為了可能的聲音"> 
+    <meta name="author" content="Rex Tsou">
+    <meta name="copyright" content="Rex Tsou">
+    
+    <meta property="og:title" content="window.open() 用法筆記">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="為了可能的聲音">
+    
+    <meta itemprop="name" content="window.open() 用法筆記 | 為了可能的聲音">
+    <meta itemprop="description" content="為了可能的聲音">
+    <title>window.open() 用法筆記 | 為了可能的聲音</title>
+    <link rel="stylesheet" href="https://blog.rex-tsou.com/css/style.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
+  </head>
+
+<header class="section header">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav__left">
+        <a class="nav__item" href="https://blog.rex-tsou.com"><h1 class="title">為了可能的聲音</h1></a>
+      </div>
+      <div class="nav__right">
+        <nav class="nav__item">
+          <a class="item__link" href="/post">Archives</a>
+        </nav>
+        <nav class="nav__item">
+          
+          <a class="item__link" href="https://github.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="https://www.facebook.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-facebook-square"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="/index.xml" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <time class="date">August 27, 2018</time>
+    
+    <h1 class="title">window.open() 用法筆記</h1>
+    <div class="content">
+      
+
+<p><code>window.open()</code> 這個 method 經常使用，但是之前並沒有深究，直到最近讀犀牛書，才發現還有些特別的用法。</p>
+
+<p>先來看看 syntax：</p>
+
+<h2 id="syntax">Syntax</h2>
+
+<pre><code class="language-javascript">var w =  window.open(url, windowName, [windowFeatures]);
+</code></pre>
+
+<h3 id="參數-url">參數：<code>url</code></h3>
+
+<p>第一個參數就是 url，很直觀，只要瀏覽器支援的字串都可以丟進去。需要注意的有以下幾點：</p>
+
+<ul>
+<li>如果是空字串，會打開一個空白頁面</li>
+<li>如果帶有 schema（例如：<code>https://</code>），會當作絕對位址解析</li>
+<li>反之，如果不帶有 schema，會當作相對位址解析</li>
+</ul>
+
+<h3 id="參數-windowname">參數：<code>windowName</code></h3>
+
+<p>打開的 window 要叫什麼名字。</p>
+
+<ul>
+<li>如果該名字已經被某個 window（iframe, tab） 使用了，打開的 url 就會開在該 window</li>
+<li>如果省略此參數，會使用 <code>_blank</code> 打開一個新的頁面</li>
+</ul>
+
+<h3 id="參數-windowfeatures">參數：<code>windowFeatures</code></h3>
+
+<p>一些 window 的控制項，控制 window 的尺寸、scrollbar 顯示與否等等，詳細用法可參考 <a href="https://developer.mozilla.org/zh-TW/docs/Web/API/Window/open#Window_features">MDN</a>。</p>
+
+<ul>
+<li>使用逗號分隔</li>
+<li>不可使用空白字元</li>
+</ul>
+
+<h2 id="其他功能">其他功能</h2>
+
+<p>如果用 <code>window.open</code> 打開的話，就可以控制打開的 window 了，提供一些比較有用的用法如下：</p>
+
+<pre><code class="language-javascript">var w = window.open('https://example.com', 'examplePage');
+
+// 在同一個 tab 內開啟 example2.com
+window.open('https://example2.com', 'examplePage');
+
+// 子頁面回到上一頁
+w.history.back();
+
+// 關掉子頁面
+w.close();
+</code></pre>
+
+<h2 id="參考資料">參考資料</h2>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/open">MDN: Window.open()</a></li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+<section class="section disqus">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'akccakcctw';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<footer class="section footer">
+  <div class="container">
+    <p></p>
+  </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/vim.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/scss.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-57924156-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
