@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="為了可能的聲音"> 
+    <meta name="author" content="Rex Tsou">
+    <meta name="copyright" content="Rex Tsou">
+    
+    <meta property="og:title" content="用 vimdiff 解 git 衝突">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="為了可能的聲音">
+    
+    <meta itemprop="name" content="用 vimdiff 解 git 衝突 | 為了可能的聲音">
+    <meta itemprop="description" content="為了可能的聲音">
+    <title>用 vimdiff 解 git 衝突 | 為了可能的聲音</title>
+    <link rel="stylesheet" href="https://blog.rex-tsou.com/css/style.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
+  </head>
+
+<header class="section header">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav__left">
+        <a class="nav__item" href="https://blog.rex-tsou.com"><h1 class="title">為了可能的聲音</h1></a>
+      </div>
+      <div class="nav__right">
+        <nav class="nav__item">
+          <a class="item__link" href="/post">Archives</a>
+        </nav>
+        <nav class="nav__item">
+          
+          <a class="item__link" href="https://github.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="https://www.facebook.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-facebook-square"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="/index.xml" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <time class="date">November 13, 2018</time>
+    
+      <div class="category">
+  
+  <span class="category__item">
+    <a href="/categories/vim">vim</a>
+  </span>
+  
+  <span class="category__item">
+    <a href="/categories/git">Git</a>
+  </span>
+  
+</div>
+
+    
+    <h1 class="title">用 vimdiff 解 git 衝突</h1>
+    <div class="content">
+      
+
+<h2 id="設定-mergetool">設定 mergetool</h2>
+
+<p>首先要將 git 的 mergetool 設定為 vimdiff，可以下指令：</p>
+
+<pre><code class="language-sh">git config --global merge.tool vimdiff
+</code></pre>
+
+<p>或者直接修改 gitconfig，在最後面加上：</p>
+
+<pre><code>[merge]
+  tool = vimdiff
+</code></pre>
+
+<p>這樣設定就算完成了。</p>
+
+<h2 id="使用方式">使用方式</h2>
+
+<p>當 git merge 出現衝突時，直接在 terminal 輸入：</p>
+
+<pre><code>git mergetool
+</code></pre>
+
+<p>就會開啟 vimdiff 的 mergetool，介面示意如下：</p>
+
+<pre><code class="language-md">+--------------------------------+
+| LOCAL  |     BASE     | REMOTE |
++--------------------------------+
+|             MERGED             |
++--------------------------------+
+
+- LOCAL：本機檔案（也就是現在所在的 branch）
+- BASE：local 以及 remote 兩個分支的 base 內容
+- REMOTE：遠端檔案（要 merge 進來的 branch）
+- MERGED：merge 之後的結果，在這裡解衝突
+</code></pre>
+
+<p>解衝突就沒什麼特別的，和平常一樣，會有許多衝突用 <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> 和 <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> 標示，解完存檔後記得 commit 就完成 merge 了。比較特別的是使用 vimdiff 當作 mergetool 時，有一些比較方便的指令可以使用：</p>
+
+<pre><code class="language-vim">&quot; 跳到下一個衝突點
+[c
+
+&quot; 跳到上一個衝突點
+]c
+
+&quot; 取得 buffer 編號
+:buffers
+
+&quot; 從 buffspec / keyword 視窗取得內容
+:diffget [buffspec|keyword]
+
+&quot; 將內容丟至 buffspec / keyword 視窗
+:diffput [buffspec|keyword]
+
+&quot; 刷新 diff 顯示
+:diffupdate
+</code></pre>
+
+<p>假設我們有一段程式碼衝突，希望使用 remote 的內容，可以使用 <code>diffget</code> 取得 REMOTE 視窗的內容，取得內容有兩種方式：1. 視窗關鍵字 2. 視窗編號：</p>
+
+<ol>
+<li>使用視窗關鍵字：</li>
+</ol>
+
+<pre><code class="language-vim">:diffget REMOTE
+</code></pre>
+
+<ol>
+<li>使用視窗編號：</li>
+</ol>
+
+<pre><code class="language-vim">&quot; 先利用 :buffers 取得視窗編號，假設想使用的視窗編號為 3
+:buffers
+:diffget 3
+</code></pre>
+
+<p>兩種方式結果都一樣，但下完指令最好還是確認一下結果是否是自己預期的 XD
+如果修改了之後發現 highlight 什麼的有點亂，可以使用 <code>:diffupdate</code> 來手動刷新一下 diff 顯示</p>
+
+<h2 id="參考資料">參考資料</h2>
+
+<ul>
+<li><a href="http://vim.wikia.com/wiki/A_better_Vimdiff_Git_mergetool">Vim Tips Wiki: A better Vimdiff Git mergetool</a></li>
+<li><a href="https://yodalee.blogspot.com/2013/03/vimdiffgit-merge-conflict_28.html">使用 vimdiff 來解決 git merge conflict</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/linux/l-vimdiff/index.html">技巧：Vimdiff 使用</a></li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+<section class="section disqus">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'akccakcctw';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<footer class="section footer">
+  <div class="container">
+    <p></p>
+  </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/vim.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/scss.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-57924156-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+

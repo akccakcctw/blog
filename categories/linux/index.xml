@@ -13,10 +13,10 @@
     
     <item>
       <title>Bash/Zsh 環境變數載入順序</title>
-      <link>https://blog.rex-tsou.com/2018/05/bash/zsh-%E7%92%B0%E5%A2%83%E8%AE%8A%E6%95%B8%E8%BC%89%E5%85%A5%E9%A0%86%E5%BA%8F/</link>
+      <link>https://blog.rex-tsou.com/2018/05/bash-zsh-%E7%92%B0%E5%A2%83%E8%AE%8A%E6%95%B8%E8%BC%89%E5%85%A5%E9%A0%86%E5%BA%8F/</link>
       <pubDate>Sat, 12 May 2018 11:56:05 +0800</pubDate>
       
-      <guid>https://blog.rex-tsou.com/2018/05/bash/zsh-%E7%92%B0%E5%A2%83%E8%AE%8A%E6%95%B8%E8%BC%89%E5%85%A5%E9%A0%86%E5%BA%8F/</guid>
+      <guid>https://blog.rex-tsou.com/2018/05/bash-zsh-%E7%92%B0%E5%A2%83%E8%AE%8A%E6%95%B8%E8%BC%89%E5%85%A5%E9%A0%86%E5%BA%8F/</guid>
       <description>login 與 non-login 為什麼要先談這個？因為 login shell 與 non-login shell，載入的檔案不同，這邊參照鳥哥的說明： login shell：取得 bash 時需要完整的登入流程的，就稱為 login sh</description>
     </item>
     
