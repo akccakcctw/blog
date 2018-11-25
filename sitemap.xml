@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.rex-tsou.com/2018/11/%E5%8F%B0%E7%81%A3%E5%B8%B8%E7%94%A8-dns-server-%E6%95%B4%E7%90%86/</loc>
+    <lastmod>2018-11-22T00:40:09+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2018/11/%E7%94%A8-vimdiff-%E8%A7%A3-git-%E8%A1%9D%E7%AA%81/</loc>
     <lastmod>2018-11-13T23:09:15+08:00</lastmod>
   </url>
@@ -369,14 +374,20 @@
   </url>
   
   <url>
+    <loc>https://blog.rex-tsou.com/categories/devtools/</loc>
+    <lastmod>2017-07-06T10:34:09+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/tags/devtools/</loc>
     <lastmod>2018-06-16T00:32:19+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/categories/devtools/</loc>
-    <lastmod>2017-07-06T10:34:09+08:00</lastmod>
+    <loc>https://blog.rex-tsou.com/tags/dns/</loc>
+    <lastmod>2018-11-22T00:40:09+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -459,14 +470,14 @@
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/tags/linux/</loc>
-    <lastmod>2017-12-31T01:37:20+08:00</lastmod>
+    <loc>https://blog.rex-tsou.com/categories/linux/</loc>
+    <lastmod>2018-05-12T11:56:05+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/categories/linux/</loc>
-    <lastmod>2018-05-12T11:56:05+08:00</lastmod>
+    <loc>https://blog.rex-tsou.com/tags/linux/</loc>
+    <lastmod>2017-12-31T01:37:20+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -496,7 +507,7 @@
   
   <url>
     <loc>https://blog.rex-tsou.com/post/</loc>
-    <lastmod>2018-11-13T23:09:15+08:00</lastmod>
+    <lastmod>2018-11-22T00:40:09+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -519,13 +530,13 @@
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/tags/server/</loc>
+    <loc>https://blog.rex-tsou.com/categories/server/</loc>
     <lastmod>2017-10-11T00:29:24+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/categories/server/</loc>
+    <loc>https://blog.rex-tsou.com/tags/server/</loc>
     <lastmod>2017-10-11T00:29:24+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -592,7 +603,7 @@
   
   <url>
     <loc>https://blog.rex-tsou.com/</loc>
-    <lastmod>2018-11-13T23:09:15+08:00</lastmod>
+    <lastmod>2018-11-22T00:40:09+08:00</lastmod>
     <priority>0</priority>
   </url>
   
