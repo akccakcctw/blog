@@ -133,25 +133,23 @@
 :diffupdate
 </code></pre>
 
-<p>假設我們有一段程式碼衝突，希望使用 remote 的內容，可以使用 <code>diffget</code> 取得 REMOTE 視窗的內容，取得內容有兩種方式：1. 視窗關鍵字 2. 視窗編號：</p>
+<p>假設我們有一段程式碼衝突，希望使用 remote 的內容，可以使用 <code>diffget</code> 取得 REMOTE 視窗的內容，取得內容有兩種方式：</p>
 
 <ol>
-<li>使用視窗關鍵字：</li>
-</ol>
+<li><p>使用視窗關鍵字：</p>
 
 <pre><code class="language-vim">:diffget REMOTE
-</code></pre>
+</code></pre></li>
 
-<ol>
-<li>使用視窗編號：</li>
-</ol>
+<li><p>使用視窗編號：</p>
 
 <pre><code class="language-vim">&quot; 先利用 :buffers 取得視窗編號，假設想使用的視窗編號為 3
 :buffers
 :diffget 3
-</code></pre>
+</code></pre></li>
+</ol>
 
-<p>兩種方式結果都一樣，但下完指令最好還是確認一下結果是否是自己預期的 XD
+<p>兩種方式結果都一樣，但下完指令最好還是確認一下結果是否是自己預期的 XD<br />
 如果修改了之後發現 highlight 什麼的有點亂，可以使用 <code>:diffupdate</code> 來手動刷新一下 diff 顯示</p>
 
 <h2 id="參考資料">參考資料</h2>
@@ -164,7 +162,7 @@
 
     </div>
     <blockquote class="page-info">
-      最後更新時間：<time class="date date--update">November 13, 2018</time>
+      最後更新時間：<time class="date date--update">December 1, 2018</time>
     </blockquote>
   </div>
 </section>
