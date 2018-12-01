@@ -6,6 +6,7 @@ categories:
   - Git
 tags:
 description: ""
+lastmod: 2018-12-01
 ---
 
 ## 設定 mergetool
@@ -71,23 +72,23 @@ git mergetool
 :diffupdate
 ```
 
-假設我們有一段程式碼衝突，希望使用 remote 的內容，可以使用 `diffget` 取得 REMOTE 視窗的內容，取得內容有兩種方式：1. 視窗關鍵字 2. 視窗編號：
+假設我們有一段程式碼衝突，希望使用 remote 的內容，可以使用 `diffget` 取得 REMOTE 視窗的內容，取得內容有兩種方式：
 
 1. 使用視窗關鍵字：
 
-```vim
-:diffget REMOTE
-```
+    ```vim
+    :diffget REMOTE
+    ```
 
 2. 使用視窗編號：
 
-```vim
-" 先利用 :buffers 取得視窗編號，假設想使用的視窗編號為 3
-:buffers
-:diffget 3
-```
+    ```vim
+    " 先利用 :buffers 取得視窗編號，假設想使用的視窗編號為 3
+    :buffers
+    :diffget 3
+    ```
 
-兩種方式結果都一樣，但下完指令最好還是確認一下結果是否是自己預期的 XD
+兩種方式結果都一樣，但下完指令最好還是確認一下結果是否是自己預期的 XD  
 如果修改了之後發現 highlight 什麼的有點亂，可以使用 `:diffupdate` 來手動刷新一下 diff 顯示
 
 
