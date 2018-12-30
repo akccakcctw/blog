@@ -8,6 +8,7 @@ tags:
   - Archlinux
   - Linux
 description: ""
+lastmod: 2018-12-30T10:52:00+08:00
 ---
 
 八月多買了 Surface Pro 4 之後，就想著要灌 Linux 方便寫程式，但是擔心硬體支援度（觸控螢幕、雙鏡頭、鍵盤保護蓋、手寫筆……）還有[保固](https://www.reddit.com/r/SurfaceLinux/comments/3uf3sy/psa_installing_linux_on_your_surface_pro_4_will/)，一些有的沒有的問題，所以遲遲沒有動手。
