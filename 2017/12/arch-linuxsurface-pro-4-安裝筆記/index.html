@@ -78,10 +78,10 @@
 
 <p>八月多買了 Surface Pro 4 之後，就想著要灌 Linux 方便寫程式，但是擔心硬體支援度（觸控螢幕、雙鏡頭、鍵盤保護蓋、手寫筆……）還有<a href="https://www.reddit.com/r/SurfaceLinux/comments/3uf3sy/psa_installing_linux_on_your_surface_pro_4_will/">保固</a>，一些有的沒有的問題，所以遲遲沒有動手。</p>
 
-<p>前幾天練習灌 Arch Linux，2009 年買的老筆電（Lenovo y550）竟然改頭換面，變得超順手的（當然除了重量太重以外），就決定要來搞一下我的新筆電。網路上查到一篇<a href="https://ramsdenj.com/2016/08/29/arch-linux-on-the-surface-pro-4.html#setup-the-root-pool">超級詳細的文章</a>，也讓我增加不少信心。</p>
+<p>前幾天練習灌 Arch Linux，2009 年買的老筆電（Lenovo y550）竟然改頭換面，變得超順手的（當然除了重量太重以外），就決定要來搞一下我的新筆電。網路上查到一篇<a href="https://ramsdenj.com/2016/08/29/arch-linux-on-the-surface-pro-4.html">超級詳細的文章</a>，也讓我增加不少信心。</p>
 
 <p>另外，這篇筆記主要是給我自己備忘用的，因此有些地方可能寫得比較不清楚，如果過程中有遇到什麼問題、或是解決了什麼問題，都歡迎留言和我說。<br />
-然後建議是對 Linux 系統、CLI 介面有基本瞭解再嘗試，你可以從 Ubuntu 之類的開始熟悉，不然你一定會遇到很多困難 XD</p>
+然後建議是對 Linux 系統、CLI 介面有基本瞭解再嘗試，你可以從 Ubuntu 之類的開始熟悉，不然你一定會遇到很多困難。XD</p>
 
 <p>先簡述一下環境：</p>
 
@@ -102,7 +102,6 @@
 <li>開機模式：UEFI</li>
 <li>分割表：GPT</li>
 <li>開機選單：Linux + Windows（開機時有選項，預設是進入 Arch）</li>
-<li></li>
 </ul>
 
 <hr />
@@ -113,13 +112,13 @@
 
 <h3 id="清理磁碟">清理磁碟</h3>
 
-<p>左下角按搜尋（搜尋快捷鍵：win + s），找「磁碟清理」，把不必要的檔案都清掉，騰出多一點空間。</p>
+<p>左下角按搜尋（搜尋快捷鍵：<code>win + s</code>），找「磁碟清理」，把不必要的檔案都清掉，騰出多一點空間。</p>
 
 <h3 id="壓縮磁碟">壓縮磁碟</h3>
 
 <p>如果你之前已經有分割過了，建議把資料先備份一下，重新規劃分割。</p>
 
-<p>進入磁碟管理（快捷鍵：win + x），右鍵點選 C 槽壓縮一下，我大概壓到 Windows 和 Linux 各佔一半。另外特別注意的是，Windows 會在硬碟最後面切一塊還原分割，那是讓 Windows 出問題時還原用的。要不要保留看自己（我有保留），如果不留的話，Windows 就無法使用還原功能。</p>
+<p>進入磁碟管理（快捷鍵：<code>win + x</code>），右鍵點選 C 槽壓縮一下，我大概壓到 Windows 和 Linux 各佔一半。另外特別注意的是，Windows 會在硬碟最後面切一塊還原分割，那是讓 Windows 出問題時還原用的。要不要保留看自己（我有保留），如果不留的話，Windows 就無法使用還原功能。</p>
 
 <h2 id="建立-usb-開機碟">建立 USB 開機碟</h2>
 
