@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="為了可能的聲音"> 
+    <meta name="author" content="Rex Tsou">
+    <meta name="copyright" content="Rex Tsou">
+    
+    <meta property="og:title" content="Bash Built in Variables">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="為了可能的聲音">
+    
+    <meta itemprop="name" content="Bash Built in Variables | 為了可能的聲音">
+    <meta itemprop="description" content="為了可能的聲音">
+    <title>Bash Built in Variables | 為了可能的聲音</title>
+    <link rel="stylesheet" href="https://blog.rex-tsou.com/css/style.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
+  </head>
+
+<header class="section header">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav__left">
+        <a class="nav__item" href="https://blog.rex-tsou.com"><h1 class="title">為了可能的聲音</h1></a>
+      </div>
+      <div class="nav__right">
+        <nav class="nav__item">
+          <a class="item__link" href="/post">Archives</a>
+        </nav>
+        <nav class="nav__item">
+          
+          <a class="item__link" href="https://github.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="https://www.facebook.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-facebook-square"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="/index.xml" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <time class="date date--publish">March 1, 2019</time>
+    
+      <div class="category">
+  
+  <span class="category__item">
+    <a href="/categories/bash">Bash</a>
+  </span>
+  
+</div>
+
+    
+    <h1 class="title">Bash Built in Variables</h1>
+    <div class="content">
+      
+
+<p>shell script 對我來說是個「目的性」很強的語言，雖然每天都要使用，但直接在指令列使用和寫成 <code>xxx.sh</code> 總感覺不是同一件事（而且我其實用的是 zsh）。由於缺乏系統性的學習，儘管日常使用沒有問題，但要寫成檔案時還是感覺生疏，其實我連 if 判斷怎麼下都不是非常肯定（一點都不誇張，if condition 一個方括號和兩個方括號的差別我也是最近才知道）。</p>
+
+<p>因此，我覺得有必要稍微補強這方面的知識，作點筆記應該會有幫助。這篇用來記錄 bash 內建變數，在寫 shell script 時，如果可以善用內建的變數，指令看起來會更簡潔易讀。</p>
+
+<h2 id="指令列表">指令列表</h2>
+
+<table>
+<thead>
+<tr>
+<th>內建變數</th>
+<th>解釋</th>
+<th>用途</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>$#</td>
+<td>參數數量</td>
+<td></td>
+</tr>
+
+<tr>
+<td>$*</td>
+<td>所有參數（合起來當成「一個」字串，<code>&quot;$1 $2 ...&quot;</code>）</td>
+<td></td>
+</tr>
+
+<tr>
+<td>$@</td>
+<td>所有參數（每個參數當作獨立的字串，<code>&quot;$1&quot; &quot;$2&quot; ...</code>）</td>
+<td></td>
+</tr>
+
+<tr>
+<td>$_</td>
+<td>上一個指令的最後一個參數</td>
+<td></td>
+</tr>
+
+<tr>
+<td>$-</td>
+<td>傳遞給指令的 flag</td>
+<td></td>
+</tr>
+
+<tr>
+<td>$?</td>
+<td>最後執行指令的回傳值（exit code）</td>
+<td>檢查上一個指令或函式是否正確</td>
+</tr>
+
+<tr>
+<td>$$</td>
+<td>指令自身的 process ID</td>
+<td>常用來創造一個臨時的檔名</td>
+</tr>
+
+<tr>
+<td>$!</td>
+<td>最後一個背景執行指令的 process ID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>$0</td>
+<td>指令名稱（指令路徑）</td>
+<td></td>
+</tr>
+
+<tr>
+<td>$n</td>
+<td>第 n 個參數（index 從 1 開始）</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="參考資料">參考資料</h2>
+
+<ul>
+<li><a href="https://coderwall.com/p/85jnpq/bash-built-in-variables">$#, $@ &amp; $?: Bash Built-in variables</a></li>
+<li><a href="https://www.mylinuxplace.com/bash-special-variables/">Bash Special Variables</a></li>
+</ul>
+
+    </div>
+    <blockquote class="page-info">
+      最後更新時間：<time class="date date--update">March 1, 2019</time>
+    </blockquote>
+  </div>
+</section>
+
+<section class="section disqus">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'akccakcctw';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<footer class="section footer">
+  <div class="container">
+    <p></p>
+  </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/vim.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/scss.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-57924156-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+

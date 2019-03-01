@@ -6,10 +6,19 @@
     <description>Recent content in Bash on 為了可能的聲音</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 27 Jun 2017 14:21:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 01 Mar 2019 15:13:38 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.rex-tsou.com/categories/bash/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Bash Built in Variables</title>
+      <link>https://blog.rex-tsou.com/2019/03/bash-built-in-variables/</link>
+      <pubDate>Fri, 01 Mar 2019 15:13:38 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/2019/03/bash-built-in-variables/</guid>
+      <description>shell script 對我來說是個「目的性」很強的語言，雖然每天都要使用，但直接在指令列使用和寫成 xxx.sh 總感覺不是同一件事（而且我其實用的是 zsh）。由於缺乏系統</description>
+    </item>
     
     <item>
       <title>執行 sh 遇到的編碼問題</title>
