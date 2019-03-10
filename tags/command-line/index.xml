@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Command Line on 為了可能的聲音</title>
+    <link>https://blog.rex-tsou.com/tags/command-line/</link>
+    <description>Recent content in Command Line on 為了可能的聲音</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 10 Mar 2019 22:51:10 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.rex-tsou.com/tags/command-line/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>增加 SSH 登入安全性</title>
+      <link>https://blog.rex-tsou.com/2019/03/%E5%A2%9E%E5%8A%A0-ssh-%E7%99%BB%E5%85%A5%E5%AE%89%E5%85%A8%E6%80%A7/</link>
+      <pubDate>Sun, 10 Mar 2019 22:51:10 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/2019/03/%E5%A2%9E%E5%8A%A0-ssh-%E7%99%BB%E5%85%A5%E5%AE%89%E5%85%A8%E6%80%A7/</guid>
+      <description>因為之前太懶，server 開好後就沒有特別去調 ssh 的設定，所以預設是走帳號密碼登入。今天突然感覺對了（什麼感覺），想來設定一下 server 的 ssh 登入，順便</description>
+    </item>
+    
+  </channel>
+</rss>
