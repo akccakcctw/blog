@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="為了可能的聲音"> 
+    <meta name="author" content="Rex Tsou">
+    <meta name="copyright" content="Rex Tsou">
+    
+    <meta property="og:title" content="JavaScript ES6 Numeric Literals">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="為了可能的聲音">
+    
+    <meta itemprop="name" content="JavaScript ES6 Numeric Literals | 為了可能的聲音">
+    <meta itemprop="description" content="為了可能的聲音">
+    <title>JavaScript ES6 Numeric Literals | 為了可能的聲音</title>
+    <link rel="stylesheet" href="https://blog.rex-tsou.com/css/style.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
+  </head>
+
+<header class="section header">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav__left">
+        <a class="nav__item" href="https://blog.rex-tsou.com"><h1 class="title">為了可能的聲音</h1></a>
+      </div>
+      <div class="nav__right">
+        <nav class="nav__item">
+          <a class="item__link" href="/post">Archives</a>
+        </nav>
+        <nav class="nav__item">
+          
+          <a class="item__link" href="https://github.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="https://www.facebook.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-facebook-square"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="/index.xml" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <time class="date date--publish">April 6, 2019</time>
+    
+    <h1 class="title">JavaScript ES6 Numeric Literals</h1>
+    <div class="content">
+      
+
+<p>寫 JS 也好一陣子了，還沒遇過需要處理二進位的情況，如果了解原理，<a href="https://oomusou.io/ecmascript/operator/bitwise/?fbclid=IwAR1jwGMQ-VPIPFDoD6x-mcRbPz-9exwnD3UST4UC9Is6w4AfUmtW2uc3zFM">用二進位表示法來處理權限問題</a>，也真的是簡潔不囉唆。剛才翻了下文件，發現其實在 ES6 之後就有提供不同進位法數字表示法了，包括 Decimal, Binary, Octal, Hexadecimal 這幾種，運算時其實不一定需要使用 <code>parseInt()</code> 了，語法如下：</p>
+
+<h2 id="syntax">Syntax</h2>
+
+<h3 id="decimal-十進位">Decimal（十進位）</h3>
+
+<pre><code class="language-js">var d1 = 1234567890;
+var d2 = 900;
+
+// 如果 0 開頭的數字，其中有大於等於 8 的數字，也會解析為 Decimal
+var d3 = 0888; // 888
+
+// 如果 0 後面的數字都小於 8，則會解析為 Octal
+var o1 = 0777; // 511
+</code></pre>
+
+<h3 id="binary-二進位">Binary（二進位）</h3>
+
+<pre><code class="language-js">// 以 ob 或 oB 開頭
+var b1 = 0b0001; // 1
+var b2 = 0b0011; // 3
+</code></pre>
+
+<h3 id="octal-八進位">Octal（八進位）</h3>
+
+<pre><code class="language-js">// 以 0O 或 0o 開頭
+var o3 = 0O755; // 493（也可以直接寫 var n = 0755）
+var o4 = 0o644; // 420
+
+</code></pre>
+
+<h3 id="hexadecimal-十六進位">Hexadecimal（十六進位）</h3>
+
+<pre><code class="language-js">// 以 0x 或 0X 開頭
+var x1 = 0xFFF; // 4095
+var x2 = 0xA; // 10
+</code></pre>
+
+<h2 id="參考資料">參考資料</h2>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Numeric_literals">MDN: Numeric literals</a></li>
+<li><a href="http://www.ecma-international.org/ecma-262/6.0/#sec-literals-numeric-literals">ECMAScript® 2015 Language Specification: 11.8.3 Numeric Literals</a></li>
+<li><a href="https://stackoverflow.com/questions/2803145/is-there-0b-or-something-similar-to-represent-a-binary-number-in-javascript">Stackoverflow: Is there “0b” or something similar to represent a binary number in Javascript</a></li>
+<li><a href="https://oomusou.io/ecmascript/operator/bitwise/?fbclid=IwAR1jwGMQ-VPIPFDoD6x-mcRbPz-9exwnD3UST4UC9Is6w4AfUmtW2uc3zFM">ECMAScript 之 Bitwise Operator</a></li>
+</ul>
+
+    </div>
+    <blockquote class="page-info">
+      最後更新時間：<time class="date date--update">April 6, 2019</time>
+    </blockquote>
+  </div>
+</section>
+
+<section class="section disqus">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'akccakcctw';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+
+<footer class="section footer">
+  <div class="container">
+    <p>© 2018 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/vim.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/scss.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-57924156-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+

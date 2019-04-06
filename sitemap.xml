@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.rex-tsou.com/2019/04/javascript-es6-numeric-literals/</loc>
+    <lastmod>2019-04-06T15:58:09+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2019/03/%E5%A2%9E%E5%8A%A0-ssh-%E7%99%BB%E5%85%A5%E5%AE%89%E5%85%A8%E6%80%A7/</loc>
     <lastmod>2019-03-10T22:51:10+08:00</lastmod>
   </url>
@@ -540,7 +545,7 @@
   
   <url>
     <loc>https://blog.rex-tsou.com/post/</loc>
-    <lastmod>2019-03-10T22:51:10+08:00</lastmod>
+    <lastmod>2019-04-06T15:58:09+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -636,7 +641,7 @@
   
   <url>
     <loc>https://blog.rex-tsou.com/</loc>
-    <lastmod>2019-03-10T22:51:10+08:00</lastmod>
+    <lastmod>2019-04-06T15:58:09+08:00</lastmod>
     <priority>0</priority>
   </url>
   

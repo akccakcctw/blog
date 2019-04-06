@@ -6,10 +6,19 @@
     <description>Recent content on 為了可能的聲音</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 10 Mar 2019 22:51:10 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 06 Apr 2019 15:58:09 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.rex-tsou.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JavaScript ES6 Numeric Literals</title>
+      <link>https://blog.rex-tsou.com/2019/04/javascript-es6-numeric-literals/</link>
+      <pubDate>Sat, 06 Apr 2019 15:58:09 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/2019/04/javascript-es6-numeric-literals/</guid>
+      <description>寫 JS 也好一陣子了，還沒遇過需要處理二進位的情況，如果了解原理，用二進位表示法來處理權限問題，也真的是簡潔不囉唆。剛才翻了下文件，發現其實在 ES6</description>
+    </item>
     
     <item>
       <title>增加 SSH 登入安全性</title>
