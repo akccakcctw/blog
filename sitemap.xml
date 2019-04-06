@@ -63,8 +63,8 @@
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/2018/04/checkout-github-pull-request-locally/</loc>
-    <lastmod>2018-04-02T17:45:39+08:00</lastmod>
+    <loc>https://blog.rex-tsou.com/2018/04/checkout-github-gitlab-pull-request-locally/</loc>
+    <lastmod>2019-04-06T11:35:38+08:00</lastmod>
   </url>
   
   <url>
@@ -341,13 +341,13 @@
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/categories/bash/</loc>
+    <loc>https://blog.rex-tsou.com/tags/bash/</loc>
     <lastmod>2019-03-01T15:13:38+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/tags/bash/</loc>
+    <loc>https://blog.rex-tsou.com/categories/bash/</loc>
     <lastmod>2019-03-01T15:13:38+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -377,14 +377,14 @@
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/categories/command-line/</loc>
-    <lastmod>2018-05-12T11:56:05+08:00</lastmod>
+    <loc>https://blog.rex-tsou.com/tags/command-line/</loc>
+    <lastmod>2019-03-10T22:51:10+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/tags/command-line/</loc>
-    <lastmod>2019-03-10T22:51:10+08:00</lastmod>
+    <loc>https://blog.rex-tsou.com/categories/command-line/</loc>
+    <lastmod>2018-05-12T11:56:05+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -401,14 +401,14 @@
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/categories/devtools/</loc>
-    <lastmod>2017-07-06T10:34:09+08:00</lastmod>
+    <loc>https://blog.rex-tsou.com/tags/devtools/</loc>
+    <lastmod>2018-06-16T00:32:19+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/tags/devtools/</loc>
-    <lastmod>2018-06-16T00:32:19+08:00</lastmod>
+    <loc>https://blog.rex-tsou.com/categories/devtools/</loc>
+    <lastmod>2017-07-06T10:34:09+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -461,6 +461,12 @@
   </url>
   
   <url>
+    <loc>https://blog.rex-tsou.com/tags/git/</loc>
+    <lastmod>2019-04-06T11:35:38+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/categories/git/</loc>
     <lastmod>2018-12-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -497,14 +503,14 @@
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/categories/linux/</loc>
-    <lastmod>2018-05-12T11:56:05+08:00</lastmod>
+    <loc>https://blog.rex-tsou.com/tags/linux/</loc>
+    <lastmod>2019-03-10T22:51:10+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/tags/linux/</loc>
-    <lastmod>2019-03-10T22:51:10+08:00</lastmod>
+    <loc>https://blog.rex-tsou.com/categories/linux/</loc>
+    <lastmod>2018-05-12T11:56:05+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -557,14 +563,14 @@
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/categories/server/</loc>
-    <lastmod>2017-10-11T00:29:24+08:00</lastmod>
+    <loc>https://blog.rex-tsou.com/tags/server/</loc>
+    <lastmod>2019-03-10T22:51:10+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/tags/server/</loc>
-    <lastmod>2019-03-10T22:51:10+08:00</lastmod>
+    <loc>https://blog.rex-tsou.com/categories/server/</loc>
+    <lastmod>2017-10-11T00:29:24+08:00</lastmod>
     <priority>0</priority>
   </url>
   

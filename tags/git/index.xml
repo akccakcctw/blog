@@ -2,23 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Git on 為了可能的聲音</title>
-    <link>https://blog.rex-tsou.com/categories/git/</link>
+    <link>https://blog.rex-tsou.com/tags/git/</link>
     <description>Recent content in Git on 為了可能的聲音</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 13 Nov 2018 23:09:15 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Apr 2018 17:45:39 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.rex-tsou.com/categories/git/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.rex-tsou.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>用 vimdiff 解 git 衝突</title>
-      <link>https://blog.rex-tsou.com/2018/11/%E7%94%A8-vimdiff-%E8%A7%A3-git-%E8%A1%9D%E7%AA%81/</link>
-      <pubDate>Tue, 13 Nov 2018 23:09:15 +0800</pubDate>
-      
-      <guid>https://blog.rex-tsou.com/2018/11/%E7%94%A8-vimdiff-%E8%A7%A3-git-%E8%A1%9D%E7%AA%81/</guid>
-      <description>設定 mergetool 首先要將 git 的 mergetool 設定為 vimdiff，可以下指令： git config --global merge.tool vimdiff 或者直接修改 gitconfig，在最後面加上： [merge] tool = vimdiff 這樣設定就算完成了。 使</description>
-    </item>
     
     <item>
       <title>Checkout GitHub/Gitlab Pull Request Locally</title>
