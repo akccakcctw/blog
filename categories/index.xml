@@ -6,28 +6,10 @@
     <description>Recent content in Categories on 為了可能的聲音</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 26 Sep 2017 11:10:26 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 01 Mar 2019 15:13:38 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.rex-tsou.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Algorithm</title>
-      <link>https://blog.rex-tsou.com/categories/algorithm/</link>
-      <pubDate>Tue, 26 Sep 2017 11:10:26 +0800</pubDate>
-      
-      <guid>https://blog.rex-tsou.com/categories/algorithm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Animation</title>
-      <link>https://blog.rex-tsou.com/categories/animation/</link>
-      <pubDate>Thu, 24 Mar 2016 10:46:00 +0000</pubDate>
-      
-      <guid>https://blog.rex-tsou.com/categories/animation/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>Bash</title>
@@ -35,114 +17,6 @@
       <pubDate>Fri, 01 Mar 2019 15:13:38 +0800</pubDate>
       
       <guid>https://blog.rex-tsou.com/categories/bash/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Centos</title>
-      <link>https://blog.rex-tsou.com/categories/centos/</link>
-      <pubDate>Wed, 12 Apr 2017 16:48:00 +0000</pubDate>
-      
-      <guid>https://blog.rex-tsou.com/categories/centos/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Cheatsheet</title>
-      <link>https://blog.rex-tsou.com/categories/cheatsheet/</link>
-      <pubDate>Thu, 19 May 2016 04:15:00 +0000</pubDate>
-      
-      <guid>https://blog.rex-tsou.com/categories/cheatsheet/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Chrome</title>
-      <link>https://blog.rex-tsou.com/categories/chrome/</link>
-      <pubDate>Thu, 06 Jul 2017 10:34:09 +0800</pubDate>
-      
-      <guid>https://blog.rex-tsou.com/categories/chrome/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Command Line</title>
-      <link>https://blog.rex-tsou.com/categories/command-line/</link>
-      <pubDate>Sat, 12 May 2018 11:56:05 +0800</pubDate>
-      
-      <guid>https://blog.rex-tsou.com/categories/command-line/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Css</title>
-      <link>https://blog.rex-tsou.com/categories/css/</link>
-      <pubDate>Thu, 06 Jul 2017 10:34:09 +0800</pubDate>
-      
-      <guid>https://blog.rex-tsou.com/categories/css/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Design</title>
-      <link>https://blog.rex-tsou.com/categories/design/</link>
-      <pubDate>Mon, 09 May 2016 07:19:00 +0000</pubDate>
-      
-      <guid>https://blog.rex-tsou.com/categories/design/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Devtools</title>
-      <link>https://blog.rex-tsou.com/categories/devtools/</link>
-      <pubDate>Thu, 06 Jul 2017 10:34:09 +0800</pubDate>
-      
-      <guid>https://blog.rex-tsou.com/categories/devtools/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Editor</title>
-      <link>https://blog.rex-tsou.com/categories/editor/</link>
-      <pubDate>Thu, 19 Oct 2017 12:56:26 +0800</pubDate>
-      
-      <guid>https://blog.rex-tsou.com/categories/editor/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>File System</title>
-      <link>https://blog.rex-tsou.com/categories/file-system/</link>
-      <pubDate>Wed, 12 Apr 2017 16:48:00 +0000</pubDate>
-      
-      <guid>https://blog.rex-tsou.com/categories/file-system/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Font</title>
-      <link>https://blog.rex-tsou.com/categories/font/</link>
-      <pubDate>Fri, 21 Oct 2016 16:19:00 +0000</pubDate>
-      
-      <guid>https://blog.rex-tsou.com/categories/font/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Form</title>
-      <link>https://blog.rex-tsou.com/categories/form/</link>
-      <pubDate>Fri, 06 Jan 2017 02:53:00 +0000</pubDate>
-      
-      <guid>https://blog.rex-tsou.com/categories/form/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Front End</title>
-      <link>https://blog.rex-tsou.com/categories/front-end/</link>
-      <pubDate>Fri, 24 Nov 2017 21:53:12 +0800</pubDate>
-      
-      <guid>https://blog.rex-tsou.com/categories/front-end/</guid>
       <description></description>
     </item>
     
@@ -156,38 +30,20 @@
     </item>
     
     <item>
-      <title>Html</title>
-      <link>https://blog.rex-tsou.com/categories/html/</link>
-      <pubDate>Mon, 22 May 2017 07:17:00 +0000</pubDate>
+      <title>vim</title>
+      <link>https://blog.rex-tsou.com/categories/vim/</link>
+      <pubDate>Tue, 13 Nov 2018 23:09:15 +0800</pubDate>
       
-      <guid>https://blog.rex-tsou.com/categories/html/</guid>
+      <guid>https://blog.rex-tsou.com/categories/vim/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Html5</title>
-      <link>https://blog.rex-tsou.com/categories/html5/</link>
-      <pubDate>Thu, 20 Apr 2017 07:34:00 +0000</pubDate>
-      
-      <guid>https://blog.rex-tsou.com/categories/html5/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Javascript</title>
+      <title>JavaScript</title>
       <link>https://blog.rex-tsou.com/categories/javascript/</link>
       <pubDate>Tue, 22 May 2018 22:52:20 +0800</pubDate>
       
       <guid>https://blog.rex-tsou.com/categories/javascript/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>License</title>
-      <link>https://blog.rex-tsou.com/categories/license/</link>
-      <pubDate>Wed, 23 Aug 2017 17:50:00 +0800</pubDate>
-      
-      <guid>https://blog.rex-tsou.com/categories/license/</guid>
       <description></description>
     </item>
     
@@ -201,38 +57,29 @@
     </item>
     
     <item>
-      <title>Nginx</title>
-      <link>https://blog.rex-tsou.com/categories/nginx/</link>
-      <pubDate>Sun, 18 Jun 2017 17:46:00 +0000</pubDate>
+      <title>command-line</title>
+      <link>https://blog.rex-tsou.com/categories/command-line/</link>
+      <pubDate>Sat, 12 May 2018 11:56:05 +0800</pubDate>
       
-      <guid>https://blog.rex-tsou.com/categories/nginx/</guid>
+      <guid>https://blog.rex-tsou.com/categories/command-line/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Npm</title>
-      <link>https://blog.rex-tsou.com/categories/npm/</link>
-      <pubDate>Tue, 22 Mar 2016 14:20:00 +0000</pubDate>
+      <title>Front-end</title>
+      <link>https://blog.rex-tsou.com/categories/front-end/</link>
+      <pubDate>Fri, 24 Nov 2017 21:53:12 +0800</pubDate>
       
-      <guid>https://blog.rex-tsou.com/categories/npm/</guid>
+      <guid>https://blog.rex-tsou.com/categories/front-end/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Php</title>
-      <link>https://blog.rex-tsou.com/categories/php/</link>
-      <pubDate>Thu, 22 Dec 2016 08:02:00 +0000</pubDate>
+      <title>Editor</title>
+      <link>https://blog.rex-tsou.com/categories/editor/</link>
+      <pubDate>Thu, 19 Oct 2017 12:56:26 +0800</pubDate>
       
-      <guid>https://blog.rex-tsou.com/categories/php/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Samba</title>
-      <link>https://blog.rex-tsou.com/categories/samba/</link>
-      <pubDate>Wed, 12 Apr 2017 16:48:00 +0000</pubDate>
-      
-      <guid>https://blog.rex-tsou.com/categories/samba/</guid>
+      <guid>https://blog.rex-tsou.com/categories/editor/</guid>
       <description></description>
     </item>
     
@@ -246,38 +93,47 @@
     </item>
     
     <item>
-      <title>Svn</title>
-      <link>https://blog.rex-tsou.com/categories/svn/</link>
-      <pubDate>Thu, 08 Sep 2016 09:21:00 +0000</pubDate>
+      <title>Algorithm</title>
+      <link>https://blog.rex-tsou.com/categories/algorithm/</link>
+      <pubDate>Tue, 26 Sep 2017 11:10:26 +0800</pubDate>
       
-      <guid>https://blog.rex-tsou.com/categories/svn/</guid>
+      <guid>https://blog.rex-tsou.com/categories/algorithm/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Ux</title>
-      <link>https://blog.rex-tsou.com/categories/ux/</link>
-      <pubDate>Sat, 28 Nov 2015 15:29:00 +0000</pubDate>
+      <title>License</title>
+      <link>https://blog.rex-tsou.com/categories/license/</link>
+      <pubDate>Wed, 23 Aug 2017 17:50:00 +0800</pubDate>
       
-      <guid>https://blog.rex-tsou.com/categories/ux/</guid>
+      <guid>https://blog.rex-tsou.com/categories/license/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Version Control</title>
-      <link>https://blog.rex-tsou.com/categories/version-control/</link>
-      <pubDate>Thu, 08 Sep 2016 09:21:00 +0000</pubDate>
+      <title>CSS</title>
+      <link>https://blog.rex-tsou.com/categories/css/</link>
+      <pubDate>Thu, 06 Jul 2017 10:34:09 +0800</pubDate>
       
-      <guid>https://blog.rex-tsou.com/categories/version-control/</guid>
+      <guid>https://blog.rex-tsou.com/categories/css/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Vim</title>
-      <link>https://blog.rex-tsou.com/categories/vim/</link>
-      <pubDate>Tue, 13 Nov 2018 23:09:15 +0800</pubDate>
+      <title>Chrome</title>
+      <link>https://blog.rex-tsou.com/categories/chrome/</link>
+      <pubDate>Thu, 06 Jul 2017 10:34:09 +0800</pubDate>
       
-      <guid>https://blog.rex-tsou.com/categories/vim/</guid>
+      <guid>https://blog.rex-tsou.com/categories/chrome/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Devtools</title>
+      <link>https://blog.rex-tsou.com/categories/devtools/</link>
+      <pubDate>Thu, 06 Jul 2017 10:34:09 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/categories/devtools/</guid>
       <description></description>
     </item>
     
@@ -287,6 +143,150 @@
       <pubDate>Tue, 27 Jun 2017 14:21:00 +0800</pubDate>
       
       <guid>https://blog.rex-tsou.com/categories/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nginx</title>
+      <link>https://blog.rex-tsou.com/categories/nginx/</link>
+      <pubDate>Sun, 18 Jun 2017 17:46:00 +0000</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/categories/nginx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HTML</title>
+      <link>https://blog.rex-tsou.com/categories/html/</link>
+      <pubDate>Mon, 22 May 2017 07:17:00 +0000</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/categories/html/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HTML5</title>
+      <link>https://blog.rex-tsou.com/categories/html5/</link>
+      <pubDate>Thu, 20 Apr 2017 07:34:00 +0000</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/categories/html5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CentOS</title>
+      <link>https://blog.rex-tsou.com/categories/centos/</link>
+      <pubDate>Wed, 12 Apr 2017 16:48:00 +0000</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/categories/centos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>File System</title>
+      <link>https://blog.rex-tsou.com/categories/file-system/</link>
+      <pubDate>Wed, 12 Apr 2017 16:48:00 +0000</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/categories/file-system/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Samba</title>
+      <link>https://blog.rex-tsou.com/categories/samba/</link>
+      <pubDate>Wed, 12 Apr 2017 16:48:00 +0000</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/categories/samba/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Form</title>
+      <link>https://blog.rex-tsou.com/categories/form/</link>
+      <pubDate>Fri, 06 Jan 2017 02:53:00 +0000</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/categories/form/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PHP</title>
+      <link>https://blog.rex-tsou.com/categories/php/</link>
+      <pubDate>Thu, 22 Dec 2016 08:02:00 +0000</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/categories/php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Font</title>
+      <link>https://blog.rex-tsou.com/categories/font/</link>
+      <pubDate>Fri, 21 Oct 2016 16:19:00 +0000</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/categories/font/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>svn</title>
+      <link>https://blog.rex-tsou.com/categories/svn/</link>
+      <pubDate>Thu, 08 Sep 2016 09:21:00 +0000</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/categories/svn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>version control</title>
+      <link>https://blog.rex-tsou.com/categories/version-control/</link>
+      <pubDate>Thu, 08 Sep 2016 09:21:00 +0000</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/categories/version-control/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cheatsheet</title>
+      <link>https://blog.rex-tsou.com/categories/cheatsheet/</link>
+      <pubDate>Thu, 19 May 2016 04:15:00 +0000</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/categories/cheatsheet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Design</title>
+      <link>https://blog.rex-tsou.com/categories/design/</link>
+      <pubDate>Mon, 09 May 2016 07:19:00 +0000</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/categories/design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>animation</title>
+      <link>https://blog.rex-tsou.com/categories/animation/</link>
+      <pubDate>Thu, 24 Mar 2016 10:46:00 +0000</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/categories/animation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>npm</title>
+      <link>https://blog.rex-tsou.com/categories/npm/</link>
+      <pubDate>Tue, 22 Mar 2016 14:20:00 +0000</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/categories/npm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>UX</title>
+      <link>https://blog.rex-tsou.com/categories/ux/</link>
+      <pubDate>Sat, 28 Nov 2015 15:29:00 +0000</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/categories/ux/</guid>
       <description></description>
     </item>
     

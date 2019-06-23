@@ -3,6 +3,53 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.rex-tsou.com/tags/linux/</loc>
+    <lastmod>2019-06-23T11:50:08+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/post/</loc>
+    <lastmod>2019-06-23T11:50:08+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/tags/</loc>
+    <lastmod>2019-06-23T11:50:08+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/tags/command-line/</loc>
+    <lastmod>2019-06-23T11:50:08+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/tags/server/</loc>
+    <lastmod>2019-06-23T11:50:08+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/tags/ssh/</loc>
+    <lastmod>2019-06-23T11:50:08+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/2019/06/%E5%A2%9E%E5%8A%A0-ssh-%E7%99%BB%E5%85%A5%E5%AE%89%E5%85%A8%E6%80%A7%E4%BA%8C/</loc>
+    <lastmod>2019-06-23T11:50:08+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/</loc>
+    <lastmod>2019-06-23T11:50:08+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2019/04/javascript-es6-numeric-literals/</loc>
     <lastmod>2019-04-06T15:58:09+08:00</lastmod>
   </url>
@@ -13,8 +60,26 @@
   </url>
   
   <url>
+    <loc>https://blog.rex-tsou.com/tags/bash/</loc>
+    <lastmod>2019-03-01T15:13:38+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/categories/bash/</loc>
+    <lastmod>2019-03-01T15:13:38+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2019/03/bash-built-in-variables/</loc>
     <lastmod>2019-03-01T15:13:38+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/categories/</loc>
+    <lastmod>2019-04-06T11:35:38+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -23,8 +88,26 @@
   </url>
   
   <url>
+    <loc>https://blog.rex-tsou.com/tags/dns/</loc>
+    <lastmod>2018-11-22T00:40:09+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2018/11/%E5%8F%B0%E7%81%A3%E5%B8%B8%E7%94%A8-dns-server-%E6%95%B4%E7%90%86/</loc>
     <lastmod>2018-11-22T00:40:09+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/categories/git/</loc>
+    <lastmod>2019-04-06T11:35:38+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/categories/vim/</loc>
+    <lastmod>2018-12-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -48,6 +131,18 @@
   </url>
   
   <url>
+    <loc>https://blog.rex-tsou.com/tags/iterm/</loc>
+    <lastmod>2018-07-07T10:05:34+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/tags/macos/</loc>
+    <lastmod>2018-07-07T10:05:34+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2018/06/%E8%A7%A3%E6%9E%90%E7%B6%B2%E5%9D%80%E5%B0%B1%E7%94%A8-a-%E5%90%A7/</loc>
     <lastmod>2018-06-20T20:40:12+08:00</lastmod>
   </url>
@@ -58,18 +153,54 @@
   </url>
   
   <url>
+    <loc>https://blog.rex-tsou.com/tags/devtools/</loc>
+    <lastmod>2018-06-16T00:32:19+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2018/05/es2018regexp-%E6%96%B0%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%B4%B9/</loc>
     <lastmod>2018-05-22T22:52:20+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/2018/05/bash-zsh-%E7%92%B0%E5%A2%83%E8%AE%8A%E6%95%B8%E8%BC%89%E5%85%A5%E9%A0%86%E5%BA%8F/</loc>
+    <loc>https://blog.rex-tsou.com/categories/javascript/</loc>
+    <lastmod>2018-05-22T22:52:20+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/tags/regex/</loc>
+    <lastmod>2018-05-22T22:52:20+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/2018/05/bash/zsh-%E7%92%B0%E5%A2%83%E8%AE%8A%E6%95%B8%E8%BC%89%E5%85%A5%E9%A0%86%E5%BA%8F/</loc>
     <lastmod>2018-05-12T11:56:05+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.rex-tsou.com/2018/04/checkout-github-gitlab-pull-request-locally/</loc>
+    <loc>https://blog.rex-tsou.com/categories/linux/</loc>
+    <lastmod>2018-12-30T10:52:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/categories/command-line/</loc>
+    <lastmod>2018-12-30T10:52:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/2018/04/checkout-github/gitlab-pull-request-locally/</loc>
     <lastmod>2019-04-06T11:35:38+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/tags/git/</loc>
+    <lastmod>2019-04-06T11:35:38+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -93,8 +224,20 @@
   </url>
   
   <url>
+    <loc>https://blog.rex-tsou.com/tags/find/</loc>
+    <lastmod>2018-01-20T17:32:21+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2017/12/arch-linuxsurface-pro-4-%E5%AE%89%E8%A3%9D%E7%AD%86%E8%A8%98/</loc>
     <lastmod>2018-12-30T10:52:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/tags/archlinux/</loc>
+    <lastmod>2018-12-30T10:52:00+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -113,6 +256,18 @@
   </url>
   
   <url>
+    <loc>https://blog.rex-tsou.com/categories/front-end/</loc>
+    <lastmod>2017-11-24T21:53:12+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/tags/unit-test/</loc>
+    <lastmod>2017-11-24T21:53:12+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2017/11/%E7%94%A8-ava-%E4%BD%9C%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/</loc>
     <lastmod>2017-11-24T21:53:12+08:00</lastmod>
   </url>
@@ -123,13 +278,55 @@
   </url>
   
   <url>
+    <loc>https://blog.rex-tsou.com/tags/event-loop/</loc>
+    <lastmod>2017-11-20T00:08:12+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/categories/editor/</loc>
+    <lastmod>2017-10-19T12:56:26+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/tags/rest/</loc>
+    <lastmod>2017-10-19T12:56:26+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/tags/vscode/</loc>
+    <lastmod>2017-10-19T12:56:26+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2017/10/vscode-%E5%AF%A6%E7%94%A8%E5%A5%97%E4%BB%B6-rest-client/</loc>
     <lastmod>2017-10-19T12:56:26+08:00</lastmod>
   </url>
   
   <url>
+    <loc>https://blog.rex-tsou.com/categories/server/</loc>
+    <lastmod>2017-10-11T00:29:24+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/tags/tunnel/</loc>
+    <lastmod>2017-10-11T00:29:24+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2017/10/%E5%88%A9%E7%94%A8-ssh-tunnel-%E5%81%9A%E8%B7%B3%E6%9D%BFaka.-%E7%BF%BB%E7%89%86/</loc>
     <lastmod>2017-10-11T00:29:24+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/categories/algorithm/</loc>
+    <lastmod>2017-09-26T11:10:26+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -143,6 +340,12 @@
   </url>
   
   <url>
+    <loc>https://blog.rex-tsou.com/categories/license/</loc>
+    <lastmod>2017-08-23T17:50:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2017/08/%E5%89%B5%E7%94%A8cc%E6%8E%88%E6%AC%8A%E6%98%AF%E4%BB%80%E9%BA%BC%E9%AC%BC/</loc>
     <lastmod>2017-08-23T17:50:00+08:00</lastmod>
   </url>
@@ -153,13 +356,43 @@
   </url>
   
   <url>
+    <loc>https://blog.rex-tsou.com/categories/css/</loc>
+    <lastmod>2017-07-06T10:34:09+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/categories/chrome/</loc>
+    <lastmod>2017-07-06T10:34:09+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/categories/devtools/</loc>
+    <lastmod>2017-07-06T10:34:09+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2017/07/%E5%88%A9%E7%94%A8-css-%E7%BE%8E%E5%8C%96%E7%80%8F%E8%A6%BD%E5%99%A8%E7%9A%84-console/</loc>
     <lastmod>2017-07-06T10:34:09+08:00</lastmod>
   </url>
   
   <url>
+    <loc>https://blog.rex-tsou.com/categories/windows/</loc>
+    <lastmod>2017-06-27T14:21:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2017/06/%E5%9F%B7%E8%A1%8C-sh-%E9%81%87%E5%88%B0%E7%9A%84%E7%B7%A8%E7%A2%BC%E5%95%8F%E9%A1%8C/</loc>
     <lastmod>2017-06-27T14:21:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/categories/nginx/</loc>
+    <lastmod>2017-06-18T17:46:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -173,8 +406,20 @@
   </url>
   
   <url>
+    <loc>https://blog.rex-tsou.com/categories/html/</loc>
+    <lastmod>2017-05-22T07:17:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2017/05/html-select-%E7%9A%84-placeholder-%E5%AF%AB%E6%B3%95/</loc>
     <lastmod>2017-05-22T07:17:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/categories/html5/</loc>
+    <lastmod>2017-04-20T07:34:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -183,8 +428,26 @@
   </url>
   
   <url>
+    <loc>https://blog.rex-tsou.com/categories/centos/</loc>
+    <lastmod>2017-04-12T16:48:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2017/04/centos-%E8%A8%AD%E5%AE%9A-samba-server%E8%88%87-windows-%E5%85%B1%E4%BA%AB%E6%AA%94%E6%A1%88/</loc>
     <lastmod>2017-04-12T16:48:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/categories/file-system/</loc>
+    <lastmod>2017-04-12T16:48:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/categories/samba/</loc>
+    <lastmod>2017-04-12T16:48:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -208,8 +471,20 @@
   </url>
   
   <url>
+    <loc>https://blog.rex-tsou.com/categories/form/</loc>
+    <lastmod>2017-01-06T02:53:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2017/01/formdata-%E5%9F%BA%E7%A4%8E%E7%94%A8%E6%B3%95/</loc>
     <lastmod>2017-01-06T02:53:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/categories/php/</loc>
+    <lastmod>2016-12-22T08:02:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -220,6 +495,12 @@
   <url>
     <loc>https://blog.rex-tsou.com/2016/10/css-font-face-%E7%94%A8%E6%B3%95%E6%A6%82%E8%A6%81/</loc>
     <lastmod>2016-10-21T16:19:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/categories/font/</loc>
+    <lastmod>2016-10-21T16:19:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -243,6 +524,18 @@
   </url>
   
   <url>
+    <loc>https://blog.rex-tsou.com/categories/svn/</loc>
+    <lastmod>2016-09-08T09:21:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/categories/version-control/</loc>
+    <lastmod>2016-09-08T09:21:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2016/07/command-line-%E8%B3%87%E6%96%99%E9%87%8D%E5%B0%8E%E5%90%91%E7%9B%B8%E9%97%9C%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2016-07-27T01:11:00+00:00</lastmod>
   </url>
@@ -263,6 +556,18 @@
   </url>
   
   <url>
+    <loc>https://blog.rex-tsou.com/categories/cheatsheet/</loc>
+    <lastmod>2016-05-19T04:15:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/categories/design/</loc>
+    <lastmod>2016-05-09T07:19:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2016/05/contact-%E8%A1%A8%E5%96%AE%E8%A8%AD%E8%A8%88/</loc>
     <lastmod>2016-05-09T07:19:00+00:00</lastmod>
   </url>
@@ -273,8 +578,20 @@
   </url>
   
   <url>
+    <loc>https://blog.rex-tsou.com/categories/animation/</loc>
+    <lastmod>2016-03-24T10:46:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2016/03/%E5%88%A9%E7%94%A8waapiweb-animations-api%E8%A3%BD%E4%BD%9C%E5%8B%95%E6%85%8B%E6%95%88%E6%9E%9C/</loc>
     <lastmod>2016-03-24T10:46:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.rex-tsou.com/categories/npm/</loc>
+    <lastmod>2016-03-22T14:20:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -308,6 +625,12 @@
   </url>
   
   <url>
+    <loc>https://blog.rex-tsou.com/categories/ux/</loc>
+    <lastmod>2015-11-28T15:29:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rex-tsou.com/2015/11/%E4%BD%BF%E7%94%A8%E8%80%85%E7%AD%89%E5%BE%85%E6%99%82%E9%96%93%E8%88%87%E6%84%9F%E5%8F%97%E8%A1%8C%E5%8B%95%E7%89%88%E7%B6%B2%E9%A0%81/</loc>
     <lastmod>2015-11-28T15:29:00+00:00</lastmod>
   </url>
@@ -325,324 +648,6 @@
   <url>
     <loc>https://blog.rex-tsou.com/2015/10/%E5%9C%A8%E7%B6%B2%E9%A0%81%E4%B8%AD%E5%B5%8C%E5%85%A5%E9%AB%98%E4%BA%AE%E7%A8%8B%E5%BC%8F%E7%A2%BC/</loc>
     <lastmod>2015-10-13T16:05:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/algorithm/</loc>
-    <lastmod>2017-09-26T11:10:26+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/animation/</loc>
-    <lastmod>2016-03-24T10:46:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/tags/archlinux/</loc>
-    <lastmod>2018-12-30T10:52:00+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/tags/bash/</loc>
-    <lastmod>2019-03-01T15:13:38+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/bash/</loc>
-    <lastmod>2019-03-01T15:13:38+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/</loc>
-    <lastmod>2017-09-26T11:10:26+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/centos/</loc>
-    <lastmod>2017-04-12T16:48:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/cheatsheet/</loc>
-    <lastmod>2016-05-19T04:15:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/chrome/</loc>
-    <lastmod>2017-07-06T10:34:09+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/tags/command-line/</loc>
-    <lastmod>2019-03-10T22:51:10+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/command-line/</loc>
-    <lastmod>2018-05-12T11:56:05+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/css/</loc>
-    <lastmod>2017-07-06T10:34:09+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/design/</loc>
-    <lastmod>2016-05-09T07:19:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/tags/devtools/</loc>
-    <lastmod>2018-06-16T00:32:19+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/devtools/</loc>
-    <lastmod>2017-07-06T10:34:09+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/tags/dns/</loc>
-    <lastmod>2018-11-22T00:40:09+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/editor/</loc>
-    <lastmod>2017-10-19T12:56:26+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/tags/event-loop/</loc>
-    <lastmod>2017-11-20T00:08:12+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/file-system/</loc>
-    <lastmod>2017-04-12T16:48:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/tags/find/</loc>
-    <lastmod>2018-01-20T17:32:21+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/font/</loc>
-    <lastmod>2016-10-21T16:19:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/form/</loc>
-    <lastmod>2017-01-06T02:53:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/front-end/</loc>
-    <lastmod>2017-11-24T21:53:12+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/tags/git/</loc>
-    <lastmod>2019-04-06T11:35:38+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/git/</loc>
-    <lastmod>2018-12-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/html/</loc>
-    <lastmod>2017-05-22T07:17:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/html5/</loc>
-    <lastmod>2017-04-20T07:34:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/tags/iterm/</loc>
-    <lastmod>2018-07-07T10:05:34+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/javascript/</loc>
-    <lastmod>2018-05-22T22:52:20+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/license/</loc>
-    <lastmod>2017-08-23T17:50:00+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/tags/linux/</loc>
-    <lastmod>2019-03-10T22:51:10+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/linux/</loc>
-    <lastmod>2018-05-12T11:56:05+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/tags/macos/</loc>
-    <lastmod>2018-07-07T10:05:34+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/nginx/</loc>
-    <lastmod>2017-06-18T17:46:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/npm/</loc>
-    <lastmod>2016-03-22T14:20:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/php/</loc>
-    <lastmod>2016-12-22T08:02:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/post/</loc>
-    <lastmod>2019-04-06T15:58:09+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/tags/regex/</loc>
-    <lastmod>2018-05-22T22:52:20+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/tags/rest/</loc>
-    <lastmod>2017-10-19T12:56:26+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/samba/</loc>
-    <lastmod>2017-04-12T16:48:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/tags/server/</loc>
-    <lastmod>2019-03-10T22:51:10+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/server/</loc>
-    <lastmod>2017-10-11T00:29:24+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/tags/ssh/</loc>
-    <lastmod>2019-03-10T22:51:10+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/svn/</loc>
-    <lastmod>2016-09-08T09:21:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/tags/</loc>
-    <lastmod>2018-12-30T10:52:00+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/tags/tunnel/</loc>
-    <lastmod>2017-10-11T00:29:24+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/tags/unit-test/</loc>
-    <lastmod>2017-11-24T21:53:12+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/ux/</loc>
-    <lastmod>2015-11-28T15:29:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/version-control/</loc>
-    <lastmod>2016-09-08T09:21:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/vim/</loc>
-    <lastmod>2018-12-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/tags/vscode/</loc>
-    <lastmod>2017-10-19T12:56:26+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/categories/windows/</loc>
-    <lastmod>2017-06-27T14:21:00+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rex-tsou.com/</loc>
-    <lastmod>2019-04-06T15:58:09+08:00</lastmod>
-    <priority>0</priority>
   </url>
   
 </urlset>

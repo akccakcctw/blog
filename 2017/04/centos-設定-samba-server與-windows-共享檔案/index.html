@@ -101,61 +101,65 @@
 通常會是 WORKGROUP 或是 HOMEGROUP</p>
 
 <pre><code class="language-cmd">net config workstation
-</code></pre></li>
-
-<li><p>編輯 hosts（C:/Windows/System32/drivers/hosts）
-IP 設定為 server 的 IP，host 名稱就是 Windows 用來識別的共享名稱
-左邊設定 IP、右邊是對應的名稱：</p>
-
-<pre><code>192.168.43.220  cent-os 
 </code></pre>
 
-<p>設定後可以<code>ping</code>看看 cent-os，測試目標 ip 是否為 192.168.43.220</p></li>
+<ol>
+<li>編輯 hosts（C:/Windows/System32/drivers/hosts）
+IP 設定為 server 的 IP，host 名稱就是 Windows 用來識別的共享名稱
+左邊設定 IP、右邊是對應的名稱：
+```</li>
+</ol></li>
+</ol>
 
-<li><p>安裝samba及相關套件</p>
+<p>192.168.43.220  cent-os</p>
 
-<pre><code class="language-bash">yum install samba samba-client samba-common -y
-</code></pre></li>
+<pre><code>設定後可以`ping`看看 cent-os，測試目標 ip 是否為 192.168.43.220
 
+3. 安裝samba及相關套件
+```bash
+yum install samba samba-client samba-common -y
+</code></pre>
+
+<ol>
 <li><p>修改samba設定檔</p>
 
 <pre><code class="language-bash">vim /etc/samba/smb.conf
-</code></pre></li>
-</ol>
+</code></pre>
 
 <p>原來的設定可以都註解掉，改為以下：</p>
 
 <pre><code class="language-smb.conf">[global]
-    workgroup = WORKGROUP # 步驟 1. 取得的工作群組名稱
-    server string = Samba Server Version %v
-    netbios name = cent-os # 步驟 2. 設定的名稱
-    map to guest = bad user # 因為 Windows 無法匿名登入，需對應至 guest
-    dns proxy = no
-    dos charset = cp950 # 因為是要分享給 Windows 的中文環境
-    load printers = no
+workgroup = WORKGROUP # 步驟 1. 取得的工作群組名稱
+server string = Samba Server Version %v
+netbios name = cent-os # 步驟 2. 設定的名稱
+map to guest = bad user # 因為 Windows 無法匿名登入，需對應至 guest
+dns proxy = no
+dos charset = cp950 # 因為是要分享給 Windows 的中文環境
+load printers = no
 
 [Share] # Winodws會看到資料夾名稱
-    path = /srv/www/sitename # 你的網站根目錄
-    valid users = @smbgrp
-    guest ok = no # 不須認證
-    browsable = yes # 瀏覽權限
-    writable = yes # 寫入權限
-    read only = no # 關閉唯獨
-</code></pre>
+path = /srv/www/sitename # 你的網站根目錄
+valid users = @smbgrp
+guest ok = no # 不須認證
+browsable = yes # 瀏覽權限
+writable = yes # 寫入權限
+read only = no # 關閉唯獨
+</code></pre></li>
 
-<ol>
 <li><p>設定可存取 samba server 的使用者帳號與密碼</p>
 
 <pre><code class="language-sh">smbpasswd -a akccakcctw
-</code></pre></li>
+</code></pre>
 
-<li><p>啟動 samba server，並設定開機後自動啟動</p>
-
-<pre><code class="language-sh">systemctl enable smb
+<ol>
+<li>啟動 samba server，並設定開機後自動啟動
+<code>sh
+systemctl enable smb
 systemctl enable nmb
 systemctl restart smb
 systemctl restart nmb
-</code></pre></li>
+</code></li>
+</ol></li>
 
 <li><p>從檔案總管開啟
 打開檔案總管，在「網路」內，應該就可以看到<code>CENT-OS</code>了（Windows 似乎會自動轉為大寫），也可以按 Ctrl + R，輸入<code>\\cent-os</code>，快速開啟分享資料夾。</p></li>

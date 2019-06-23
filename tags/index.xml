@@ -6,17 +6,44 @@
     <description>Recent content in Tags on 為了可能的聲音</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 31 Dec 2017 01:37:20 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 23 Jun 2019 11:50:08 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.rex-tsou.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Archlinux</title>
-      <link>https://blog.rex-tsou.com/tags/archlinux/</link>
-      <pubDate>Sun, 31 Dec 2017 01:37:20 +0800</pubDate>
+      <title>Linux</title>
+      <link>https://blog.rex-tsou.com/tags/linux/</link>
+      <pubDate>Sun, 23 Jun 2019 11:50:08 +0800</pubDate>
       
-      <guid>https://blog.rex-tsou.com/tags/archlinux/</guid>
+      <guid>https://blog.rex-tsou.com/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>command-line</title>
+      <link>https://blog.rex-tsou.com/tags/command-line/</link>
+      <pubDate>Sun, 23 Jun 2019 11:50:08 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/tags/command-line/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>server</title>
+      <link>https://blog.rex-tsou.com/tags/server/</link>
+      <pubDate>Sun, 23 Jun 2019 11:50:08 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/tags/server/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ssh</title>
+      <link>https://blog.rex-tsou.com/tags/ssh/</link>
+      <pubDate>Sun, 23 Jun 2019 11:50:08 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/tags/ssh/</guid>
       <description></description>
     </item>
     
@@ -30,25 +57,7 @@
     </item>
     
     <item>
-      <title>Command Line</title>
-      <link>https://blog.rex-tsou.com/tags/command-line/</link>
-      <pubDate>Sun, 10 Mar 2019 22:51:10 +0800</pubDate>
-      
-      <guid>https://blog.rex-tsou.com/tags/command-line/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Devtools</title>
-      <link>https://blog.rex-tsou.com/tags/devtools/</link>
-      <pubDate>Sat, 16 Jun 2018 00:32:19 +0800</pubDate>
-      
-      <guid>https://blog.rex-tsou.com/tags/devtools/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Dns</title>
+      <title>DNS</title>
       <link>https://blog.rex-tsou.com/tags/dns/</link>
       <pubDate>Thu, 22 Nov 2018 00:40:09 +0800</pubDate>
       
@@ -57,20 +66,38 @@
     </item>
     
     <item>
-      <title>Event Loop</title>
-      <link>https://blog.rex-tsou.com/tags/event-loop/</link>
-      <pubDate>Mon, 20 Nov 2017 00:08:12 +0800</pubDate>
+      <title>iTerm</title>
+      <link>https://blog.rex-tsou.com/tags/iterm/</link>
+      <pubDate>Sat, 07 Jul 2018 10:05:34 +0800</pubDate>
       
-      <guid>https://blog.rex-tsou.com/tags/event-loop/</guid>
+      <guid>https://blog.rex-tsou.com/tags/iterm/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Find</title>
-      <link>https://blog.rex-tsou.com/tags/find/</link>
-      <pubDate>Sat, 20 Jan 2018 17:32:21 +0800</pubDate>
+      <title>macOS</title>
+      <link>https://blog.rex-tsou.com/tags/macos/</link>
+      <pubDate>Sat, 07 Jul 2018 10:05:34 +0800</pubDate>
       
-      <guid>https://blog.rex-tsou.com/tags/find/</guid>
+      <guid>https://blog.rex-tsou.com/tags/macos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>devtools</title>
+      <link>https://blog.rex-tsou.com/tags/devtools/</link>
+      <pubDate>Sat, 16 Jun 2018 00:32:19 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/tags/devtools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>regex</title>
+      <link>https://blog.rex-tsou.com/tags/regex/</link>
+      <pubDate>Tue, 22 May 2018 22:52:20 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/tags/regex/</guid>
       <description></description>
     </item>
     
@@ -84,79 +111,25 @@
     </item>
     
     <item>
-      <title>Iterm</title>
-      <link>https://blog.rex-tsou.com/tags/iterm/</link>
-      <pubDate>Sat, 07 Jul 2018 10:05:34 +0800</pubDate>
+      <title>find</title>
+      <link>https://blog.rex-tsou.com/tags/find/</link>
+      <pubDate>Sat, 20 Jan 2018 17:32:21 +0800</pubDate>
       
-      <guid>https://blog.rex-tsou.com/tags/iterm/</guid>
+      <guid>https://blog.rex-tsou.com/tags/find/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Linux</title>
-      <link>https://blog.rex-tsou.com/tags/linux/</link>
-      <pubDate>Sun, 10 Mar 2019 22:51:10 +0800</pubDate>
+      <title>Archlinux</title>
+      <link>https://blog.rex-tsou.com/tags/archlinux/</link>
+      <pubDate>Sun, 31 Dec 2017 01:37:20 +0800</pubDate>
       
-      <guid>https://blog.rex-tsou.com/tags/linux/</guid>
+      <guid>https://blog.rex-tsou.com/tags/archlinux/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Macos</title>
-      <link>https://blog.rex-tsou.com/tags/macos/</link>
-      <pubDate>Sat, 07 Jul 2018 10:05:34 +0800</pubDate>
-      
-      <guid>https://blog.rex-tsou.com/tags/macos/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Regex</title>
-      <link>https://blog.rex-tsou.com/tags/regex/</link>
-      <pubDate>Tue, 22 May 2018 22:52:20 +0800</pubDate>
-      
-      <guid>https://blog.rex-tsou.com/tags/regex/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Rest</title>
-      <link>https://blog.rex-tsou.com/tags/rest/</link>
-      <pubDate>Thu, 19 Oct 2017 12:56:26 +0800</pubDate>
-      
-      <guid>https://blog.rex-tsou.com/tags/rest/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Server</title>
-      <link>https://blog.rex-tsou.com/tags/server/</link>
-      <pubDate>Sun, 10 Mar 2019 22:51:10 +0800</pubDate>
-      
-      <guid>https://blog.rex-tsou.com/tags/server/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ssh</title>
-      <link>https://blog.rex-tsou.com/tags/ssh/</link>
-      <pubDate>Sun, 10 Mar 2019 22:51:10 +0800</pubDate>
-      
-      <guid>https://blog.rex-tsou.com/tags/ssh/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tunnel</title>
-      <link>https://blog.rex-tsou.com/tags/tunnel/</link>
-      <pubDate>Wed, 11 Oct 2017 00:29:24 +0800</pubDate>
-      
-      <guid>https://blog.rex-tsou.com/tags/tunnel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Unit Test</title>
+      <title>Unit-test</title>
       <link>https://blog.rex-tsou.com/tags/unit-test/</link>
       <pubDate>Fri, 24 Nov 2017 21:53:12 +0800</pubDate>
       
@@ -165,11 +138,38 @@
     </item>
     
     <item>
-      <title>Vscode</title>
+      <title>event loop</title>
+      <link>https://blog.rex-tsou.com/tags/event-loop/</link>
+      <pubDate>Mon, 20 Nov 2017 00:08:12 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/tags/event-loop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>REST</title>
+      <link>https://blog.rex-tsou.com/tags/rest/</link>
+      <pubDate>Thu, 19 Oct 2017 12:56:26 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/tags/rest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>VSCode</title>
       <link>https://blog.rex-tsou.com/tags/vscode/</link>
       <pubDate>Thu, 19 Oct 2017 12:56:26 +0800</pubDate>
       
       <guid>https://blog.rex-tsou.com/tags/vscode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tunnel</title>
+      <link>https://blog.rex-tsou.com/tags/tunnel/</link>
+      <pubDate>Wed, 11 Oct 2017 00:29:24 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/tags/tunnel/</guid>
       <description></description>
     </item>
     

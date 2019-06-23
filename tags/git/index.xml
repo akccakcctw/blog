@@ -13,10 +13,10 @@
     
     <item>
       <title>Checkout GitHub/Gitlab Pull Request Locally</title>
-      <link>https://blog.rex-tsou.com/2018/04/checkout-github-gitlab-pull-request-locally/</link>
+      <link>https://blog.rex-tsou.com/2018/04/checkout-github/gitlab-pull-request-locally/</link>
       <pubDate>Mon, 02 Apr 2018 17:45:39 +0800</pubDate>
       
-      <guid>https://blog.rex-tsou.com/2018/04/checkout-github-gitlab-pull-request-locally/</guid>
+      <guid>https://blog.rex-tsou.com/2018/04/checkout-github/gitlab-pull-request-locally/</guid>
       <description>專案目錄底下的 .git/config 檔案內，記錄有 Git 的 remote url，如果是 GitHub，長相類似這樣： [remote &amp;quot;origin&amp;quot;] url = git@github.com:akccakcctw/project.git fetch = +refs/heads/*:refs/remotes/origin/* 只要在下面新增一行 fetch = +refs/pull/*</description>
     </item>
     

@@ -7,13 +7,13 @@
     <meta name="author" content="Rex Tsou">
     <meta name="copyright" content="Rex Tsou">
     
-    <meta property="og:title" content="增加 SSH 登入安全性">
+    <meta property="og:title" content="Checkout GitHub/Gitlab Pull Request Locally">
     <meta property="og:type" content="article">
     <meta property="og:description" content="為了可能的聲音">
     
-    <meta itemprop="name" content="增加 SSH 登入安全性 | 為了可能的聲音">
+    <meta itemprop="name" content="Checkout GitHub/Gitlab Pull Request Locally | 為了可能的聲音">
     <meta itemprop="description" content="為了可能的聲音">
-    <title>增加 SSH 登入安全性 | 為了可能的聲音</title>
+    <title>Checkout GitHub/Gitlab Pull Request Locally | 為了可能的聲音</title>
     <link rel="stylesheet" href="https://blog.rex-tsou.com/css/style.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
@@ -57,82 +57,71 @@
 
 <section class="section">
   <div class="container">
-    <time class="date date--publish">March 10, 2019</time>
+    <time class="date date--publish">April 2, 2018</time>
     
-    <h1 class="title">增加 SSH 登入安全性</h1>
+      <div class="category">
+  
+  <span class="category__item">
+    <a href="/categories/git">Git</a>
+  </span>
+  
+</div>
+
+    
+    <h1 class="title">Checkout GitHub/Gitlab Pull Request Locally</h1>
     <div class="content">
       
 
-<p>因為之前太懶，server 開好後就沒有特別去調 ssh 的設定，所以預設是走帳號密碼登入。今天突然感覺對了（什麼感覺），想來設定一下 server 的 ssh 登入，順便降低被暴力亂試的風險。</p>
+<p>專案目錄底下的 <code>.git/config</code> 檔案內，記錄有 Git 的 remote url，如果是 GitHub，長相類似這樣：</p>
 
-<p>設定方式其實滿簡單的，很多地方都有介紹，但因為我記性實在太差，還是簡單記錄一下步驟好了：</p>
-
-<ol>
-<li><p>用 <code>ssh-keygen</code> 產生公私鑰。</p>
-
-<pre><code class="language-sh">ssh-keygen -t rsa -b 4096 -C &quot;username@email.com&quot;
+<pre><code class="language-gitconfig">[remote &quot;origin&quot;]
+  url = git@github.com:akccakcctw/project.git
+  fetch = +refs/heads/*:refs/remotes/origin/*
 </code></pre>
 
-<ol>
-<li>把公鑰內容貼到 server 上對應帳號的 ~/.ssh/authorized_keys 這個檔案裡面（可以用 <code>scp</code>）</li>
-<li>調整一下 /etc/ssh/sshd_config ，確定 <code>PubkeyAuthentication yes</code> 以及 <code>AuthorizedKeysFile .ssh/authorized_keys</code> 這兩個設定</li>
-<li>調整檔案權限：</li>
-</ol>
+<p>只要在下面新增一行 <code>fetch = +refs/pull/*/head:refs/remotes/origin/pr/*</code>：</p>
 
-<pre><code class="language-sh">chmod 600 ~/.ssh/authorized_keys
-chmod 700 ~/.ssh
-</code></pre></li>
-
-<li><p>重啟 server 的 sshd 服務</p>
-
-<pre><code class="language-sh">sudo systemctl restart sshd # 或 sudo service sshd restart
+<pre><code class="language-gitconfig">[remote &quot;origin&quot;]
+  url = git@github.com:akccakcctw/project.git
+  fetch = +refs/heads/*:refs/remotes/origin/*
+  fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
 </code></pre>
 
-<ol>
-<li><p>登入時指定 private key 登入 <code>ssh -i path/to/key_file username@remote_host</code> 或設定 .ssh/config 檔案：</p>
+<p>使用 <code>git fetch origin</code> 時就可以 fetch 到 PR 的 branch：</p>
 
-<pre><code>Host myServer # 取個自己好記的名稱
-Hostname [server_ip] # server 的 ip 位置或網域
-Port 22
-User username # 你的帳號
-PreferredAuthentications publickey,password
-Identityfile ~/.ssh/myserver # 私鑰位置
+<pre><code class="language-sh">$ git fetch origin
+From github.com:akccakcctw/project
+ * [new ref]         refs/pull/1000/head -&gt; origin/pr/1000
+ * [new ref]         refs/pull/1002/head -&gt; origin/pr/1002
+ * [new ref]         refs/pull/1004/head -&gt; origin/pr/1004
+ * [new ref]         refs/pull/1009/head -&gt; origin/pr/1009
+...
+</code></pre>
 
-# 以後登入就只要打以下指令：
-# ssh myServer
-</code></pre></li>
-</ol>
+<p>成功 fetch 後就能 checkout 到該 branch 了：</p>
 
-<p>此外，在修改 /etc/ssh/sshd_config 時，可以注意幾個提昇安全性的設定：</p>
+<pre><code class="language-sh">$ git checkout pr/1002
+Branch pr/1002 set up to track remote branch pr/1002 from origin.
+Switched to a new branch 'pr/1002'
+</code></pre>
 
-<ol>
-<li>禁止使用 root 登入：<code>PermitRootLogin no</code></li>
-<li>禁止空白密碼：<code>PermitEmptyPasswords no</code></li>
-<li>禁止使用密碼登入：<code>PasswordAuthentication no</code></li>
-</ol>
+<p>同理，如果你是用 Gitlab，則把 pull 改為 merge-requests 即可：</p>
 
-<p>不要小看這些安全性設定，其實 server 放在那邊真的有很多人會來敲門，以我自己的 server 為例：</p>
-
-<pre><code class="language-sh">sudo rg 'Failed password' /var/log/secure-20190304 -c # secure log 檔每個禮拜會存成一份
-17195
-</code></pre></li>
-</ol>
-
-<p>才一個禮拜就被試了 17195 次，所以還是建議需要的服務再開就好～</p>
-
-<h2 id="備註">備註</h2>
-
-<p>寫這篇的時候看到 <a href="https://www.vultr.com/docs/how-to-setup-two-factor-authentication-for-ssh-on-ubuntu-14-04-using-google-authenticator">ssh 還可以配合 2FA（兩階段驗證）</a>，感覺挺不錯的，有時間再來研究。</p>
+<pre><code class="language-gitconfig">[remote &quot;origin&quot;]
+  url = https://gitlab.com/akccakcctw/project.git
+  fetch = +refs/heads/*:refs/remotes/origin/*
+  fetch = +refs/merge-requests/*/head:refs/remotes/origin/pr/*
+</code></pre>
 
 <h2 id="參考資料">參考資料</h2>
 
 <ul>
-<li><a href="https://www.vultr.com/docs/securing-ssh-on-ubuntu-14-04">Securing SSH on Ubuntu 14.04</a></li>
+<li><a href="https://gist.github.com/piscisaureus/3342247">Gist: piscisaureus/pr.md</a></li>
 </ul>
 
     </div>
     <blockquote class="page-info">
-      最後更新時間：<time class="date date--update">March 10, 2019</time>
+      最後更新時間：<time class="date date--update">April 6, 2019</time>
     </blockquote>
   </div>
 </section>

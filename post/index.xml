@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 為了可能的聲音</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 06 Apr 2019 15:58:09 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 23 Jun 2019 11:50:08 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.rex-tsou.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>增加 SSH 登入安全性（二）</title>
+      <link>https://blog.rex-tsou.com/2019/06/%E5%A2%9E%E5%8A%A0-ssh-%E7%99%BB%E5%85%A5%E5%AE%89%E5%85%A8%E6%80%A7%E4%BA%8C/</link>
+      <pubDate>Sun, 23 Jun 2019 11:50:08 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/2019/06/%E5%A2%9E%E5%8A%A0-ssh-%E7%99%BB%E5%85%A5%E5%AE%89%E5%85%A8%E6%80%A7%E4%BA%8C/</guid>
+      <description>延續上篇，除了調整 sshd_config 設定以提高安全性外，還有個常用的工具 fail2ban。 本文介紹的 fail2ban 是 v0.9.7，請注意不同版本的設定方式可能會稍有不同</description>
+    </item>
     
     <item>
       <title>JavaScript ES6 Numeric Literals</title>
@@ -121,19 +130,19 @@
     
     <item>
       <title>Bash/Zsh 環境變數載入順序</title>
-      <link>https://blog.rex-tsou.com/2018/05/bash-zsh-%E7%92%B0%E5%A2%83%E8%AE%8A%E6%95%B8%E8%BC%89%E5%85%A5%E9%A0%86%E5%BA%8F/</link>
+      <link>https://blog.rex-tsou.com/2018/05/bash/zsh-%E7%92%B0%E5%A2%83%E8%AE%8A%E6%95%B8%E8%BC%89%E5%85%A5%E9%A0%86%E5%BA%8F/</link>
       <pubDate>Sat, 12 May 2018 11:56:05 +0800</pubDate>
       
-      <guid>https://blog.rex-tsou.com/2018/05/bash-zsh-%E7%92%B0%E5%A2%83%E8%AE%8A%E6%95%B8%E8%BC%89%E5%85%A5%E9%A0%86%E5%BA%8F/</guid>
+      <guid>https://blog.rex-tsou.com/2018/05/bash/zsh-%E7%92%B0%E5%A2%83%E8%AE%8A%E6%95%B8%E8%BC%89%E5%85%A5%E9%A0%86%E5%BA%8F/</guid>
       <description>login 與 non-login 為什麼要先談這個？因為 login shell 與 non-login shell，載入的檔案不同，這邊參照鳥哥的說明： login shell：取得 bash 時需要完整的登入流程的，就稱為 login sh</description>
     </item>
     
     <item>
       <title>Checkout GitHub/Gitlab Pull Request Locally</title>
-      <link>https://blog.rex-tsou.com/2018/04/checkout-github-gitlab-pull-request-locally/</link>
+      <link>https://blog.rex-tsou.com/2018/04/checkout-github/gitlab-pull-request-locally/</link>
       <pubDate>Mon, 02 Apr 2018 17:45:39 +0800</pubDate>
       
-      <guid>https://blog.rex-tsou.com/2018/04/checkout-github-gitlab-pull-request-locally/</guid>
+      <guid>https://blog.rex-tsou.com/2018/04/checkout-github/gitlab-pull-request-locally/</guid>
       <description>專案目錄底下的 .git/config 檔案內，記錄有 Git 的 remote url，如果是 GitHub，長相類似這樣： [remote &amp;quot;origin&amp;quot;] url = git@github.com:akccakcctw/project.git fetch = +refs/heads/*:refs/remotes/origin/* 只要在下面新增一行 fetch = +refs/pull/*</description>
     </item>
     
