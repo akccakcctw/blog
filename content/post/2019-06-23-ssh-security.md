@@ -8,7 +8,7 @@ tags:
   - server
   - ssh
 description: ""
-lastmod: 2019-06-23T11:50:08+08:00
+lastmod: 2019-06-25T09:50:08+08:00
 ---
 
 延續[上篇]({{< ref "/post/2019-03-10-ssh-failed-password" >}})，除了調整 sshd_config 設定以提高安全性外，還有個常用的工具 [fail2ban](https://www.fail2ban.org)。
@@ -77,6 +77,14 @@ bantime  = 1200 ; 20 minutes
 ### action.d/
 
 定義動作內容，例如 sendmail（寄信通知）、iptables（阻擋來源 ip）等等。
+
+我們上面使用 iptables 阻擋，但它預設使用 REJECT，可以改為 DROP。一樣新增 .local 檔來 override ：
+
+```sh
+# /etc/fail2ban/action.d/iptables-common.local
+[Init]
+blocktype = DROP
+```
 
 
 ## 啟動
@@ -165,6 +173,7 @@ sudo iptables -D f2b-SSH -s 192.168.1.2 -j REJECT
 sudo fail2ban-client set sshd unbanip 192.168.1.2
 ```
 
+
 ## fail2ban 相關指令
 
 ```sh
@@ -186,4 +195,5 @@ fail2ban-regex /var/log/secure /etc/fail2ban/filter.d/sshd.conf
 - [清大網路系統組 Fail2ban 教學](https://net.nthu.edu.tw/2009/security:fail2ban)
 - [用 Fail2Ban 防範暴力破解（SSH、vsftp、dovecot、sendmail）](http://www.vixual.net/blog/archives/252)
 - [How to protect SSH server from brute force attacks using fail2ban](http://xmodulo.com/how-to-protect-ssh-server-from-brute-force-attacks-using-fail2ban.html)
+- [Protecting SSH with Fail2ban](https://www.booleanworld.com/protecting-ssh-fail2ban/)
 
