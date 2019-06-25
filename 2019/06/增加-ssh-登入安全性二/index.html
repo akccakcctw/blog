@@ -127,6 +127,13 @@ bantime  = 1200 ; 20 minutes
 
 <p>定義動作內容，例如 sendmail（寄信通知）、iptables（阻擋來源 ip）等等。</p>
 
+<p>我們上面使用 iptables 阻擋，但它預設使用 REJECT，可以改為 DROP。一樣新增 .local 檔來 override ：</p>
+
+<pre><code class="language-sh"># /etc/fail2ban/action.d/iptables-common.local
+[Init]
+blocktype = DROP
+</code></pre>
+
 <h2 id="啟動">啟動</h2>
 
 <pre><code class="language-sh"># 啟動服務
@@ -223,11 +230,12 @@ fail2ban-regex /var/log/secure /etc/fail2ban/filter.d/sshd.conf
 <li><a href="https://net.nthu.edu.tw/2009/security:fail2ban">清大網路系統組 Fail2ban 教學</a></li>
 <li><a href="http://www.vixual.net/blog/archives/252">用 Fail2Ban 防範暴力破解（SSH、vsftp、dovecot、sendmail）</a></li>
 <li><a href="http://xmodulo.com/how-to-protect-ssh-server-from-brute-force-attacks-using-fail2ban.html">How to protect SSH server from brute force attacks using fail2ban</a></li>
+<li><a href="https://www.booleanworld.com/protecting-ssh-fail2ban/">Protecting SSH with Fail2ban</a></li>
 </ul>
 
     </div>
     <blockquote class="page-info">
-      最後更新時間：<time class="date date--update">June 23, 2019</time>
+      最後更新時間：<time class="date date--update">June 25, 2019</time>
     </blockquote>
   </div>
 </section>
