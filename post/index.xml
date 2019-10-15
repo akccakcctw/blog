@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 為了可能的聲音</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 23 Jun 2019 11:50:08 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 15 Oct 2019 13:30:13 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.rex-tsou.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>npx: Is Website Vulnerable?</title>
+      <link>https://blog.rex-tsou.com/2019/10/npx-is-website-vulnerable/</link>
+      <pubDate>Tue, 15 Oct 2019 13:30:13 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/2019/10/npx-is-website-vulnerable/</guid>
+      <description>is-website-vulnerable 可以用來檢測網站是否有已知的 JavaScript 第三方套件漏洞，用法非常簡單，只要使用 npx 就可以直接執行： npx is-website-vulnerable http://www.example.com （credit: 官方 GitHub） 參考資料 GitHub Repo</description>
+    </item>
     
     <item>
       <title>增加 SSH 登入安全性（二）</title>
