@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CSS on 為了可能的聲音</title>
+    <link>https://blog.rex-tsou.com/tags/css/</link>
+    <description>Recent content in CSS on 為了可能的聲音</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 29 Nov 2019 23:53:05 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.rex-tsou.com/tags/css/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>iOS Input Field White Screen Issue</title>
+      <link>https://blog.rex-tsou.com/2019/11/ios-input-field-white-screen-issue/</link>
+      <pubDate>Fri, 29 Nov 2019 23:53:05 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/2019/11/ios-input-field-white-screen-issue/</guid>
+      <description>TL;DR 檢查看看 CSS 內是否有 -webkit-overflow-scrolling: touch;，改成 -webkit-overflow-scrolling: auto; 或許就能解決了。 今天在公司的專案遇到一個通靈級別的 bug，只有在比較舊的 iOS 手機（iOS 10, iPho</description>
+    </item>
+    
+  </channel>
+</rss>
