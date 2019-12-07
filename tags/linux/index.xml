@@ -6,10 +6,19 @@
     <description>Recent content in Linux on 為了可能的聲音</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 23 Jun 2019 11:50:08 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 07 Dec 2019 16:54:58 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.rex-tsou.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Terminal Color Test</title>
+      <link>https://blog.rex-tsou.com/2019/12/terminal-color-test/</link>
+      <pubDate>Sat, 07 Dec 2019 16:54:58 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/2019/12/terminal-color-test/</guid>
+      <description>今天更新了 terminal 內使用的套件庫，順便調整了些 vim 以及 tmux 的設定，意外發現了 iTerm2 的 GitHub 上有些有趣的測試可以拿來玩，例如 24-bit-color.sh。 它的</description>
+    </item>
     
     <item>
       <title>增加 SSH 登入安全性（二）</title>
