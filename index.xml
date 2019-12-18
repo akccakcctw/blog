@@ -6,10 +6,19 @@
     <description>Recent content on 為了可能的聲音</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 07 Dec 2019 16:54:58 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 18 Dec 2019 23:31:58 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.rex-tsou.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tips: Base64 Encode &amp; Decode</title>
+      <link>https://blog.rex-tsou.com/2019/12/tips-base64-encode-decode/</link>
+      <pubDate>Wed, 18 Dec 2019 23:31:58 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/2019/12/tips-base64-encode-decode/</guid>
+      <description> Origin Data &#39;{&amp;quot;foo&amp;quot;:&amp;quot;bar&amp;quot;}&#39;  Encode Shell echo -n &#39;{&amp;quot;foo&amp;quot;:&amp;quot;bar&amp;quot;}&#39; | base64 # eyJmb28iOiJiYXIifQ==  Browser btoa(&#39;{&amp;quot;foo&amp;quot;:&amp;quot;bar&amp;quot;}&#39;); // eyJmb28iOiJiYXIifQ==  Nodejs Buffer.from(&#39;{&amp;quot;foo&amp;quot;:&amp;quot;bar&amp;quot;}&#39;).toString(&#39;base64&#39;); // &#39;eyJmb28iOiJiYXIifQ==&#39;  Python import base64 base64.b64encode(bytes(&#39;{&amp;quot;foo&amp;quot;:&amp;quot;bar&amp;quot;}&#39;, &#39;utf-8&#39;)) # b&#39;eyJmb28iOiJiYXIifQ==&#39;  Decode Shell echo -n &#39;eyJmb28iOiJiYXIifQ==&#39; | base64 -d # {&amp;quot;foo&amp;quot;:&amp;quot;bar&amp;quot;}%  Browser atob(&#39;eyJmb28iOiJiYXIifQ==&#39;); // {&amp;quot;foo&amp;quot;:&amp;quot;bar&amp;quot;}  Nodejs Buffer.from(&#39;eyJmb28iOiJiYXIifQ==&#39;, &#39;base64&#39;).toString(); // &#39;{&amp;quot;foo&amp;quot;:&amp;quot;bar&amp;quot;}&#39;  Python base64.b64decode(&#39;eyJmb28iOiJiYXIifQ==&#39;) # b&#39;{&amp;quot;foo&amp;quot;:&amp;quot;bar&amp;quot;}&#39;  </description>
+    </item>
     
     <item>
       <title>Terminal Color Test</title>

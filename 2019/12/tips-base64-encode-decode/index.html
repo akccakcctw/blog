@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="為了可能的聲音"> 
+    <meta name="author" content="Rex Tsou">
+    <meta name="copyright" content="Rex Tsou">
+    
+    <meta property="og:title" content="Tips: Base64 Encode &amp; Decode">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="為了可能的聲音">
+    
+    <meta itemprop="name" content="Tips: Base64 Encode &amp; Decode | 為了可能的聲音">
+    <meta itemprop="description" content="為了可能的聲音">
+    <title>Tips: Base64 Encode &amp; Decode | 為了可能的聲音</title>
+    <link rel="stylesheet" href="https://blog.rex-tsou.com/css/style.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
+  </head>
+
+<header class="section header">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav__left">
+        <a class="nav__item" href="https://blog.rex-tsou.com"><h1 class="title">為了可能的聲音</h1></a>
+      </div>
+      <div class="nav__right">
+        <nav class="nav__item">
+          <a class="item__link" href="/post">Archives</a>
+        </nav>
+        <nav class="nav__item">
+          
+          <a class="item__link" href="https://github.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="https://www.facebook.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-facebook-square"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="/index.xml" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <time class="date date--publish">December 18, 2019</time>
+    
+      <div class="category">
+  
+  <span class="category__item">
+    <a href="/categories/command-line">command-line</a>
+  </span>
+  
+</div>
+
+    
+    <h1 class="title">Tips: Base64 Encode &amp; Decode</h1>
+    <div class="content">
+      
+
+<h2 id="origin-data">Origin Data</h2>
+
+<pre><code class="language-bash">'{&quot;foo&quot;:&quot;bar&quot;}'
+</code></pre>
+
+<hr />
+
+<h2 id="encode">Encode</h2>
+
+<h3 id="shell">Shell</h3>
+
+<pre><code class="language-bash">echo -n '{&quot;foo&quot;:&quot;bar&quot;}' | base64
+# eyJmb28iOiJiYXIifQ==
+</code></pre>
+
+<h3 id="browser">Browser</h3>
+
+<pre><code class="language-javascript">btoa('{&quot;foo&quot;:&quot;bar&quot;}');
+// eyJmb28iOiJiYXIifQ==
+</code></pre>
+
+<h3 id="nodejs">Nodejs</h3>
+
+<pre><code class="language-javascript">Buffer.from('{&quot;foo&quot;:&quot;bar&quot;}').toString('base64');
+// 'eyJmb28iOiJiYXIifQ=='
+</code></pre>
+
+<h3 id="python">Python</h3>
+
+<pre><code class="language-python">import base64
+base64.b64encode(bytes('{&quot;foo&quot;:&quot;bar&quot;}', 'utf-8'))
+# b'eyJmb28iOiJiYXIifQ=='
+</code></pre>
+
+<hr />
+
+<h2 id="decode">Decode</h2>
+
+<h3 id="shell-1">Shell</h3>
+
+<pre><code class="language-bash">echo -n 'eyJmb28iOiJiYXIifQ==' | base64 -d
+# {&quot;foo&quot;:&quot;bar&quot;}%
+</code></pre>
+
+<h3 id="browser-1">Browser</h3>
+
+<pre><code class="language-javascript">atob('eyJmb28iOiJiYXIifQ==');
+// {&quot;foo&quot;:&quot;bar&quot;}
+</code></pre>
+
+<h3 id="nodejs-1">Nodejs</h3>
+
+<pre><code class="language-javascript">Buffer.from('eyJmb28iOiJiYXIifQ==', 'base64').toString();
+// '{&quot;foo&quot;:&quot;bar&quot;}'
+</code></pre>
+
+<h3 id="python-1">Python</h3>
+
+<pre><code class="language-python">base64.b64decode('eyJmb28iOiJiYXIifQ==')
+# b'{&quot;foo&quot;:&quot;bar&quot;}'
+</code></pre>
+
+    </div>
+    <blockquote class="page-info">
+      最後更新時間：<time class="date date--update">December 18, 2019</time>
+    </blockquote>
+  </div>
+</section>
+
+<section class="section disqus">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'akccakcctw';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+
+<footer class="section footer">
+  <div class="container">
+    <p>© 2018 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/vim.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/scss.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-57924156-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
