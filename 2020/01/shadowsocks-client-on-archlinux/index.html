@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="為了可能的聲音"> 
+    <meta name="author" content="Rex Tsou">
+    <meta name="copyright" content="Rex Tsou">
+    
+    <meta property="og:title" content="Shadowsocks client on archlinux">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="為了可能的聲音">
+    
+    <meta itemprop="name" content="Shadowsocks client on archlinux | 為了可能的聲音">
+    <meta itemprop="description" content="為了可能的聲音">
+    <title>Shadowsocks client on archlinux | 為了可能的聲音</title>
+    <link rel="stylesheet" href="https://blog.rex-tsou.com/css/style.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
+  </head>
+
+<header class="section header">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav__left">
+        <a class="nav__item" href="https://blog.rex-tsou.com"><h1 class="title">為了可能的聲音</h1></a>
+      </div>
+      <div class="nav__right">
+        <nav class="nav__item">
+          <a class="item__link" href="/post">Archives</a>
+        </nav>
+        <nav class="nav__item">
+          
+          <a class="item__link" href="https://github.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="https://www.facebook.com/akccakcctw" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-facebook-square"></i>
+            </span>
+          </a>
+          
+          <a class="item__link" href="/index.xml" target="_blank" rel="noopener">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <time class="date date--publish">January 4, 2020</time>
+    
+    <h1 class="title">Shadowsocks client on archlinux</h1>
+    <div class="content">
+      <p>因為公司的 VPN 是用 Jigsaw 的 outline 來架，client 端設定滿簡易的，想說在我的筆電（archlinux）上也來設定一下，無奈都跑不起來，除了試過官網，還試了 <code>snap</code> 的版本，甚至到 <a href="https://github.com/Jigsaw-Code/outline-client">GitHub 專案</a>上抓原始碼來 build。cordova web app build 是 build 起來了，但不曉得為什麼一連上網路就一直鬼打牆重新連接。electron 則是 build 完後看起來沒有錯誤訊息，但根本找不到它 build 出來的 app XDD</p>
+<p>後來發現它的網址是 <code>ss://</code> 開頭，查了一下，發現背後用的其實就是鼎鼎大名的 shadowsocks，不用 outline 直接設定 proxy 連線總可以了吧，研究了一整個早上才終於連通了，遇到滿多坑的，下面是填坑筆記（埋</p>
+<h2 id="-shadowsocks">安裝 shadowsocks</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pip install shadowsocks
+</code></pre></div><p>由於網路上查到的資料大多使用 <code>pip</code> 來安裝，因此我也跟風，各語言的實作應該用起來差不多？但我只有試過 <code>pip</code> 不敢亂說。安裝完會有兩個指令 <code>sslocal</code> 以及 <code>ssserver</code> 可以使用，看名字就知道一個是用戶端，一個是服務端。</p>
+<h2 id="-shadowsocks-1">設定 shadowsocks</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">vim /etc/shadowsocks/shadowsocks.json
+</code></pre></div><p>主要的設定都放在這個 json 裡面，當然除了 /etc/shadowsocks 也可以放在其他路徑底下。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;server&#34;</span>: <span style="color:#e6db74">&#34;your_server&#34;</span>,
+  <span style="color:#f92672">&#34;server_port&#34;</span>: <span style="color:#e6db74">&#34;your_server_port&#34;</span>,
+  <span style="color:#f92672">&#34;local_address&#34;</span>: <span style="color:#e6db74">&#34;127.0.0.1&#34;</span>,
+  <span style="color:#f92672">&#34;local_port&#34;</span>: <span style="color:#ae81ff">1080</span>,
+  <span style="color:#f92672">&#34;password&#34;</span>: <span style="color:#e6db74">&#34;your_password&#34;</span>,
+  <span style="color:#f92672">&#34;timeout&#34;</span>: <span style="color:#ae81ff">300</span>,
+  <span style="color:#f92672">&#34;method&#34;</span>: <span style="color:#e6db74">&#34;chacha20-ietf-poly1305&#34;</span>,
+  <span style="color:#f92672">&#34;fast_open&#34;</span>: <span style="color:#66d9ef">false</span>
+}
+</code></pre></div><p>因為公司給我的設定方式是 outline 的格式：</p>
+<pre><code>ss://&lt;一串大小寫英數字&gt;=@&lt;hostname&gt;:&lt;port&gt;/?outline=1
+</code></pre><p>這裡我卡住一陣子，不知道設定檔要怎麼設，後來把那串大小寫英數字拿去用 <a href="https://blog.rex-tsou.com/2019/12/tips-base64-encode-decode/">base64 decode</a> 才得到 method 和 password。</p>
+<p>這裡的 method 是加密方式，要根據 server 端來設定，這邊由於我是 <code>chacha20-ietf-poly1305</code> 有一個隱藏的坑，待會會提到。</p>
+<p>設定完成後就可以啟動了，停止的指令也一併附上：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 啟動</span>
+sslocal -c /etc/shadowsocks/shadowsocks.json -d start
+
+<span style="color:#75715e"># 停止</span>
+sslocal -d stop
+</code></pre></div><p>如果你的加密方式和我一樣使用 <code>chacha20-ietf-poly1305</code>，可能會遇到 <code>method chacha20-ietf-poly1305 not supported</code> 的問題，我是安裝最新的 shadowsocks 解決的：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 裝完後再試著啟動一次就沒問題了</span>
+pip install https://github.com/shadowsocks/shadowsocks/archive/master.zip
+</code></pre></div><p>為了方便，可以設定自動啟動。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">systemctl enable shadowsocks.service
+systemctl start shadowsocks.service
+systemctl status shadowsocks.service
+</code></pre></div><h2 id="-privoxy">安裝 privoxy</h2>
+<p>由於 shadowsocks 跑在 socket5 上面，需要使用 privoxy 把流量導向 http/https。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pacman -S privoxy
+</code></pre></div><h2 id="-privoxy-1">設定 privoxy</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">vim /etc/privoxy/config
+</code></pre></div><p>以下兩行取消註解：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">listen-address 127.0.0.1:8118 
+forward-socks5t / 127.0.0.1:1080 . 
+</code></pre></div><p>listen-address 的 8118 是預設的 port<br>
+forward-socks5t 的 127.0.0.1:1080 則是要和上面 shadowsocks 設定的 local_address 一致，注意最後有一個點 <code>.</code></p>
+<h2 id="-privoxy-2">啟動 Privoxy</h2>
+<p>這邊一樣設定自動啟動</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">systemctl enable privoxy
+systemctl start privoxy
+systemctl status privoxy
+</code></pre></div><h2 id="-httphttps-proxy">設定 http/https proxy</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">vim /etc/profile
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">export http_proxy<span style="color:#f92672">=</span>http://127.0.0.1:8118
+export https_proxy<span style="color:#f92672">=</span>http://127.0.0.1:8118
+</code></pre></div><h2 id="heading">驗證</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 測試使用的 ip 是否已經改為 shadowsocks server ip</span>
+curl ipinfo.io/ip
+
+<span style="color:#75715e"># 或者直接 curl google，如果回來一堆 HTML 就代表沒問題</span>
+curl www.google.com
+
+<span style="color:#75715e"># 或者看回傳的 header，如果是 http status 是 200 OK 代表沒問題</span>
+curl -I www.google.com
+</code></pre></div><p>以上只有在 CLI 裡面有用，使用瀏覽器開網頁（https://myip.com.tw/）仍舊會顯示原始的 ip。</p>
+<p>我用的是 GNOME，設定內有 proxy 可以調整，或者如果用 firefox 也可以在瀏覽器內調整 proxy 設定，如果找不到相關設定方式，或有許多 server 管理起來繁瑣，也可以考慮使用瀏覽器套件，目前 SwitchyOmega 是較多人使用的。</p>
+<h2 id="switchyomega">SwitchyOmega</h2>
+<p>Chrome 安裝擴充套件「SwitchyOmega」，並設定 proxy 為剛剛設定的 ip，之後再到 <a href="https://myip.com.tw/">https://myip.com.tw/</a> 看看是否上網的 ip 已經改為 shadowsocks server 的 ip 了。</p>
+<h2 id="heading-1">參考資料</h2>
+<ul>
+<li><a href="https://shadowsocks.org/en/index.html">shadowsocks.org 官網</a></li>
+<li><a href="https://dylanyang.top/post/2019/05/15/centos7%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEshadowsocks%E5%AE%A2%E6%88%B7%E7%AB%AF/">Centos7安装配置Shadowsocks客户端</a></li>
+</ul>
+
+    </div>
+    <blockquote class="page-info">
+      最後更新時間：<time class="date date--update">January 4, 2020</time>
+    </blockquote>
+  </div>
+</section>
+
+<section class="section disqus">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'akccakcctw';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+
+<footer class="section footer">
+  <div class="container">
+    <p>© 2018 <a href="https://github.com/akccakcctw" target="_blank">Rex Tsou</a></p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/vim.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/scss.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-57924156-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+

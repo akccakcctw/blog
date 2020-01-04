@@ -70,70 +70,38 @@
     
     <h1 class="title">Tips: Base64 Encode &amp; Decode</h1>
     <div class="content">
-      
-
-<h2 id="origin-data">Origin Data</h2>
-
-<pre><code class="language-bash">'{&quot;foo&quot;:&quot;bar&quot;}'
-</code></pre>
-
-<hr />
-
+      <h2 id="origin-data">Origin Data</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#e6db74">&#39;{&#34;foo&#34;:&#34;bar&#34;}&#39;</span>
+</code></pre></div><hr>
 <h2 id="encode">Encode</h2>
-
 <h3 id="shell">Shell</h3>
-
-<pre><code class="language-bash">echo -n '{&quot;foo&quot;:&quot;bar&quot;}' | base64
-# eyJmb28iOiJiYXIifQ==
-</code></pre>
-
-<h3 id="browser">Browser</h3>
-
-<pre><code class="language-javascript">btoa('{&quot;foo&quot;:&quot;bar&quot;}');
-// eyJmb28iOiJiYXIifQ==
-</code></pre>
-
-<h3 id="nodejs">Nodejs</h3>
-
-<pre><code class="language-javascript">Buffer.from('{&quot;foo&quot;:&quot;bar&quot;}').toString('base64');
-// 'eyJmb28iOiJiYXIifQ=='
-</code></pre>
-
-<h3 id="python">Python</h3>
-
-<pre><code class="language-python">import base64
-base64.b64encode(bytes('{&quot;foo&quot;:&quot;bar&quot;}', 'utf-8'))
-# b'eyJmb28iOiJiYXIifQ=='
-</code></pre>
-
-<hr />
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo -n <span style="color:#e6db74">&#39;{&#34;foo&#34;:&#34;bar&#34;}&#39;</span> | base64
+<span style="color:#75715e"># eyJmb28iOiJiYXIifQ==</span>
+</code></pre></div><h3 id="browser">Browser</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">btoa</span>(<span style="color:#e6db74">&#39;{&#34;foo&#34;:&#34;bar&#34;}&#39;</span>);
+<span style="color:#75715e">// eyJmb28iOiJiYXIifQ==
+</span></code></pre></div><h3 id="nodejs">Nodejs</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">Buffer</span>.<span style="color:#a6e22e">from</span>(<span style="color:#e6db74">&#39;{&#34;foo&#34;:&#34;bar&#34;}&#39;</span>).<span style="color:#a6e22e">toString</span>(<span style="color:#e6db74">&#39;base64&#39;</span>);
+<span style="color:#75715e">// &#39;eyJmb28iOiJiYXIifQ==&#39;
+</span></code></pre></div><h3 id="python">Python</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> base64
+base64<span style="color:#f92672">.</span>b64encode(bytes(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">{</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">foo</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">:</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">bar</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">utf-8</span><span style="color:#e6db74">&#39;</span>))
+<span style="color:#75715e"># b&#39;eyJmb28iOiJiYXIifQ==&#39;</span>
+</code></pre></div><hr>
 <h2 id="decode">Decode</h2>
-
 <h3 id="shell-1">Shell</h3>
-
-<pre><code class="language-bash">echo -n 'eyJmb28iOiJiYXIifQ==' | base64 -d
-# {&quot;foo&quot;:&quot;bar&quot;}%
-</code></pre>
-
-<h3 id="browser-1">Browser</h3>
-
-<pre><code class="language-javascript">atob('eyJmb28iOiJiYXIifQ==');
-// {&quot;foo&quot;:&quot;bar&quot;}
-</code></pre>
-
-<h3 id="nodejs-1">Nodejs</h3>
-
-<pre><code class="language-javascript">Buffer.from('eyJmb28iOiJiYXIifQ==', 'base64').toString();
-// '{&quot;foo&quot;:&quot;bar&quot;}'
-</code></pre>
-
-<h3 id="python-1">Python</h3>
-
-<pre><code class="language-python">base64.b64decode('eyJmb28iOiJiYXIifQ==')
-# b'{&quot;foo&quot;:&quot;bar&quot;}'
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo -n <span style="color:#e6db74">&#39;eyJmb28iOiJiYXIifQ==&#39;</span> | base64 -d
+<span style="color:#75715e"># {&#34;foo&#34;:&#34;bar&#34;}%</span>
+</code></pre></div><h3 id="browser-1">Browser</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">atob</span>(<span style="color:#e6db74">&#39;eyJmb28iOiJiYXIifQ==&#39;</span>);
+<span style="color:#75715e">// {&#34;foo&#34;:&#34;bar&#34;}
+</span></code></pre></div><h3 id="nodejs-1">Nodejs</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">Buffer</span>.<span style="color:#a6e22e">from</span>(<span style="color:#e6db74">&#39;eyJmb28iOiJiYXIifQ==&#39;</span>, <span style="color:#e6db74">&#39;base64&#39;</span>).<span style="color:#a6e22e">toString</span>();
+<span style="color:#75715e">// &#39;{&#34;foo&#34;:&#34;bar&#34;}&#39;
+</span></code></pre></div><h3 id="python-1">Python</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">base64<span style="color:#f92672">.</span>b64decode(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">eyJmb28iOiJiYXIifQ==</span><span style="color:#e6db74">&#39;</span>)
+<span style="color:#75715e"># b&#39;{&#34;foo&#34;:&#34;bar&#34;}&#39;</span>
+</code></pre></div>
     </div>
     <blockquote class="page-info">
       最後更新時間：<time class="date date--update">December 18, 2019</time>

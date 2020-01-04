@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nginx on 為了可能的聲音</title>
@@ -17,7 +17,7 @@
       <pubDate>Sun, 18 Jun 2017 17:46:00 +0000</pubDate>
       
       <guid>https://blog.rex-tsou.com/2017/06/%E8%A7%A3%E6%B1%BA-nginx-403-forbidden/</guid>
-      <description>檢查 error log 確定檔案權限為 755 確定 SElinux ll -Z /etc/nginx/conf.d/xxx.conf # 顯示出 [身分識別:角色:type] 的SElinux 訊息，type 最重要，可能會是 &amp;quot;httpd_config_t&amp;quot; ll -Z /srv/www # type可能</description>
+      <description>檢查 error log 確定檔案權限為 755 確定 SElinux ll -Z /etc/nginx/conf.d/xxx.conf # 顯示出 [身分識別:角色:type] 的SElinux 訊息，type 最重要，可能會是 &amp;#34;httpd_config_t&amp;#34; ll -Z /srv/www # type可能</description>
     </item>
     
   </channel>

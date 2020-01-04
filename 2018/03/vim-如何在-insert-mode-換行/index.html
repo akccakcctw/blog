@@ -70,16 +70,10 @@
     
     <h1 class="title">Vim 如何在 insert mode 換行</h1>
     <div class="content">
-      
-
-<p>使用 Vim 好一陣子了，但一直有個地方覺得不順，就是在打到要換行的時候，需要先按 <code>&lt;Esc&gt;</code> 回到 Normal mode 再按 <code>o</code>。儘管可以用 <code>&lt;C-[&gt;</code> 代替 Esc，右手還是有按錯的可能性，而且不那麼直覺（對我來說啦）。</p>
-
+      <p>使用 Vim 好一陣子了，但一直有個地方覺得不順，就是在打到要換行的時候，需要先按 <code>&lt;Esc&gt;</code> 回到 Normal mode 再按 <code>o</code>。儘管可以用 <code>&lt;C-[&gt;</code> 代替 Esc，右手還是有按錯的可能性，而且不那麼直覺（對我來說啦）。</p>
 <p>今天終於找到比較好按的方式：<code>&lt;C-o&gt; o</code>。先按 <code>&lt;C-o&gt;</code> 可以暫時回到 Normal mode，然後再用 <code>o</code> 換行，由於右手按的都是比較近的 <code>o</code>，而且又是連續按，因此錯誤率以及速度比原來快上不少！</p>
-
 <p>依樣畫葫蘆，<code>&lt;C-o&gt;</code> 也可以配合其他指令，例如移位、換行、刪除行等等，真的是很有用的快捷鍵呀！（用了那麼久的 Vim 才知道 <code>&lt;C-o&gt;</code> 可以暫時回到 Normal mode⋯⋯）</p>
-
-<h2 id="參考資料">參考資料</h2>
-
+<h2 id="heading">參考資料</h2>
 <ul>
 <li><a href="https://stackoverflow.com/questions/18139047/create-new-line-while-in-insert-mode">stackoverflow: Create New Line While in Insert Mode</a></li>
 </ul>

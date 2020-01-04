@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Archlinux on 為了可能的聲音</title>
@@ -35,7 +35,7 @@
       <pubDate>Sat, 09 Dec 2017 23:51:08 +0800</pubDate>
       
       <guid>https://blog.rex-tsou.com/2017/12/arch-linux%E5%A5%97%E4%BB%B6%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-pacman/</guid>
-      <description>The pacman package manager is one of the major distinguishing features of Arch Linux. It combines a simple binary package format with an easy-to-use build system. The goal of pacman is to make it possible to easily manage packages, whether they are from the official repositories or the user&amp;rsquo;s own builds. 簡單來說，pacman 類似 Ubuntu 的 apt 或者 CentOS</description>
+      <description>The pacman package manager is one of the major distinguishing features of Arch Linux. It combines a simple binary package format with an easy-to-use build system. The goal of pacman is to make it possible to easily manage packages, whether they are from the official repositories or the user&#39;s own builds. 簡單來說，pacman 類似 Ubuntu 的 apt 或者 CentOS</description>
     </item>
     
     <item>

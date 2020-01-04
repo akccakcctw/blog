@@ -61,22 +61,15 @@
     
     <h1 class="title">Spotlight 找不到程式</h1>
     <div class="content">
-      
-
-<p>因為可以綁快速鍵，一直以來我都是以 Spotlight 開啟 iTerm，但是今天更新之後，在 Spotlight 搜尋卻怎麼樣都找不到 iTerm，簡直就是災難！（有沒有這麼誇張）</p>
-
+      <p>因為可以綁快速鍵，一直以來我都是以 Spotlight 開啟 iTerm，但是今天更新之後，在 Spotlight 搜尋卻怎麼樣都找不到 iTerm，簡直就是災難！（有沒有這麼誇張）</p>
 <p>找了一下解決辦法發現超簡單，關掉再重開就好了，記錄一下作法：</p>
-
-<pre><code class="language-sh"># 關掉 Spotlight:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 關掉 Spotlight:</span>
 sudo mdutil -a -i off
 
-# 重新開啟 Spotlight:
+<span style="color:#75715e"># 重新開啟 Spotlight:</span>
 sudo mdutil -a -i on
-</code></pre>
-
-<h2 id="參考資料">參考資料</h2>
-
-<p><a href="https://apple.stackexchange.com/questions/62715/applications-dont-show-up-in-spotlight">StackExchange: Applications Don&rsquo;t Show Up in Spotlight</a></p>
+</code></pre></div><h2 id="heading">參考資料</h2>
+<p><a href="https://apple.stackexchange.com/questions/62715/applications-dont-show-up-in-spotlight">StackExchange: Applications Don't Show Up in Spotlight</a></p>
 
     </div>
     <blockquote class="page-info">

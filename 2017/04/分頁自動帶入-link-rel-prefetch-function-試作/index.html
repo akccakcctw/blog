@@ -74,57 +74,43 @@
     
     <h1 class="title">分頁自動帶入 link-rel-prefetch function 試作</h1>
     <div class="content">
-      
-
-<pre><code class="language-html">&lt;nav class=&quot;pages&quot;&gt;
-  &lt;ul class=&quot;list&quot;&gt;
-    &lt;li class=&quot;item&quot;&gt; &lt;a class=&quot;link&quot; href=&quot;/zh_TW&quot;&gt;首頁&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;item&quot;&gt; &lt;a class=&quot;link&quot; href=&quot;/zh_TW/news&quot;&gt;最新消息&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;item&quot;&gt; &lt;a class=&quot;link&quot; href=&quot;/zh_TW/product&quot;&gt;商品介紹&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;item&quot;&gt; &lt;a class=&quot;link&quot; href=&quot;/zh_TW/recipe&quot;&gt;推薦食譜&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;item&quot;&gt; &lt;a class=&quot;link&quot; href=&quot;/zh_TW/about&quot;&gt;關於我們&lt;/a&gt;&lt;/li&gt;
-    &lt;li class=&quot;item&quot;&gt; &lt;a class=&quot;link&quot; href=&quot;/zh_TW/contact-us&quot;&gt;聯絡我們&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/nav&gt;
-</code></pre>
-
-<p>假設網頁的選單結構像上面這樣，為了讓使用者的瀏覽體驗更順暢，可以在瀏覽器閒置時預先載入其他頁面，實作如下，可以放在最後靠近<code>&lt;/body&gt;</code>的位置，才不會影響當前頁面繪製。</p>
-
-<pre><code class="language-js">function prefetchLink(url){
-  var link = document.createElement('link');
-  link.rel = 'prefetch';
-  link.href = url;
-  document.head.appendChild(link);
+      <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">nav</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pages&#34;</span>&gt;
+  &lt;<span style="color:#f92672">ul</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;list&#34;</span>&gt;
+    &lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;item&#34;</span>&gt; &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;link&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/zh_TW&#34;</span>&gt;首頁&lt;/<span style="color:#f92672">a</span>&gt;&lt;/<span style="color:#f92672">li</span>&gt;
+    &lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;item&#34;</span>&gt; &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;link&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/zh_TW/news&#34;</span>&gt;最新消息&lt;/<span style="color:#f92672">a</span>&gt;&lt;/<span style="color:#f92672">li</span>&gt;
+    &lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;item&#34;</span>&gt; &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;link&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/zh_TW/product&#34;</span>&gt;商品介紹&lt;/<span style="color:#f92672">a</span>&gt;&lt;/<span style="color:#f92672">li</span>&gt;
+    &lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;item&#34;</span>&gt; &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;link&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/zh_TW/recipe&#34;</span>&gt;推薦食譜&lt;/<span style="color:#f92672">a</span>&gt;&lt;/<span style="color:#f92672">li</span>&gt;
+    &lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;item&#34;</span>&gt; &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;link&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/zh_TW/about&#34;</span>&gt;關於我們&lt;/<span style="color:#f92672">a</span>&gt;&lt;/<span style="color:#f92672">li</span>&gt;
+    &lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;item&#34;</span>&gt; &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;link&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/zh_TW/contact-us&#34;</span>&gt;聯絡我們&lt;/<span style="color:#f92672">a</span>&gt;&lt;/<span style="color:#f92672">li</span>&gt;
+  &lt;/<span style="color:#f92672">ul</span>&gt;
+&lt;/<span style="color:#f92672">nav</span>&gt;
+</code></pre></div><p>假設網頁的選單結構像上面這樣，為了讓使用者的瀏覽體驗更順暢，可以在瀏覽器閒置時預先載入其他頁面，實作如下，可以放在最後靠近<code>&lt;/body&gt;</code>的位置，才不會影響當前頁面繪製。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">prefetchLink</span>(<span style="color:#a6e22e">url</span>){
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">link</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;link&#39;</span>);
+  <span style="color:#a6e22e">link</span>.<span style="color:#a6e22e">rel</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;prefetch&#39;</span>;
+  <span style="color:#a6e22e">link</span>.<span style="color:#a6e22e">href</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">url</span>;
+  document.<span style="color:#a6e22e">head</span>.<span style="color:#a6e22e">appendChild</span>(<span style="color:#a6e22e">link</span>);
 }
 
-document.addEventListener('DOMContentLoaded', function(){
-  var prefetchList = [];
-  [].forEach.call(document.querySelectorAll('nav.pages .item a'), function(e){
-    prefetchList.push(e);
+document.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;DOMContentLoaded&#39;</span>, <span style="color:#66d9ef">function</span>(){
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">prefetchList</span> <span style="color:#f92672">=</span> [];
+  [].<span style="color:#a6e22e">forEach</span>.<span style="color:#a6e22e">call</span>(document.<span style="color:#a6e22e">querySelectorAll</span>(<span style="color:#e6db74">&#39;nav.pages .item a&#39;</span>), <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">e</span>){
+    <span style="color:#a6e22e">prefetchList</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">e</span>);
   });
-  prefetchList.forEach(prefetchLink);
+  <span style="color:#a6e22e">prefetchList</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">prefetchLink</span>);
 });
-</code></pre>
-
-<p>檢查<code>&lt;head&gt;</code>應該會出現：</p>
-
-<pre><code class="language-html">&lt;link rel=&quot;prefetch&quot; href=&quot;.../zh_TW&quot;&gt;
-&lt;link rel=&quot;prefetch&quot; href=&quot;.../zh_TW/news&quot;&gt;
-&lt;link rel=&quot;prefetch&quot; href=&quot;.../zh_TW/product&quot;&gt;
-&lt;link rel=&quot;prefetch&quot; href=&quot;.../zh_TW/recipe&quot;&gt;
-&lt;link rel=&quot;prefetch&quot; href=&quot;.../zh_TW/about&quot;&gt;
-&lt;link rel=&quot;prefetch&quot; href=&quot;.../zh_TW/contact-us&quot;&gt;
-</code></pre>
-
-<p>開啟 Developer Tools，也可以在 Network 標籤內看到這幾頁有預先載入，這樣就成功了！
-<img src="http://user-image.logdown.io/user/14750/blog/13947/post/1727744/lSXIEq5ETyeoGNhYl9Cn_sp170420_155826.png" alt="sp170420_155826.png" /></p>
-
-<h2 id="瀏覽器支援度">瀏覽器支援度</h2>
-
-<iframe style="width:100%;min-height:300px;" src="https://caniuse.com/link-rel-prefetch/embed"></iframe>
-
-<h2 id="參考資料">參考資料</h2>
-
+</code></pre></div><p>檢查<code>&lt;head&gt;</code>應該會出現：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;prefetch&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;.../zh_TW&#34;</span>&gt;
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;prefetch&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;.../zh_TW/news&#34;</span>&gt;
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;prefetch&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;.../zh_TW/product&#34;</span>&gt;
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;prefetch&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;.../zh_TW/recipe&#34;</span>&gt;
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;prefetch&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;.../zh_TW/about&#34;</span>&gt;
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;prefetch&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;.../zh_TW/contact-us&#34;</span>&gt;
+</code></pre></div><p>開啟 Developer Tools，也可以在 Network 標籤內看到這幾頁有預先載入，這樣就成功了！
+<img src="http://user-image.logdown.io/user/14750/blog/13947/post/1727744/lSXIEq5ETyeoGNhYl9Cn_sp170420_155826.png" alt="sp170420_155826.png"></p>
+<h2 id="heading">瀏覽器支援度</h2>
+<!-- raw HTML omitted -->
+<h2 id="heading-1">參考資料</h2>
 <ul>
 <li><a href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Link_prefetching_FAQ">MDN: Link prefetcing FAQ</a></li>
 </ul>

@@ -61,36 +61,30 @@
     
     <h1 class="title">增加 SSH 登入安全性</h1>
     <div class="content">
-      
-
-<p>因為之前太懶，server 開好後就沒有特別去調 ssh 的設定，所以預設是走帳號密碼登入。今天突然感覺對了（什麼感覺），想來設定一下 server 的 ssh 登入，順便降低被暴力亂試的風險。</p>
-
+      <p>因為之前太懶，server 開好後就沒有特別去調 ssh 的設定，所以預設是走帳號密碼登入。今天突然感覺對了（什麼感覺），想來設定一下 server 的 ssh 登入，順便降低被暴力亂試的風險。</p>
 <p>設定方式其實滿簡單的，很多地方都有介紹，但因為我記性實在太差，還是簡單記錄一下步驟好了：</p>
-
 <ol>
-<li><p>用 <code>ssh-keygen</code> 產生公私鑰。</p>
-
-<pre><code class="language-sh">ssh-keygen -t rsa -b 4096 -C &quot;username@email.com&quot;
-</code></pre>
-
-<ol>
-<li>把公鑰內容貼到 server 上對應帳號的 ~/.ssh/authorized_keys 這個檔案裡面（可以用 <code>scp</code>）</li>
-<li>調整一下 /etc/ssh/sshd_config ，確定 <code>PubkeyAuthentication yes</code> 以及 <code>AuthorizedKeysFile .ssh/authorized_keys</code> 這兩個設定</li>
-<li>調整檔案權限：</li>
-</ol>
-
-<pre><code class="language-sh">chmod 600 ~/.ssh/authorized_keys
-chmod 700 ~/.ssh
-</code></pre></li>
-
-<li><p>重啟 server 的 sshd 服務</p>
-
-<pre><code class="language-sh">sudo systemctl restart sshd # 或 sudo service sshd restart
-</code></pre>
-
-<ol>
-<li><p>登入時指定 private key 登入 <code>ssh -i path/to/key_file username@remote_host</code> 或設定 .ssh/config 檔案：</p>
-
+<li>
+<p>用 <code>ssh-keygen</code> 產生公私鑰。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ssh-keygen -t rsa -b <span style="color:#ae81ff">4096</span> -C <span style="color:#e6db74">&#34;username@email.com&#34;</span>
+</code></pre></div></li>
+<li>
+<p>把公鑰內容貼到 server 上對應帳號的 ~/.ssh/authorized_keys 這個檔案裡面（可以用 <code>scp</code>）</p>
+</li>
+<li>
+<p>調整一下 /etc/ssh/sshd_config ，確定 <code>PubkeyAuthentication yes</code> 以及 <code>AuthorizedKeysFile .ssh/authorized_keys</code> 這兩個設定</p>
+</li>
+<li>
+<p>調整檔案權限：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">chmod <span style="color:#ae81ff">600</span> ~/.ssh/authorized_keys
+chmod <span style="color:#ae81ff">700</span> ~/.ssh
+</code></pre></div></li>
+<li>
+<p>重啟 server 的 sshd 服務</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo systemctl restart sshd <span style="color:#75715e"># 或 sudo service sshd restart</span>
+</code></pre></div></li>
+<li>
+<p>登入時指定 private key 登入 <code>ssh -i path/to/key_file username@remote_host</code> 或設定 .ssh/config 檔案：</p>
 <pre><code>Host myServer # 取個自己好記的名稱
 Hostname [server_ip] # server 的 ip 位置或網域
 Port 22
@@ -102,30 +96,19 @@ Identityfile ~/.ssh/myserver # 私鑰位置
 # ssh myServer
 </code></pre></li>
 </ol>
-
 <p>此外，在修改 /etc/ssh/sshd_config 時，可以注意幾個提昇安全性的設定：</p>
-
 <ol>
 <li>禁止使用 root 登入：<code>PermitRootLogin no</code></li>
 <li>禁止空白密碼：<code>PermitEmptyPasswords no</code></li>
 <li>禁止使用密碼登入：<code>PasswordAuthentication no</code></li>
 </ol>
-
 <p>不要小看這些安全性設定，其實 server 放在那邊真的有很多人會來敲門，以我自己的 server 為例：</p>
-
-<pre><code class="language-sh">sudo rg 'Failed password' /var/log/secure-20190304 -c # secure log 檔每個禮拜會存成一份
-17195
-</code></pre></li>
-</ol>
-
-<p>才一個禮拜就被試了 17195 次，所以還是建議需要的服務再開就好～</p>
-
-<h2 id="備註">備註</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo rg <span style="color:#e6db74">&#39;Failed password&#39;</span> /var/log/secure-20190304 -c <span style="color:#75715e"># secure log 檔每個禮拜會存成一份</span>
+<span style="color:#ae81ff">17195</span>
+</code></pre></div><p>才一個禮拜就被試了 17195 次，所以還是建議需要的服務再開就好～</p>
+<h2 id="heading">備註</h2>
 <p>寫這篇的時候看到 <a href="https://www.vultr.com/docs/how-to-setup-two-factor-authentication-for-ssh-on-ubuntu-14-04-using-google-authenticator">ssh 還可以配合 2FA（兩階段驗證）</a>，感覺挺不錯的，有時間再來研究。</p>
-
-<h2 id="參考資料">參考資料</h2>
-
+<h2 id="heading-1">參考資料</h2>
 <ul>
 <li><a href="https://www.vultr.com/docs/securing-ssh-on-ubuntu-14-04">Securing SSH on Ubuntu 14.04</a></li>
 </ul>

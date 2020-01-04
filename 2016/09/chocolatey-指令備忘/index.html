@@ -74,87 +74,66 @@
     
     <h1 class="title">chocolatey 指令備忘</h1>
     <div class="content">
-      
+      <h2 id="heading">搜尋／列出套件</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">choco search &lt;filter&gt; <span style="color:#f92672">[</span>&lt;options&gt;/&lt;switches&gt;<span style="color:#f92672">]</span> <span style="color:#75715e"># 搜尋套件</span>
+choco list &lt;filter&gt; <span style="color:#f92672">[</span>&lt;options&gt;/&lt;switches&gt;<span style="color:#f92672">]</span> <span style="color:#75715e"># 搜尋套件</span>
+clist &lt;filter&gt; <span style="color:#f92672">[</span>&lt;options&gt;/&lt;switches&gt;<span style="color:#f92672">]</span> <span style="color:#75715e"># 可簡寫為 clist</span>
 
-<h2 id="搜尋-列出套件">搜尋／列出套件</h2>
+<span style="color:#75715e">#-----基礎用法-----</span>
+choco search git <span style="color:#75715e"># 搜尋git</span>
+choco list --local-only <span style="color:#75715e"># 列出已安裝套件</span>
+choco list -l <span style="color:#75715e"># -l:--local-only 的縮寫</span>
 
-<pre><code class="language-bash">choco search &lt;filter&gt; [&lt;options&gt;/&lt;switches&gt;] # 搜尋套件
-choco list &lt;filter&gt; [&lt;options&gt;/&lt;switches&gt;] # 搜尋套件
-clist &lt;filter&gt; [&lt;options&gt;/&lt;switches&gt;] # 可簡寫為 clist
+<span style="color:#75715e">#-----進階用法-----</span>
+choco search git -s <span style="color:#e6db74">&#34;&#39;https://somewhere/out/there&#39;&#34;</span>
+choco search bob -s <span style="color:#e6db74">&#34;&#39;https://somewhere/protected&#39;&#34;</span> -u user -p pass
+choco list -li <span style="color:#75715e"># -i:--include-programs 的縮寫</span>
+</code></pre></div><h2 id="heading-1">安裝套件</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">choco install &lt;pkg|packages.config&gt; <span style="color:#f92672">[</span>&lt;pkg2&gt; &lt;pkgN&gt;<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>&lt;options/switches&gt;<span style="color:#f92672">]</span> <span style="color:#75715e"># 安裝套件</span>
+cinst &lt;pkg|packages.config&gt; <span style="color:#f92672">[</span>&lt;pkg2&gt; &lt;pkgN&gt;<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>&lt;optins/switches&gt;<span style="color:#f92672">]</span> <span style="color:#75715e"># 簡寫</span>
 
-#-----基礎用法-----
-choco search git # 搜尋git
-choco list --local-only # 列出已安裝套件
-choco list -l # -l:--local-only 的縮寫
+<span style="color:#75715e">#-----基礎用法-----</span>
+choco install git <span style="color:#75715e">#安裝 git</span>
+choco install git -y <span style="color:#75715e">#安裝 git 並跳過確認訊息</span>
 
-#-----進階用法-----
-choco search git -s &quot;'https://somewhere/out/there'&quot;
-choco search bob -s &quot;'https://somewhere/protected'&quot; -u user -p pass
-choco list -li # -i:--include-programs 的縮寫
-</code></pre>
-
-<h2 id="安裝套件">安裝套件</h2>
-
-<pre><code class="language-bash">choco install &lt;pkg|packages.config&gt; [&lt;pkg2&gt; &lt;pkgN&gt;] [&lt;options/switches&gt;] # 安裝套件
-cinst &lt;pkg|packages.config&gt; [&lt;pkg2&gt; &lt;pkgN&gt;] [&lt;optins/switches&gt;] # 簡寫
-
-#-----基礎用法-----
-choco install git #安裝 git
-choco install git -y #安裝 git 並跳過確認訊息
-
-#-----進階用法-----
-choco install nodejs.install --version 0.10.35 # 指定安裝版本
-choco install ruby --version 1.9.3.55100 -my # -m:--allow-multiple-versions 可安裝多版本
+<span style="color:#75715e">#-----進階用法-----</span>
+choco install nodejs.install --version 0.10.35 <span style="color:#75715e"># 指定安裝版本</span>
+choco install ruby --version 1.9.3.55100 -my <span style="color:#75715e"># -m:--allow-multiple-versions 可安裝多版本</span>
 choco install ruby --version 2.1.5 -my
-</code></pre>
+</code></pre></div><h2 id="heading-2">移除套件</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">choco uninstall &lt;pkg|all&gt; <span style="color:#f92672">[</span>pkg2 pkgN<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>options/switches<span style="color:#f92672">]</span> <span style="color:#75715e"># 移除套件</span>
+cuninst &lt;pkg|all&gt; <span style="color:#f92672">[</span>pkg2 pkgN<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>options/switches<span style="color:#f92672">]</span> <span style="color:#75715e"># 縮寫</span>
 
-<h2 id="移除套件">移除套件</h2>
+<span style="color:#75715e">#-----基礎用法-----</span>
+choco uninstall git <span style="color:#75715e"># 移除 git</span>
 
-<pre><code class="language-bash">choco uninstall &lt;pkg|all&gt; [pkg2 pkgN] [options/switches] # 移除套件
-cuninst &lt;pkg|all&gt; [pkg2 pkgN] [options/switches] # 縮寫
+<span style="color:#75715e">#-----進階用法-----</span>
+choco uninstall notepadplusplus googlechrome atom <span style="color:#75715e"># 移除多個套件</span>
+choco uninstall ruby --version 1.8.7.37402 <span style="color:#75715e"># 移除指定版本</span>
+choco uninstall nodejs.install --all-versions <span style="color:#75715e"># 移除全版本</span>
+</code></pre></div><h2 id="heading-3">升級套件</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">choco upgrade &lt;pkg|all&gt; <span style="color:#f92672">[</span>&lt;pkg2&gt; &lt;pkgN&gt;<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>&lt;options/switches&gt;<span style="color:#f92672">]</span> <span style="color:#75715e"># 升級套件</span>
+cup &lt;pkg|all&gt; <span style="color:#f92672">[</span>&lt;pkg2&gt; &lt;pkgN&gt;<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>&lt;options/switches&gt;<span style="color:#f92672">]</span> <span style="color:#75715e"># 縮寫</span>
 
-#-----基礎用法-----
-choco uninstall git # 移除 git
+<span style="color:#75715e">#-----基礎用法-----</span>
+choco upgrade chocolatey <span style="color:#75715e"># 升級 chocolatey</span>
+choco upgrade all <span style="color:#75715e"># 升級全部套件</span>
 
-#-----進階用法-----
-choco uninstall notepadplusplus googlechrome atom # 移除多個套件
-choco uninstall ruby --version 1.8.7.37402 # 移除指定版本
-choco uninstall nodejs.install --all-versions # 移除全版本
-</code></pre>
+<span style="color:#75715e">#-----進階用法-----</span>
+choco upgrade all --except<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#39;skype,conemu&#39;&#34;</span>
+choco upgrade git -s <span style="color:#e6db74">&#34;&#39;https://somewhere/protected&#39;&#34;</span> -u user -p pass
+</code></pre></div><h2 id="heading-4">查看需要更新的套件</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">choco outdated <span style="color:#f92672">[</span>&lt;options/switches&gt;<span style="color:#f92672">]</span>
 
-<h2 id="升級套件">升級套件</h2>
+<span style="color:#75715e">#-----基礎用法-----</span>
+choco outdated <span style="color:#75715e"># 列出需要更新的套件</span>
 
-<pre><code class="language-bash">choco upgrade &lt;pkg|all&gt; [&lt;pkg2&gt; &lt;pkgN&gt;] [&lt;options/switches&gt;] # 升級套件
-cup &lt;pkg|all&gt; [&lt;pkg2&gt; &lt;pkgN&gt;] [&lt;options/switches&gt;] # 縮寫
-
-#-----基礎用法-----
-choco upgrade chocolatey # 升級 chocolatey
-choco upgrade all # 升級全部套件
-
-#-----進階用法-----
-choco upgrade all --except=&quot;'skype,conemu'&quot;
-choco upgrade git -s &quot;'https://somewhere/protected'&quot; -u user -p pass
-</code></pre>
-
-<h2 id="查看需要更新的套件">查看需要更新的套件</h2>
-
-<pre><code class="language-bash">choco outdated [&lt;options/switches&gt;]
-
-#-----基礎用法-----
-choco outdated # 列出需要更新的套件
-
-#-----進階用法-----
+<span style="color:#75715e">#-----進階用法-----</span>
 choco outdated -s https://somewhere/out/there
-choco outdated -s &quot;'https://somewhere/protected'&quot; -u user -p pass
-</code></pre>
-
-<h2 id="套件資訊">套件資訊</h2>
-
-<pre><code class="language-bash">choco info &lt;pkgname&gt; # 列出套件資訊
-</code></pre>
-
-<h2 id="參考資料">參考資料</h2>
-
+choco outdated -s <span style="color:#e6db74">&#34;&#39;https://somewhere/protected&#39;&#34;</span> -u user -p pass
+</code></pre></div><h2 id="heading-5">套件資訊</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">choco info &lt;pkgname&gt; <span style="color:#75715e"># 列出套件資訊</span>
+</code></pre></div><h2 id="heading-6">參考資料</h2>
 <ul>
 <li><a href="https://github.com/chocolatey/choco/wiki/CommandsReference">Github: chocolatey</a></li>
 </ul>

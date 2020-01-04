@@ -61,56 +61,36 @@
     
     <h1 class="title">在 macOS 上安裝 Docker</h1>
     <div class="content">
-      
-
-<h2 id="option-1-使用官網提供的安裝包">Option 1： 使用官網提供的安裝包</h2>
-
+      <h2 id="option-1-">Option 1： 使用官網提供的安裝包</h2>
 <p>在<a href="https://docs.docker.com/docker-for-mac/install/">官網</a>可以直接下載 Stable 或 Edge 版的 <code>Docker.dmg</code> 安裝，新的安裝包會安裝「Docker for Mac」，裡面包含 Docker Engine、Docker CLI client、Docker Compose、Docker Machine、Kitematic。</p>
-
 <p>如果電腦比較舊，也可以下載「Docker Toolbox」支援比較舊的電腦。</p>
-
 <p>官網上有詳細的說明，建議直接前往觀看。</p>
-
-<h2 id="option-2-使用-homebrew-安裝">Option 2： 使用 Homebrew 安裝</h2>
-
+<h2 id="option-2--homebrew-">Option 2： 使用 Homebrew 安裝</h2>
 <p>因為不需要 GUI 介面，我選擇使用 <code>brew</code> 安裝，主要參考<a href="https://pilsniak.com/how-to-install-docker-on-mac-os-using-brew/">這篇文章</a>，以下為安裝流程。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">brew install docker docker-compose docker-machine xhyve docker-machine-driver-xhyve
+</code></pre></div><p><code>xhyve</code> 是 <a href="https://www.vpsee.com/2015/06/mac-os-x-hypervisor-xhyve-based-on-bhyve/">macOS X 上基于 FreeBSD/bhyve 的虛擬技術</a>，（<a href="https://github.com/mist64/xhyve">專案網址</a>），相較 VirtualBox 來說非常輕量化。由於 <code>docker-machine-driver-xhyve</code> 需要 root 權限才能運行，所以要執行以下指令：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo chown root:wheel <span style="color:#66d9ef">$(</span>brew --prefix<span style="color:#66d9ef">)</span>/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
+sudo chmod u+s <span style="color:#66d9ef">$(</span>brew --prefix<span style="color:#66d9ef">)</span>/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
+</code></pre></div><p>然後就可以建立新的 docker-machine 了，最後的 <code>--xhyve-experimental-nfs-share</code> 讓你可以共享 <code>/Users/</code> 底下的檔案</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker-machine create default --driver xhyve --xhyve-experimental-nfs-share
+<span style="color:#75715e"># docker-machine ls 可看到建立的 machine</span>
 
-<pre><code class="language-sh">brew install docker docker-compose docker-machine xhyve docker-machine-driver-xhyve
-</code></pre>
-
-<p><code>xhyve</code> 是 <a href="https://www.vpsee.com/2015/06/mac-os-x-hypervisor-xhyve-based-on-bhyve/">macOS X 上基于 FreeBSD/bhyve 的虛擬技術</a>，（<a href="https://github.com/mist64/xhyve">專案網址</a>），相較 VirtualBox 來說非常輕量化。由於 <code>docker-machine-driver-xhyve</code> 需要 root 權限才能運行，所以要執行以下指令：</p>
-
-<pre><code class="language-sh">sudo chown root:wheel $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
-sudo chmod u+s $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
-</code></pre>
-
-<p>然後就可以建立新的 docker-machine 了，最後的 <code>--xhyve-experimental-nfs-share</code> 讓你可以共享 <code>/Users/</code> 底下的檔案</p>
-
-<pre><code class="language-sh">docker-machine create default --driver xhyve --xhyve-experimental-nfs-share
-# docker-machine ls 可看到建立的 machine
-
-# 由於可能 create 很多 machine
-# 以下指令能讓你預設使用 &quot;default&quot; 這個 machine
-# 如果不想每次新開 session 就重打，可以寫入 bash_profile 內
-eval $(docker-machine env default)
-</code></pre>
-
-<p>要啟動或停止則可以使用以下指令：</p>
-
-<pre><code class="language-sh">docker-machine start default
+<span style="color:#75715e"># 由於可能 create 很多 machine</span>
+<span style="color:#75715e"># 以下指令能讓你預設使用 &#34;default&#34; 這個 machine</span>
+<span style="color:#75715e"># 如果不想每次新開 session 就重打，可以寫入 bash_profile 內</span>
+eval <span style="color:#66d9ef">$(</span>docker-machine env default<span style="color:#66d9ef">)</span>
+</code></pre></div><p>要啟動或停止則可以使用以下指令：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker-machine start default
 docker-machine stop default
 docker-machine restart default
 
-# 其他可能有用的指令
-docker-machine env # 列出 env variables
-docker-machine regenerate-certs default # 重新產生 TLS connection certs
-docker-machine ip default # 顯示 machine ip
-docker-machine ssh default # ssh 進入後，cd 到根目錄應該可以看到共享的 /Users/ 資料夾
+<span style="color:#75715e"># 其他可能有用的指令</span>
+docker-machine env <span style="color:#75715e"># 列出 env variables</span>
+docker-machine regenerate-certs default <span style="color:#75715e"># 重新產生 TLS connection certs</span>
+docker-machine ip default <span style="color:#75715e"># 顯示 machine ip</span>
+docker-machine ssh default <span style="color:#75715e"># ssh 進入後，cd 到根目錄應該可以看到共享的 /Users/ 資料夾</span>
 docker-machine --help
-</code></pre>
-
-<h2 id="參考資料">參考資料</h2>
-
+</code></pre></div><h2 id="heading">參考資料</h2>
 <p><a href="https://pilsniak.com/how-to-install-docker-on-mac-os-using-brew/">How to install Docker on Mac OS using brew?</a></p>
 
     </div>

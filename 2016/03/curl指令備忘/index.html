@@ -70,36 +70,28 @@
     
     <h1 class="title">cURL指令備忘</h1>
     <div class="content">
-      
-
-<h2 id="一般用法">一般用法</h2>
-
-<pre><code class="language-sh"># 顯示網頁原始碼
+      <h2 id="heading">一般用法</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 顯示網頁原始碼</span>
 curl http://sample.xxx/
 
-# 將網頁內容輸出為sample.html
+<span style="color:#75715e"># 將網頁內容輸出為sample.html</span>
 curl -o sample.html http://sample.xxx/
 
-# 同上，但輸出時維持原檔名
+<span style="color:#75715e"># 同上，但輸出時維持原檔名</span>
 curl -O http://sample.xxx
 
-# 用來下載檔案也沒問題
+<span style="color:#75715e"># 用來下載檔案也沒問題</span>
 curl -O http://sample.xxx/image/image001.jpg
 
-# 批次下載檔名連續圖片
-curl -O http://sample.xxx/image/image[001-100].jpg
-</code></pre>
+<span style="color:#75715e"># 批次下載檔名連續圖片</span>
+curl -O http://sample.xxx/image/image<span style="color:#f92672">[</span>001-100<span style="color:#f92672">]</span>.jpg
+</code></pre></div><h2 id="heading-1">進階用法</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 批次下載檔名連續圖片</span>
+curl -O http://sample.xxx/image/<span style="color:#f92672">{</span>a,b<span style="color:#f92672">}</span><span style="color:#f92672">[</span>001-100<span style="color:#f92672">]</span>.jpg
 
-<h2 id="進階用法">進階用法</h2>
-
-<pre><code class="language-sh"># 批次下載檔名連續圖片
-curl -O http://sample.xxx/image/{a,b}[001-100].jpg
-
-# 使用指定帳密上傳檔案
+<span style="color:#75715e"># 使用指定帳密上傳檔案</span>
 curl -T localfile -u name:passwd ftp://upload_site:port/path/
-</code></pre>
-
-<p><code>-o</code>：輸出檔名
+</code></pre></div><p><code>-o</code>：輸出檔名
 <code>-O</code>：輸出為原檔名
 <code>-x</code>：指定proxy
 <code>-i</code>：取得header
@@ -109,9 +101,7 @@ curl -T localfile -u name:passwd ftp://upload_site:port/path/
 <code>-b</code>：指定cookie
 <code>-A</code>：指定user-agent資訊
 <code>-e</code>：指定referrer</p>
-
-<h2 id="參考資料">參考資料：</h2>
-
+<h2 id="heading-2">參考資料：</h2>
 <p><a href="https://curl.haxx.se/docs/manpage.html">https://curl.haxx.se/docs/manpage.html</a></p>
 
     </div>

@@ -70,40 +70,32 @@
     
     <h1 class="title">Wget 指令用途與範例</h1>
     <div class="content">
-      
-
-<h2 id="範例用法">範例用法</h2>
-
-<pre><code class="language-bash">#下載指定url
+      <h2 id="heading">範例用法</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#下載指定url</span>
 wget http://sample.xxx/ 
 
-#將指定url輸出為指定檔案
+<span style="color:#75715e">#將指定url輸出為指定檔案</span>
 wget http://sample.xxx/sample.html -O test.html
 
-#下載全站
+<span style="color:#75715e">#下載全站</span>
 wget -r http://sample.xxx/
 
-#下載全站（進階版）
+<span style="color:#75715e">#下載全站（進階版）</span>
 wget -t0 -c -nH -np -m -P /targetdir http://sample.xxx/ 
 
-#確認bookmarks.html內連結狀況，但不下載頁面
+<span style="color:#75715e">#確認bookmarks.html內連結狀況，但不下載頁面</span>
 wget --spider -F -i bookmarks.html
 
-#確認bookmarks.html內連結狀況，並輸出至wget.log
+<span style="color:#75715e">#確認bookmarks.html內連結狀況，並輸出至wget.log</span>
 wget --spider -o wget.log -F -i bookmarks.html 
-</code></pre>
-
-<h2 id="工具相關">工具相關</h2>
-
+</code></pre></div><h2 id="heading-1">工具相關</h2>
 <ul>
 <li><code>-h</code>, <code>--help</code>：說明</li>
 <li><code>-V</code>, <code>--version</code>：版本</li>
 <li><code>-b</code>, <code>--background</code>：背景作業</li>
 <li><code>-e [command]</code>, <code>--execute=[command]</code>：執行 .wgetrc 形式的指令</li>
 </ul>
-
-<h2 id="log-訊息相關">LOG 訊息相關</h2>
-
+<h2 id="log-">LOG 訊息相關</h2>
 <ul>
 <li><code>-o [logfile]</code>, <code>--output-file=[logfile]</code>：將記錄訊息寫入 logfile 檔案</li>
 <li><code>-a [logfile]</code>, <code>--append-output=[logfile]</code>：將記錄訊息寫入 logfile 檔案末端</li>
@@ -111,17 +103,13 @@ wget --spider -o wget.log -F -i bookmarks.html
 <li><code>-v</code>, <code>--verbose</code>：詳細輸出模式（預設使用）</li>
 <li><code>-nv</code>, <code>--non-verbose</code>：關閉詳細輸出模式（但不啟用安靜模式）</li>
 </ul>
-
-<h2 id="input-相關">Input 相關</h2>
-
+<h2 id="input-">Input 相關</h2>
 <ul>
 <li><code>-i [file]</code>：下載 file 檔案內的 URL（支援 local 與 external）</li>
 <li><code>-F</code>, <code>--force-html</code>：將此檔案視為 HTML</li>
 <li><code>-B [url]</code>, <code>--base=[url]</code></li>
 </ul>
-
-<h2 id="下載相關">下載相關</h2>
-
+<h2 id="heading-2">下載相關</h2>
 <ul>
 <li><code>-O</code>, <code>--output-document=[file]</code>：將資料輸出指定檔案</li>
 <li><code>-t [num]</code>, <code>--tries=[num]</code>：設定重試次數。當連結中斷或超時，試圖重新連結（<code>-t0</code>表示重試無限次數）</li>
@@ -141,9 +129,7 @@ wget --spider -o wget.log -F -i bookmarks.html
 <li><code>--random-wait</code>：隨機等待秒數</li>
 <li><code>--spider</code>：不下載資料，僅確認連結</li>
 </ul>
-
-<h2 id="http-相關">HTTP 相關</h2>
-
+<h2 id="http-">HTTP 相關</h2>
 <ul>
 <li><code>--http-user=[user]</code></li>
 <li><code>--http-passwd=[passwd]</code></li>
@@ -161,9 +147,7 @@ wget --spider -o wget.log -F -i bookmarks.html
 <li><code>--post-data=[string]</code>：使用 POST 方式送出字串</li>
 <li><code>--post=file=[file]</code>：使用 POST 方式送出檔案內容</li>
 </ul>
-
-<h2 id="額外選項">額外選項</h2>
-
+<h2 id="heading-3">額外選項</h2>
 <ul>
 <li><code>-A</code>, <code>--accept=[list]</code>：接受的檔案格式（以逗號分隔）</li>
 <li><code>-R</code>, <code>--reject=[list]</code>：排除的檔案格式（以逗號分隔）</li>
@@ -174,9 +158,7 @@ wget --spider -o wget.log -F -i bookmarks.html
 <li><code>--limit-rate=[rate]</code>：限制下載速度</li>
 <li><code>--limit-rate=[num]k</code>：限制下載速度上限</li>
 </ul>
-
-<h2 id="參考資料">參考資料</h2>
-
+<h2 id="heading-4">參考資料</h2>
 <ul>
 <li><a href="https://www.gnu.org/software/wget/manual/wget.html">wget Manual</a></li>
 <li><a href="http://www.labnol.org/software/wget-command-examples/28750/">wget command examples</a></li>

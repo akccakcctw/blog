@@ -70,66 +70,46 @@
     
     <h1 class="title">更新 Homebrew 後，啟動 vim 的問題</h1>
     <div class="content">
-      
-
-<p>今天更新 Homebrew 之後，啟動 vim 時顯示錯誤：</p>
-
-<pre><code class="language-sh">dyld: Library not loaded: /usr/local/opt/ruby/lib/libruby.2.4.3.dylib
+      <p>今天更新 Homebrew 之後，啟動 vim 時顯示錯誤：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">dyld: Library not loaded: /usr/local/opt/ruby/lib/libruby.2.4.3.dylib
   Referenced from: /usr/local/bin/vim
   Reason: image not found
-[1]    52248 abort      vim
-</code></pre>
-
-<p>找到<a href="https://superuser.com/questions/1096438/brew-upgrade-broke-vim-on-os-x-dyld-library-not-loaded">類似問題</a>，原因是 vim 依賴舊版的 ruby，所以更新後無法啟動，解決方法是重裝 ruby 和 vim：</p>
-
-<pre><code class="language-sh">brew reinstall ruby vim
-</code></pre>
-
-<p>但我重裝之後仍然無法使用，顯示如下錯誤訊息：</p>
-
-<pre><code class="language-sh">Error: The `brew link` step did not complete successfully
+<span style="color:#f92672">[</span>1<span style="color:#f92672">]</span>    <span style="color:#ae81ff">52248</span> abort      vim
+</code></pre></div><p>找到<a href="https://superuser.com/questions/1096438/brew-upgrade-broke-vim-on-os-x-dyld-library-not-loaded">類似問題</a>，原因是 vim 依賴舊版的 ruby，所以更新後無法啟動，解決方法是重裝 ruby 和 vim：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">brew reinstall ruby vim
+</code></pre></div><p>但我重裝之後仍然無法使用，顯示如下錯誤訊息：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Error: The <span style="color:#e6db74">`</span>brew link<span style="color:#e6db74">`</span> step did not complete successfully
 The formula built, but is not symlinked into /usr/local
 Could not symlink bin/rake
 Target /usr/local/bin/rake
 already exists. You may want to remove it:
-  rm '/usr/local/bin/rake'
+  rm <span style="color:#e6db74">&#39;/usr/local/bin/rake&#39;</span>
 
 To force the link and overwrite all conflicting files:
   brew link --overwrite ruby
 
 To list all files that would be deleted:
   brew link --overwrite --dry-run ruby
-</code></pre>
-
-<p>照著提示使用 <code>brew link --overwrite ruby</code>，再重新更新 vim：</p>
-
-<pre><code class="language-sh">brew upgrade vim
-</code></pre>
-
-<p>如此一來，ruby 成功更新到最新版，且 vim 的依賴也是新版的 ruby，就能正常啟動了！</p>
-
-<hr />
-
+</code></pre></div><p>照著提示使用 <code>brew link --overwrite ruby</code>，再重新更新 vim：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">brew upgrade vim
+</code></pre></div><p>如此一來，ruby 成功更新到最新版，且 vim 的依賴也是新版的 ruby，就能正常啟動了！</p>
+<hr>
 <p>另外，如果不想更新 vim，其實也可以直接讓 ruby 降版（參考<a href="https://stackoverflow.com/questions/3987683/homebrew-install-specific-version-of-formula">這篇</a>）：</p>
-
-<pre><code class="language-sh"># 確認目前有哪些版本
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 確認目前有哪些版本</span>
 brew info ruby
 
-# 顯示訊息如下
-ruby: stable 2.5.0 (bottled), HEAD
+<span style="color:#75715e"># 顯示訊息如下</span>
+ruby: stable 2.5.0 <span style="color:#f92672">(</span>bottled<span style="color:#f92672">)</span>, HEAD
 Powerful, clean, object-oriented scripting language
 https://www.ruby-lang.org/
-/usr/local/Cellar/ruby/2.4.3_1 (3,043 files, 16.3MB)
+/usr/local/Cellar/ruby/2.4.3_1 <span style="color:#f92672">(</span>3,043 files, 16.3MB<span style="color:#f92672">)</span>
   Poured from bottle on 2017-12-22 at 00:00:26
-/usr/local/Cellar/ruby/2.5.0 (3,323 files, 18.4MB)
+/usr/local/Cellar/ruby/2.5.0 <span style="color:#f92672">(</span>3,323 files, 18.4MB<span style="color:#f92672">)</span>
   Poured from bottle on 2018-01-25 at 10:21:10
 
-# 切換版本
+<span style="color:#75715e"># 切換版本</span>
 brew switch ruby 2.4.3_1
-</code></pre>
-
-<h2 id="參考資料">參考資料</h2>
-
+</code></pre></div><h2 id="heading">參考資料</h2>
 <ul>
 <li><a href="https://superuser.com/questions/1096438/brew-upgrade-broke-vim-on-os-x-dyld-library-not-loaded">superuser: brew upgrade broke Vim on OS X (dyld: Library not loaded)</a></li>
 <li><a href="https://stackoverflow.com/questions/3987683/homebrew-install-specific-version-of-formula">stackoverflow: Homebrew install specific version of formula?</a></li>

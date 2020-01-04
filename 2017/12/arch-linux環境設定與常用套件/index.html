@@ -74,135 +74,100 @@
     
     <h1 class="title">Arch Linux：環境設定與常用套件</h1>
     <div class="content">
-      
-
-<h2 id="gnome-桌面設定">GNOME 桌面設定</h2>
-
-<h3 id="匯出與匯入設定檔">匯出與匯入設定檔</h3>
-
-<pre><code class="language-sh"># 匯出
+      <h2 id="gnome-">GNOME 桌面設定</h2>
+<h3 id="heading">匯出與匯入設定檔</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 匯出</span>
 dconf dump / &gt;~/.config/dconf/user.conf
 
-# 匯入
+<span style="color:#75715e"># 匯入</span>
 dconf load / &lt;~/.config/dconf/user.conf
-</code></pre>
-
-<h2 id="中文輸入法以及中文環境">中文輸入法以及中文環境</h2>
-
-<h3 id="安裝-fcitx-注音">安裝 fcitx（注音）</h3>
-
+</code></pre></div><h2 id="heading-1">中文輸入法以及中文環境</h2>
+<h3 id="-fcitx">安裝 fcitx（注音）</h3>
 <p>fcitx 相關說明<a href="https://wiki.archlinux.org/index.php/Fcitx">維基</a>寫得很清楚，建議看一下。</p>
-
-<pre><code class="language-sh"># fcitx-im 會一併安裝需要用到的附加套件，內含 fcitx, fcitx-gtk2, fcitx-gtk3 等等
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># fcitx-im 會一併安裝需要用到的附加套件，內含 fcitx, fcitx-gtk2, fcitx-gtk3 等等</span>
 pacman -S fcitx-im fcitx-configtool fcitx-chewing
-</code></pre>
+</code></pre></div><p>安裝之後編輯 <code>~/.xprofile</code>：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># for fcitx</span>
+export GTK_IM_MODULE<span style="color:#f92672">=</span>fcitx
+export QT_IM_MODULE<span style="color:#f92672">=</span>fcitx
+export XMODIFIERS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;@im=fcitx&#34;</span>
 
-<p>安裝之後編輯 <code>~/.xprofile</code>：</p>
-
-<pre><code class="language-sh"># for fcitx
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=&quot;@im=fcitx&quot;
-
-export LANG=zh_TW.UTF-8 # 加入這行，預設語言會變成中文
-export LC_CTYPE=zh_TW.UTF-8  # 能輸入中文
-</code></pre>
-
-<p>編輯完後存檔， <code>reboot</code> 之後系統就會變成中文的了，如果還是無法輸入中文的話，可以嘗試使用 <code>fcitx-diagnose</code> 來偵錯。</p>
-
-<h2 id="其它實用的套件">其它實用的套件</h2>
-
-<h3 id="工具類">工具類</h3>
-
-<pre><code class="language-sh"># Docker =&gt;
+export LANG<span style="color:#f92672">=</span>zh_TW.UTF-8 <span style="color:#75715e"># 加入這行，預設語言會變成中文</span>
+export LC_CTYPE<span style="color:#f92672">=</span>zh_TW.UTF-8  <span style="color:#75715e"># 能輸入中文</span>
+</code></pre></div><p>編輯完後存檔， <code>reboot</code> 之後系統就會變成中文的了，如果還是無法輸入中文的話，可以嘗試使用 <code>fcitx-diagnose</code> 來偵錯。</p>
+<h2 id="heading-2">其它實用的套件</h2>
+<h3 id="heading-3">工具類</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># Docker =&gt;</span>
 pacman -S docker
-systemctl enable docker # 開機時啟用
+systemctl enable docker <span style="color:#75715e"># 開機時啟用</span>
 
-# tldr =&gt;
-# 懶得看 --help 時很好用
+<span style="color:#75715e"># tldr =&gt;</span>
+<span style="color:#75715e"># 懶得看 --help 時很好用</span>
 pacman -S tldr
 
-# libinput =&gt;
-# 用來看 input 的硬體設備
+<span style="color:#75715e"># libinput =&gt;</span>
+<span style="color:#75715e"># 用來看 input 的硬體設備</span>
 pacaur -S libinput
 
-# alsa =&gt;
-# 音訊控制
+<span style="color:#75715e"># alsa =&gt;</span>
+<span style="color:#75715e"># 音訊控制</span>
 pacman -S alsa-utils
-# 用法（GUI）
+<span style="color:#75715e"># 用法（GUI）</span>
 alsamixer
 
-# asciinema =&gt;
-# 錄製與分享 terminal 影片，產生的檔案非常小。
-# [Site](https://asciinema.org/)
-pacman -S asciinema # install
-# 錄製
-asciinema rec # recording，&lt;Ctrl-d&gt; 或輸入 `exit` 停止
-asciinema rec /tmp/my_rec.json # 錄製影片，存到本機端
-asciinema rec -w 0.2 # 設定每次按鍵的時間間隔
-# 播放
+<span style="color:#75715e"># asciinema =&gt;</span>
+<span style="color:#75715e"># 錄製與分享 terminal 影片，產生的檔案非常小。</span>
+<span style="color:#75715e"># [Site](https://asciinema.org/)</span>
+pacman -S asciinema <span style="color:#75715e"># install</span>
+<span style="color:#75715e"># 錄製</span>
+asciinema rec <span style="color:#75715e"># recording，&lt;Ctrl-d&gt; 或輸入 `exit` 停止</span>
+asciinema rec /tmp/my_rec.json <span style="color:#75715e"># 錄製影片，存到本機端</span>
+asciinema rec -w 0.2 <span style="color:#75715e"># 設定每次按鍵的時間間隔</span>
+<span style="color:#75715e"># 播放</span>
 asciinema play https://asciinema.org/path
 asciinema play /path/to/your.json
 
-# ccat
-# 用法和 `cat` 一樣，但支援語法 highlight。
+<span style="color:#75715e"># ccat</span>
+<span style="color:#75715e"># 用法和 `cat` 一樣，但支援語法 highlight。</span>
 pacaur -S ccat
-</code></pre>
-
-<h3 id="編輯器">編輯器</h3>
-
-<pre><code class="language-sh"># VSCode
-# [Site](https://aur.archlinux.org/packages/visual-studio-code/)
+</code></pre></div><h3 id="heading-4">編輯器</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># VSCode</span>
+<span style="color:#75715e"># [Site](https://aur.archlinux.org/packages/visual-studio-code/)</span>
 pacaur -S visual-studio-code
-</code></pre>
-
-<h3 id="繪圖類">繪圖類</h3>
-
-<pre><code class="language-sh"># GIMP
-# 點陣繪圖與編輯，類似 Adobe Photoshop
+</code></pre></div><h3 id="heading-5">繪圖類</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># GIMP</span>
+<span style="color:#75715e"># 點陣繪圖與編輯，類似 Adobe Photoshop</span>
 pacman -S gimp
 
-# Krita
-# 點陣繪圖與編輯，類似 Adobe Photoshop
+<span style="color:#75715e"># Krita</span>
+<span style="color:#75715e"># 點陣繪圖與編輯，類似 Adobe Photoshop</span>
 pacman -S krita
 
-# mypaint
-# 著重繪圖功能，類似 Corel Painter
+<span style="color:#75715e"># mypaint</span>
+<span style="color:#75715e"># 著重繪圖功能，類似 Corel Painter</span>
 pacman -S mypaint
 
-# Inkscape
-# 向量繪圖，類似 Adobe Illustrator
+<span style="color:#75715e"># Inkscape</span>
+<span style="color:#75715e"># 向量繪圖，類似 Adobe Illustrator</span>
 pacman -S inkscape
-</code></pre>
-
-<h3 id="文書編輯">文書編輯</h3>
-
-<pre><code class="language-sh"># LibreOffice
+</code></pre></div><h3 id="heading-6">文書編輯</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># LibreOffice</span>
 pacman -S libreoffice
-</code></pre>
-
-<h3 id="gnome-ui">GNOME UI</h3>
-
-<pre><code class="language-sh"># Materia theme
-# [Site](https://aur.archlinux.org/packages/materia-theme)
-# [GitHub repo](https://github.com/nana-4/materia-theme)
+</code></pre></div><h3 id="gnome-ui">GNOME UI</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># Materia theme</span>
+<span style="color:#75715e"># [Site](https://aur.archlinux.org/packages/materia-theme)</span>
+<span style="color:#75715e"># [GitHub repo](https://github.com/nana-4/materia-theme)</span>
 pacaur -S materia-theme
 
-# Paper Icon
-# [Site](https://snwh.org/paper)
-# [GitHub repo](https://github.com/snwh/paper-icon-theme)
+<span style="color:#75715e"># Paper Icon</span>
+<span style="color:#75715e"># [Site](https://snwh.org/paper)</span>
+<span style="color:#75715e"># [GitHub repo](https://github.com/snwh/paper-icon-theme)</span>
 pacaur -S paper-icon-theme
-</code></pre>
-
-<h3 id="其他">其他</h3>
-
-<pre><code class="language-sh"># Chrome
-# [Site](https://aur.archlinux.org/packages/google-chrome/)
+</code></pre></div><h3 id="heading-7">其他</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># Chrome</span>
+<span style="color:#75715e"># [Site](https://aur.archlinux.org/packages/google-chrome/)</span>
 pacaur -S google-chrome
-</code></pre>
-
-<h2 id="參考資料">參考資料</h2>
-
+</code></pre></div><h2 id="heading-8">參考資料</h2>
 <ul>
 <li><a href="fcitx-chewinghttps://cyku.tw/apricity-os-fcitx-chewing/">Apricity OS 安裝中文輸入法</a></li>
 <li><a href="https://askubuntu.com/questions/26056/where-are-gnome-keyboard-shortcuts-stored">Where are GNOME keyboard shortcuts stored?</a></li>

@@ -75,9 +75,7 @@
     <h1 class="title">用 AVA 作單元測試遇到的坑</h1>
     <div class="content">
       <p>最近在開發的 Lightbox 套件 <a href="https://github.com/akccakcctw/darkli">Darkli</a> 功能越來越完善了，所以就想說來幫它寫些測試吧。上網查現在比較紅的框架有哪些，發現還滿多的，除了主流的 Mocha，還有 Facebook 主推的 Jest、主打易用的 Tape、以及 Jasmine 等等，參考<a href="https://raygun.com/blog/javascript-unit-testing-frameworks/">這篇</a>，以及利用 Github 上面星星數比較的結果，最後挑了多產大神 <a href="https://github.com/sindresorhus">Sindre Sorhus</a> 的 <a href="https://github.com/avajs/ava">AVA</a> 來用。</p>
-
 <p>不愧是<a href="https://twitter.com/tjholowaychuk/status/709612159458611200">連 TJ 都說讚</a>的框架，才剛上手就覺得非常好用，沒什麼學習曲線，而且文件說明也挺足夠。重點是它原生支援好多新語法呀：</p>
-
 <ul>
 <li><a href="https://github.com/avajs/ava#es2017-support">ES2017 support</a></li>
 <li><a href="https://github.com/avajs/ava#typescript-support">TypeScript support</a></li>
@@ -87,97 +85,74 @@
 <li><a href="https://github.com/avajs/ava#async-function-support">Async function support</a></li>
 <li><a href="https://github.com/avajs/ava#observable-support">Observable support</a></li>
 </ul>
-
 <p>然而，因為 Darkli 這個專案同時使用 Babel + Rollup 來打包，加上我使用比較新的<code>import</code>、<code>export</code>語法，產生了套件之間水火不容的相容問題。在測試時，總是提示<code>SyntaxError: Unexpected token import</code>，按照使用說明書（README），以及查到<a href="http://www.damianmullins.com/unit-testing-front-end-javacript-with-ava-and-jsdom/">這篇</a>說明，發現 AVA 預設只會在你的測試裡面傳輸程式碼，而那些測試以外的模組 import 就不予理會，如此才能確保 AVA 對你的 production 環境沒有影響。</p>
-
 <blockquote>
 <p>AVA will transpile ES2015 code in your tests; however, it won’t transpile code in modules imported from outside those tests. This is so that AVA has zero impact on your production environment.</p>
 </blockquote>
-
 <p>所以依照說明書的範例，安裝了<code>babel-register</code>，然後把<code>package.json</code>改寫，在<code>ava</code>區塊新增<code>require</code>以及<code>babel</code>設定如下：</p>
-
-<pre><code class="language-json">...
-&quot;ava&quot;: {
-  &quot;files&quot;: [
-    &quot;test/unit/**/*.test.js&quot;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#960050;background-color:#1e0010">.</span>
+<span style="color:#e6db74">&#34;ava&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+  <span style="color:#f92672">&#34;files&#34;</span>: [
+    <span style="color:#e6db74">&#34;test/unit/**/*.test.js&#34;</span>
   ],
-  &quot;require&quot;: [
-    &quot;babel-register&quot;
+  <span style="color:#f92672">&#34;require&#34;</span>: [
+    <span style="color:#e6db74">&#34;babel-register&#34;</span>
   ],
-  &quot;babel&quot;: &quot;inherit&quot;
+  <span style="color:#f92672">&#34;babel&#34;</span>: <span style="color:#e6db74">&#34;inherit&#34;</span>
 }
-</code></pre>
-
-<p>再跑一次測試，覺得應該是沒問題了吧！</p>
-
+</code></pre></div><p>再跑一次測試，覺得應該是沒問題了吧！</p>
 <p>當然！還是一樣&hellip;</p>
-
 <p>◢▆▅▄▃ 崩╰(〒皿〒)╯潰 ▃▄▅▆◣</p>
-
-<hr />
-
+<hr>
 <p>於是再繼續找找找，終於發現是<code>.babelrc</code>那段<code>&quot;modules&quot;: false</code>造成的問題，下面是<code>.babelrc</code>的內容：</p>
-
-<pre><code class="language-json">{
-  &quot;build&quot;: {
-    &quot;presets&quot;: [
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;build&#34;</span>: {
+    <span style="color:#f92672">&#34;presets&#34;</span>: [
       [
-        &quot;es2015&quot;,
+        <span style="color:#e6db74">&#34;es2015&#34;</span>,
         {
-          &quot;modules&quot;: false
+          <span style="color:#f92672">&#34;modules&#34;</span>: <span style="color:#66d9ef">false</span>
         }
       ]
     ]
   }
 }
-</code></pre>
-
-<p>把它移掉之後，AVA 終於正常運作了，可是換成 babel + rollup 跳腳啦，說要把<code>&quot;modules&quot;: false</code>加回來，不然就繼續罷工 XD，我陷入一個地雷馬的處境。</p>
-
+</code></pre></div><p>把它移掉之後，AVA 終於正常運作了，可是換成 babel + rollup 跳腳啦，說要把<code>&quot;modules&quot;: false</code>加回來，不然就繼續罷工 XD，我陷入一個地雷馬的處境。</p>
 <p>最後決定，讓 test 和 build 的 babel 設定分開，於是<code>.babelrc</code>變成這樣（<code>env</code>就靠你了！）：</p>
-
-<pre><code class="language-json">{
-  &quot;env&quot;: {
-    &quot;build&quot;: {
-      &quot;presets&quot;: [
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;env&#34;</span>: {
+    <span style="color:#f92672">&#34;build&#34;</span>: {
+      <span style="color:#f92672">&#34;presets&#34;</span>: [
         [
-          &quot;es2015&quot;,
+          <span style="color:#e6db74">&#34;es2015&#34;</span>,
           {
-            &quot;modules&quot;: false
+            <span style="color:#f92672">&#34;modules&#34;</span>: <span style="color:#66d9ef">false</span>
           }
         ]
       ]
     },
-    &quot;test&quot;: {
-      &quot;presets&quot;: [
-        &quot;es2015&quot;
+    <span style="color:#f92672">&#34;test&#34;</span>: {
+      <span style="color:#f92672">&#34;presets&#34;</span>: [
+        <span style="color:#e6db74">&#34;es2015&#34;</span>
       ]
     }
   }
 }
-</code></pre>
-
-<p>因為我是在 Windows 開發，為了使用 env 的設定，還需要另外安裝 <code>cross-env</code> 這個套件，才能正常使用</p>
-
+</code></pre></div><p>因為我是在 Windows 開發，為了使用 env 的設定，還需要另外安裝 <code>cross-env</code> 這個套件，才能正常使用</p>
 <pre><code>yarn add -D cross-env
-</code></pre>
-
-<p>最後，再依據不同的 npm script 手動加上不同的環境設定就大功告成了，<code>package.json</code>片段如下：</p>
-
-<pre><code class="language-json">...
-&quot;scripts&quot;: {
-  &quot;test&quot;: &quot;cross-env BABEL_ENV=test gulp lint &amp;&amp; yarn run ava&quot;,
-  &quot;ava&quot;: &quot;cross-env BABEL_ENV=test ava --verbose&quot;,
-  &quot;ava:watch&quot;: &quot;cross-env BABEL_ENV=test ava --verbose --watch&quot;,
-  &quot;gulp&quot;: &quot;cross-env BABEL_ENV=build gulp&quot;,
-  &quot;tree&quot;: &quot;node bin/tree.js&quot;,
-  &quot;build:js&quot;: &quot;rollup -c&quot;,
-  &quot;compress:js&quot;: &quot;uglifyjs dist/darkli.js -o dist/darkli.min.js -c -m --comments /^!/&quot;,
-  &quot;watch:js&quot;: &quot;rollup -c -w -m&quot;
+</code></pre><p>最後，再依據不同的 npm script 手動加上不同的環境設定就大功告成了，<code>package.json</code>片段如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#960050;background-color:#1e0010">.</span>
+<span style="color:#e6db74">&#34;scripts&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+  <span style="color:#f92672">&#34;test&#34;</span>: <span style="color:#e6db74">&#34;cross-env BABEL_ENV=test gulp lint &amp;&amp; yarn run ava&#34;</span>,
+  <span style="color:#f92672">&#34;ava&#34;</span>: <span style="color:#e6db74">&#34;cross-env BABEL_ENV=test ava --verbose&#34;</span>,
+  <span style="color:#f92672">&#34;ava:watch&#34;</span>: <span style="color:#e6db74">&#34;cross-env BABEL_ENV=test ava --verbose --watch&#34;</span>,
+  <span style="color:#f92672">&#34;gulp&#34;</span>: <span style="color:#e6db74">&#34;cross-env BABEL_ENV=build gulp&#34;</span>,
+  <span style="color:#f92672">&#34;tree&#34;</span>: <span style="color:#e6db74">&#34;node bin/tree.js&#34;</span>,
+  <span style="color:#f92672">&#34;build:js&#34;</span>: <span style="color:#e6db74">&#34;rollup -c&#34;</span>,
+  <span style="color:#f92672">&#34;compress:js&#34;</span>: <span style="color:#e6db74">&#34;uglifyjs dist/darkli.js -o dist/darkli.min.js -c -m --comments /^!/&#34;</span>,
+  <span style="color:#f92672">&#34;watch:js&#34;</span>: <span style="color:#e6db74">&#34;rollup -c -w -m&#34;</span>
 }
-</code></pre>
-
-<p>花了很多時間才把這個坑填起來，不知道會不會有人和我遇到一樣的問題，希望上面的解法對你有幫助，如果有錯誤或我沒注意到的部分也歡迎留言分享。</p>
+</code></pre></div><p>花了很多時間才把這個坑填起來，不知道會不會有人和我遇到一樣的問題，希望上面的解法對你有幫助，如果有錯誤或我沒注意到的部分也歡迎留言分享。</p>
 
     </div>
     <blockquote class="page-info">

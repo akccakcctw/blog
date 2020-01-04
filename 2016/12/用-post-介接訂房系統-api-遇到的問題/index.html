@@ -75,31 +75,26 @@
     <h1 class="title">用 POST 介接訂房系統 API 遇到的問題</h1>
     <div class="content">
       <p>最近製作某飯店集團網站，其中有個功能需要在網站內提供線上訂房的表單，當使用者選擇分館、入住日期、離開日期之後，按下快速訂房按鈕就直接查詢訂房系統（其他系統商），如圖：</p>
-
-<p><img src="http://user-image.logdown.io/user/14750/blog/13947/post/1234234/kPPq3MHsQoKtY3lRv07K_sp161222_151426.png" alt="sp161222_151426.png" /></p>
-
+<p><img src="http://user-image.logdown.io/user/14750/blog/13947/post/1234234/kPPq3MHsQoKtY3lRv07K_sp161222_151426.png" alt="sp161222_151426.png"></p>
 <p>對方的 API 必須使用<code>POST</code>，不能用<code>GET</code>，一開始想法很簡單，覺得直接用 PHP 的<code>curl</code>就可以了吧，於是我這樣寫：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">// index.php
 
-<pre><code class="language-php">// index.php
+&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;booking-form&#34;</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;booking.php&#34;</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post&#34;</span> <span style="color:#a6e22e">target</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;_blank&#34;</span>&gt;
+<span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> 裡面省略 </span><span style="color:#75715e">--&gt;</span>
+&lt;/<span style="color:#f92672">form</span>&gt;
 
-&lt;form id=&quot;booking-form&quot; action=&quot;booking.php&quot; method=&quot;post&quot; target=&quot;_blank&quot;&gt;
-&lt;!-- 裡面省略 --&gt;
-&lt;/form&gt;
-
-</code></pre>
-
-<pre><code class="language-php">// booking.php
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">// booking.php
 
 $postData = array(
-  &quot;syear&quot;=&gt;$syear,
-  &quot;smonth&quot;=&gt;$smonth,
-  &quot;sday&quot;=&gt;$sday,
-  &quot;eyear&quot;=&gt;$eyear,
-  &quot;emonth&quot;=&gt;$emonth,
-  &quot;eday&quot;=&gt;$eday,
-  &quot;hid&quot;=&gt;$hid,
-  &quot;orcnt&quot;=&gt;$orcnt,
-  &quot;lang&quot;=&gt;$lang,
+  &#34;syear&#34;=&gt;$syear,
+  &#34;smonth&#34;=&gt;$smonth,
+  &#34;sday&#34;=&gt;$sday,
+  &#34;eyear&#34;=&gt;$eyear,
+  &#34;emonth&#34;=&gt;$emonth,
+  &#34;eday&#34;=&gt;$eday,
+  &#34;hid&#34;=&gt;$hid,
+  &#34;orcnt&#34;=&gt;$orcnt,
+  &#34;lang&#34;=&gt;$lang,
 );
 
 // cURL POST
@@ -110,39 +105,31 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postData));
 curl_exec($ch); 
 curl_close($ch);
 
-</code></pre>
-
-<p>當我按下查詢鍵，嗯～對方的網頁內容看起來都回傳成功了，而且網址還是我們的，看起來很專業！館別、語系、時間、blahblah&hellip;&hellip;都對了，咦，圖片怎麼全是叉燒包，看一下 F12，嗯～應該是相對路徑的問題，因為網址還是我們的，他們回傳的路徑應該要改成絕對路徑才對。</p>
-
+</code></pre></div><p>當我按下查詢鍵，嗯～對方的網頁內容看起來都回傳成功了，而且網址還是我們的，看起來很專業！館別、語系、時間、blahblah&hellip;&hellip;都對了，咦，圖片怎麼全是叉燒包，看一下 F12，嗯～應該是相對路徑的問題，因為網址還是我們的，他們回傳的路徑應該要改成絕對路徑才對。</p>
 <p>於是我滿心歡喜的去找 PM，請系統商把網址都改成絕對路徑，過了不久，系統商來信說把圖片都幫我們改成絕對路徑了（真乖），嗯～圖片都出來了。就在這個 moment，當我覺得一切都沒問題的時候，我才發現事情不是我想的那麼單純，因為當我想在回傳的頁面（此時網址是我們的，但內容是他們的）點任何連結時，都會有問題，因為每一個連結都是相對路徑！</p>
-
 <p>OK，好，看來是我的問題。</p>
-
 <p>於是我開啟「google 工程師」模式（上網到處搜尋），外加問前輩，發現只能回歸最原始的方法，用純粹的 HTML <code>&lt;form&gt;</code>標籤解決，解法是<code>&lt;form&gt;</code>必須直接 submit 到系統商那邊，所以<code>action</code>的位置要修改。但是，由於這個網站架構比較大，有訂房表單的地方不只一個，訂房相關的 code 還是統一在<code>booking.php</code>內維護比較方便，因此我不打算修改前端，而是修改<code>booking.php</code>，從後端產出一個假的<code>form</code>，並配合 Javascript submit 來解決這個問題，以下是我的解法：</p>
-
-<pre><code class="language-php">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">
 // booking.php
 
 // 自動產生 form 且帶入 value 後，用 Javascript submit
-$hiddenInput='';
+$hiddenInput=&#39;&#39;;
 foreach ($postData as $key =&gt; $value) {
-  $hiddenInput.= &lt;&lt;&lt;HTML
-    &lt;input type=&quot;hidden&quot; name=&quot;{$key}&quot; value=&quot;{$value}&quot;&gt;
+  $hiddenInput.= <span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#960050;background-color:#1e0010">&lt;</span>&lt;<span style="color:#f92672">HTML</span>
+    <span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{$key}&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{$value}&#34;</span>&gt;
 HTML;
 }
 
-echo &lt;&lt;&lt;HTML
-  &lt;form id=&quot;booking_form&quot; action=&quot;{$toUrl}&quot; method=&quot;post&quot;&gt;
+echo <span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#960050;background-color:#1e0010">&lt;</span>&lt;<span style="color:#f92672">HTML</span>
+  <span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">form</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;booking_form&#34;</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{$toUrl}&#34;</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post&#34;</span>&gt;
     {$hiddenInput}
-  &lt;/form&gt;
-  &lt;script&gt;
-    document.getElementById('booking_form').submit();
-  &lt;/script&gt;
+  &lt;/<span style="color:#f92672">form</span>&gt;
+  &lt;<span style="color:#f92672">script</span>&gt;
+    document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;booking_form&#39;</span>).<span style="color:#a6e22e">submit</span>();
+  &lt;/<span style="color:#f92672">script</span>&gt;
 HTML;
 
-</code></pre>
-
-<p>耶，世界又恢復和平～</p>
+</code></pre></div><p>耶，世界又恢復和平～</p>
 
     </div>
     <blockquote class="page-info">

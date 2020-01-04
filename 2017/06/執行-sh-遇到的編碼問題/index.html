@@ -79,29 +79,19 @@
     <h1 class="title">執行 sh 遇到的編碼問題</h1>
     <div class="content">
       <p>遇到的錯誤 message 如下：</p>
-
-<pre><code class="language-sh">env: node\r: No such file or directory
-</code></pre>
-
-<p>今天在 Linux 系統裡執行 .sh 時，遇到系統編碼格式不同所造成的問題<br />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">env: node<span style="color:#ae81ff">\r</span>: No such file or directory
+</code></pre></div><p>今天在 Linux 系統裡執行 .sh 時，遇到系統編碼格式不同所造成的問題<br>
 問題原因是因為 Windows 的結尾字符和 Linux 系統不一樣（Windows 就是喜歡加料&hellip;</p>
-
-<p>除了上面的 <code>env: node\r: No such file or directory</code> 之外，<br />
+<p>除了上面的 <code>env: node\r: No such file or directory</code> 之外，<br>
 我還遇過 <code>/bin/sh^M: bad interpreter: No such file or directory</code>，</p>
-
 <p>解決方法都一樣，使用 vim 開啟該檔案，使用以下命令查看文件格式，先確定是編碼問題</p>
-
 <pre><code>:set ff  
 # 或是 
 :set fileformat
-</code></pre>
-
-<p>如果看到<code>fileformat=dos</code>，那就是了，只要修改文件格式為<code>unix</code>，然後存檔覆蓋即可</p>
-
+</code></pre><p>如果看到<code>fileformat=dos</code>，那就是了，只要修改文件格式為<code>unix</code>，然後存檔覆蓋即可</p>
 <pre><code>:set ff=unix
 :wq
 </code></pre>
-
     </div>
     <blockquote class="page-info">
       最後更新時間：<time class="date date--update">June 27, 2017</time>

@@ -61,48 +61,31 @@
     
     <h1 class="title">JavaScript ES6 Numeric Literals</h1>
     <div class="content">
-      
-
-<p>寫 JS 也好一陣子了，還沒遇過需要處理二進位的情況，如果了解原理，<a href="https://oomusou.io/ecmascript/operator/bitwise/?fbclid=IwAR1jwGMQ-VPIPFDoD6x-mcRbPz-9exwnD3UST4UC9Is6w4AfUmtW2uc3zFM">用二進位表示法來處理權限問題</a>，也真的是簡潔不囉唆。剛才翻了下文件，發現其實在 ES6 之後就有提供不同進位法數字表示法了，包括 Decimal, Binary, Octal, Hexadecimal 這幾種，運算時其實不一定需要使用 <code>parseInt()</code> 了，語法如下：</p>
-
+      <p>寫 JS 也好一陣子了，還沒遇過需要處理二進位的情況，如果了解原理，<a href="https://oomusou.io/ecmascript/operator/bitwise/?fbclid=IwAR1jwGMQ-VPIPFDoD6x-mcRbPz-9exwnD3UST4UC9Is6w4AfUmtW2uc3zFM">用二進位表示法來處理權限問題</a>，也真的是簡潔不囉唆。剛才翻了下文件，發現其實在 ES6 之後就有提供不同進位法數字表示法了，包括 Decimal, Binary, Octal, Hexadecimal 這幾種，運算時其實不一定需要使用 <code>parseInt()</code> 了，語法如下：</p>
 <h2 id="syntax">Syntax</h2>
+<h3 id="decimal">Decimal（十進位）</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">d1</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1234567890</span>;
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">d2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">900</span>;
 
-<h3 id="decimal-十進位">Decimal（十進位）</h3>
-
-<pre><code class="language-js">var d1 = 1234567890;
-var d2 = 900;
-
-// 如果 0 開頭的數字，其中有大於等於 8 的數字，也會解析為 Decimal
-var d3 = 0888; // 888
-
-// 如果 0 後面的數字都小於 8，則會解析為 Octal
-var o1 = 0777; // 511
-</code></pre>
-
-<h3 id="binary-二進位">Binary（二進位）</h3>
-
-<pre><code class="language-js">// 以 ob 或 oB 開頭
-var b1 = 0b0001; // 1
-var b2 = 0b0011; // 3
-</code></pre>
-
-<h3 id="octal-八進位">Octal（八進位）</h3>
-
-<pre><code class="language-js">// 以 0O 或 0o 開頭
-var o3 = 0O755; // 493（也可以直接寫 var n = 0755）
-var o4 = 0o644; // 420
-
-</code></pre>
-
-<h3 id="hexadecimal-十六進位">Hexadecimal（十六進位）</h3>
-
-<pre><code class="language-js">// 以 0x 或 0X 開頭
-var x1 = 0xFFF; // 4095
-var x2 = 0xA; // 10
-</code></pre>
-
-<h2 id="參考資料">參考資料</h2>
-
+<span style="color:#75715e">// 如果 0 開頭的數字，其中有大於等於 8 的數字，也會解析為 Decimal
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">d3</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0888</span>; <span style="color:#75715e">// 888
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// 如果 0 後面的數字都小於 8，則會解析為 Octal
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">o1</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0777</span>; <span style="color:#75715e">// 511
+</span></code></pre></div><h3 id="binary">Binary（二進位）</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// 以 ob 或 oB 開頭
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b1</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0b0001</span>; <span style="color:#75715e">// 1
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0b0011</span>; <span style="color:#75715e">// 3
+</span></code></pre></div><h3 id="octal">Octal（八進位）</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// 以 0O 或 0o 開頭
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">o3</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0O755</span>; <span style="color:#75715e">// 493（也可以直接寫 var n = 0755）
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">o4</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0o644</span>; <span style="color:#75715e">// 420
+</span><span style="color:#75715e"></span>
+</code></pre></div><h3 id="hexadecimal">Hexadecimal（十六進位）</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// 以 0x 或 0X 開頭
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">x1</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0xFFF</span>; <span style="color:#75715e">// 4095
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">x2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0xA</span>; <span style="color:#75715e">// 10
+</span></code></pre></div><h2 id="heading">參考資料</h2>
 <ul>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Numeric_literals">MDN: Numeric literals</a></li>
 <li><a href="http://www.ecma-international.org/ecma-262/6.0/#sec-literals-numeric-literals">ECMAScript® 2015 Language Specification: 11.8.3 Numeric Literals</a></li>

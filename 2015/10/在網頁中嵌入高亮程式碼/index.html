@@ -62,40 +62,34 @@
     <h1 class="title">在網頁中嵌入高亮程式碼</h1>
     <div class="content">
       <p>有時候，我們需要在頁面中分享程式碼，但可能會發現：</p>
-
 <ul>
 <li>它居然被執行了！</li>
 <li>沒有 highlight 眼睛很痛……</li>
 <li>有 highlight，但是配色不好看</li>
 </ul>
-
-<p>嵌入的方法有很多，以下利用 google 的 <a href="https://github.com/google/code-prettify">code-prettify</a>，此方法適用<strong>支援 Javascript</strong> 的部落格，或者是自己架設的個人網站。</p>
-
-<hr />
-
+<p>嵌入的方法有很多，以下利用 google 的 <a href="https://github.com/google/code-prettify">code-prettify</a>，此方法適用__支援 Javascript__ 的部落格，或者是自己架設的個人網站。</p>
+<hr>
 <ol>
-<li><p>把你想要貼的 code 重新編碼（encode），以免被瀏覽器執行了。
-推薦使用<a href="http://www.opinionatedgeek.com/DotNet/Tools/HTMLEncode/Encode.aspx">此工具</a>。</p></li>
-
-<li><p>在<code>body</code>最後引用這個 JS 檔。</p>
-
-<pre><code class="language-html">&lt;script src=&quot;https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js&quot;&gt;&lt;/script&gt;
-</code></pre>
-
-<p>這是 Google 提供的服務，除了最常見的<code>HTML</code>、<code>XML</code>、<code>CSS</code>、<code>Javascript</code>之外，幾乎主流的語法都有支援（
+<li>
+<p>把你想要貼的 code 重新編碼（encode），以免被瀏覽器執行了。
+推薦使用<a href="http://www.opinionatedgeek.com/DotNet/Tools/HTMLEncode/Encode.aspx">此工具</a>。</p>
+</li>
+<li>
+<p>在<code>body</code>最後引用這個 JS 檔。</p>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><p>這是 Google 提供的服務，除了最常見的<code>HTML</code>、<code>XML</code>、<code>CSS</code>、<code>Javascript</code>之外，幾乎主流的語法都有支援（
 <a href="https://rawgit.com/google/code-prettify/master/examples/quine.html">點此看效果</a>），有興趣的朋友也可以至 <a href="https://github.com/google/code-prettify">Google Code Prettify</a> 深入了解。
 如果你會修改部落格的 CSS，<a href="https://cdn.rawgit.com/google/code-prettify/master/styles/index.html">這裡還有提供幾種主題</a>，可以直接套用，像我就滿喜歡 sunburst 的。</p>
-
-<ol>
-<li>將你重新編碼過的程式碼，用以下方式包住。
-<code>html
-&lt;pre class=&quot;prettyprint&quot;&gt;
-你的程式碼
-&lt;/pre&gt;
-</code></li>
-</ol></li>
-
-<li><p>大功告成！</p></li>
+<ol start="3">
+<li>將你重新編碼過的程式碼，用以下方式包住。</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">pre</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;prettyprint&#34;</span>&gt;
+        你的程式碼
+&lt;/<span style="color:#f92672">pre</span>&gt;
+</code></pre></div><ol start="4">
+<li>大功告成！</li>
 </ol>
 
     </div>

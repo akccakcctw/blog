@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on 為了可能的聲音</title>
@@ -39,7 +39,7 @@
     </item>
     
     <item>
-      <title>vim</title>
+      <title>Vim</title>
       <link>https://blog.rex-tsou.com/categories/vim/</link>
       <pubDate>Tue, 13 Nov 2018 23:09:15 +0800</pubDate>
       
@@ -84,7 +84,7 @@
     </item>
     
     <item>
-      <title>Server</title>
+      <title>server</title>
       <link>https://blog.rex-tsou.com/categories/server/</link>
       <pubDate>Wed, 11 Oct 2017 00:29:24 +0800</pubDate>
       
@@ -111,20 +111,20 @@
     </item>
     
     <item>
-      <title>CSS</title>
-      <link>https://blog.rex-tsou.com/categories/css/</link>
-      <pubDate>Thu, 06 Jul 2017 10:34:09 +0800</pubDate>
-      
-      <guid>https://blog.rex-tsou.com/categories/css/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Chrome</title>
       <link>https://blog.rex-tsou.com/categories/chrome/</link>
       <pubDate>Thu, 06 Jul 2017 10:34:09 +0800</pubDate>
       
       <guid>https://blog.rex-tsou.com/categories/chrome/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CSS</title>
+      <link>https://blog.rex-tsou.com/categories/css/</link>
+      <pubDate>Thu, 06 Jul 2017 10:34:09 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/categories/css/</guid>
       <description></description>
     </item>
     

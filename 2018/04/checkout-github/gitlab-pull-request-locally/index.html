@@ -70,51 +70,33 @@
     
     <h1 class="title">Checkout GitHub/Gitlab Pull Request Locally</h1>
     <div class="content">
-      
-
-<p>專案目錄底下的 <code>.git/config</code> 檔案內，記錄有 Git 的 remote url，如果是 GitHub，長相類似這樣：</p>
-
-<pre><code class="language-gitconfig">[remote &quot;origin&quot;]
+      <p>專案目錄底下的 <code>.git/config</code> 檔案內，記錄有 Git 的 remote url，如果是 GitHub，長相類似這樣：</p>
+<pre><code class="language-gitconfig" data-lang="gitconfig">[remote &quot;origin&quot;]
   url = git@github.com:akccakcctw/project.git
   fetch = +refs/heads/*:refs/remotes/origin/*
-</code></pre>
-
-<p>只要在下面新增一行 <code>fetch = +refs/pull/*/head:refs/remotes/origin/pr/*</code>：</p>
-
-<pre><code class="language-gitconfig">[remote &quot;origin&quot;]
+</code></pre><p>只要在下面新增一行 <code>fetch = +refs/pull/*/head:refs/remotes/origin/pr/*</code>：</p>
+<pre><code class="language-gitconfig" data-lang="gitconfig">[remote &quot;origin&quot;]
   url = git@github.com:akccakcctw/project.git
   fetch = +refs/heads/*:refs/remotes/origin/*
   fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
-</code></pre>
-
-<p>使用 <code>git fetch origin</code> 時就可以 fetch 到 PR 的 branch：</p>
-
-<pre><code class="language-sh">$ git fetch origin
+</code></pre><p>使用 <code>git fetch origin</code> 時就可以 fetch 到 PR 的 branch：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git fetch origin
 From github.com:akccakcctw/project
- * [new ref]         refs/pull/1000/head -&gt; origin/pr/1000
- * [new ref]         refs/pull/1002/head -&gt; origin/pr/1002
- * [new ref]         refs/pull/1004/head -&gt; origin/pr/1004
- * [new ref]         refs/pull/1009/head -&gt; origin/pr/1009
+ * <span style="color:#f92672">[</span>new ref<span style="color:#f92672">]</span>         refs/pull/1000/head -&gt; origin/pr/1000
+ * <span style="color:#f92672">[</span>new ref<span style="color:#f92672">]</span>         refs/pull/1002/head -&gt; origin/pr/1002
+ * <span style="color:#f92672">[</span>new ref<span style="color:#f92672">]</span>         refs/pull/1004/head -&gt; origin/pr/1004
+ * <span style="color:#f92672">[</span>new ref<span style="color:#f92672">]</span>         refs/pull/1009/head -&gt; origin/pr/1009
 ...
-</code></pre>
-
-<p>成功 fetch 後就能 checkout 到該 branch 了：</p>
-
-<pre><code class="language-sh">$ git checkout pr/1002
+</code></pre></div><p>成功 fetch 後就能 checkout 到該 branch 了：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ git checkout pr/1002
 Branch pr/1002 set up to track remote branch pr/1002 from origin.
-Switched to a new branch 'pr/1002'
-</code></pre>
-
-<p>同理，如果你是用 Gitlab，則把 pull 改為 merge-requests 即可：</p>
-
-<pre><code class="language-gitconfig">[remote &quot;origin&quot;]
+Switched to a new branch <span style="color:#e6db74">&#39;pr/1002&#39;</span>
+</code></pre></div><p>同理，如果你是用 Gitlab，則把 pull 改為 merge-requests 即可：</p>
+<pre><code class="language-gitconfig" data-lang="gitconfig">[remote &quot;origin&quot;]
   url = https://gitlab.com/akccakcctw/project.git
   fetch = +refs/heads/*:refs/remotes/origin/*
   fetch = +refs/merge-requests/*/head:refs/remotes/origin/pr/*
-</code></pre>
-
-<h2 id="參考資料">參考資料</h2>
-
+</code></pre><h2 id="heading">參考資料</h2>
 <ul>
 <li><a href="https://gist.github.com/piscisaureus/3342247">Gist: piscisaureus/pr.md</a></li>
 </ul>

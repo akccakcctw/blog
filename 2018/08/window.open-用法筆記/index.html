@@ -61,63 +61,42 @@
     
     <h1 class="title">window.open() 用法筆記</h1>
     <div class="content">
-      
-
-<p><code>window.open()</code> 這個 method 經常使用，但是之前並沒有深究，直到最近讀犀牛書，才發現還有些特別的用法。</p>
-
+      <p><code>window.open()</code> 這個 method 經常使用，但是之前並沒有深究，直到最近讀犀牛書，才發現還有些特別的用法。</p>
 <p>先來看看 syntax：</p>
-
 <h2 id="syntax">Syntax</h2>
-
-<pre><code class="language-javascript">var w =  window.open(url, windowName, [windowFeatures]);
-</code></pre>
-
-<h3 id="參數-url">參數：<code>url</code></h3>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">w</span> <span style="color:#f92672">=</span>  window.<span style="color:#a6e22e">open</span>(<span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">windowName</span>, [<span style="color:#a6e22e">windowFeatures</span>]);
+</code></pre></div><h3 id="url">參數：<code>url</code></h3>
 <p>第一個參數就是 url，很直觀，只要瀏覽器支援的字串都可以丟進去。需要注意的有以下幾點：</p>
-
 <ul>
 <li>如果是空字串，會打開一個空白頁面</li>
 <li>如果帶有 schema（例如：<code>https://</code>），會當作絕對位址解析</li>
 <li>反之，如果不帶有 schema，會當作相對位址解析</li>
 </ul>
-
-<h3 id="參數-windowname">參數：<code>windowName</code></h3>
-
+<h3 id="windowname">參數：<code>windowName</code></h3>
 <p>打開的 window 要叫什麼名字。</p>
-
 <ul>
 <li>如果該名字已經被某個 window（iframe, tab） 使用了，打開的 url 就會開在該 window</li>
 <li>如果省略此參數，會使用 <code>_blank</code> 打開一個新的頁面</li>
 </ul>
-
-<h3 id="參數-windowfeatures">參數：<code>windowFeatures</code></h3>
-
+<h3 id="windowfeatures">參數：<code>windowFeatures</code></h3>
 <p>一些 window 的控制項，控制 window 的尺寸、scrollbar 顯示與否等等，詳細用法可參考 <a href="https://developer.mozilla.org/zh-TW/docs/Web/API/Window/open#Window_features">MDN</a>。</p>
-
 <ul>
 <li>使用逗號分隔</li>
 <li>不可使用空白字元</li>
 </ul>
-
-<h2 id="其他功能">其他功能</h2>
-
+<h2 id="heading">其他功能</h2>
 <p>如果用 <code>window.open</code> 打開的話，就可以控制打開的 window 了，提供一些比較有用的用法如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">w</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">open</span>(<span style="color:#e6db74">&#39;https://example.com&#39;</span>, <span style="color:#e6db74">&#39;examplePage&#39;</span>);
 
-<pre><code class="language-javascript">var w = window.open('https://example.com', 'examplePage');
+<span style="color:#75715e">// 在同一個 tab 內開啟 example2.com
+</span><span style="color:#75715e"></span>window.<span style="color:#a6e22e">open</span>(<span style="color:#e6db74">&#39;https://example2.com&#39;</span>, <span style="color:#e6db74">&#39;examplePage&#39;</span>);
 
-// 在同一個 tab 內開啟 example2.com
-window.open('https://example2.com', 'examplePage');
+<span style="color:#75715e">// 子頁面回到上一頁
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">history</span>.<span style="color:#a6e22e">back</span>();
 
-// 子頁面回到上一頁
-w.history.back();
-
-// 關掉子頁面
-w.close();
-</code></pre>
-
-<h2 id="參考資料">參考資料</h2>
-
+<span style="color:#75715e">// 關掉子頁面
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">close</span>();
+</code></pre></div><h2 id="heading-1">參考資料</h2>
 <ul>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/open">MDN: Window.open()</a></li>
 </ul>

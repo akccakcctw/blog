@@ -61,23 +61,17 @@
     
     <h1 class="title">DevTools: Retrieving objects which were created from the constructor</h1>
     <div class="content">
-      
+      <p>Chrome 的 DevTools 原先就內建很多實用的 <a href="https://developers.google.com/web/tools/chrome-devtools/console/command-line-reference">Command Line API</a>，現在又多一個好用的 <code>queryObjects(Constructor)</code>，ummar 照慣例錄了一段 .gif ，附在底下的參考資料，可以感受一下，這邊簡單記錄用法：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// 尋找所有 Promise 物件
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">queryObjects</span>(Promise)
 
-<p>Chrome 的 DevTools 原先就內建很多實用的 <a href="https://developers.google.com/web/tools/chrome-devtools/console/command-line-reference">Command Line API</a>，現在又多一個好用的 <code>queryObjects(Constructor)</code>，ummar 照慣例錄了一段 .gif ，附在底下的參考資料，可以感受一下，這邊簡單記錄用法：</p>
+<span style="color:#75715e">// 尋找自己定義的物件
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> {}
+<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Person</span>()
+<span style="color:#a6e22e">queryObjects</span>(<span style="color:#a6e22e">Person</span>)
 
-<pre><code class="language-javascript">// 尋找所有 Promise 物件
-queryObjects(Promise)
-
-// 尋找自己定義的物件
-class Person {}
-new Person()
-queryObjects(Person)
-
-// 而且，找到之後在 return 的 Array 上按右鍵，還可以存成全域變數（變數名會是 temp1, temp2...），debug 非常方便！
-</code></pre>
-
-<h2 id="參考資料">參考資料</h2>
-
+<span style="color:#75715e">// 而且，找到之後在 return 的 Array 上按右鍵，還可以存成全域變數（變數名會是 temp1, temp2...），debug 非常方便！
+</span></code></pre></div><h2 id="heading">參考資料</h2>
 <p><a href="https://umaar.com/dev-tips/173-query-objects/">Chrome DevTools: Identify objects created with a certain constructor</a></p>
 
     </div>

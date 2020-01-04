@@ -78,52 +78,31 @@
     
     <h1 class="title">各種讓網頁重新導向的方法</h1>
     <div class="content">
-      
-
-<h2 id="方法一-直接在錯誤頁裡重導">方法一：直接在錯誤頁裡重導</h2>
-
-<p>如果<s>沒有強迫症</s>不在乎伺服器裡多增加一個沒有用的檔案，這樣最簡單：</p>
-
+      <h2 id="heading">方法一：直接在錯誤頁裡重導</h2>
+<p>如果<!-- raw HTML omitted -->沒有強迫症<!-- raw HTML omitted -->不在乎伺服器裡多增加一個沒有用的檔案，這樣最簡單：</p>
 <h3 id="php">PHP</h3>
-
-<pre><code class="language-php">&lt;?php
-  header( 'Location: http://www.redirect-location.com' );
-  exit();
-?&gt;
-</code></pre>
-
-<h3 id="html">HTML</h3>
-
-<pre><code class="language-html">&lt;meta http-equiv=&quot;refresh&quot; content=&quot;1;url=http://www.redirect-location.com&quot;&gt;
-</code></pre>
-
-<p>此處<code>content</code>屬性裡面的「1」，代表延遲1秒，可以自行替換成其他數字</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
+  <span style="color:#a6e22e">header</span>( <span style="color:#e6db74">&#39;Location: http://www.redirect-location.com&#39;</span> );
+  <span style="color:#66d9ef">exit</span>();
+<span style="color:#75715e">?&gt;</span>
+</code></pre></div><h3 id="html">HTML</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;refresh&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1;url=http://www.redirect-location.com&#34;</span>&gt;
+</code></pre></div><p>此處<code>content</code>屬性裡面的「1」，代表延遲1秒，可以自行替換成其他數字</p>
 <p>當然，你可能會發現，每次連進 FTP 就看到一個無關緊要的垃圾在那邊……髒髒的不舒服，而且 user 要多等 1 秒才看得到真正的網頁，有沒有更好的辦法？
 有！請看以下方法二。</p>
-
-<h2 id="方法二-修改-htaccess-檔案">方法二：修改 .htaccess 檔案</h2>
-
+<h2 id="-htaccess-">方法二：修改 .htaccess 檔案</h2>
 <p>其實也不難，把以下幾行字加進 .htaccess 的開頭就可以了</p>
-
 <pre><code>RewriteEngine On
 RewriteBase /
 RewriteRule ^index\.html?$ / [NC,R,L]
-</code></pre>
+</code></pre><h2 id="javascript">同場加映：JavaScript重導</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// similar behavior as an HTTP redirect，不會留下歷史記錄
+</span><span style="color:#75715e"></span>window.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">&#34;http://stackoverflow.com&#34;</span>);
 
-<h2 id="同場加映-javascript重導">同場加映：JavaScript重導</h2>
-
-<pre><code class="language-js">// similar behavior as an HTTP redirect，不會留下歷史記錄
-window.location.replace(&quot;http://stackoverflow.com&quot;);
-
-// similar behavior as clicking on a link，會留下歷史記錄
-window.location.href = &quot;http://stackoverflow.com&quot;;
-</code></pre>
-
-<p><code>.replace()</code>可以避免使用者無法回到上一頁的情形發生，但有時還是會需要模擬點擊連結的效果，因此兩種都列出</p>
-
-<h2 id="參考資料">參考資料</h2>
-
+<span style="color:#75715e">// similar behavior as clicking on a link，會留下歷史記錄
+</span><span style="color:#75715e"></span>window.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">href</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;http://stackoverflow.com&#34;</span>;
+</code></pre></div><p><code>.replace()</code>可以避免使用者無法回到上一頁的情形發生，但有時還是會需要模擬點擊連結的效果，因此兩種都列出</p>
+<h2 id="heading-1">參考資料</h2>
 <ul>
 <li><a href="https://css-tricks.com/how-to-redirect-indexhtml-to-indexphp/">CSS-TRICKS：How to Redirect indexhtml to indexphp</a></li>
 <li><a href="http://stackoverflow.com/questions/503093/how-can-i-make-a-redirect-page-using-jquery">stackoverflow：How Can I Make A Redirect Page Using Jquery</a></li>

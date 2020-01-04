@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>find on 為了可能的聲音</title>
@@ -17,7 +17,7 @@
       <pubDate>Sat, 20 Jan 2018 17:32:21 +0800</pubDate>
       
       <guid>https://blog.rex-tsou.com/2018/01/linux-command-line-find-%E6%8C%87%E4%BB%A4%E7%94%A8%E6%B3%95/</guid>
-      <description>常用參數 type f: file d: directory l: symbolic p: pipe s: socket name iname: ignore case path mtime: modify time (day) atime: access time (day) ctime: create time (day) mmin: (minute) amin: (minute) cmin: (minute) size or: 可以簡寫為 -o not: 可以簡寫為 ! exec: execute delete 基本用法 # name find . -name findme # 找 &#39;findme&#39; find</description>
+      <description>常用參數 type f: file d: directory l: symbolic p: pipe s: socket name iname: ignore case path mtime: modify time (day) atime: access time (day) ctime: create time (day) mmin: (minute) amin: (minute) cmin: (minute) size or: 可以簡寫為 -o not: 可以簡寫為 ! exec: execute delete 基本用法 # name find . -name findme # 找 &amp;#39;findme&amp;#39; find</description>
     </item>
     
   </channel>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>regex on 為了可能的聲音</title>
@@ -17,7 +17,7 @@
       <pubDate>Tue, 22 May 2018 22:52:20 +0800</pubDate>
       
       <guid>https://blog.rex-tsou.com/2018/05/es2018regexp-%E6%96%B0%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%B4%B9/</guid>
-      <description>/s flag 為了解決目前的 dot(.) 無法比對到換行字元，因此新的 /s flag 又稱 dotAll mode。 const input = ` Lorem ipsum dolor sit amet, consectetur adipiscing hello world elit. Nam sit amet elit id risus aliquam porta. `; /hello.world/u.test(input); // false workarounds: /hello[\s\S]world/u.test(input); // true /hello[^]world/u.test(input) // true 新語法</description>
+      <description>/s flag 為了解決目前的 dot(.) 無法比對到換行字元，因此新的 /s flag 又稱 dotAll mode。 const input = `Lorem ipsum dolor sit amet, consectetur adipiscing hello world elit. Nam sit amet elit id risus aliquam porta. `; /hello.world/u.test(input); // false workarounds: /hello[\s\S]world/u.test(input); // true /hello[^]world/u.test(input) // true 新語法：</description>
     </item>
     
   </channel>

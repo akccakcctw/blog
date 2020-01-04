@@ -61,92 +61,61 @@
     
     <h1 class="title">iOS Input Field White Screen Issue</h1>
     <div class="content">
-      
-
-<h2 id="tl-dr">TL;DR</h2>
-
+      <h2 id="tldr">TL;DR</h2>
 <p>檢查看看 CSS 內是否有 <code>-webkit-overflow-scrolling: touch;</code>，改成 <code>-webkit-overflow-scrolling: auto;</code> 或許就能解決了。</p>
-
-<hr />
-
+<hr>
 <p>今天在公司的專案遇到一個通靈級別的 bug，只有在比較舊的 iOS 手機（iOS 10, iPhone6s）會發生。問題比較罕見，排除問題的過程也值得記錄一下。</p>
-
 <p>專案用的是 vue，但後來測試結果證實和 vue 無關。發生問題的 code 長下面這樣：</p>
-
-<pre><code class="language-html">&lt;input
-  :id=&quot;`booking-traveler-passport-first-name-${ i }`&quot;
-  v-validate=&quot;'required|passportName'&quot;
-  :value=&quot;_.get(orderCustomList[i - 1], 'englishName.firstName')&quot;
-  :name=&quot;`passport-firstname-${ i }`&quot;
-  :placeholder=&quot;lang('booking_index_cust_data_passport_english_firstname_placeholder')&quot;
-  type=&quot;text&quot;
-  class=&quot;form-control&quot;
-  @focus=&quot;updateIsShowBookingFixBar(false)&quot;
-  @blur=&quot;updateIsShowBookingFixBar(true)&quot;
-  @input=&quot;updateOrderCustomListByPath({
-    $event,
-    index: i - 1,
-    path: 'englishName.firstName',
-  })&quot;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">input</span>
+  <span style="color:#a6e22e">:id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;`booking-traveler-passport-first-name-${ i }`&#34;</span>
+  <span style="color:#a6e22e">v-validate</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#39;required|passportName&#39;&#34;</span>
+  <span style="color:#a6e22e">:value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;_.get(orderCustomList[i - 1], &#39;englishName.firstName&#39;)&#34;</span>
+  <span style="color:#a6e22e">:name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;`passport-firstname-${ i }`&#34;</span>
+  <span style="color:#a6e22e">:placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lang(&#39;booking_index_cust_data_passport_english_firstname_placeholder&#39;)&#34;</span>
+  <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
+  <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-control&#34;</span>
+  <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">focus</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;updateIsShowBookingFixBar(false)&#34;</span>
+  <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">blur</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;updateIsShowBookingFixBar(true)&#34;</span>
+  <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">input</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;updateOrderCustomListByPath({
+</span><span style="color:#e6db74">    $event,
+</span><span style="color:#e6db74">    index: i - 1,
+</span><span style="color:#e6db74">    path: &#39;englishName.firstName&#39;,
+</span><span style="color:#e6db74">  })&#34;</span>
 &gt;
-</code></pre>
-
-<p>這是一個 text 類型的 <code>input</code> 輸入框，由於是用 vue 寫，因此綁定了許多特定事件在元素上，有：</p>
-
+</code></pre></div><p>這是一個 text 類型的 <code>input</code> 輸入框，由於是用 vue 寫，因此綁定了許多特定事件在元素上，有：</p>
 <ol>
 <li>focus 事件：<code>updateIsShowBookingFixBar</code></li>
 <li>blur 事件：<code>updateIsShowBookingFixBar</code>、觸發 v-validate 執行資料驗證</li>
 <li>input 事件：<code>updateOrderCustomListByPath</code></li>
 <li>:value：資料綁定</li>
 </ol>
-
 <p>語法看起來是沒問題的，只是當 <code>input</code> 被點擊（focus 事件）並觸發螢幕虛擬鍵盤展開（這時候還是正常的），再隨便按任何 2 個字元（數字、空白鍵等等都可&hellip;），當你按下第 2 個字元時，瀏覽器整個區塊會白屏。看起來很像有一層白色的 layer 覆蓋在這個區塊上，只剩下 header 和 footer。但是當你 focus 到其他元素時就回到正常。</p>
-
 <p>當恢復正常時，繼續打字不會再度觸發白屏的 bug。但是把這個欄位清空重新輸入到第 <strong>2</strong> 個字元時又會再度觸發。</p>
-
 <p>一開始的想法很簡單，在旁邊寫一個乾淨的 <code>input</code> 看有沒有同樣問題：</p>
-
-<pre><code class="language-html">&lt;!-- 像這樣超乾淨 --&gt;
-&lt;input type=&quot;text&quot;&gt;
-</code></pre>
-
-<p>結果沒問題，躺著按、坐著按，輸入中文 blahblah 就是沒問題。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> 像這樣超乾淨 </span><span style="color:#75715e">--&gt;</span>
+&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>&gt;
+</code></pre></div><p>結果沒問題，躺著按、坐著按，輸入中文 blahblah 就是沒問題。</p>
 <p>看來和元素內容有關？</p>
-
 <p>於是我開始縮小範圍做實驗，最後把可能造成問題的 property 限縮在 <code>placeholder</code> 及 <code>@focus</code> 這 2 個。</p>
-
 <ul>
 <li>2 個都沒有時完全正常</li>
 <li>只有 <code>placeholder</code> 時（不管前面是否有 <code>:</code>），情形和一開始敘述的一樣</li>
 <li>只有 <code>@focus</code> 時，重整頁面後輸入第 1 個字元就會觸發白屏，但是只會發生 1 次，之後就不會再觸發</li>
 </ul>
-
 <p>這時我決定去找同事尋求一些建議，同事想到其他頁面也有 <code>input</code> 欄位，而且似乎很正常沒出過問題，這時的靈光開始導向 CSS，感覺是 CSS 在作怪。</p>
-
 <p>把 CSS 全部拿掉後，發現是正常的。然後同事就找到<a href="https://stackoverflow.com/questions/45643879/cordova-ios-white-screen-after-click-in-a-input-field#">這篇</a>，雖然這個問題非常冷門，但我搜尋一下解答中提到的</p>
-
-<pre><code class="language-css">-webkit-overflow-scrolling: touch;
-</code></pre>
-
-<p>發現還真的有！試著改成</p>
-
-<pre><code class="language-css">-webkit-overflow-scrolling: auto;
-</code></pre>
-
-<p>白屏的問題就解決了！</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">-webkit-overflow-scrolling</span><span style="color:#f92672">:</span> <span style="color:#f92672">touch</span><span style="color:#f92672">;</span>
+</code></pre></div><p>發現還真的有！試著改成</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">-webkit-overflow-scrolling</span><span style="color:#f92672">:</span> <span style="color:#f92672">auto</span><span style="color:#f92672">;</span>
+</code></pre></div><p>白屏的問題就解決了！</p>
 <blockquote>
 <p>Tips：<code>-webkit-overflow-scrolling</code> 是 iOS 的非標準 CSS 規則，用來改變手指在觸控螢幕上捲動畫面的回彈效果，設定為 auto 時，手指移開捲動會立即停止；設定為 touch 時，會有回彈效果。</p>
 </blockquote>
-
 <p>白屏的問題看起來在新版 iOS 已經修正了，不過還不太清楚問題的原因為何，又為何與 placeholder 和 focus 有關？就等之後比較有空再來研究了。</p>
-
-<h2 id="參考資料">參考資料</h2>
-
+<h2 id="heading">參考資料</h2>
 <ul>
-<li><a href="https://stackoverflow.com/questions/45643879/cordova-ios-white-screen-after-click-in-a-input-field">https://stackoverflow.com/questions/45643879/cordova-ios-white-screen-after-click-in-a-input-field</a>
--</li>
+<li><a href="https://stackoverflow.com/questions/45643879/cordova-ios-white-screen-after-click-in-a-input-field">https://stackoverflow.com/questions/45643879/cordova-ios-white-screen-after-click-in-a-input-field</a></li>
+<li></li>
 </ul>
 
     </div>

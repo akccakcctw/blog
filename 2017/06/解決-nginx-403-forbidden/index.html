@@ -74,38 +74,30 @@
     
     <h1 class="title">解決 Nginx 403 Forbidden</h1>
     <div class="content">
-      
-
-<ol>
+      <ol>
 <li>檢查 error log</li>
 <li>確定檔案權限為 755</li>
 <li>確定 SElinux</li>
 </ol>
-
-<pre><code class="language-sh">ll -Z /etc/nginx/conf.d/xxx.conf # 顯示出 [身分識別:角色:type] 的SElinux 訊息，type 最重要，可能會是 &quot;httpd_config_t&quot;
-ll -Z /srv/www # type可能是&quot;var_t&quot;或是其他，總之不是httpd開頭就會有權限問題
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ll -Z /etc/nginx/conf.d/xxx.conf <span style="color:#75715e"># 顯示出 [身分識別:角色:type] 的SElinux 訊息，type 最重要，可能會是 &#34;httpd_config_t&#34;</span>
+ll -Z /srv/www <span style="color:#75715e"># type可能是&#34;var_t&#34;或是其他，總之不是httpd開頭就會有權限問題</span>
 
 restorecon -Rv /srv/www 
-# -R：連同子資料夾
-# -v：顯示過程
-# 此時 /srv/www 的 type 變成 &quot;httpd_sys_content_t&quot;，成功~
-</code></pre>
+<span style="color:#75715e"># -R：連同子資料夾</span>
+<span style="color:#75715e"># -v：顯示過程</span>
+<span style="color:#75715e"># 此時 /srv/www 的 type 變成 &#34;httpd_sys_content_t&#34;，成功~</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">su - <span style="color:#75715e"># 進入root身分</span>
+getsebool -a | grep httpd <span style="color:#75715e"># 顯示 SElinux boolean 權限</span>
+setsebool -P httpd_enable_homedirs <span style="color:#ae81ff">1</span>
+setsebool -P httpd_can_network_connect <span style="color:#ae81ff">1</span> <span style="color:#75715e"># -P flag = persist</span>
+reboot <span style="color:#75715e"># 重啟linux</span>
+service nginx restart <span style="color:#75715e"># 重啟nginx</span>
 
-<pre><code class="language-sh">su - # 進入root身分
-getsebool -a | grep httpd # 顯示 SElinux boolean 權限
-setsebool -P httpd_enable_homedirs 1
-setsebool -P httpd_can_network_connect 1 # -P flag = persist
-reboot # 重啟linux
-service nginx restart # 重啟nginx
-
-# 或是先關掉SElinux（不建議）
+<span style="color:#75715e"># 或是先關掉SElinux（不建議）</span>
 vim /etc/sysconfig/selinux 
-getenforce # 取得 SElinux 狀態
-setenforce permissive # 寬容模式（enforcing, permissive, disabled）
-</code></pre>
-
-<h2 id="參考資料">參考資料</h2>
-
+getenforce <span style="color:#75715e"># 取得 SElinux 狀態</span>
+setenforce permissive <span style="color:#75715e"># 寬容模式（enforcing, permissive, disabled）</span>
+</code></pre></div><h2 id="heading">參考資料</h2>
 <ul>
 <li><a href="http://linux.vbird.org/linux_basic/0440processcontrol.php#selinux">鳥哥的 Linux 私房菜：SELinux 初探</a></li>
 <li><a href="http://stackoverflow.com/questions/23948527/13-permission-denied-while-connecting-to-upstreamnginx">(13: Permission denied) while connecting to upstream:[nginx]</a></li>

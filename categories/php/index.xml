@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>PHP on 為了可能的聲音</title>
@@ -26,7 +26,7 @@
       <pubDate>Fri, 08 Jan 2016 15:50:00 +0000</pubDate>
       
       <guid>https://blog.rex-tsou.com/2016/01/%E5%90%84%E7%A8%AE%E8%AE%93%E7%B6%B2%E9%A0%81%E9%87%8D%E6%96%B0%E5%B0%8E%E5%90%91%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
-      <description>方法一：直接在錯誤頁裡重導 如果沒有強迫症不在乎伺服器裡多增加一個沒有用的檔案，這樣最簡單： PHP &amp;lt;?php header( &#39;Location: http://www.redirect-location.com&#39; ); exit(); ?&amp;gt; HTML &amp;lt;meta http-equiv=&amp;quot;refresh&amp;quot; content=&amp;quot;1;url=http://www.redirect-location.com&amp;quot;&amp;gt; 此處content屬性裡面</description>
+      <description>方法一：直接在錯誤頁裡重導 如果沒有強迫症不在乎伺服器裡多增加一個沒有用的檔案，這樣最簡單： PHP &amp;lt;?php header( &amp;#39;Location: http://www.redirect-location.com&amp;#39; ); exit(); ?&amp;gt; HTML &amp;lt;meta http-equiv=&amp;#34;refresh&amp;#34; content=&amp;#34;1;url=http://www.redirect-location.com&amp;#34;&amp;gt; 此處content屬性裡面</description>
     </item>
     
   </channel>

@@ -74,64 +74,40 @@
     
     <h1 class="title">Cmder 相關配置與問題解決</h1>
     <div class="content">
-      
-
-<p><em>目前版本 v1.3.2</em>
+      <p><em>目前版本 v1.3.2</em>
 下載位置：</p>
-
 <ul>
 <li><a href="https://github.com/cmderdev/cmder/releases">官網 http://cmder.net/</a></li>
 <li><a href="https://github.com/cmderdev/cmder/releases">GitHub Repo Releases</a></li>
 </ul>
-
-<h2 id="中文亂碼">中文亂碼</h2>
-
+<h2 id="heading">中文亂碼</h2>
 <p>修改 Settings/Startup/Environment (Win+Alt+P 可打開設定介面)，
 在底下新增一行 <code>set LANG=zh_TW.UTF8</code></p>
-
-<h2 id="啟動資料夾更改為所在位置-current-directory">啟動資料夾更改為所在位置(current directory)</h2>
-
+<h2 id="current-directory">啟動資料夾更改為所在位置(current directory)</h2>
 <p>修改 Settings/Startup/Tasks 內的 Task Commands</p>
-
-<pre><code class="language-sh">cmd /c &quot;%ConEmuDir%\..\git-for-windows\bin\bash --login -i&quot; -new_console:d:%CD%
-</code></pre>
-
-<h2 id="修改預設的-λ-符號">修改預設的 <code>λ</code> 符號</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cmd /c <span style="color:#e6db74">&#34;%ConEmuDir%\..\git-for-windows\bin\bash --login -i&#34;</span> -new_console:d:%CD%
+</code></pre></div><h2 id="--">修改預設的 <code>λ</code> 符號</h2>
 <p>預設的 prompt 如果不喜歡，可以修改 <code>cmder/vendor/clink.lua</code> 這個檔案，
 在檔案內用關鍵字搜尋 &ldquo;lambda&rdquo; 就可以找到須修改的位置，自行替換成習慣的符號</p>
-
-<h2 id="使用系統原有的-git-bash">使用系統原有的<code>git-bash</code></h2>
-
+<h2 id="git-bash">使用系統原有的<code>git-bash</code></h2>
 <p>修改  Settings/Startup/Tasks 內 {bash::bash} 設定</p>
-
-<pre><code class="language-sh"># 預設為 
-# *cmd /c &quot;%ConEmuDir%\..\git-for-windows\bin\bash --login -i&quot; -new_console:d:%USERPROFILE%
-# 修改為（預設啟動位置也順便改成CD(current directory)了）
-cmd /c &quot;C:\PROGRA~1\Git\usr\bin\bash.exe --login -i&quot; -new_console:d:%CD%
-</code></pre>
-
-<h2 id="plugin-powerline">Plugin: Powerline</h2>
-
-<p>專案位址：<a href="https://github.com/AmrEldib/cmder-powerline-prompt/">https://github.com/AmrEldib/cmder-powerline-prompt/</a>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 預設為</span> 
+<span style="color:#75715e"># *cmd /c &#34;%ConEmuDir%\..\git-for-windows\bin\bash --login -i&#34; -new_console:d:%USERPROFILE%</span>
+<span style="color:#75715e"># 修改為（預設啟動位置也順便改成CD(current directory)了）</span>
+cmd /c <span style="color:#e6db74">&#34;C:\PROGRA~1\Git\usr\bin\bash.exe --login -i&#34;</span> -new_console:d:%CD%
+</code></pre></div><h2 id="plugin-powerline">Plugin: Powerline</h2>
+<p>專案位址：https://github.com/AmrEldib/cmder-powerline-prompt/
 將<code>powerline_prompt.lua</code>複製到 &ldquo;cmder/config/&rdquo; 底下即可</p>
-
-<pre><code class="language-sh">$ cmderr # cd 到 cmder 根目錄
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cmderr <span style="color:#75715e"># cd 到 cmder 根目錄</span>
 $ cd config
-$ wget &quot;https://raw.githubusercontent.com/AmrEldib/cmder-powerline-prompt/master/powerline_prompt.lua&quot;
-</code></pre>
-
-<h2 id="在-bash-on-ubuntu-on-windows-開啟-vim-時-方向鍵失效">在 Bash on Ubuntu on Windows 開啟 Vim 時，方向鍵失效</h2>
-
+$ wget <span style="color:#e6db74">&#34;https://raw.githubusercontent.com/AmrEldib/cmder-powerline-prompt/master/powerline_prompt.lua&#34;</span>
+</code></pre></div><h2 id="-bash-on-ubuntu-on-windows--vim-">在 Bash on Ubuntu on Windows 開啟 Vim 時，方向鍵失效</h2>
 <p>在 Settings/Startup/Tasks 新增一個 Task（我取名為 {bash::bash on Windows}），以後要開啟這個子系統時就用這個task 開</p>
-
 <ul>
 <li>Task parameters 設定 icon <code>/icon &quot;%USERPROFILE%\AppData\Local\lxss\bash.ico&quot;</code></li>
 <li>Commands 設定為 <code>%windir%\system32\bash.exe -cur_console:p</code></li>
 </ul>
-
-<h2 id="參考資料">參考資料</h2>
-
+<h2 id="heading-1">參考資料</h2>
 <ul>
 <li><a href="http://wentaoma.com/2016/08/31/cmder-chinese-encode/">cmder中文显示相关问题解决方案</a></li>
 <li><a href="https://jptomo.github.io/blog/2016/11120_how_to_modify_cmder_prompt.html">Cmder の Prompt を修正する方法</a></li>

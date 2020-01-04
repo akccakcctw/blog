@@ -70,89 +70,72 @@
     
     <h1 class="title">如何實作 addClass, removeClass？</h1>
     <div class="content">
-      
-
-<p>以下原始碼與想法，參考自 <a href="https://www.sitepoint.com/add-remove-css-class-vanilla-js/">Sitepoint：Add or Remove a CSS Class with Vanilla JavaScript</a> 並作改寫，為了撰寫方便，使用 ES6 語法，如需支援古老瀏覽器，仍需經過 <a href="https://babeljs.io/">Babel</a> 轉換。</p>
-
+      <p>以下原始碼與想法，參考自 <a href="https://www.sitepoint.com/add-remove-css-class-vanilla-js/">Sitepoint：Add or Remove a CSS Class with Vanilla JavaScript</a> 並作改寫，為了撰寫方便，使用 ES6 語法，如需支援古老瀏覽器，仍需經過 <a href="https://babeljs.io/">Babel</a> 轉換。</p>
 <p>如果不使用 jQuery，只想用 Vanilla Javascript 來新增移除<code>Class</code>，我們可以利用<code>className</code>（IE8+）或<code>classList</code>（IE10+）來實作。</p>
-
 <h2 id="ie8">IE8+</h2>
-
 <h3 id="addclass">addClass</h3>
-
-<pre><code class="language-js">const addClass = (el, myClass) =&gt; {
-  //檢查element是否存在
-  if (!el) {
-    return;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">addClass</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">el</span>, <span style="color:#a6e22e">myClass</span>) =&gt; {
+  <span style="color:#75715e">//檢查element是否存在
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">el</span>) {
+    <span style="color:#66d9ef">return</span>;
   }
   
-  //取得所有element(s)
-  if (typeof(el) === 'string') {
-    el = document.querySelectorAll(el);
-  } else if (el.tagName) {
-    el = [el];
+  <span style="color:#75715e">//取得所有element(s)
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span>(<span style="color:#a6e22e">el</span>) <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;string&#39;</span>) {
+    <span style="color:#a6e22e">el</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelectorAll</span>(<span style="color:#a6e22e">el</span>);
+  } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">el</span>.<span style="color:#a6e22e">tagName</span>) {
+    <span style="color:#a6e22e">el</span> <span style="color:#f92672">=</span> [<span style="color:#a6e22e">el</span>];
   }
 
-  for (let i = el.length - 1; i &gt;= 0; i--) {
-    //檢查欲新增的class是否已經存在
-    //注意前後的space，這樣可以避免使用RegExp
-    if ((` ${el[i].className} `).indexOf(` ${myClass} `) &lt; 0) { 
-      el[i].className += ` ${myClass}`;//key code
-    }
-  }
-}
-</code></pre>
-
-<h3 id="removeclass">removeClass</h3>
-
-<pre><code class="language-js">const removeClass = (el, myClass) =&gt; {
-  //檢查element是否存在
-  if (!el) {
-    return;
-  }
-
-  //取得所有element(s)
-  if (typeof(el) === 'string') {
-    el = document.querySelectorAll(el);
-  } else if (el.tagName) {
-    el = [el];
-  }
-
-  //利用RegExp找到此class
-  let reg = new RegExp(`(^| )${myClass}($| )`, 'g')
-
-  for (let i = el.length - 1; i &gt;= 0; i--) {
-    el[i].className = el[i].className.replace(reg, ' ');//key code
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">el</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">--</span>) {
+    <span style="color:#75715e">//檢查欲新增的class是否已經存在
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//注意前後的space，這樣可以避免使用RegExp
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> ((<span style="color:#e6db74">`</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">el</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">className</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">`</span>).<span style="color:#a6e22e">indexOf</span>(<span style="color:#e6db74">`</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">myClass</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">`</span>) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) { 
+      <span style="color:#a6e22e">el</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">className</span> <span style="color:#f92672">+=</span> <span style="color:#e6db74">`</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">myClass</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>;<span style="color:#75715e">//key code
+</span><span style="color:#75715e"></span>    }
   }
 }
-</code></pre>
+</code></pre></div><h3 id="removeclass">removeClass</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">removeClass</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">el</span>, <span style="color:#a6e22e">myClass</span>) =&gt; {
+  <span style="color:#75715e">//檢查element是否存在
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">el</span>) {
+    <span style="color:#66d9ef">return</span>;
+  }
 
-<h2 id="ie10">IE10+</h2>
+  <span style="color:#75715e">//取得所有element(s)
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span>(<span style="color:#a6e22e">el</span>) <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;string&#39;</span>) {
+    <span style="color:#a6e22e">el</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelectorAll</span>(<span style="color:#a6e22e">el</span>);
+  } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">el</span>.<span style="color:#a6e22e">tagName</span>) {
+    <span style="color:#a6e22e">el</span> <span style="color:#f92672">=</span> [<span style="color:#a6e22e">el</span>];
+  }
 
+  <span style="color:#75715e">//利用RegExp找到此class
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">reg</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> RegExp(<span style="color:#e6db74">`</span><span style="color:#e6db74">(^| )</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">myClass</span><span style="color:#e6db74">}</span><span style="color:#e6db74">(</span><span style="color:#e6db74">$</span><span style="color:#e6db74">| )</span><span style="color:#e6db74">`</span>, <span style="color:#e6db74">&#39;g&#39;</span>)
+
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">el</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">--</span>) {
+    <span style="color:#a6e22e">el</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">className</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">el</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">className</span>.<span style="color:#a6e22e">replace</span>(<span style="color:#a6e22e">reg</span>, <span style="color:#e6db74">&#39; &#39;</span>);<span style="color:#75715e">//key code
+</span><span style="color:#75715e"></span>  }
+}
+</code></pre></div><h2 id="ie10">IE10+</h2>
 <h3 id="addclass-1">addClass</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">addClass</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">selector</span>, <span style="color:#a6e22e">myClass</span>) =&gt; {
+  <span style="color:#75715e">//取得所有element(s)
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">el</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelectorAll</span>(<span style="color:#a6e22e">selector</span>);
 
-<pre><code class="language-js">const addClass = (selector, myClass) =&gt; {
-  //取得所有element(s)
-  el = document.querySelectorAll(selector);
-
-  for (let i = el.length - 1; i &gt;= 0; i--) {
-    el[i].classList.add(myClass);//key code
-  }
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">el</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">--</span>) {
+    <span style="color:#a6e22e">el</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">classList</span>.<span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">myClass</span>);<span style="color:#75715e">//key code
+</span><span style="color:#75715e"></span>  }
 }
-</code></pre>
+</code></pre></div><h3 id="removeclass-1">removeClass</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">removeClass</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">selector</span>, <span style="color:#a6e22e">myClass</span>) =&gt; {
+  <span style="color:#75715e">//取得所有element(s)
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">el</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelectorAll</span>(<span style="color:#a6e22e">selector</span>);
 
-<h3 id="removeclass-1">removeClass</h3>
-
-<pre><code class="language-js">const removeClass = (selector, myClass) =&gt; {
-  //取得所有element(s)
-  el = document.querySelectorAll(selector);
-
-  for (let i = el.length - 1; i &gt;= 0; i--) {
-    el[i].classList.remove(myClass);//key code
-  }
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">el</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">--</span>) {
+    <span style="color:#a6e22e">el</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">classList</span>.<span style="color:#a6e22e">remove</span>(<span style="color:#a6e22e">myClass</span>);<span style="color:#75715e">//key code
+</span><span style="color:#75715e"></span>  }
 }
-</code></pre>
-
+</code></pre></div>
     </div>
     <blockquote class="page-info">
       最後更新時間：<time class="date date--update">October 10, 2016</time>

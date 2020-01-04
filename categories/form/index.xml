@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Form on 為了可能的聲音</title>
@@ -17,7 +17,7 @@
       <pubDate>Fri, 06 Jan 2017 02:53:00 +0000</pubDate>
       
       <guid>https://blog.rex-tsou.com/2017/01/formdata-%E5%9F%BA%E7%A4%8E%E7%94%A8%E6%B3%95/</guid>
-      <description>創建 FormData 物件 // 語法： var formData = new FormData(form); // new 一個空的 FormData var formData = new FormData(); // 或者從現有的 form 取得資料，並 new FormData var formData = new FormData(document.querySelector(&#39;form&#39;)); 新增 (FormData.append) // 語法： formData.append(name, value[, filename]); // 新增一筆 username 資料，值為 Rex //</description>
+      <description>創建 FormData 物件 // 語法： var formData = new FormData(form); // new 一個空的 FormData var formData = new FormData(); // 或者從現有的 form 取得資料，並 new FormData var formData = new FormData(document.querySelector(&amp;#39;form&amp;#39;)); 新增 (FormData.append) // 語法： formData.append(name, value[, filename]); // 新增一筆 username 資料，值為 Rex //</description>
     </item>
     
     <item>

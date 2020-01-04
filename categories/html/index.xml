@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HTML on 為了可能的聲音</title>
@@ -17,7 +17,7 @@
       <pubDate>Mon, 22 May 2017 07:17:00 +0000</pubDate>
       
       <guid>https://blog.rex-tsou.com/2017/05/html-select-%E7%9A%84-placeholder-%E5%AF%AB%E6%B3%95/</guid>
-      <description>該如何讓select表單預設顯示在placeholder選項，但此選項僅作為提示用，不能選取呢？ 可以這樣寫： &amp;lt;select&amp;gt; &amp;lt;option value=&amp;quot;&amp;quot; disabled selected&amp;gt;</description>
+      <description>該如何讓select表單預設顯示在placeholder選項，但此選項僅作為提示用，不能選取呢？ 可以這樣寫： &amp;lt;select&amp;gt; &amp;lt;option value=&amp;#34;&amp;#34; disabled selected&amp;gt;</description>
     </item>
     
   </channel>

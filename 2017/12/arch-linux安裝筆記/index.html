@@ -74,253 +74,160 @@
     
     <h1 class="title">Arch Linux：安裝筆記</h1>
     <div class="content">
-      
-
-<p>本文使用 <strong>BIOS + GPT</strong> 開機。如果開機方式不同的話，有些地方會不完全適用，要特別注意。</p>
-
-<h2 id="準備開機碟">準備開機碟</h2>
-
+      <p>本文使用 <strong>BIOS + GPT</strong> 開機。如果開機方式不同的話，有些地方會不完全適用，要特別注意。</p>
+<h2 id="heading">準備開機碟</h2>
 <p>先到<a href="https://www.archlinux.org/download/">官網</a>下載 .iso 檔，Arch 映像檔由於只包含基礎需求，大約只有 500MB 左右，可以燒成光碟或是 USB drive，現在比較少看到用光碟了，都是 USB drive 為主，製作方式可以直接參考<a href="https://wiki.archlinux.org/index.php/USB_flash_installation_media">官方維基</a>。</p>
-
 <p>簡單來說，如果手邊有 Linux 環境，可以直接用 <code>dd</code>，只有 Windows 的話，官方推薦使用 Rufus、USBwriter 這些軟體（也可以使用 <a href="https://chocolatey.org/packages/dd/0.5">dd for Windows</a>）。</p>
-
 <p>我是在 Windows 做，但沒有使用官方推薦的工具，而是另外找了 <a href="http://multibootusb.org/">MultiBootUSB</a>（<a href="https://github.com/mbusb/multibootusb">Github</a>） 來用，它可以在同一個 USB drive 上放多個不同的 .iso 來使用，除了 Arch，我還放了 Ubuntu、CentOS、Manjaro 來備用。</p>
-
-<h2 id="確認開機模式">確認開機模式</h2>
-
-<p>如果不清楚 BIOS 和 UEFI 的差別，可以參考<a href="https://www.howtogeek.com/56958/htg-explains-how-uefi-will-replace-the-bios/">這篇</a>，或是<a href="https://www.techbang.com/posts/4356-fully-understand-uefi-bios-theory-and-actual-combat-1-liu-xiudian">這篇</a>。注意，有些新的電腦為了避免<del>老人</del>困惑，會把 UEFI 稱作 BIOS，然後把 BIOS 叫做 Legacy 之類的名字。</p>
-
+<h2 id="heading-1">確認開機模式</h2>
+<p>如果不清楚 BIOS 和 UEFI 的差別，可以參考<a href="https://www.howtogeek.com/56958/htg-explains-how-uefi-will-replace-the-bios/">這篇</a>，或是<a href="https://www.techbang.com/posts/4356-fully-understand-uefi-bios-theory-and-actual-combat-1-liu-xiudian">這篇</a>。注意，有些新的電腦為了避免<!-- raw HTML omitted -->老人<!-- raw HTML omitted -->困惑，會把 UEFI 稱作 BIOS，然後把 BIOS 叫做 Legacy 之類的名字。</p>
 <p>首先要確認開機模式，比較新的主機板都有支援 UEFI 開機，可以在開機時按 F2（或 del 之類）選擇開機模式，但我這台筆電比較舊，只有支援 BIOS。如果已經開機了，也可以使用以下指令確認：</p>
-
-<pre><code class="language-sh"># 如果沒有以下資料夾，那就是用 BIOS 開機，反之是用 UEFI 開機
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 如果沒有以下資料夾，那就是用 BIOS 開機，反之是用 UEFI 開機</span>
 ls /sys/firmware/efi/efivars
-</code></pre>
-
-<h2 id="準備網路">準備網路</h2>
-
+</code></pre></div><h2 id="heading-2">準備網路</h2>
 <p>Arch 安裝時會需要網路，我是使用無線網路，因此就在命令列裡打 <code>wifi-menu</code>，然後會有圖形化介面，選擇自己的網路即可。</p>
-
-<pre><code class="language-sh"># 要確認自己有沒有連上網路，最簡單的方式就是 ping 看看
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 要確認自己有沒有連上網路，最簡單的方式就是 ping 看看</span>
 ping 8.8.8.8
 ping archlinux.org
-</code></pre>
-
-<p>如果網路沒通，就要自己寫設定檔，再使用 <code>netctl</code> 手動連接了，<br />
+</code></pre></div><p>如果網路沒通，就要自己寫設定檔，再使用 <code>netctl</code> 手動連接了，<br>
 相關流程如下：</p>
-
-<pre><code class="language-sh"># 查詢網卡 interface name。有線網卡會是 e 開頭，無線網卡則會是 w 開頭
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 查詢網卡 interface name。有線網卡會是 e 開頭，無線網卡則會是 w 開頭</span>
 ip link
 
-# 假設查到的網卡是 enp8s0（以有線網路為例）
+<span style="color:#75715e"># 假設查到的網卡是 enp8s0（以有線網路為例）</span>
 cd /etc/netctl
 cp examples/ethernet-static ./
 
-# 然後修改設定
+<span style="color:#75715e"># 然後修改設定</span>
 vim ethernet-static
-</code></pre>
-
-<p>要修改的地方有：</p>
-
+</code></pre></div><p>要修改的地方有：</p>
 <ol>
 <li><code>Interface=enp8s0</code></li>
 <li><code>Address=('255.255.255.0/24')</code>：子網路遮罩</li>
 <li><code>Gateway='xxx.xxx.xxx.xxx'</code>：預設閘道</li>
 <li><code>DNS=('8.8.8.8')</code>：DNS 伺服器</li>
 </ol>
-
 <p>然後就可以存檔，使用自己的設定：</p>
-
-<pre><code class="language-sh">ip link set enp8s0 down
-netctl start ethernet-static # 然後 ping 看看有沒有通
-</code></pre>
-
-<h2 id="分割硬碟">分割硬碟</h2>
-
-<p>如果不熟悉硬碟分割相關知識，可以參考鳥哥<a href="http://linux.vbird.org/linux_basic/0130designlinux.php#partition">分割規劃</a>和<a href="http://linux.vbird.org/linux_basic/0230filesystem.php#disk">分割指令</a>來熟悉一下。<br />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ip link set enp8s0 down
+netctl start ethernet-static <span style="color:#75715e"># 然後 ping 看看有沒有通</span>
+</code></pre></div><h2 id="heading-3">分割硬碟</h2>
+<p>如果不熟悉硬碟分割相關知識，可以參考鳥哥<a href="http://linux.vbird.org/linux_basic/0130designlinux.php#partition">分割規劃</a>和<a href="http://linux.vbird.org/linux_basic/0230filesystem.php#disk">分割指令</a>來熟悉一下。<br>
 官方維基對於硬碟分割的說明則<a href="https://wiki.archlinux.org/index.php/partitioning">在這邊</a>。</p>
-
 <p>我們可能用到的指令有 <code>lsblk</code>、<code>blkid</code>、<code>parted</code>、<code>gdisk</code>、<code>cgdisk</code> 等等：</p>
-
-<pre><code class="language-sh"># 檢查目前硬碟分割情況
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 檢查目前硬碟分割情況</span>
 lsblk
 
-# 如果不確定是不是 GPT，可以使用 parted 檢查
+<span style="color:#75715e"># 如果不確定是不是 GPT，可以使用 parted 檢查</span>
 parted /dev/sda print
 
-# 已經是 GPT 分割表，就直接使用 cgdisk 分割
+<span style="color:#75715e"># 已經是 GPT 分割表，就直接使用 cgdisk 分割</span>
 cgdisk /dev/sda
 
-# 如果沒有 GPT 分割表，使用 gdisk 建立新的
+<span style="color:#75715e"># 如果沒有 GPT 分割表，使用 gdisk 建立新的</span>
 gdisk /dev/sda
-</code></pre>
-
-<p>我切出四個分割區：</p>
-
+</code></pre></div><p>我切出四個分割區：</p>
 <ul>
 <li><strong>/boot</strong>: sda1 (2M)</li>
 <li><strong>swap</strong>： sda2 (2G)</li>
 <li><strong>/root</strong>： sda3 (20G)</li>
 <li><strong>/home</strong>： sda4 (89.8G)</li>
 </ul>
-
-<p>然後用 <code>mkswap</code>、 <code>mkfs</code> 格式化，磁碟使用 <code>ext4</code> 檔案系統：<br />
+<p>然後用 <code>mkswap</code>、 <code>mkfs</code> 格式化，磁碟使用 <code>ext4</code> 檔案系統：<br>
 （如果你是 UEFI 開機，會需要一個 EFI 分割區，並格式化成 <code>FAT32</code>，指令是 <code>mkfs.fat -F32 /dev/sda1</code>）</p>
-
-<pre><code class="language-sh">mkswap /dev/sda2 # swap
-mkfs.ext4 /dev/sda3 # root
-mkfs.ext4 /dev/sda4 # /home
-</code></pre>
-
-<p>格式化之後，就可以一一掛載起來：</p>
-
-<pre><code class="language-sh"># 把 root 掛到 /mnt
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mkswap /dev/sda2 <span style="color:#75715e"># swap</span>
+mkfs.ext4 /dev/sda3 <span style="color:#75715e"># root</span>
+mkfs.ext4 /dev/sda4 <span style="color:#75715e"># /home</span>
+</code></pre></div><p>格式化之後，就可以一一掛載起來：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 把 root 掛到 /mnt</span>
 mount /dev/sda3 /mnt
 
-# 然後把 /home 掛到 /root 下面
+<span style="color:#75715e"># 然後把 /home 掛到 /root 下面</span>
 mkdir /mnt/home
 mount /dev/sda4 /mnt/home
 
-# 記得要啟用 swap
+<span style="color:#75715e"># 記得要啟用 swap</span>
 swapon /dev/sda2
-</code></pre>
-
-<h2 id="安裝">安裝</h2>
-
+</code></pre></div><h2 id="heading-4">安裝</h2>
 <h3 id="mirrorlist">mirrorlist</h3>
-
 <p>修改 mirror，下載會比較快：</p>
-
-<pre><code class="language-sh"># 編輯 mirrorlist，將台灣的網址移到最上面存檔即可
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 編輯 mirrorlist，將台灣的網址移到最上面存檔即可</span>
 vim /etc/pacman.d/mirrorlist
-</code></pre>
-
-<h3 id="開始安裝">開始安裝</h3>
-
+</code></pre></div><h3 id="heading-5">開始安裝</h3>
 <p>用 <code>pacstrap</code> 開始安裝套件。</p>
-
-<p>如果依照官方流程，可以先裝 <code>base</code> 和 <code>base-devel</code>，其他等 <code>chroot</code> 步驟時再用 <code>pacman</code> 裝。<br />
+<p>如果依照官方流程，可以先裝 <code>base</code> 和 <code>base-devel</code>，其他等 <code>chroot</code> 步驟時再用 <code>pacman</code> 裝。<br>
 我覺得在這邊一次裝完比較方便，下面範例是我會用到的套件，可以依自己需求增減：</p>
-
-<pre><code class="language-sh">pacstrap /mnt base base-devel \
-intel-ucode \ # 如果是 intel 的 cpu
-zsh tmux git openssh rsync sshfs neovim gvim \ # 這三行是一些常用工具
-python python-pip python-neovim xclip \
-htop exa ripgrep fd-rs \
-nodejs npm yarn \ # 程式語言及相關工具
-gnome gnome-tweak-tool \ # GNOME 桌面
-noto-fonts noto-fonts-cjk adobe-source-code-pro-fonts \ # 字型
-firefox # 瀏覽器
-</code></pre>
-
-<p>安裝套件時如果遇到 PGP signature 的問題（之前使用舊的 .iso 有遇到這個問題，換新的 .iso （archlinux-2017.12.01-x86_64）就沒遇到了）：</p>
-
-<pre><code class="language-sh">error: libcap: signature from &quot;Anatol Pomozov &lt;avatol.pomozov@gmail.com&gt;&quot; is unknown trust
-:: File /mnt/var/cache/pacman/pkg/libcap-2.25-1-x86_64.pkg.tar.xz is corrupted (invalid or corrupted package (PGP signature))
-</code></pre>
-
-<p>可嘗試更新 key：</p>
-
-<pre><code class="language-sh">pacman-key --populate archlinux
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pacstrap /mnt base base-devel <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>intel-ucode <span style="color:#ae81ff">\ </span><span style="color:#75715e"># 如果是 intel 的 cpu</span>
+zsh tmux git openssh rsync sshfs neovim gvim <span style="color:#ae81ff">\ </span><span style="color:#75715e"># 這三行是一些常用工具</span>
+python python-pip python-neovim xclip <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>htop exa ripgrep fd-rs <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>nodejs npm yarn <span style="color:#ae81ff">\ </span><span style="color:#75715e"># 程式語言及相關工具</span>
+gnome gnome-tweak-tool <span style="color:#ae81ff">\ </span><span style="color:#75715e"># GNOME 桌面</span>
+noto-fonts noto-fonts-cjk adobe-source-code-pro-fonts <span style="color:#ae81ff">\ </span><span style="color:#75715e"># 字型</span>
+firefox <span style="color:#75715e"># 瀏覽器</span>
+</code></pre></div><p>安裝套件時如果遇到 PGP signature 的問題（之前使用舊的 .iso 有遇到這個問題，換新的 .iso （archlinux-2017.12.01-x86_64）就沒遇到了）：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">error: libcap: signature from <span style="color:#e6db74">&#34;Anatol Pomozov &lt;avatol.pomozov@gmail.com&gt;&#34;</span> is unknown trust
+:: File /mnt/var/cache/pacman/pkg/libcap-2.25-1-x86_64.pkg.tar.xz is corrupted <span style="color:#f92672">(</span>invalid or corrupted package <span style="color:#f92672">(</span>PGP signature<span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+</code></pre></div><p>可嘗試更新 key：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pacman-key --populate archlinux
 pacman-key --refresh-keys
-</code></pre>
-
-<p>如果更新 key 也遇到問題，像這樣 <code>==&gt; ERROR: A specified local key could not be updated from a keyserver.</code></p>
-
+</code></pre></div><p>如果更新 key 也遇到問題，像這樣 <code>==&gt; ERROR: A specified local key could not be updated from a keyserver.</code></p>
 <p>可試著依<a href="https://bbs.archlinux.org/viewtopic.php?id=195139">這篇</a>的解法，手動下載 key：</p>
-
-<pre><code class="language-sh">pacman-key -r 0xFC1B547C8D8172C8
-</code></pre>
-
-<h2 id="設定系統">設定系統</h2>
-
-<h3 id="產生-fstab-檔">產生 fstab 檔</h3>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pacman-key -r 0xFC1B547C8D8172C8
+</code></pre></div><h2 id="heading-6">設定系統</h2>
+<h3 id="-fstab-">產生 fstab 檔</h3>
 <p><code>/etc/fstab</code> 是開機時的設定檔，開機時會依這個檔案的內容掛載檔案系統。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">genfstab -U /mnt | sed -e <span style="color:#e6db74">&#39;s/relatime/noatime/g&#39;</span> &gt;&gt; /mnt/etc/fstab
 
-<pre><code class="language-sh">genfstab -U /mnt | sed -e 's/relatime/noatime/g' &gt;&gt; /mnt/etc/fstab
-
-# 確認 UUID 是否正確（和 blkid 比對）
+<span style="color:#75715e"># 確認 UUID 是否正確（和 blkid 比對）</span>
 vim /mnt/etc/fstab
-</code></pre>
-
-<h3 id="chroot-進入安裝好的系統"><code>chroot</code> 進入安裝好的系統</h3>
-
-<pre><code class="language-sh">arch-chroot /mnt
-</code></pre>
-
-<h3 id="設定語系-locale">設定語系（locale）</h3>
-
-<pre><code class="language-sh"># 把 /etc/locale.gen 檔案裡，
-# en_US.UTF-8 和 zh_TW.UTF-8 的註解拿掉
-sed -i -e 's/^#\(en_US\|zh_TW\)\(\.UTF-8\)/\1\2/g' /etc/locale.gen
+</code></pre></div><h3 id="chroot-"><code>chroot</code> 進入安裝好的系統</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">arch-chroot /mnt
+</code></pre></div><h3 id="locale">設定語系（locale）</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 把 /etc/locale.gen 檔案裡，</span>
+<span style="color:#75715e"># en_US.UTF-8 和 zh_TW.UTF-8 的註解拿掉</span>
+sed -i -e <span style="color:#e6db74">&#39;s/^#\(en_US\|zh_TW\)\(\.UTF-8\)/\1\2/g&#39;</span> /etc/locale.gen
 locale-gen
 
-echo &quot;LANG=en_US.UTF-8&quot; &gt; /etc/locale.conf
-</code></pre>
-
-<h3 id="設定時間-timezone">設定時間（timezone）</h3>
-
-<pre><code class="language-sh">export TIMEZONE=Asia/Taipei # 台北時區
-ln -sf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime
+echo <span style="color:#e6db74">&#34;LANG=en_US.UTF-8&#34;</span> &gt; /etc/locale.conf
+</code></pre></div><h3 id="timezone">設定時間（timezone）</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">export TIMEZONE<span style="color:#f92672">=</span>Asia/Taipei <span style="color:#75715e"># 台北時區</span>
+ln -sf /usr/share/zoneinfo/<span style="color:#e6db74">${</span>TIMEZONE<span style="color:#e6db74">}</span> /etc/localtime
 hwclock --systohc
 systemctl enable systemd-timesyncd
-</code></pre>
-
-<h3 id="設定電腦名稱-hostname">設定電腦名稱（hostname）</h3>
-
-<pre><code class="language-sh">export HOSTNAME=&lt;hostname&gt; # 給電腦取個名字
+</code></pre></div><h3 id="hostname">設定電腦名稱（hostname）</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">export HOSTNAME<span style="color:#f92672">=</span>&lt;hostname&gt; <span style="color:#75715e"># 給電腦取個名字</span>
 echo $HOSTNAME &gt; /etc/hostname
-sed -ie &quot;8i 127.0.1.1\t$HOSTNAME.localdomain\t$HOSTNAME&quot; /etc/hosts
-</code></pre>
-
-<h3 id="設定啟動程式-systemctl">設定啟動程式（systemctl）</h3>
-
-<pre><code class="language-sh">systemctl enable fstrim.timer # 有 SSD 才需要，啟用每週執行 fstrim
+sed -ie <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">8i 127.0.1.1\t</span>$HOSTNAME<span style="color:#e6db74">.localdomain\t</span>$HOSTNAME<span style="color:#e6db74">&#34;</span> /etc/hosts
+</code></pre></div><h3 id="systemctl">設定啟動程式（systemctl）</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">systemctl enable fstrim.timer <span style="color:#75715e"># 有 SSD 才需要，啟用每週執行 fstrim</span>
 systemctl enable NetworkManager
-systemctl enable gdm # GNOME 顯示管理器
-sed -ie 's/#\(WaylandEnable\)/\1/' /etc/gdm/custom.conf
-</code></pre>
-
-<h3 id="建立開機映像">建立開機映像</h3>
-
+systemctl enable gdm <span style="color:#75715e"># GNOME 顯示管理器</span>
+sed -ie <span style="color:#e6db74">&#39;s/#\(WaylandEnable\)/\1/&#39;</span> /etc/gdm/custom.conf
+</code></pre></div><h3 id="heading-7">建立開機映像</h3>
 <p>用途：</p>
-
 <blockquote>
 <p>Creates an initial ramdisk environment for booting the linux kernel.</p>
 </blockquote>
-
-<pre><code class="language-sh">vim /etc/mkinitcpio.conf # (optional) 看有沒有要修改
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">vim /etc/mkinitcpio.conf <span style="color:#75715e"># (optional) 看有沒有要修改</span>
 mkinitcpio -p linux
-</code></pre>
-
-<h3 id="安裝與設定開機程式-bootloader">安裝與設定開機程式（bootloader）</h3>
-
+</code></pre></div><h3 id="bootloader">安裝與設定開機程式（bootloader）</h3>
 <p>詳細介紹請參考<a href="https://wiki.archlinux.org/index.php/GRUB">這篇</a>。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pacman -S grub
+grub-install --target<span style="color:#f92672">=</span>i386-pc --recheck /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg <span style="color:#75715e"># 建立 grub 設定檔</span>
+</code></pre></div><h3 id="heading-8">新增使用者</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sed -ie <span style="color:#e6db74">&#39;s/# \(%wheel ALL=(ALL) ALL\)/\1/&#39;</span> /etc/sudoers
 
-<pre><code class="language-sh">pacman -S grub
-grub-install --target=i386-pc --recheck /dev/sda
-grub-mkconfig -o /boot/grub/grub.cfg # 建立 grub 設定檔
-</code></pre>
-
-<h3 id="新增使用者">新增使用者</h3>
-
-<pre><code class="language-sh">sed -ie 's/# \(%wheel ALL=(ALL) ALL\)/\1/' /etc/sudoers
-
-export USERNAME=&lt;username&gt;
-# 加上 -m 參數才會建立使用者家目錄以及 .bash 相關檔案
+export USERNAME<span style="color:#f92672">=</span>&lt;username&gt;
+<span style="color:#75715e"># 加上 -m 參數才會建立使用者家目錄以及 .bash 相關檔案</span>
 useradd -mG wheel,storage,power,video,audio $USERNAME
-passwd $USERNAME # 設定密碼
-</code></pre>
-
-<h3 id="退出-chroot-並重新開機">退出 <code>chroot</code>，並重新開機</h3>
-
-<pre><code class="language-sh">exit
+passwd $USERNAME <span style="color:#75715e"># 設定密碼</span>
+</code></pre></div><h3 id="-chroot">退出 <code>chroot</code>，並重新開機</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">exit
 umount -R /mnt
 reboot
-</code></pre>
-
-<h2 id="參考資料">參考資料</h2>
-
+</code></pre></div><h2 id="heading-9">參考資料</h2>
 <ul>
 <li><a href="https://wiki.archlinux.org/index.php/installation_guide">Arch Linux: Installation guide</a></li>
 <li><a href="https://leomao.github.io/2017/09/archlinux-install-note/">Arch Linux 安裝筆記</a></li>

@@ -74,20 +74,17 @@
     
     <h1 class="title">Linux command-line: find 指令用法</h1>
     <div class="content">
-      
-
-<h2 id="常用參數">常用參數</h2>
-
+      <h2 id="heading">常用參數</h2>
 <ul>
 <li><code>type</code>
-
 <ul>
 <li><code>f</code>: file</li>
 <li><code>d</code>: directory</li>
 <li><code>l</code>: symbolic</li>
 <li><code>p</code>: pipe</li>
 <li><code>s</code>: socket</li>
-</ul></li>
+</ul>
+</li>
 <li><code>name</code></li>
 <li><code>iname</code>: ignore case</li>
 <li><code>path</code></li>
@@ -103,35 +100,30 @@
 <li><code>exec</code>: execute</li>
 <li><code>delete</code></li>
 </ul>
+<h2 id="heading-1">基本用法</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># name</span>
+find . -name findme <span style="color:#75715e"># 找 &#39;findme&#39;</span>
+find . -name <span style="color:#e6db74">&#39;*.js&#39;</span> <span style="color:#75715e"># 找當前目錄底下的 js 檔</span>
+find . -name <span style="color:#e6db74">&#39;*.py&#39;</span> -or -name <span style="color:#e6db74">&#39;*.r&#39;</span> <span style="color:#75715e"># 增加條件</span>
+find . -name <span style="color:#e6db74">&#39;*.js&#39;</span> -not -path <span style="color:#e6db74">&#39;*/node_modules/*&#39;</span> <span style="color:#75715e"># 排除條件</span>
 
-<h2 id="基本用法">基本用法</h2>
+<span style="color:#75715e"># path</span>
+find . -path <span style="color:#e6db74">&#39;**/lib/**/*.ext&#39;</span> <span style="color:#75715e"># 找當前目錄底下路徑包含 lib 且為 .ext 的檔案</span>
 
-<pre><code class="language-sh"># name
-find . -name findme # 找 'findme'
-find . -name '*.js' # 找當前目錄底下的 js 檔
-find . -name '*.py' -or -name '*.r' # 增加條件
-find . -name '*.js' -not -path '*/node_modules/*' # 排除條件
+<span style="color:#75715e"># time</span>
+find . -mtime <span style="color:#ae81ff">2</span> <span style="color:#75715e"># 找 2 天前修改過的檔案</span>
+find . -mtime -1 <span style="color:#75715e"># 找當前目錄底下 1 天內有修改過的檔案</span>
+find . -mtime +1 <span style="color:#75715e"># 找當前目錄底下超過 1 天前有修改過的檔案</span>
 
-# path
-find . -path '**/lib/**/*.ext' # 找當前目錄底下路徑包含 lib 且為 .ext 的檔案
+<span style="color:#75715e"># type &amp;&amp; size &amp;&amp; iname</span>
+find /var -type f -size +50MB <span style="color:#75715e"># 找 /var 底下大於 50MB 的檔案</span>
+find ~/Download -size +500k -size -10MB -iname <span style="color:#e6db74">&#39;*.Tar.gZ&#39;</span>
 
-# time
-find . -mtime 2 # 找 2 天前修改過的檔案
-find . -mtime -1 # 找當前目錄底下 1 天內有修改過的檔案
-find . -mtime +1 # 找當前目錄底下超過 1 天前有修改過的檔案
-
-# type &amp;&amp; size &amp;&amp; iname
-find /var -type f -size +50MB # 找 /var 底下大於 50MB 的檔案
-find ~/Download -size +500k -size -10MB -iname '*.Tar.gZ'
-
-# exec
-# {} 代表的是所取得的 file 路徑
-# （find 配合 rm 使用請非常小心）
-find /tmp -mtime +180 -exec rm {} \; # 刪除 /tmp 底下修改時間超過 180 天的檔案
-</code></pre>
-
-<h2 id="進階參數">進階參數</h2>
-
+<span style="color:#75715e"># exec</span>
+<span style="color:#75715e"># {} 代表的是所取得的 file 路徑</span>
+<span style="color:#75715e"># （find 配合 rm 使用請非常小心）</span>
+find /tmp -mtime +180 -exec rm <span style="color:#f92672">{</span><span style="color:#f92672">}</span> <span style="color:#ae81ff">\;</span> <span style="color:#75715e"># 刪除 /tmp 底下修改時間超過 180 天的檔案</span>
+</code></pre></div><h2 id="heading-2">進階參數</h2>
 <ul>
 <li><code>ok</code></li>
 <li><code>execdir</code></li>
@@ -142,38 +134,30 @@ find /tmp -mtime +180 -exec rm {} \; # 刪除 /tmp 底下修改時間超過 180 
 <li><code>empty</code></li>
 <li><code>perm</code>: permission</li>
 </ul>
+<h2 id="heading-3">一些使用情境</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 不小心把檔案解壓，想要刪除 5 分鐘內建立的檔案..</span>
+find . -cmin -5 -exec rm -i <span style="color:#f92672">{</span><span style="color:#f92672">}</span> <span style="color:#ae81ff">\;</span>
+</code></pre></div><h2 id="heading-4">其他進階用法</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># ok</span>
+<span style="color:#75715e"># 執行指令前需要一一確認</span>
+find . -name <span style="color:#e6db74">&#39;*.txt&#39;</span> -ok rm <span style="color:#f92672">{</span><span style="color:#f92672">}</span> <span style="color:#ae81ff">\;</span>
 
-<h2 id="一些使用情境">一些使用情境</h2>
+<span style="color:#75715e"># empty</span>
+<span style="color:#75715e"># 在所有空目錄裡增加 .gitkeep</span>
+find . -type d -empty -exec touch <span style="color:#f92672">{</span><span style="color:#f92672">}</span>/.gitkeep <span style="color:#ae81ff">\;</span>
 
-<pre><code class="language-sh"># 不小心把檔案解壓，想要刪除 5 分鐘內建立的檔案..
-find . -cmin -5 -exec rm -i {} \;
-</code></pre>
+<span style="color:#75715e"># perm</span>
+find . -type f -perm <span style="color:#ae81ff">0777</span>
+find . -type f -not -perm <span style="color:#ae81ff">0777</span>
 
-<h2 id="其他進階用法">其他進階用法</h2>
+<span style="color:#75715e"># user</span>
+<span style="color:#75715e"># 搜尋特定使用者的檔案</span>
+find /home -user rextsou -name <span style="color:#e6db74">&#39;*.txt&#39;</span>
 
-<pre><code class="language-sh"># ok
-# 執行指令前需要一一確認
-find . -name '*.txt' -ok rm {} \;
-
-# empty
-# 在所有空目錄裡增加 .gitkeep
-find . -type d -empty -exec touch {}/.gitkeep \;
-
-# perm
-find . -type f -perm 0777
-find . -type f -not -perm 0777
-
-# user
-# 搜尋特定使用者的檔案
-find /home -user rextsou -name '*.txt'
-
-# group
-# 指定檔案群組
+<span style="color:#75715e"># group</span>
+<span style="color:#75715e"># 指定檔案群組</span>
 find /home -group developer
-</code></pre>
-
-<h2 id="參考資料">參考資料</h2>
-
+</code></pre></div><h2 id="heading-5">參考資料</h2>
 <ul>
 <li><a href="https://www.networkworld.com/article/3233305/linux/using-the-linux-find-command-with-caution.html">Using the Linux find command with caution</a></li>
 <li><a href="https://blog.gtwang.org/linux/unix-linux-find-command-examples/">Unix/Linux 的 find 指令使用教學、技巧與範例整理</a></li>

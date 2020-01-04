@@ -78,72 +78,54 @@
     
     <h1 class="title">利用 SSH Tunnel 做跳板（aka. 翻牆）</h1>
     <div class="content">
-      
-
-<p><code>SSH</code>參數說明：</p>
-
+      <p><code>SSH</code>參數說明：</p>
 <ul>
-<li><code>-N</code> : 不執行任何指令<br /></li>
-<li><code>-f</code> : 在背景執行<br /></li>
-<li><code>-L</code> : 將 local port 轉向<br /></li>
-<li><code>-R</code> : 將 remote port 轉向<br /></li>
-<li><code>-D</code> : socks proxy<br /></li>
+<li><code>-N</code> : 不執行任何指令</li>
+<li><code>-f</code> : 在背景執行</li>
+<li><code>-L</code> : 將 local port 轉向</li>
+<li><code>-R</code> : 將 remote port 轉向</li>
+<li><code>-D</code> : socks proxy</li>
 </ul>
+<h2 id="-ssh-tunnel">建立 SSH tunnel（正向）</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># syntax: ssh -L local_port:remote_address:remote_port username@server.com</span>
 
-<h2 id="建立-ssh-tunnel-正向">建立 SSH tunnel（正向）</h2>
+<span style="color:#75715e"># 經過 ssh://localhost:2323 的連線，會藉由 serverB 作為跳板，再連到 ptt.cc:22</span>
+<span style="color:#f92672">[</span>user@serverA<span style="color:#f92672">]</span>$ ssh -NfL 2323:ptt.cc:22 user@serverB
 
-<pre><code class="language-sh"># syntax: ssh -L local_port:remote_address:remote_port username@server.com
-
-# 經過 ssh://localhost:2323 的連線，會藉由 serverB 作為跳板，再連到 ptt.cc:22
-[user@serverA]$ ssh -NfL 2323:ptt.cc:22 user@serverB
-
-# 連線
-[user@serverA]$ ssh bbsu@localhost -p 2323
-</code></pre>
-
-<h2 id="建立-ssh-tunnel-反向">建立 SSH tunnel（反向）</h2>
-
-<p><strong>注意</strong>，開啟反向 tunnel 之後，等於區網開了一個洞，外面的人可以連進來，可能會造成安全風險，請謹慎使用。<br />
+<span style="color:#75715e"># 連線</span>
+<span style="color:#f92672">[</span>user@serverA<span style="color:#f92672">]</span>$ ssh bbsu@localhost -p <span style="color:#ae81ff">2323</span>
+</code></pre></div><h2 id="-ssh-tunnel-1">建立 SSH tunnel（反向）</h2>
+<p><strong>注意</strong>，開啟反向 tunnel 之後，等於區網開了一個洞，外面的人可以連進來，可能會造成安全風險，請謹慎使用。<br>
 若配合<code>rdesktop</code> 之類的程式使用，甚至可以在桌面環境遠端遙控。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># syntax: ssh -R remote_port:local_address:local_port username@server.com</span>
 
-<pre><code class="language-sh"># syntax: ssh -R remote_port:local_address:local_port username@server.com
+<span style="color:#75715e"># 經過 serverB:8888 的連線，都會 tunnel 到 serverA:1234</span>
+<span style="color:#f92672">[</span>user@serverA<span style="color:#f92672">]</span>$ ssh -NfR 8888:localhost:1234 user@serverB
 
-# 經過 serverB:8888 的連線，都會 tunnel 到 serverA:1234
-[user@serverA]$ ssh -NfR 8888:localhost:1234 user@serverB
+<span style="color:#75715e"># 連線</span>
+<span style="color:#f92672">[</span>user@serverB<span style="color:#f92672">]</span>$ ssh user@localhost -p <span style="color:#ae81ff">8888</span>
 
-# 連線
-[user@serverB]$ ssh user@localhost -p 8888
+<span style="color:#75715e"># 遠端桌面</span>
+<span style="color:#f92672">[</span>user@serverB<span style="color:#f92672">]</span>$ rdesktop localhost:8888
+</code></pre></div><h2 id="-socks-proxy-server">建立 SOCKS proxy server</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># syntax: ssh -D port user@host</span>
 
-# 遠端桌面
-[user@serverB]$ rdesktop localhost:8888
-</code></pre>
+<span style="color:#f92672">[</span>user@serverA<span style="color:#f92672">]</span>$ ssh -NfD <span style="color:#ae81ff">2323</span> user@serverB
 
-<h2 id="建立-socks-proxy-server">建立 SOCKS proxy server</h2>
+<span style="color:#75715e"># 讓 Chrome 透過 proxy 連線（須先關閉所有運行中的 Chrome）</span>
 
-<pre><code class="language-sh"># syntax: ssh -D port user@host
+<span style="color:#75715e"># Linux/Windows</span>
+<span style="color:#75715e"># 將以下設定加入啟動 Chrome 的「目標」（右鍵 ➡️ 內容）後面</span>
+--proxy-server<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;socks5://localhost:2323&#34;</span>
 
-[user@serverA]$ ssh -NfD 2323 user@serverB
+<span style="color:#75715e"># macOS</span>
+<span style="color:#75715e"># 在 terminal 內使用指令方式開啟 Chrome</span>
+open -a <span style="color:#e6db74">&#34;Google Chrome&#34;</span> --args --proxy-server<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;socks5://localhost:2323&#34;</span>
 
-# 讓 Chrome 透過 proxy 連線（須先關閉所有運行中的 Chrome）
-
-# Linux/Windows
-# 將以下設定加入啟動 Chrome 的「目標」（右鍵 ➡️ 內容）後面
---proxy-server=&quot;socks5://localhost:2323&quot;
-
-# macOS
-# 在 terminal 內使用指令方式開啟 Chrome
-open -a &quot;Google Chrome&quot; --args --proxy-server=&quot;socks5://localhost:2323&quot;
-
-# 啟動以後，瀏覽所有網頁都會透過這台 proxy server
-</code></pre>
-
-<h2 id="列出使用中的-ssh-tunnel">列出使用中的 ssh tunnel</h2>
-
-<pre><code class="language-sh">ps aux | grep ssh
-</code></pre>
-
-<h2 id="參考資料">參考資料</h2>
-
+<span style="color:#75715e"># 啟動以後，瀏覽所有網頁都會透過這台 proxy server</span>
+</code></pre></div><h2 id="-ssh-tunnel-2">列出使用中的 ssh tunnel</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ps aux | grep ssh
+</code></pre></div><h2 id="heading">參考資料</h2>
 <ul>
 <li><a href="https://www.ubuntu-tw.org/modules/newbb/viewtopic.php?topic_id=17538">上班族 ssh tunnel 求生手冊</a></li>
 <li><a href="http://pre.tir.tw/008/blog/output/ssh-tunnel.html">ssh tunnel</a></li>

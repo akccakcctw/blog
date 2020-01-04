@@ -70,36 +70,24 @@
     
     <h1 class="title">HTML select 的 placeholder 寫法</h1>
     <div class="content">
-      
-
-<p>該如何讓<code>select</code>表單預設顯示在<code>placeholder</code>選項，但此選項僅作為提示用，不能選取呢？</p>
-
+      <p>該如何讓<code>select</code>表單預設顯示在<code>placeholder</code>選項，但此選項僅作為提示用，不能選取呢？</p>
 <p>可以這樣寫：</p>
-
-<pre><code class="language-html">&lt;select&gt;
-    &lt;option value=&quot;&quot; disabled selected&gt;請選擇&lt;/option&gt;
-    &lt;option value=&quot;a&quot;&gt;a&lt;/option&gt;
-    &lt;option value=&quot;b&quot;&gt;b&lt;/option&gt;
-&lt;/select&gt;
-</code></pre>
-
-<p>效果如下：</p>
-
-<p><select>
-    <option value="" disabled selected>請選擇</option>
-    <option value="a">a</option>
-    <option value="b">b</option>
-</select>
-<br></p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">select</span>&gt;
+    &lt;<span style="color:#f92672">option</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">disabled</span> <span style="color:#a6e22e">selected</span>&gt;請選擇&lt;/<span style="color:#f92672">option</span>&gt;
+    &lt;<span style="color:#f92672">option</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;a&#34;</span>&gt;a&lt;/<span style="color:#f92672">option</span>&gt;
+    &lt;<span style="color:#f92672">option</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;b&#34;</span>&gt;b&lt;/<span style="color:#f92672">option</span>&gt;
+&lt;/<span style="color:#f92672">select</span>&gt;
+</code></pre></div><p>效果如下：</p>
+<!-- raw HTML omitted -->
 <p>如此一來，就會預設選在「請選擇」的位置，且 user 不能選這個選項</p>
-
-<h2 id="參考資料">參考資料：</h2>
-
+<h2 id="heading">參考資料：</h2>
 <ul>
-<li><p><a href="http://stackoverflow.com/questions/5805059/how-do-i-make-a-placeholder-for-a-select-box">How do I make a placeholder for a &lsquo;select&rsquo; box?</a></p></li>
-
-<li><p><a href="http://stackoverflow.com/questions/6048710/can-i-apply-the-required-attribute-to-select-fields-in-html5/6048891#6048891">Can I apply the required attribute to <code>&lt;select&gt;</code> fields in HTML5?</a></p></li>
+<li>
+<p><a href="http://stackoverflow.com/questions/5805059/how-do-i-make-a-placeholder-for-a-select-box">How do I make a placeholder for a &lsquo;select&rsquo; box?</a></p>
+</li>
+<li>
+<p><a href="http://stackoverflow.com/questions/6048710/can-i-apply-the-required-attribute-to-select-fields-in-html5/6048891#6048891">Can I apply the required attribute to <code>&lt;select&gt;</code> fields in HTML5?</a></p>
+</li>
 </ul>
 
     </div>

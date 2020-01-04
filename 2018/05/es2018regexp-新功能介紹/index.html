@@ -70,145 +70,104 @@
     
     <h1 class="title">ES2018：RegExp 新功能介紹</h1>
     <div class="content">
-      
-
-<h2 id="s-flag"><code>/s</code> flag</h2>
-
+      <h2 id="s-flag"><code>/s</code> flag</h2>
 <p>為了解決目前的 dot(.) 無法比對到換行字元，因此新的 <code>/s</code> flag 又稱 dotAll mode。</p>
-
-<pre><code class="language-javascript">const input = `
-Lorem ipsum dolor sit amet, consectetur adipiscing hello
-world elit. Nam sit amet elit id risus aliquam porta.
-`;
-</code></pre>
-
-<pre><code class="language-javascript">/hello.world/u.test(input);
-// false
-</code></pre>
-
-<p>workarounds:</p>
-
-<pre><code class="language-javascript">/hello[\s\S]world/u.test(input);
-// true
-
-/hello[^]world/u.test(input)
-// true
-</code></pre>
-
-<p>新語法：</p>
-
-<pre><code class="language-javascript">/hello.world/su.test(input);
-// true
-</code></pre>
-
-<h2 id="named-capture-groups">Named capture groups</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">input</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">Lorem ipsum dolor sit amet, consectetur adipiscing hello
+</span><span style="color:#e6db74">world elit. Nam sit amet elit id risus aliquam porta.
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">`</span>;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#e6db74">/hello.world/u</span>.<span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">input</span>);
+<span style="color:#75715e">// false
+</span></code></pre></div><p>workarounds:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#e6db74">/hello[\s\S]world/u</span>.<span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">input</span>);
+<span style="color:#75715e">// true
+</span><span style="color:#75715e"></span>
+<span style="color:#e6db74">/hello[^]world/u</span>.<span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">input</span>)
+<span style="color:#75715e">// true
+</span></code></pre></div><p>新語法：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#960050;background-color:#1e0010">h</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">l</span><span style="color:#960050;background-color:#1e0010">l</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#960050;background-color:#1e0010">w</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">l</span><span style="color:#960050;background-color:#1e0010">d</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">p</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">)</span><span style="color:#960050;background-color:#1e0010">;</span>
+<span style="color:#75715e">// true
+</span></code></pre></div><h2 id="named-capture-groups">Named capture groups</h2>
 <p><a href="https://github.com/tc39/proposal-regexp-named-groups">tc39/proposal-regexp-named-groups</a></p>
-
-<pre><code class="language-javascript">const pattern = /(\d{4})-(\d{2})-(\d{2})/u;
-const result = pattern.exec('2018-05-09');
-// result[0] === '2018-05-09'
-// result[1] === '2018'
-// result[2] === '05'
-// result[3] === '09'
-</code></pre>
-
-<p>capture groups 可以取名了！<br />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">pattern</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/(\d{4})-(\d{2})-(\d{2})/u</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pattern</span>.<span style="color:#a6e22e">exec</span>(<span style="color:#e6db74">&#39;2018-05-09&#39;</span>);
+<span style="color:#75715e">// result[0] === &#39;2018-05-09&#39;
+</span><span style="color:#75715e"></span><span style="color:#75715e">// result[1] === &#39;2018&#39;
+</span><span style="color:#75715e"></span><span style="color:#75715e">// result[2] === &#39;05&#39;
+</span><span style="color:#75715e"></span><span style="color:#75715e">// result[3] === &#39;09&#39;
+</span></code></pre></div><p>capture groups 可以取名了！<br>
 新語法：</p>
-
-<pre><code class="language-javascript">const pattern = /(?&lt;year&gt;\d{4})-(?&lt;month&gt;\d{2})-(?&lt;day&gt;\d{2})/u;
-const result = pattern.exec('2018-05-09');
-// result.groups.year === '2018'
-// result.groups.month === '05'
-// result.groups.day === '09'
-</code></pre>
-
-<h2 id="unicode-property-escapes">Unicode property escapes</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">pattern</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/(?&lt;year&gt;\d{4})-(?&lt;month&gt;\d{2})-(?&lt;day&gt;\d{2})/u</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pattern</span>.<span style="color:#a6e22e">exec</span>(<span style="color:#e6db74">&#39;2018-05-09&#39;</span>);
+<span style="color:#75715e">// result.groups.year === &#39;2018&#39;
+</span><span style="color:#75715e"></span><span style="color:#75715e">// result.groups.month === &#39;05&#39;
+</span><span style="color:#75715e"></span><span style="color:#75715e">// result.groups.day === &#39;09&#39;
+</span></code></pre></div><h2 id="unicode-property-escapes">Unicode property escapes</h2>
 <p><a href="https://github.com/tc39/proposal-regexp-unicode-property-escapes">tc39/proposal-regexp-unicode-property-escapes</a></p>
-
-<pre><code class="language-javascript">const regexGreek = /\p{Script_Extensions=Greek}/u;
-regexGreek.test('π');
-// true
-
-const regexAscii = /\p{ASCII}/u;
-regexAscii.test('_');
-// true
-
-const regexMath = /\p{Math}/u;
-regexMath.test('≠');
-// true
-
-const pattern = /[\p{Letter}\p{White_Space}]+/u;
-pattern.test('πüé μετά Grüß');
-// true
-</code></pre>
-
-<p>一個實用的例子：</p>
-
-<pre><code class="language-html">&lt;style&gt;
-  :valid { background: lightgreen; }
-  :invalid { background: pink; }
-&lt;/style&gt;
-&lt;input pattern=&quot;[\p{Letter}\p{White_Space}]+&quot; value=&quot;your input string&quot;&gt;
-</code></pre>
-
-<h2 id="lookbehind-assertions">Lookbehind assertions</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">regexGreek</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/\p{Script_Extensions=Greek}/u</span>;
+<span style="color:#a6e22e">regexGreek</span>.<span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#39;π&#39;</span>);
+<span style="color:#75715e">// true
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">regexAscii</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/\p{ASCII}/u</span>;
+<span style="color:#a6e22e">regexAscii</span>.<span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#39;_&#39;</span>);
+<span style="color:#75715e">// true
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">regexMath</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/\p{Math}/u</span>;
+<span style="color:#a6e22e">regexMath</span>.<span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#39;≠&#39;</span>);
+<span style="color:#75715e">// true
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">pattern</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/[\p{Letter}\p{White_Space}]+/u</span>;
+<span style="color:#a6e22e">pattern</span>.<span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#39;πüé μετά Grüß&#39;</span>);
+<span style="color:#75715e">// true
+</span></code></pre></div><p>一個實用的例子：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">style</span>&gt;
+  :<span style="color:#a6e22e">valid</span> { <span style="color:#66d9ef">background</span>: <span style="color:#66d9ef">lightgreen</span>; }
+  :<span style="color:#a6e22e">invalid</span> { <span style="color:#66d9ef">background</span>: <span style="color:#66d9ef">pink</span>; }
+&lt;/<span style="color:#f92672">style</span>&gt;
+&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">pattern</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;[\p{Letter}\p{White_Space}]+&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;your input string&#34;</span>&gt;
+</code></pre></div><h2 id="lookbehind-assertions">Lookbehind assertions</h2>
 <p><a href="https://github.com/tc39/proposal-regexp-lookbehind">tc39/proposal-regexp-lookbehind</a></p>
-
 <p>lookbehind 語法很像 lookahead 的語法 <code>(?=...)</code>、<code>(?!...)</code>：</p>
-
-<pre><code class="language-javascript">// Positive lookahead:
-const pattern = /\d+(?= dollars)/u;
-const result = pattern.exec('42 dollars');
-// result[0] === '42'
-
-// Negative lookahead:
-const pattern = /\d+(?! dollars)/u;
-const result = pattern.exec('42 rupees');
-// result[0] === '42'
-</code></pre>
-
-<p>來看看新的 lookbehind 語法 <code>(?&lt;=...)</code>、<code>(?&lt;!...)</code>：</p>
-
-<pre><code class="language-javascript">// Positive lookbehind:
-const pattern = /(?&lt;=\$)\d+/u;
-const result = pattern.exec('$42');
-// result[0] === '42'
-
-// Negative lookbehind:
-const pattern = /(?&lt;!\$)\d+/u;
-const result = pattern.exec('#42');
-// result[0] === '42';
-</code></pre>
-
-<h2 id="string-prototype-matchall"><code>String.prototype.matchAll</code></h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// Positive lookahead:
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">pattern</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/\d+(?= dollars)/u</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pattern</span>.<span style="color:#a6e22e">exec</span>(<span style="color:#e6db74">&#39;42 dollars&#39;</span>);
+<span style="color:#75715e">// result[0] === &#39;42&#39;
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// Negative lookahead:
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">pattern</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/\d+(?! dollars)/u</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pattern</span>.<span style="color:#a6e22e">exec</span>(<span style="color:#e6db74">&#39;42 rupees&#39;</span>);
+<span style="color:#75715e">// result[0] === &#39;42&#39;
+</span></code></pre></div><p>來看看新的 lookbehind 語法 <code>(?&lt;=...)</code>、<code>(?&lt;!...)</code>：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// Positive lookbehind:
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">pattern</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/(?&lt;=\$)\d+/u</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pattern</span>.<span style="color:#a6e22e">exec</span>(<span style="color:#e6db74">&#39;$42&#39;</span>);
+<span style="color:#75715e">// result[0] === &#39;42&#39;
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// Negative lookbehind:
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">pattern</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/(?&lt;!\$)\d+/u</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pattern</span>.<span style="color:#a6e22e">exec</span>(<span style="color:#e6db74">&#39;#42&#39;</span>);
+<span style="color:#75715e">// result[0] === &#39;42&#39;;
+</span></code></pre></div><h2 id="stringprototypematchall"><code>String.prototype.matchAll</code></h2>
 <p><a href="https://github.com/tc39/proposal-string-matchall">tc39/proposal-string-matchall</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">string</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Magic hex numbers: DEADBEEF CAFE 8BADF00D&#39;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">regex</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/\b\p{ASCII_Hex_Digit}+\b/gu</span>;
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">match</span>;
 
-<pre><code class="language-javascript">const string = 'Magic hex numbers: DEADBEEF CAFE 8BADF00D';
-const regex = /\b\p{ASCII_Hex_Digit}+\b/gu;
-let match;
-
-// 以前要這樣寫
-while (match = regex.exec(string)) {
-  console.log(match);
+<span style="color:#75715e">// 以前要這樣寫
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">match</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">regex</span>.<span style="color:#a6e22e">exec</span>(<span style="color:#a6e22e">string</span>)) {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">match</span>);
 }
 
-// matchAll:
-for (const match of string.matchAll(regex)) {
-  console.log(match);
+<span style="color:#75715e">// matchAll:
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">match</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">string</span>.<span style="color:#a6e22e">matchAll</span>(<span style="color:#a6e22e">regex</span>)) {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">match</span>);
 }
-</code></pre>
-
-<h2 id="參考資料">參考資料</h2>
-
-<p><a href="https://www.youtube.com/watch?v=mIWCLOftfRw&amp;t=20m">Build the future of the web with modern JavaScript (Google I/O ’18)</a><br />
-<a href="http://2ality.com/2017/07/regexp-dotall-flag.html">ES2018: s (dotAll) flag for regular expressions</a><br />
-<a href="http://2ality.com/2017/05/regexp-named-capture-groups.html">ES2018: RegExp named capture groups</a><br />
-<a href="http://2ality.com/2017/07/regexp-unicode-property-escapes.html">ES2018: RegExp Unicode property escapes</a><br />
-<a href="http://2ality.com/2017/05/regexp-lookbehind-assertions.html">ES2018: RegExp lookbehind assertions</a><br />
+</code></pre></div><h2 id="heading">參考資料</h2>
+<p><a href="https://www.youtube.com/watch?v=mIWCLOftfRw&amp;t=20m">Build the future of the web with modern JavaScript (Google I/O ’18)</a><br>
+<a href="http://2ality.com/2017/07/regexp-dotall-flag.html">ES2018: s (dotAll) flag for regular expressions</a><br>
+<a href="http://2ality.com/2017/05/regexp-named-capture-groups.html">ES2018: RegExp named capture groups</a><br>
+<a href="http://2ality.com/2017/07/regexp-unicode-property-escapes.html">ES2018: RegExp Unicode property escapes</a><br>
+<a href="http://2ality.com/2017/05/regexp-lookbehind-assertions.html">ES2018: RegExp lookbehind assertions</a><br>
 <a href="http://2ality.com/2018/02/string-prototype-matchall.html">ES proposal: String.prototype.matchAll</a></p>
 
     </div>

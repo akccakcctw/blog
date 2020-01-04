@@ -78,155 +78,139 @@
     
     <h1 class="title">contact 表單設計</h1>
     <div class="content">
-      
-
-<p>上週逛 awwwards，看到<a href="http://www.giantstepsmedias.com/contact">這個網站</a>的表單設計得不錯，手癢也來仿作了一個。</p>
-
+      <p>上週逛 awwwards，看到<a href="http://www.giantstepsmedias.com/contact">這個網站</a>的表單設計得不錯，手癢也來仿作了一個。</p>
 <p>利用 Javascript，我在使用者輸入資料後（偵測到<code>oninput</code>事件時），動態加上<code>value</code>的<code>attribute</code>，並且配合 CSS（<code>input[value]:invalid</code>），來判斷使用者輸入的資料是否符合規則，如果不符合規則可以及時反應（字變紅），減少使用者輸入表單的難度。</p>
-
-<p>以下提供程式碼：
-<p data-height="500" data-theme-id="0" data-slug-hash="oxQzdM" data-default-tab="css,result" data-user="akccakcctw" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/akccakcctw/pen/oxQzdM/">Simple input box design</a> by Rex Tsou (<a href="http://codepen.io/akccakcctw">@akccakcctw</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script></p>
-
+<p>以下提供程式碼：</p>
+<!-- raw HTML omitted -->
 <p>HTML</p>
-
-<pre><code class="language-html">&lt;form action=&quot;#&quot; class=&quot;form-container&quot; method=&quot;post&quot;&gt;
-  &lt;div class=&quot;input-container&quot;&gt;
-    &lt;input id=&quot;name&quot; name=&quot;name&quot; type=&quot;text&quot; required&gt;
-    &lt;label for=&quot;name&quot;&gt;name&lt;/label&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;input-container&quot;&gt;
-    &lt;input id=&quot;email&quot; name=&quot;email&quot; type=&quot;email&quot; required&gt;
-    &lt;label for=&quot;name&quot;&gt;email&lt;/label&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;input-container&quot;&gt;
-    &lt;textarea id=&quot;massage&quot; name=&quot;massage&quot; cols=&quot;20&quot; rows=&quot;5&quot; required&gt;&lt;/textarea&gt;
-    &lt;label for=&quot;name&quot;&gt;massage&lt;/label&gt;
-  &lt;/div&gt;
-  &lt;div id=&quot;sent-container&quot; class=&quot;input-container sent-wrap&quot;&gt;
-    &lt;input id=&quot;sent&quot; type=&quot;submit&quot; value=&quot;SENT&quot;&gt;
-  &lt;/div&gt;
-&lt;/form&gt;
-</code></pre>
-
-<p>CSS</p>
-
-<pre><code class="language-css">@mixin trans-time($time:0.5s){
-  transition: all $time cubic-bezier(0.2, 0.8, 0.25, 1 );
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-container&#34;</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post&#34;</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-container&#34;</span>&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">required</span>&gt;
+    &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name&#34;</span>&gt;name&lt;/<span style="color:#f92672">label</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-container&#34;</span>&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span> <span style="color:#a6e22e">required</span>&gt;
+    &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name&#34;</span>&gt;email&lt;/<span style="color:#f92672">label</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-container&#34;</span>&gt;
+    &lt;<span style="color:#f92672">textarea</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;massage&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;massage&#34;</span> <span style="color:#a6e22e">cols</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;20&#34;</span> <span style="color:#a6e22e">rows</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;5&#34;</span> <span style="color:#a6e22e">required</span>&gt;&lt;/<span style="color:#f92672">textarea</span>&gt;
+    &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name&#34;</span>&gt;massage&lt;/<span style="color:#f92672">label</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sent-container&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input-container sent-wrap&#34;</span>&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sent&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;SENT&#34;</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">form</span>&gt;
+</code></pre></div><p>CSS</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">@<span style="color:#66d9ef">mixin</span> <span style="color:#f92672">trans-time</span><span style="color:#f92672">(</span><span style="color:#f92672">$</span><span style="color:#f92672">time</span>:<span style="color:#a6e22e">0</span>.<span style="color:#a6e22e">5s</span><span style="color:#f92672">)</span>{
+  <span style="color:#f92672">transition</span><span style="color:#f92672">:</span> <span style="color:#f92672">all</span> <span style="color:#f92672">$</span><span style="color:#f92672">time</span> <span style="color:#f92672">cubic-bezier</span><span style="color:#f92672">(</span><span style="color:#f92672">0</span>.<span style="color:#a6e22e">2</span><span style="color:#f92672">,</span> <span style="color:#f92672">0</span>.<span style="color:#a6e22e">8</span><span style="color:#f92672">,</span> <span style="color:#f92672">0</span>.<span style="color:#a6e22e">25</span><span style="color:#f92672">,</span> <span style="color:#f92672">1</span> <span style="color:#f92672">)</span><span style="color:#f92672">;</span>
 }
-%sent-hover{
-  cursor: pointer;
-  @include trans-time(1s);
+<span style="color:#f92672">%</span><span style="color:#f92672">sent-hover</span>{
+  <span style="color:#66d9ef">cursor</span>: <span style="color:#66d9ef">pointer</span>;
+  <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">c</span><span style="color:#960050;background-color:#1e0010">l</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">d</span><span style="color:#960050;background-color:#1e0010">e</span> <span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">m</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#960050;background-color:#1e0010">1</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">)</span>;
 }
-*{
-    outline: none;
+<span style="color:#f92672">*</span>{
+    <span style="color:#66d9ef">outline</span>: <span style="color:#66d9ef">none</span>;
 }
 
-html,
-body {
-    height: 100%;
-    margin: 0;
+<span style="color:#f92672">html</span><span style="color:#f92672">,</span>
+<span style="color:#f92672">body</span> {
+    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+    <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">0</span>;
 } 
 
-body {
-    background: black;
-    color: white;
-    font-family: monospace;
+<span style="color:#f92672">body</span> {
+    <span style="color:#66d9ef">background</span>: <span style="color:#66d9ef">black</span>;
+    <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">white</span>;
+    <span style="color:#66d9ef">font-family</span>: <span style="color:#66d9ef">monospace</span>;
 }   
-.form-container {
-    margin: 30px 0;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.<span style="color:#a6e22e">form-container</span> {
+    <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">30</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+    <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">flex</span>;
+    <span style="color:#66d9ef">flex-direction</span>: <span style="color:#66d9ef">column</span>;
+    <span style="color:#66d9ef">justify-content</span>: <span style="color:#66d9ef">center</span>;
+    <span style="color:#66d9ef">align-items</span>: <span style="color:#66d9ef">center</span>;
 }
     
-.input-container {
-    position: relative;
-    margin-top: 2em;
-    width: 250px;
+.<span style="color:#a6e22e">input-container</span> {
+    <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">relative</span>;
+    <span style="color:#66d9ef">margin-top</span>: <span style="color:#ae81ff">2</span><span style="color:#66d9ef">em</span>;
+    <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">250</span><span style="color:#66d9ef">px</span>;
 }
-input,
-textarea {
-    position: relative;
-    width: 100%;
-    padding: 6px 0;
-    line-height: 160%;
-    font-size: 14px;
-    background: none;
-    color: white;
-    border: none;
-    border-bottom: 1px solid #aaa;
+<span style="color:#f92672">input</span><span style="color:#f92672">,</span>
+<span style="color:#f92672">textarea</span> {
+    <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">relative</span>;
+    <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+    <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">6</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">line-height</span>: <span style="color:#ae81ff">160</span><span style="color:#66d9ef">%</span>;
+    <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">14</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">background</span>: <span style="color:#66d9ef">none</span>;
+    <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">white</span>;
+    <span style="color:#66d9ef">border</span>: <span style="color:#66d9ef">none</span>;
+    <span style="color:#66d9ef">border-bottom</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#aaa</span>;
     }
 
-label {
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-size: 14px;
-    line-height: 14px;
-    padding: 6px 0;
-    text-transform: uppercase;
-    @include trans-time(0.5s);
+<span style="color:#f92672">label</span> {
+    <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">absolute</span>;
+    <span style="color:#66d9ef">left</span>: <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">top</span>: <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">14</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">line-height</span>: <span style="color:#ae81ff">14</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">6</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">text-transform</span>: <span style="color:#66d9ef">uppercase</span>;
+    <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">c</span><span style="color:#960050;background-color:#1e0010">l</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">d</span><span style="color:#960050;background-color:#1e0010">e</span> <span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">m</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#960050;background-color:#1e0010">0</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#960050;background-color:#1e0010">5</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">)</span>;
 }
 
-input:focus+label,
-input:valid+label,
-textarea:focus+label,
-textarea:valid+label {
-    transform: translateX(-4.5em);
-    opacity: 0.5;
+<span style="color:#f92672">input</span>:<span style="color:#a6e22e">focus</span><span style="color:#f92672">+</span><span style="color:#f92672">label</span><span style="color:#f92672">,</span>
+<span style="color:#f92672">input</span>:<span style="color:#a6e22e">valid</span><span style="color:#f92672">+</span><span style="color:#f92672">label</span><span style="color:#f92672">,</span>
+<span style="color:#f92672">textarea</span>:<span style="color:#a6e22e">focus</span><span style="color:#f92672">+</span><span style="color:#f92672">label</span><span style="color:#f92672">,</span>
+<span style="color:#f92672">textarea</span>:<span style="color:#a6e22e">valid</span><span style="color:#f92672">+</span><span style="color:#f92672">label</span> {
+    <span style="color:#66d9ef">transform</span>: translateX(<span style="color:#ae81ff">-4.5</span><span style="color:#66d9ef">em</span>);
+    <span style="color:#66d9ef">opacity</span>: <span style="color:#ae81ff">0.5</span>;
 }
 
-input[value]:invalid+label,
-textarea[value]:invalid+label{
-  color:red;
-  transform: translateX(-4.5em);
-  opacity:0.5;
+<span style="color:#f92672">input</span><span style="color:#f92672">[</span><span style="color:#f92672">value</span><span style="color:#f92672">]</span>:<span style="color:#a6e22e">invalid</span><span style="color:#f92672">+</span><span style="color:#f92672">label</span><span style="color:#f92672">,</span>
+<span style="color:#f92672">textarea</span><span style="color:#f92672">[</span><span style="color:#f92672">value</span><span style="color:#f92672">]</span>:<span style="color:#a6e22e">invalid</span><span style="color:#f92672">+</span><span style="color:#f92672">label</span>{
+  <span style="color:#66d9ef">color</span>:<span style="color:#66d9ef">red</span>;
+  <span style="color:#66d9ef">transform</span>: translateX(<span style="color:#ae81ff">-4.5</span><span style="color:#66d9ef">em</span>);
+  <span style="color:#66d9ef">opacity</span>:<span style="color:#ae81ff">0.5</span>;
 }
 
-.sent-wrap{
-    @extend %sent-hover;
-    #sent{
-        @extend %sent-hover;
-        z-index: 2;
+.<span style="color:#a6e22e">sent-wrap</span>{
+    <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">x</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">d</span> <span style="color:#960050;background-color:#1e0010">%</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#960050;background-color:#1e0010">h</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">v</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">r</span>;
+    <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">{</span>
+        <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">x</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">d</span> <span style="color:#960050;background-color:#1e0010">%</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#960050;background-color:#1e0010">h</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">v</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">r</span>;
+        <span style="color:#66d9ef">z-index</span>: <span style="color:#ae81ff">2</span>;
     }
-    &amp;:after{
-        content: &quot;CLICK!&quot;;
-        line-height: 34px;
-        position: absolute;
-        text-align: center;
-        color: black;
-        opacity: 0;
-        top: 0;
-        left: 0;
-        height: 100%;
-        background: white;
-        @include trans-time(0.5s);
-        width: 100%;
+    <span style="color:#f92672">&amp;</span>:<span style="color:#a6e22e">after</span>{
+        <span style="color:#66d9ef">content</span>: <span style="color:#e6db74">&#34;CLICK!&#34;</span>;
+        <span style="color:#66d9ef">line-height</span>: <span style="color:#ae81ff">34</span><span style="color:#66d9ef">px</span>;
+        <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">absolute</span>;
+        <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">center</span>;
+        <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">black</span>;
+        <span style="color:#66d9ef">opacity</span>: <span style="color:#ae81ff">0</span>;
+        <span style="color:#66d9ef">top</span>: <span style="color:#ae81ff">0</span>;
+        <span style="color:#66d9ef">left</span>: <span style="color:#ae81ff">0</span>;
+        <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+        <span style="color:#66d9ef">background</span>: <span style="color:#66d9ef">white</span>;
+        <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">c</span><span style="color:#960050;background-color:#1e0010">l</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">d</span><span style="color:#960050;background-color:#1e0010">e</span> <span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">m</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#960050;background-color:#1e0010">0</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#960050;background-color:#1e0010">5</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">)</span>;
+        <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
     
     }
-    &amp;:hover{
-        #sent{
-           opacity: 0;
+    <span style="color:#f92672">&amp;</span>:<span style="color:#a6e22e">hover</span>{
+        <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">{</span>
+           <span style="color:#66d9ef">opacity</span>: <span style="color:#ae81ff">0</span>;
         }
-        &amp;:after{
-           opacity: 1;
+        <span style="color:#f92672">&amp;</span>:<span style="color:#a6e22e">after</span>{
+           <span style="color:#66d9ef">opacity</span>: <span style="color:#ae81ff">1</span>;
         }
-      }
-}
-</code></pre>
-
-<p>JS</p>
-
-<pre><code class="language-js">$(&quot;input, textarea&quot;).on('input',function(){
-  this.setAttribute('value', this.value);
+      <span style="color:#960050;background-color:#1e0010">}</span>
+<span style="color:#960050;background-color:#1e0010">}</span>
+</code></pre></div><p>JS</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;input, textarea&#34;</span>).<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;input&#39;</span>,<span style="color:#66d9ef">function</span>(){
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setAttribute</span>(<span style="color:#e6db74">&#39;value&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">value</span>);
 });
-</code></pre>
-
-<h2 id="參考資料">參考資料</h2>
-
+</code></pre></div><h2 id="heading">參考資料</h2>
 <ul>
 <li><a href="http://www.hksilicon.com/articles/102795">http://www.hksilicon.com/articles/102795</a></li>
 <li><a href="http://www.hksilicon.com/articles/102795">http://www.giantstepsmedias.com/contact</a></li>

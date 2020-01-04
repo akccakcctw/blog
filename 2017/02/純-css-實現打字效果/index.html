@@ -70,58 +70,47 @@
     
     <h1 class="title">純 CSS 實現打字效果</h1>
     <div class="content">
-      
-
-<p>剛剛看到這個<a href="https://tympanus.net/Development/SearchUIEffects/index11.html">搜尋樣式</a>，覺得在搜尋前使用 #tag 的方式提醒使用者可用的關鍵字不錯，應該會適合小網站或部落格。</p>
-
+      <p>剛剛看到這個<a href="https://tympanus.net/Development/SearchUIEffects/index11.html">搜尋樣式</a>，覺得在搜尋前使用 #tag 的方式提醒使用者可用的關鍵字不錯，應該會適合小網站或部落格。</p>
 <p>好奇就順便看了下程式碼，發現她的打字效果居然是純 CSS！利用<code>animation</code>配合<code>steps</code>和<code>ch</code>(charactor)這個長度單位來達成，類似這樣：</p>
-
-<pre><code class="language-css">.js .search--open .terminal__line {
-  animation: typing 1s steps(30, end), scaleUp 0.1s forwards;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">js</span> .<span style="color:#a6e22e">search--open</span> .<span style="color:#a6e22e">terminal__line</span> {
+  <span style="color:#66d9ef">animation</span>: typing <span style="color:#ae81ff">1</span><span style="color:#66d9ef">s</span> steps(<span style="color:#ae81ff">30</span>, <span style="color:#66d9ef">end</span>), scaleUp <span style="color:#ae81ff">0.1</span><span style="color:#66d9ef">s</span> <span style="color:#66d9ef">forwards</span>;
 }
 
-/* 依據字數不同，設定不同的steps */
-.js .search--open .terminal__line:first-child {
-  animation-timing-function: steps(20, end), ease;
+<span style="color:#75715e">/* 依據字數不同，設定不同的steps */</span>
+.<span style="color:#a6e22e">js</span> .<span style="color:#a6e22e">search--open</span> .<span style="color:#a6e22e">terminal__line</span>:<span style="color:#a6e22e">first-child</span> {
+  <span style="color:#66d9ef">animation-timing-function</span>: steps(<span style="color:#ae81ff">20</span>, <span style="color:#66d9ef">end</span>), <span style="color:#66d9ef">ease</span>;
 }
 
-.js .search--open .terminal__line:nth-child(2),
-.js .search--open .terminal__line:nth-child(3) {
-  animation-timing-function: steps(27, end), ease;
+.<span style="color:#a6e22e">js</span> .<span style="color:#a6e22e">search--open</span> .<span style="color:#a6e22e">terminal__line</span>:<span style="color:#a6e22e">nth-child</span><span style="color:#f92672">(</span><span style="color:#f92672">2</span><span style="color:#f92672">)</span><span style="color:#f92672">,</span>
+.<span style="color:#a6e22e">js</span> .<span style="color:#a6e22e">search--open</span> .<span style="color:#a6e22e">terminal__line</span>:<span style="color:#a6e22e">nth-child</span><span style="color:#f92672">(</span><span style="color:#f92672">3</span><span style="color:#f92672">)</span> {
+  <span style="color:#66d9ef">animation-timing-function</span>: steps(<span style="color:#ae81ff">27</span>, <span style="color:#66d9ef">end</span>), <span style="color:#66d9ef">ease</span>;
 }
 
-.js .search--open .terminal__line:nth-child(4) {
-  animation-timing-function: steps(28, end), ease;
+.<span style="color:#a6e22e">js</span> .<span style="color:#a6e22e">search--open</span> .<span style="color:#a6e22e">terminal__line</span>:<span style="color:#a6e22e">nth-child</span><span style="color:#f92672">(</span><span style="color:#f92672">4</span><span style="color:#f92672">)</span> {
+  <span style="color:#66d9ef">animation-timing-function</span>: steps(<span style="color:#ae81ff">28</span>, <span style="color:#66d9ef">end</span>), <span style="color:#66d9ef">ease</span>;
 }
 
-@keyframes typing {
-  from {
-    width: 0;
+@<span style="color:#66d9ef">keyframes</span> <span style="color:#f92672">typing</span> {
+  <span style="color:#f92672">from</span> {
+    <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">0</span>;
   }
 }
 
-</code></pre>
-
-<p>這個方法是 Lea Verou 想到的，她有寫了篇<a href="http://lea.verou.me/2012/02/simpler-css-typing-animation-with-the-ch-unit/">介紹</a>。只是這樣的方法需要字數固定，所以可以看到字數不同的話，step 的次數也需要調整。（字數不固定或許配合 JS 也可以？）</p>
-
+</code></pre></div><p>這個方法是 Lea Verou 想到的，她有寫了篇<a href="http://lea.verou.me/2012/02/simpler-css-typing-animation-with-the-ch-unit/">介紹</a>。只是這樣的方法需要字數固定，所以可以看到字數不同的話，step 的次數也需要調整。（字數不固定或許配合 JS 也可以？）</p>
 <p>此外，她的<code>scaleUp</code>利用到了<code>animation-fill-mode</code>的<code>forwards</code>，也很值得參考：</p>
-
-<pre><code class="language-css">.js .search--open .terminal__line {
-  animation: typing 1s steps(30, end), scaleUp 0.1s forwards;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">js</span> .<span style="color:#a6e22e">search--open</span> .<span style="color:#a6e22e">terminal__line</span> {
+  <span style="color:#66d9ef">animation</span>: typing <span style="color:#ae81ff">1</span><span style="color:#66d9ef">s</span> steps(<span style="color:#ae81ff">30</span>, <span style="color:#66d9ef">end</span>), scaleUp <span style="color:#ae81ff">0.1</span><span style="color:#66d9ef">s</span> <span style="color:#66d9ef">forwards</span>;
 }
 
-@keyframes scaleUp {
-  from {
-    height: 0;
-  } to {
-    height: 1.5em;
+@<span style="color:#66d9ef">keyframes</span> <span style="color:#f92672">scaleUp</span> {
+  <span style="color:#f92672">from</span> {
+    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">0</span>;
+  } <span style="color:#f92672">to</span> {
+    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">1.5</span><span style="color:#66d9ef">em</span>;
   }
 }
 
-</code></pre>
-
-<h2 id="參考資料">參考資料</h2>
-
+</code></pre></div><h2 id="heading">參考資料</h2>
 <ul>
 <li><a href="https://tympanus.net/codrops/2017/02/08/inspiration-search-ui-effects/">Inspiration for Search UI Effects</a></li>
 <li><a href="https://tympanus.net/Development/SearchUIEffects">Demo</a></li>

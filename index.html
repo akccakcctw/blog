@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" >
   <head>
-	<meta name="generator" content="Hugo 0.55.6" />
+	<meta name="generator" content="Hugo 0.62.0" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="為了可能的聲音"> 
@@ -60,6 +60,26 @@
   <div class="container"><article>
   <div class="post-meta">
   <div class="post-meta__date">
+    <time class="date" datetime="2020-01-04T16:16:22">January 4, 2020</time>
+  </div>
+</div>
+
+  <h1 class="title"><a href="https://blog.rex-tsou.com/2020/01/shadowsocks-client-on-archlinux/">Shadowsocks client on archlinux</a></h1>
+  <div class="content">
+    因為公司的 VPN 是用 Jigsaw 的 outline 來架，client 端設定滿簡易的，想說在我的筆電（archlinux）上也來設定一下，無奈都跑不起來，除了試過官網，還
+    …
+    <br>
+    <a class="btn btn--more" href="https://blog.rex-tsou.com/2020/01/shadowsocks-client-on-archlinux/" style="height:28px">
+      Read more
+      <span class="icon is-small">
+        <i class="fa fa-angle-double-right"></i>
+      </span>
+    </a>
+  </div>
+</article>
+<article>
+  <div class="post-meta">
+  <div class="post-meta__date">
     <time class="date" datetime="2019-12-18T23:31:58">December 18, 2019</time>
   </div>
   <div class="post-meta__category">
@@ -69,7 +89,7 @@
 
   <h1 class="title"><a href="https://blog.rex-tsou.com/2019/12/tips-base64-encode-decode/">Tips: Base64 Encode &amp; Decode</a></h1>
   <div class="content">
-     Origin Data '{&quot;foo&quot;:&quot;bar&quot;}'  Encode Shell echo -n '{&quot;foo&quot;:&quot;bar&quot;}' | base64 # eyJmb28iOiJiYXIifQ==  Browser btoa('{&quot;foo&quot;:&quot;bar&quot;}'); // eyJmb28iOiJiYXIifQ==  Nodejs Buffer.from('{&quot;foo&quot;:&quot;bar&quot;}').toString('base64'); // 'eyJmb28iOiJiYXIifQ=='  Python import base64 base64.b64encode(bytes('{&quot;foo&quot;:&quot;bar&quot;}', 'utf-8')) # b'eyJmb28iOiJiYXIifQ=='  Decode Shell echo -n 'eyJmb28iOiJiYXIifQ==' | base64 -d # {&quot;foo&quot;:&quot;bar&quot;}%  Browser atob('eyJmb28iOiJiYXIifQ=='); // {&quot;foo&quot;:&quot;bar&quot;}  Nodejs Buffer.from('eyJmb28iOiJiYXIifQ==', 'base64').toString(); // '{&quot;foo&quot;:&quot;bar&quot;}'  Python base64.b64decode('eyJmb28iOiJiYXIifQ==') # b'{&quot;foo&quot;:&quot;bar&quot;}'  
+    Origin Data &#39;{&#34;foo&#34;:&#34;bar&#34;}&#39;  Encode Shell echo -n &#39;{&#34;foo&#34;:&#34;bar&#34;}&#39; | base64 # eyJmb28iOiJiYXIifQ== Browser btoa(&#39;{&#34;foo&#34;:&#34;bar&#34;}&#39;); // eyJmb28iOiJiYXIifQ== Nodejs Buffer.from(&#39;{&#34;foo&#34;:&#34;bar&#34;}&#39;).toString(&#39;base64&#39;); // &#39;eyJmb28iOiJiYXIifQ==&#39; Python import base64 base64.b64encode(bytes(&#39;{&#34;foo&#34;:&#34;bar&#34;}&#39;, &#39;utf-8&#39;)) # b&#39;eyJmb28iOiJiYXIifQ==&#39;  Decode Shell echo -n &#39;eyJmb28iOiJiYXIifQ==&#39; | base64 -d # {&#34;foo&#34;:&#34;bar&#34;}% Browser atob(&#39;eyJmb28iOiJiYXIifQ==&#39;); // {&#34;foo&#34;:&#34;bar&#34;} Nodejs Buffer.from(&#39;eyJmb28iOiJiYXIifQ==&#39;, &#39;base64&#39;).toString(); // &#39;{&#34;foo&#34;:&#34;bar&#34;}&#39; Python base64.b64decode(&#39;eyJmb28iOiJiYXIifQ==&#39;) # b&#39;{&#34;foo&#34;:&#34;bar&#34;}&#39; 
   </div>
 </article>
 <article>
@@ -220,26 +240,6 @@
     …
     <br>
     <a class="btn btn--more" href="https://blog.rex-tsou.com/2018/12/%E5%85%A9%E5%89%87%E7%80%8F%E8%A6%BD%E5%99%A8%E7%9A%84%E6%96%B0%E8%81%9E/" style="height:28px">
-      Read more
-      <span class="icon is-small">
-        <i class="fa fa-angle-double-right"></i>
-      </span>
-    </a>
-  </div>
-</article>
-<article>
-  <div class="post-meta">
-  <div class="post-meta__date">
-    <time class="date" datetime="2018-11-22T00:40:09">November 22, 2018</time>
-  </div>
-</div>
-
-  <h1 class="title"><a href="https://blog.rex-tsou.com/2018/11/%E5%8F%B0%E7%81%A3%E5%B8%B8%E7%94%A8-dns-server-%E6%95%B4%E7%90%86/">台灣常用 DNS server 整理</a></h1>
-  <div class="content">
-    提供者 DNS (IPv4) DNS (IPV6) Google Public DNS 8.8.8.8 8.8.4.4 2001:4860:4860::8888 2001:4860:4860::8844 Cloudflare 1.1.1.1 1.0.0.1 2606:4700:4700::1111 2606:4700:4700::1001 OpenDNS (Cisco) 208.67.222.222 208.67.220.220 2620:0:ccc::2 2620:0:ccd::2 OpenDNS Family Shield 208.67.222.123 208.67.220.123 Comodo Secure DNS 8.26.56.26 8.20.247.20 Quad9 DNS (IBM) 9.9.9.9 149.112.112.112 2620:fe::fe 2620:fe::9 Hinet（中華電信） 168.95.1.1 169.95.192.1 2001:b000:168::1 2001:b000:168::2 SeedNet（遠傳電信）
-    …
-    <br>
-    <a class="btn btn--more" href="https://blog.rex-tsou.com/2018/11/%E5%8F%B0%E7%81%A3%E5%B8%B8%E7%94%A8-dns-server-%E6%95%B4%E7%90%86/" style="height:28px">
       Read more
       <span class="icon is-small">
         <i class="fa fa-angle-double-right"></i>

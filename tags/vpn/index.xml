@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VPN on 為了可能的聲音</title>
+    <link>https://blog.rex-tsou.com/tags/vpn/</link>
+    <description>Recent content in VPN on 為了可能的聲音</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 04 Jan 2020 16:16:22 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.rex-tsou.com/tags/vpn/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Shadowsocks client on archlinux</title>
+      <link>https://blog.rex-tsou.com/2020/01/shadowsocks-client-on-archlinux/</link>
+      <pubDate>Sat, 04 Jan 2020 16:16:22 +0800</pubDate>
+      
+      <guid>https://blog.rex-tsou.com/2020/01/shadowsocks-client-on-archlinux/</guid>
+      <description>因為公司的 VPN 是用 Jigsaw 的 outline 來架，client 端設定滿簡易的，想說在我的筆電（archlinux）上也來設定一下，無奈都跑不起來，除了試過官網，還</description>
+    </item>
+    
+  </channel>
+</rss>

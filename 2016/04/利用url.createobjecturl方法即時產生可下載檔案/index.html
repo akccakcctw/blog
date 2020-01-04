@@ -74,113 +74,104 @@
     
     <h1 class="title">利用URL.createObjectURL方法，即時產生可下載檔案</h1>
     <div class="content">
-      
-
-<p>最近在看 HTML5 的一些 API，發現有不少好用的功能，剛才看到<a href="http://blog.darkthread.net/post-2014-03-12-html5-object-url.aspx">黑暗執行緒</a>這篇介紹，可以利用<code>URL.createObjectURL</code>，將物件內容暫時存在瀏覽器記憶體中，並且可以產生下載連結！</p>
-
+      <p>最近在看 HTML5 的一些 API，發現有不少好用的功能，剛才看到<a href="http://blog.darkthread.net/post-2014-03-12-html5-object-url.aspx">黑暗執行緒</a>這篇介紹，可以利用<code>URL.createObjectURL</code>，將物件內容暫時存在瀏覽器記憶體中，並且可以產生下載連結！</p>
 <p>馬上嘗試了一下，還挺好用的。話不多說，以下是程式碼，寫在這邊作為分享，也作為自己的備忘筆記：</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
 
-<p><p data-height="370" data-theme-id="dark" data-slug-hash="wGXaQZ" data-default-tab="css,result" data-user="akccakcctw" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/akccakcctw/pen/wGXaQZ/">URL.createObjectURL demo</a> by Rex Tsou (<a href="http://codepen.io/akccakcctw">@akccakcctw</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script></p>
-
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;URL.createObjectURL demo&lt;/title&gt;
-    &lt;script src=&quot;https://code.jquery.com/jquery-2.2.3.min.js&quot; integrity=&quot;sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-    &lt;style&gt;
-    body {
-        font-family: monospace;
+&lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;URL.createObjectURL demo&lt;/<span style="color:#f92672">title</span>&gt;
+    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://code.jquery.com/jquery-2.2.3.min.js&#34;</span> <span style="color:#a6e22e">integrity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=&#34;</span> <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+    &lt;<span style="color:#f92672">style</span>&gt;
+    <span style="color:#f92672">body</span> {
+        <span style="color:#66d9ef">font-family</span>: <span style="color:#66d9ef">monospace</span>;
     }
     
-    #file_content,
+    #file_content<span style="color:#f92672">,</span>
     #file_name {
-        display: block;
-        background: #777;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        padding: 10px;
-        font-size: 16px;
-        font-family: monospace;
-        margin-bottom: 5px;
+        <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">block</span>;
+        <span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#777</span>;
+        <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#fff</span>;
+        <span style="color:#66d9ef">border</span>: <span style="color:#66d9ef">none</span>;
+        <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span>;
+        <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
+        <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">16</span><span style="color:#66d9ef">px</span>;
+        <span style="color:#66d9ef">font-family</span>: <span style="color:#66d9ef">monospace</span>;
+        <span style="color:#66d9ef">margin-bottom</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span>;
     }
     
-    #create_file,
+    #create_file<span style="color:#f92672">,</span>
     #revoke_file {
-        padding: 10px;
-        border: none;
-        color: #fff;
-        background: #333;
-        transition: 0.3s;
-        cursor: pointer;
+        <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
+        <span style="color:#66d9ef">border</span>: <span style="color:#66d9ef">none</span>;
+        <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#fff</span>;
+        <span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#333</span>;
+        <span style="color:#66d9ef">transition</span>: <span style="color:#ae81ff">0.3</span><span style="color:#66d9ef">s</span>;
+        <span style="color:#66d9ef">cursor</span>: <span style="color:#66d9ef">pointer</span>;
     }
     
-    #create_file:hover,
-    #revoke_file:hover {
-        background: #777;
+    #create_file:<span style="color:#a6e22e">hover</span><span style="color:#f92672">,</span>
+    #revoke_file:<span style="color:#a6e22e">hover</span> {
+        <span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#777</span>;
     }
     
-    #create_file:active,
-    #revoke_file:active {
-        background: #000;
+    #create_file:<span style="color:#a6e22e">active</span><span style="color:#f92672">,</span>
+    #revoke_file:<span style="color:#a6e22e">active</span> {
+        <span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#000</span>;
     }
     
     #download_link {
-        padding: 10px;
+        <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
     }
     
-    .revoke {
-        text-decoration: line-through;
-        color: #f00;
+    .<span style="color:#a6e22e">revoke</span> {
+        <span style="color:#66d9ef">text-decoration</span>: <span style="color:#66d9ef">line-through</span>;
+        <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#f00</span>;
     }
-    &lt;/style&gt;
-&lt;/head&gt;
+    &lt;/<span style="color:#f92672">style</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
 
-&lt;body&gt;
-&lt;!-- 
-key code:
-URL.createObjectURL() 
-URL.revokeObjectURL()
---&gt;
-    &lt;textarea id=&quot;file_content&quot; cols=&quot;30&quot; rows=&quot;10&quot; placeholder=&quot;file content&quot; title=&quot;file content&quot;&gt;&lt;/textarea&gt;
-    &lt;input id=&quot;file_name&quot; type=&quot;text&quot; placeholder=&quot;file name&quot; title=&quot;file name&quot;&gt;
-    &lt;button id=&quot;create_file&quot;&gt;Gen File&lt;/button&gt;
-    &lt;button id=&quot;revoke_file&quot;&gt;Revoke File&lt;/button&gt;
-    &lt;a id=&quot;download_link&quot; title=&quot;click to download&quot;&gt;&lt;/a&gt;
-    &lt;script&gt;
-    $(function() {
-        $(&quot;#create_file&quot;).click(function() {
-            $(&quot;#download_link&quot;).removeClass(&quot;revoke&quot;);
-            var blob = new Blob([$(&quot;#file_content&quot;).val()], {
-                type: &quot;application/octect-stream&quot;
+&lt;<span style="color:#f92672">body</span>&gt;
+<span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> 
+</span><span style="color:#75715e">key code:
+</span><span style="color:#75715e">URL.createObjectURL() 
+</span><span style="color:#75715e">URL.revokeObjectURL()
+</span><span style="color:#75715e"></span><span style="color:#75715e">--&gt;</span>
+    &lt;<span style="color:#f92672">textarea</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;file_content&#34;</span> <span style="color:#a6e22e">cols</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;30&#34;</span> <span style="color:#a6e22e">rows</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;10&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;file content&#34;</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;file content&#34;</span>&gt;&lt;/<span style="color:#f92672">textarea</span>&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;file_name&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;file name&#34;</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;file name&#34;</span>&gt;
+    &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;create_file&#34;</span>&gt;Gen File&lt;/<span style="color:#f92672">button</span>&gt;
+    &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;revoke_file&#34;</span>&gt;Revoke File&lt;/<span style="color:#f92672">button</span>&gt;
+    &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;download_link&#34;</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;click to download&#34;</span>&gt;&lt;/<span style="color:#f92672">a</span>&gt;
+    &lt;<span style="color:#f92672">script</span>&gt;
+    <span style="color:#a6e22e">$</span>(<span style="color:#66d9ef">function</span>() {
+        <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;#create_file&#34;</span>).<span style="color:#a6e22e">click</span>(<span style="color:#66d9ef">function</span>() {
+            <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;#download_link&#34;</span>).<span style="color:#a6e22e">removeClass</span>(<span style="color:#e6db74">&#34;revoke&#34;</span>);
+            <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">blob</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Blob</span>([<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;#file_content&#34;</span>).<span style="color:#a6e22e">val</span>()], {
+                <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;application/octect-stream&#34;</span>
             });
-            var blobUrl = URL.createObjectURL(blob);
-            var fileName = $(&quot;#file_name&quot;).val();
+            <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">blobUrl</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">URL</span>.<span style="color:#a6e22e">createObjectURL</span>(<span style="color:#a6e22e">blob</span>);
+            <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fileName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;#file_name&#34;</span>).<span style="color:#a6e22e">val</span>();
 
-            $(&quot;#download_link&quot;).attr({
-                href: blobUrl,
-                download: fileName + &quot;.txt&quot;,
+            <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;#download_link&#34;</span>).<span style="color:#a6e22e">attr</span>({
+                <span style="color:#a6e22e">href</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">blobUrl</span>,
+                <span style="color:#a6e22e">download</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">fileName</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.txt&#34;</span>,
 
-            }).text(fileName + &quot;.txt&quot;);
+            }).<span style="color:#a6e22e">text</span>(<span style="color:#a6e22e">fileName</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.txt&#34;</span>);
 
         });
 
-        $(&quot;#revoke_file&quot;).click(function() {
-            blobUrl = URL.revokeObjectURL($(&quot;#download_link&quot;).attr(&quot;href&quot;));
-            $(&quot;#download_link&quot;).addClass(&quot;revoke&quot;);
+        <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;#revoke_file&#34;</span>).<span style="color:#a6e22e">click</span>(<span style="color:#66d9ef">function</span>() {
+            <span style="color:#a6e22e">blobUrl</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">URL</span>.<span style="color:#a6e22e">revokeObjectURL</span>(<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;#download_link&#34;</span>).<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#34;href&#34;</span>));
+            <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;#download_link&#34;</span>).<span style="color:#a6e22e">addClass</span>(<span style="color:#e6db74">&#34;revoke&#34;</span>);
         })
     });
-    &lt;/script&gt;
-&lt;/body&gt;
+    &lt;/<span style="color:#f92672">script</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
 
-&lt;/html&gt;
-</code></pre>
-
-<h2 id="參考資料">參考資料</h2>
-
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><h2 id="heading">參考資料</h2>
 <ul>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL">Mozilla Developer: createObjectURL</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/URL/revokeObjectURL">Mozilla Developer: revokeObjectURL</a></li>
