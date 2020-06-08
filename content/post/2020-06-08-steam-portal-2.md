@@ -1,7 +1,7 @@
 ---
 title: "修正 Portal 2 於 Linux 中文顯示問題"
 date: 2020-06-08T22:48:46+08:00
-draft: true
+draft: false 
 categories:
   - Games
 tags:
