@@ -5,7 +5,7 @@ draft: false
 categories:
 tags:
 description: ""
-lastmod: 2020-05-31T23:54:42+08:00
+lastmod: 2020-08-03T01:07:42+08:00
 ---
 
 ## 前言
@@ -295,6 +295,14 @@ virsh net-start default
 1. 如果你有 2 臺以上的螢幕，你可以直接將螢幕接到顯卡上，然後在「系統 > 顯示器 > 多部顯示器」設定內，調整爲「只在 2 顯示」。
 
 2. 或者你像我一樣，只有 1 臺螢幕。就需要在「系統 > 顯示器 > 圖形設定」自行選擇要使用該顯卡來輸出的應用程式[^7]。
+
+### 系統更新 `pacman -Syu` 之後 arch-kvm 無法開機
+
+再跑一次以下指令，重新產生 initramfs 應該就可以正常起動了：
+
+```sh
+mkinitcpio -c /etc/mkinitcpio-kvm.conf -g /boot/linux-kvm.img
+```
 
 
 ## 參考資料
