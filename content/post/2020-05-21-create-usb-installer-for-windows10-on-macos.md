@@ -5,7 +5,7 @@ draft: false
 categories:
 tags:
 description: ""
-lastmod: 2020-05-21T12:17:42+08:00
+lastmod: 2020-12-05T11:56:42+08:00
 ---
 
 ## 前言
@@ -55,7 +55,7 @@ diskutil eraseDisk MS-DOS "WINDOWS10" GPT diskN # 抹除磁碟資訊
 
 ```sh
 hdiutil mount ~/Downloads/windows_10_iso/Win10_1909_Chinese\(Traditional\)_x64.iso
-# /dev/disk2                                              /Volumes/CCCOMA_X64FRE_ZH-TW_DV9
+# /dev/disk2  /Volumes/CCCOMA_X64FRE_ZH-TW_DV9
 ```
 
 
@@ -99,8 +99,8 @@ brew install wimlib
 
 ```sh
 # 注意副檔名為 swm，Windows 才知道這是分割檔
-# 4000 意思是分割為不超過 4000 MB 的 chunks
-wimlib-imagex split /Volumes/CCCOMA_X64FRE_ZH-TW_DV9/sources/install.wim /Volumes/WINDOWS10/sources/install.swm 4000
+# 3800 意思是分割為不超過 3800 MB 的 chunks
+wimlib-imagex split /Volumes/CCCOMA_X64FRE_ZH-TW_DV9/sources/install.wim /Volumes/WINDOWS10/sources/install.swm 3800
 ```
 
 ## 完工！
