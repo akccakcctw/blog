@@ -9,6 +9,9 @@ description: ""
 lastmod: 2021-07-24T22:54:00+08:00
 ---
 
+本文亦同步發表於 [KKday Tech Blog](https://medium.com/kkdaytech/variable-fonts-%E7%B0%A1%E4%BB%8B-90ea546260bb)。
+
+
 ## 名詞定義
 
 在敘述 Variable Fonts 時，會用到許多排版專業術語，由於排版印刷技術進步快速，許多排版術語也因爲過時或演進而更容易混淆。因此，在嘗試理解 Variable Fonts 之前，先理解排版術語可能會有所幫助。
