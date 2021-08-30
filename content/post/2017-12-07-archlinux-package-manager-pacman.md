@@ -95,12 +95,15 @@ pacman -Qo /path/to/package
 ### 暫存
 
 ```sh
-# 清除暫存檔以及未用到的套件資料庫資訊
+# 清除暫存檔以及未用到的套件資料庫資訊（會清除整個 cache 資料夾，盡量避免使用）
 # -c: clean
 pacman -Scc
 
 # 僅清除目前未使用的暫存檔
 pacman -Sc
+
+# 清除暫存檔（保留最近三個版本）
+paccache -r
 ```
 
 ### 其他相關
