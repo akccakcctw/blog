@@ -5,7 +5,7 @@ draft: false
 categories:
 tags:
 description: ""
-lastmod: 2020-08-03T01:07:42+08:00
+lastmod: 2022-05-01T01:20:06+0800
 ---
 
 ## 前言
@@ -304,6 +304,81 @@ virsh net-start default
 mkinitcpio -c /etc/mkinitcpio-kvm.conf -g /boot/linux-kvm.img
 ```
 
+### 提示權限錯誤，無法開啓虛擬機
+
+如果更新後出現 `permission denied` 之類的訊息，那就有可能是權限設定跑掉了。
+
+請更新 `/etc/libvirt/qemu.conf`：
+
+```sh
+sudo vim /etc/libvirt/qemu.conf
+```
+
+找到 `user` 和 `group`，他們預設應該會被設爲 `"root"` 並註解，改爲你的 user 和 group:
+
+```conf
+ [...] 
+ # Some examples of valid values are:
+ #
+ #    user = "qemu"   # A user named "qemu"
+ #    user = "+0"     # Super user (uid=0)
+ #    user = "100"    # A user named "100" or a user with uid=100
+ #
+ user = "akccakcctw"
+ # The group for QEMU processes run by the system instance. It can be
+ # specified in a similar way to user.
+ group = "kvm"
+ [...]
+ ```
+
+ 確認 user 在 `kvm` group 內：
+
+ ```sh
+ sudo usermod -a -G kvm $(whoami)
+ ```
+
+### 虛擬機容量不夠
+
+先確認虛擬機名稱並關閉：
+
+```sh
+$ sudo virsh list
+
+Id   Name    State
+-----------------------
+ 4    win10   running
+```
+
+```sh
+$ sudo virsh shutdown win10
+```
+
+取得虛擬機檔案路徑：
+
+```sh
+sudo virsh domblklist win10
+```
+
+查看檔案 info：
+
+```sh
+sudo qemu-img info ~/vbox/win10.qcow2 
+```
+
+擴充虛擬機磁碟大小
+
+```sh
+sudo qemu-img resize ~/vbox/win10.qcow2 + 10G
+```
+
+注意如果有開啓 snapshot，需要先移除所有 snapshot，才有辦法擴充磁碟
+
+```sh
+sudo virsh snapshot-list win10
+sudo virsh snapshot-delete --domain win10 --snapshotname snapshot
+sudo virst snapshot-list win10
+```
+
 
 ## 參考資料
 
@@ -316,6 +391,8 @@ mkinitcpio -c /etc/mkinitcpio-kvm.conf -g /boot/linux-kvm.img
 - [reddit: GPU Passthrough - Or How To Play Any Game At Near Native Performance In A Virtual Machine](https://www.reddit.com/r/pcmasterrace/comments/2z0evz/gpu_passthrough_or_how_to_play_any_game_at_near/)
 - [GitHub: GPU Passthrough from Arch Linux](https://github.com/vanities/GPU-Passthrough-Arch-Linux-to-Windows10)
 - [Intel GVT-g](https://wiki.archlinux.org/index.php/Intel_GVT-g)
+- [Cannot access storage file, Permission denied Error in KVM Libvirt](https://ostechnix.com/solved-cannot-access-storage-file-permission-denied-error-in-kvm-libvirt/)
+- [How To extend/increase KVM Virtual Machine (VM) disk size](https://computingforgeeks.com/how-to-extend-increase-kvm-virtual-machine-disk-size/)
 
 
 [^1]: 注意 archlinux 2020.05 的 ISO 檔有問題，我改下載 2020.04 的才能正常安裝。
