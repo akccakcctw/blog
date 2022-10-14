@@ -1,5 +1,5 @@
 ---
-title: "2022 10 14 Get Environment Variable In Nginx Conf File In Docker Container"
+title: "Use `host.docker.internal` as Hostname in Linux and mac Docker Container"
 date: 2022-10-14T18:12:15+08:00
 categories:
 tags:
