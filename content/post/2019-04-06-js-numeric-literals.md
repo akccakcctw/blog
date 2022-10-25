@@ -7,7 +7,7 @@ description: ""
 lastmod: 2019-04-06T15:58:09+08:00
 ---
 
-寫 JS 也好一陣子了，還沒遇過需要處理二進位的情況，如果了解原理，[用二進位表示法來處理權限問題](https://oomusou.io/ecmascript/operator/bitwise/?fbclid=IwAR1jwGMQ-VPIPFDoD6x-mcRbPz-9exwnD3UST4UC9Is6w4AfUmtW2uc3zFM)，也真的是簡潔不囉唆。剛才翻了下文件，發現其實在 ES6 之後就有提供不同進位法數字表示法了，包括 Decimal, Binary, Octal, Hexadecimal 這幾種，運算時其實不一定需要使用 `parseInt()` 了，語法如下：
+寫 JS 也好一陣子了，還沒遇過需要處理二進位的情況，如果了解原理，[用二進位表示法來處理權限問題](https://functional.style/ecmascript/operator/bitwise/)，也真的是簡潔不囉唆。剛才翻了下文件，發現其實在 ES6 之後就有提供不同進位法數字表示法了，包括 Decimal, Binary, Octal, Hexadecimal 這幾種，運算時其實不一定需要使用 `parseInt()` 了，語法如下：
 
 ## Syntax
 
@@ -55,4 +55,4 @@ var x2 = 0xA; // 10
 - [MDN: Numeric literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Numeric_literals)
 - [ECMAScript® 2015 Language Specification: 11.8.3 Numeric Literals](http://www.ecma-international.org/ecma-262/6.0/#sec-literals-numeric-literals)
 - [Stackoverflow: Is there “0b” or something similar to represent a binary number in Javascript](https://stackoverflow.com/questions/2803145/is-there-0b-or-something-similar-to-represent-a-binary-number-in-javascript)
-- [ECMAScript 之 Bitwise Operator](https://oomusou.io/ecmascript/operator/bitwise/?fbclid=IwAR1jwGMQ-VPIPFDoD6x-mcRbPz-9exwnD3UST4UC9Is6w4AfUmtW2uc3zFM)
+- [ECMAScript 之 Bitwise Operator](https://functional.style/ecmascript/operator/bitwise/)
