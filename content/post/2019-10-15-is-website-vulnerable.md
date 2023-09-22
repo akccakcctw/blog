@@ -13,7 +13,7 @@ lastmod: 2019-10-15T13:30:13+08:00
 npx is-website-vulnerable http://www.example.com
 ```
 
-![is_website_vulnerable 截圖](https://github.com/lirantal/is-website-vulnerable/raw/master/.github/is-website-vulnerable-logo.png)  
+![is_website_vulnerable 截圖](https://raw.githubusercontent.com/lirantal/is-website-vulnerable/HEAD/.github/is-website-vulnerable-logo.png)  
 （credit: 官方 GitHub）
 
 
