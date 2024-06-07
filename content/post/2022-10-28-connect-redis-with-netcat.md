@@ -17,6 +17,9 @@ nc -v <REDIS_SERVER> <REDIS_SERVER_PORT>
 
 ```sh
 nc -v -X connect -x <PROXY:PORT> <REDIS_SERVER> <REDIS_SERVER_PORT>
+
+# 或習慣用 proxychains 的話
+proxychains nc -v <REDIS_SERVER> <REDIS_SERVER_PORT>
 ```
 
-進去後就用 redis command 執行即可
+進去後就用 [redis command](https://redis.io/learn/howtos/quick-start/cheat-sheet) 執行即可
