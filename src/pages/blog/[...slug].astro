@@ -9,6 +9,8 @@ import PostNavigation from "@components/PostNavigation.astro";
 import TableOfContents from "@components/TableOfContents.astro";
 // import Giscus from "@components/Giscus.astro";
 
+// SSR pages can't use getStaticPaths()
+// ref: https://docs.astro.build/en/guides/routing/#modifying-the-slug-example-for-ssr
 export async function getStaticPaths() {
   const posts = (await getCollection("blog"))
     .filter((post) => !post.data.draft)
