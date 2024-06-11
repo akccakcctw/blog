@@ -10,12 +10,17 @@ export const SITE: Site = {
 
 export const HOME: Metadata = {
   TITLE: "Home",
-  DESCRIPTION: "Astro Micro is an accessible theme for Astro.",
+  DESCRIPTION: "RexTsou",
 };
 
 export const BLOG: Metadata = {
   TITLE: "Blog",
   DESCRIPTION: "爲了可能的聲音",
+};
+
+export const ABOUT: Metadata = {
+  TITLE: "About",
+  DESCRIPTION: "關於我",
 };
 
 export const PROJECTS: Metadata = {
@@ -25,10 +30,6 @@ export const PROJECTS: Metadata = {
 };
 
 export const SOCIALS: Socials = [
-  {
-    NAME: "X (formerly Twitter)",
-    HREF: "https://twitter.com/akccakcctw",
-  },
   {
     NAME: "GitHub",
     HREF: "https://github.com/akccakcctw",
