@@ -3,15 +3,22 @@ import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
 import BackToPrevious from "@components/BackToPrevious.astro";
 import { SITE } from "@consts";
+
+const { frontmatter } = Astro.props;
 ---
 
-<Layout title="now" description={SITE.DESCRIPTION}>
+<Layout title={ frontmatter.title } description={ frontmatter.title || SITE.DESCRIPTION}>
   <Container>
     <div class="mt-16 grid place-items-center gap-3">
-      <h4 class="animate text-2xl font-semibold text-black dark:text-white">
-        Now
-      </h4>
-      <span class="animate">
+      <h1 class="animate text-2xl font-semibold text-black dark:text-white">
+        {frontmatter.title}
+      </h1>
+
+      <article class="animate">
+        <slot />
+      </article>
+
+      <span class="animate mt-24">
         <BackToPrevious href="/">Go to home page</BackToPrevious>
       </span>
     </div>
