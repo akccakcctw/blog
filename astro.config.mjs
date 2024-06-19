@@ -8,6 +8,7 @@ import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
+  trailingSlash: 'never',
   site: "https://blog.rex-tsou.com",
   integrations: [tailwind(), sitemap(), mdx(), pagefind()],
   markdown: {
@@ -16,5 +17,5 @@ export default defineConfig({
     }
   },
   output: "static", // or "server" to be SSR
-  adapter: netlify()
+  adapter: netlify(),
 });
