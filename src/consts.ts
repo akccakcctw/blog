@@ -13,6 +13,11 @@ export const HOME: Metadata = {
   DESCRIPTION: "RexTsou",
 };
 
+export const TIL: Metadata = {
+  TITLE: "Today I Learned",
+  DESCRIPTION: "爲了可能的聲音",
+};
+
 export const BLOG: Metadata = {
   TITLE: "Blog",
   DESCRIPTION: "爲了可能的聲音",
