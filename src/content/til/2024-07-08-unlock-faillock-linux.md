@@ -1,12 +1,12 @@
 ---
 title: "unset faillock"
-date: 2024-05-20T16:40:32+08:00
+date: 2024-07-08T16:40:32+08:00
 draft: false
 categories:
   - Linux
 tags:
 description: ""
-lastmod: 2024-05-20T16:40:32+08:00
+lastmod: 2024-07-08T16:40:32+08:00
 ---
 
 今天不小心 `sudo` 打錯太多次密碼，結果自己被鎖，錯誤訊息如下：
