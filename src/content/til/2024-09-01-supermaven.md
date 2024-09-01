@@ -1,13 +1,13 @@
 ---
 title: "Show `docker` command output"
-date: 2024-09-01T18:24:51+0800
+date: 2024-09-01T18:24:51+08:00
 
 draft: false
 categories:
   - editor
 tags:
 description: ""
-lastmod: 2024-09-01T18:24:51+0800
+lastmod: 2024-09-01T18:24:51+08:00
 ---
 
 之前看過同事在 VSCode 上使用 copilot，不過因爲我已經付費買 openai（對話式雖然繁瑣，不過可以用在大部分場景），要多買套工具還是有些成本考量，就一直沒有下手。
