@@ -1,5 +1,5 @@
 ---
-title: "Show `docker` command output"
+title: "nvim code completion with Supermaven"
 date: 2024-09-01T18:24:51+08:00
 
 draft: false
