@@ -5,7 +5,7 @@ categories:
   - JavaScript
 ---
 
-![IEEE_754_Double_Floating_Point_Format](https://i.imgur.com/AemLA5y.png)
+<img alt="IEEE_754_Double_Floating_Point_Format" src="https://static.rex-tsou.com/IEEE_754_Double_Floating_Point_Format.svg" style="background-color:#fff;margin-top:2em" />
 
 大家都知道，在 JavaScript 裡，`0.1 + 0.2 !== 0.3`，因為浮點數並不是精確值。
 
