@@ -1,4 +1,4 @@
-# blog.rex-tsou.com
+# rex-tsou.com
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/81e6b912-42dc-4246-bed9-05c871f1b04a/deploy-status)](https://app.netlify.com/sites/blog-rex-tsou/deploys)
 

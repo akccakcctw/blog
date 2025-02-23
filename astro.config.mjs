@@ -9,7 +9,7 @@ import netlify from "@astrojs/netlify";
 // https://astro.build/config
 export default defineConfig({
   trailingSlash: 'never',
-  site: "https://blog.rex-tsou.com",
+  site: "https://rex-tsou.com",
   integrations: [tailwind(), sitemap(), mdx(), pagefind()],
   markdown: {
     shikiConfig: {
