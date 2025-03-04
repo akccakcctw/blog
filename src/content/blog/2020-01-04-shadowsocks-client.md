@@ -153,10 +153,38 @@ curl -I www.google.com
 
 
 
-## SwitchyOmega
+## ~~SwitchyOmega~~ （作者不再維護，被 Chrome 下架了）
 
-Chrome 安裝擴充套件「SwitchyOmega」，並設定 proxy 為剛剛設定的 ip，之後再到 <https://myip.com.tw/> 看看是否上網的 ip 已經改為 shadowsocks server 的 ip 了。
+~~Chrome 安裝擴充套件「SwitchyOmega」，並設定 proxy 為剛剛設定的 ip，之後再到 <https://myip.com.tw/> 看看是否上網的 ip 已經改為 shadowsocks server 的 ip 了。~~
 
+## [ZeroOmega](https://github.com/zero-peak/ZeroOmega)
+
+從 SwitchyOmega fork 出來的專案，有提供 [Chrome](https://chromewebstore.google.com/detail/pfnededegaaopdmhkdmcofjmoldfiped?utm_source=item-share-cb)、[Edge](https://microsoftedge.microsoft.com/addons/detail/proxy-switchyomega-3-zer/dmaldhchmoafliphkijbfhaomcgglmgd)、[Firefox](https://addons.mozilla.org/en-US/firefox/addon/zeroomega/) 等瀏覽器擴充套件可使用，我習慣直接編輯 `.pac` 檔，在套件的 `Options > New Profile > PAC Profile` 可以自行新增，這樣就可以只判斷特定網址導向 shadowsocks proxy server，其餘網站一樣維持直連，範例如下：
+
+```js
+function FindProxyForURL(url, host) {
+  // 可以利用一般的 js regex 判斷
+  if (/\.google\.com$/.test(host)) {
+    return "PROXY 172.17.0.1:9050";
+  }
+
+  // 也可以利用 shExpMatch 判斷
+  if (
+    shExpMatch(host, "*.google.com")
+    || shExpMatch(host, "*.youtube.com")
+    || shExpMatch(host, "*.facebook.com")
+    || shExpMatch(host, "*.twitter.com")
+    || shExpMatch(host, "*.wikipedia.org")
+    || shExpMatch(host, "*.google.com.tw")
+    || shExpMatch(host, "*.youtube.com.tw")
+    || shExpMatch(host, "*.facebook.com.tw")
+    || shExpMatch(host, "*.twitter.com.tw")
+    || shExpMatch(host, "*.wikipedia.org.tw")
+  ) {
+    return "PROXY 172.17.0.1:9050";
+  }
+  return "DIRECT";
+}
 
 ## 參考資料
 
