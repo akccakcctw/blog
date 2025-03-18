@@ -26,8 +26,8 @@
     "typescript": "^5.6.2"
   },
   "devDependencies": {
+    "@inquirer/prompts": "^7.4.0",
     "@tailwindcss/typography": "^0.5.15",
-    "inquirer": "^12.5.0",
     "pagefind": "^1.1.1",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",

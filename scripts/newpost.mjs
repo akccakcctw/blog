@@ -4,7 +4,7 @@ import { writeFile } from 'fs/promises';
 import { execSync } from 'child_process';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import inquirer from 'inquirer';
+import { select, input } from '@inquirer/prompts';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUTPUT_DIRS = {
@@ -12,25 +12,20 @@ const OUTPUT_DIRS = {
   blog: 'src/content/blog/',
 };
 
-// 互動式詢問用戶
+// 互動式詢問用戶（使用新版 Inquirer 提示函式）
 async function promptUser() {
-  return inquirer.prompt([
-    {
-      type: 'list',
-      name: 'type',
-      message: '請選擇要產生的模板類型:',
-      choices: [
-        { name: '📌 TIL (Today I Learned)', value: 'til' },
-        { name: '📝 Blog', value: 'blog' },
-      ],
-    },
-    {
-      type: 'input',
-      name: 'title',
-      message: '請輸入文章標題:',
-      validate: input => input.trim() ? true : '標題不能為空！',
-    },
-  ]);
+  const type = await select({
+    message: '請選擇要產生的模板類型:',
+    choices: [
+      { name: '📌 TIL (Today I Learned)', value: 'til' },
+      { name: '📝 Blog', value: 'blog' },
+    ],
+  });
+  const title = await input({
+    message: '請輸入文章標題:',
+    validate: (text) => text.trim() ? true : '標題不能為空！',
+  });
+  return { type, title };
 }
 
 // 產生 Markdown 檔案
