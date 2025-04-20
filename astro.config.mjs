@@ -10,7 +10,12 @@ import netlify from "@astrojs/netlify";
 export default defineConfig({
   trailingSlash: 'never',
   site: "https://rex-tsou.com",
-  integrations: [tailwind(), sitemap(), mdx(), pagefind()],
+  integrations: [
+    tailwind(),
+    sitemap(),
+    mdx(),
+    pagefind(),
+  ],
   markdown: {
     shikiConfig: {
       theme: "css-variables"
