@@ -16,19 +16,25 @@ lastmod: 2020-01-04T16:16:22+08:00
 後來發現它的網址是 `ss://` 開頭，查了一下，發現背後用的其實就是鼎鼎大名的 shadowsocks，不用 outline 直接設定 proxy 連線總可以了吧，研究了一整個早上才終於連通了，遇到滿多坑的，下面是填坑筆記（埋
 
 
-## 安裝 shadowsocks
+## 安裝 shadowsocks-rust
 
-```python
-pip install shadowsocks
+網路上查到的資料大多使用 `pip` 來安裝，不過套件好像很久沒有更新了，我現在使用的是 [rust 的版本](https://github.com/shadowsocks/shadowsocks-rust)，但我猜各語言的實作應該用起來差不多。
+
+```sh
+# archlinux 可使用 yay 或 pacman 安裝
+yay -S shadowsocks-rust
+
+# mac 可使用 brew 安裝
+brew install shadowsocks-rust
 ```
 
-由於網路上查到的資料大多使用 `pip` 來安裝，因此我也從 `pip` 安裝，但各語言的實作應該用起來差不多。安裝完會有兩個指令 `sslocal` 以及 `ssserver` 可以使用，看名字就知道一個是用戶端，一個是服務端。
+安裝完會有兩個指令 `sslocal` 以及 `ssserver` 可以使用，看名字就知道一個是用戶端，一個是服務端。
 
 
 ## 設定 shadowsocks
 
 ```sh
-vim /etc/shadowsocks/shadowsocks.json
+vim /etc/shadowsocks-rust/config_rust.json
 ```
 
 主要的設定都放在這個 json 裡面，如果你不想放在 /etc/shadowsocks，也可以放在其他路徑。
@@ -52,7 +58,7 @@ vim /etc/shadowsocks/shadowsocks.json
 ss://<一串大小寫英數字>=@<hostname>:<port>/?outline=1
 ```
 
-這裡我卡住一陣子，不知道設定檔要怎麼設，後來把那串大小寫英數字拿去用 [base64 decode](https://blog.rex-tsou.com/2019/12/tips-base64-encode-decode/) 才得到 `method` 和 `password`。
+這裡我卡住一陣子，不知道設定檔要怎麼設，後來把那串大小寫英數字拿去用 [base64 decode](https://blog.rex-tsou.com/blog/2019-12-18-linux-base64-command/) 才得到 `method` 和 `password`。
 
 這裡的 `method` 是加密方式，要根據 server 端來設定，由於我是使用 `chacha20-ietf-poly1305`，有一個隱藏的坑，待會會提到。
 
@@ -64,10 +70,14 @@ sslocal -c /etc/shadowsocks/shadowsocks.json -d start
 
 # 停止
 sslocal -d stop
+
+# 我習慣指定 config 並 -v，這樣啟動的話 ctrl-c 可以直接停止
+sslocal -v --config MY_CONFIG.json
+
 ```
 
 {{<note>}}
-關於剛剛那個坑：如果你的加密方式和我一樣使用 `chacha20-ietf-poly1305`，可能會遇到 `method chacha20-ietf-poly1305 not supported` 的問題，我是安裝最新的 shadowsocks 解決的：
+（這邊針對 `pip` 版）關於剛剛那個坑：如果你的加密方式和我一樣使用 `chacha20-ietf-poly1305`，可能會遇到 `method chacha20-ietf-poly1305 not supported` 的問題，我是安裝最新的 shadowsocks 解決的：
 
 ```sh
 # 裝完後再試著啟動一次就沒問題了
