@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
   title: string;
@@ -69,7 +69,7 @@ const { title, description, image = "/blog-placeholder.jpg", noindex = false } =
 <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
 <script is:inline src="/pagefind/pagefind-ui.js"></script>
 
-<ViewTransitions />
+<ClientRouter />
 
 <script is:inline>
   function init() {
