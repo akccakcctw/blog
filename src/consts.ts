@@ -23,6 +23,11 @@ export const BLOG: Metadata = {
   DESCRIPTION: "爲了可能的聲音",
 };
 
+export const Writing: Metadata = {
+  TITLE: "Writing",
+  DESCRIPTION: "爲了可能的聲音",
+};
+
 export const ABOUT: Metadata = {
   TITLE: "About",
   DESCRIPTION: "關於我",
