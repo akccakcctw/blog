@@ -11,7 +11,7 @@ categories:
 一開始我習慣直接用眼睛感受，觀察各元素的大小、距離……
 
 當能力進階之後，我學會使用瀏覽器的「檢查元素」，很方便，移到元素上就可以看見範圍。而且，連元素參數（`width`、`height`、`position`、……）等等詳細設定，都可以一覽無遺。
-![devtool.png](http://user-image.logdown.io/user/14750/blog/13947/post/610450/8uI9RC0LR0eemoFNnnIb_devtool.png)
+![devtool.png](https://static.rex-tsou.com/blog/2016-03-09-the-easiest-way-to-see-the-page-layout/devtool.png)
 
 要了解一個網頁的排版方式，這樣就很夠了，但有些時候我很單純想了解他怎麼規劃版面，不需要看到那麼多參數設定，有沒有更快的辦法？
 
@@ -24,7 +24,7 @@ categories:
 
 進入開發者工具之後，找到 console 這個 tab，按下去（也可以 Ctrl-Shift-j 直接開啟 console），
 開啟後應該會看到類似這樣的畫面，藍色箭頭那邊是指令列，可以用文字方式輸入指令：
-![console.png](http://user-image.logdown.io/user/14750/blog/13947/post/610450/VeqLD5vNSj2CBntVPPev_console.png)
+![console.png](https://static.rex-tsou.com/blog/2016-03-09-the-easiest-way-to-see-the-page-layout/console.png)
 （因為我有裝套件修改，所以變成灰底，不影響功能）
 
 只要貼入以下的 Javascript code，按下 Enter 送出，
@@ -39,7 +39,7 @@ if (el) {
 }
 ```
 你就會發現...
-![layout.png](http://user-image.logdown.io/user/14750/blog/13947/post/610450/gxKlrBtSjiC44oyM35sm_layout.png)
+![layout.png](https://static.rex-tsou.com/blog/2016-03-09-the-easiest-way-to-see-the-page-layout/layout.png)
 
 排版瞬間被我們看光光啦，哈哈哈！
 

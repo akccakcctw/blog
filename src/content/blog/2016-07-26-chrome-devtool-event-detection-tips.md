@@ -14,17 +14,17 @@ categories:
 
 ## 1. Source Code Breakpoints
 經由 sources tab 開啟檔案，可以直接在左側的行數上用滑鼠點擊，設置中斷點，效果等同於使用 `debugger` 關鍵字。除此之外，還可以右鍵點擊行數，新增中斷的條件，若是中斷點帶有條件，顏色會由藍色變成黃色。
-![01.png](http://user-image.logdown.io/user/14750/blog/13947/post/774974/y6LepBaIQqyIO01Ju83i_01.png)
-![02.png](http://user-image.logdown.io/user/14750/blog/13947/post/774974/xq0fChHDT6iVUwSfOZgB_02.png)
+![01.png](https://static.rex-tsou.com/blog/2016-07-26-chrome-devtool-event-detection-tips/01.png)
+![02.png](https://static.rex-tsou.com/blog/2016-07-26-chrome-devtool-event-detection-tips/02.png)
 
 ## 2. Event Listener Breakpoints
 除了程式內的中斷點，還可以設置當某類事件發生時中斷，如下圖，勾選 keyboard 之後，一旦偵測到 keydown、keyup、keypress、input 四種事件，頁面就會進入 debugger 狀態，方便進行除錯。
-![04.png](http://user-image.logdown.io/user/14750/blog/13947/post/774974/nP0vFQCMT2qUJZTyI2YZ_04.png)
+![04.png](https://static.rex-tsou.com/blog/2016-07-26-chrome-devtool-event-detection-tips/04.png)
 
 ## 3. 查看元素綁定的事件
 有時候，我們會希望知道頁面裡某元素綁定的事件，只要在 elements tab 選取此元素，然後在下方（或右方）找到 event listener 標籤，就可以知道與這個元素相關的事件了，如下圖，我們可以瞭解到此元素被 click 之後會發生一些事，它的程式碼寫在 index 第 588 行（點下去會開啟 sources tab 方便檢視）
 
-![05.png](http://user-image.logdown.io/user/14750/blog/13947/post/774974/DmoYmw3WRDuXEDjzYzZR_05.png)
+![05.png](https://static.rex-tsou.com/blog/2016-07-26-chrome-devtool-event-detection-tips/05.png)
 
 ## 4. `monitorEvents(object[, events]);`
 這是今天學到的大決！似乎還只有 Chrome 可以用，只要在 console 使用 monitorEvents 這個指令，瀏覽器就會開啟監控模式，例如輸入`monitorEvents(document.body, 'mouse');`然後當你滑鼠移到 body 上面時，就會發現瀏覽器不斷 log 出 `mousemove` 的訊息，此時也會一併偵測`click`、`dbclick`等等滑鼠事件，其餘還可使用 `key`、`touch`、`control` 等等參數，詳情可參考 [developers.google.com](https://developers.google.com/web/tools/chrome-devtools/debug/command-line/command-line-reference?utm_source=dcc&utm_medium=redirect&utm_campaign=2016q3#monitoreventsobject-events) 有專門介紹。

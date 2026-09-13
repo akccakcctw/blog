@@ -8,7 +8,7 @@ categories:
 
 最近製作某飯店集團網站，其中有個功能需要在網站內提供線上訂房的表單，當使用者選擇分館、入住日期、離開日期之後，按下快速訂房按鈕就直接查詢訂房系統（其他系統商），如圖：
 
-![sp161222_151426.png](http://user-image.logdown.io/user/14750/blog/13947/post/1234234/kPPq3MHsQoKtY3lRv07K_sp161222_151426.png)
+![sp161222_151426.png](https://static.rex-tsou.com/blog/2016-12-22-problem-with-php-curl-post/sp161222_151426.png)
 
 對方的 API 必須使用`POST`，不能用`GET`，一開始想法很簡單，覺得直接用 PHP 的`curl`就可以了吧，於是我這樣寫：
 

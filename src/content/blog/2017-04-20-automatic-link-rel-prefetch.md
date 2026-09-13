@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function(){
 <link rel="prefetch" href=".../zh_TW/contact-us">
 ```
 開啟 Developer Tools，也可以在 Network 標籤內看到這幾頁有預先載入，這樣就成功了！
-![sp170420_155826.png](http://user-image.logdown.io/user/14750/blog/13947/post/1727744/lSXIEq5ETyeoGNhYl9Cn_sp170420_155826.png)
+![sp170420_155826.png](https://static.rex-tsou.com/blog/2017-04-20-automatic-link-rel-prefetch/sp170420_155826.png)
 
 ## 瀏覽器支援度
 <iframe style="width:100%;min-height:300px;" src="https://caniuse.com/link-rel-prefetch/embed"></iframe>
