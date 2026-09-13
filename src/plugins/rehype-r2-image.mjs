@@ -11,6 +11,11 @@ import { visit } from 'unist-util-visit';
  *
  * 這樣 Markdown 內容不必綁死 Cloudflare 的語法，日後要換 CDN 或調整參數
  * 都只改這個檔案，191 篇文章一個字都不用動。
+ *
+ * 注意：Astro 會把已渲染的 Markdown HTML 快取在 node_modules/.astro，Markdown
+ * 沒變動時不會重跑這個 plugin。因此改了本檔案卻沿用快取的話，產出會是舊的，
+ * 而且建置成功、沒有任何錯誤訊息。package.json 的 build script 已固定帶
+ * --force 來清除該快取，請勿拿掉。
  */
 
 const IMAGE_HOST = 'static.rex-tsou.com';
