@@ -51,8 +51,7 @@ curl -sI https://static.rex-tsou.com/blog/<post-slug>/foo.png
 
 ### 搭配 Image Transformations
 
-啟用後（Cloudflare → Images → Transformations，對 `rex-tsou.com` 這個 zone），
-可以在路徑中插入轉換參數，由邊緣即時縮圖與轉檔：
+已對 `rex-tsou.com` 這個 zone 啟用。在路徑中插入轉換參數，即可由邊緣即時縮圖與轉檔：
 
 ```markdown
 ![說明文字](https://static.rex-tsou.com/cdn-cgi/image/width=800,format=auto,quality=85/blog/<post-slug>/foo.png)
@@ -62,8 +61,22 @@ curl -sI https://static.rex-tsou.com/blog/<post-slug>/foo.png
 - `width=800` — 文章版面寬度大約就是這個數字，超過沒有意義
 - `quality=85` — 通常肉眼看不出與原圖的差異
 
-Free 方案每月 5,000 次**唯一**轉換免費（同一組參數 + 同一張圖只算一次）。
-超過額度時新的轉換會回錯誤，但不會計費。
+`format=auto` 會依 `Accept` 標頭自動降級（AVIF → WebP → JPEG），不需要自己處理
+相容性。以一張 146 KB 的 PNG 截圖實測：
+
+| 情境 | 格式 | 大小 | 省下 |
+|---|---|---|---|
+| 原圖 | PNG | 146,570 | — |
+| 支援 AVIF | AVIF | 26,181 | 82% |
+| 只支援 WebP | WebP | 28,862 | 80% |
+| 老瀏覽器 | JPEG | 37,313 | 75% |
+| 加上 `width=400` | AVIF | 9,254 | 94% |
+
+Free 方案每月 5,000 次**唯一**轉換免費（同一組參數 + 同一張圖只算一次，之後走快取
+不重複計次）。超過額度時新的轉換會回錯誤，但不會計費。
+
+小圖（幾十 KB 的截圖）直接引用原圖就好；手機拍的照片這類大圖再加轉換參數，
+效益最明顯。
 
 ## 快取
 
