@@ -24,8 +24,13 @@ const TRANSFORM_PREFIX = '/cdn-cgi/image/';
  * 供 retina 螢幕使用。
  *
  * 不要改成接近實際顯示寬度的數值：強制縮放小截圖有可能讓檔案反而變大。
+ *
+ * onerror=redirect 是失效保護：Free 方案每月 5,000 次唯一轉換，超量後新的轉換會
+ * 回 9422 錯誤。加上這個參數，轉換失敗時會 307 轉址到原圖，讀者看到的是未最佳化
+ * 的圖片而不是破圖。這個機制的前提是原圖與轉換服務在同一個網域上，正好符合此處
+ * 的架構。
  */
-const PARAMS = 'width=1232,format=auto,quality=85';
+const PARAMS = 'width=1232,format=auto,quality=85,onerror=redirect';
 
 export function rehypeR2Image() {
   return (tree) => {
