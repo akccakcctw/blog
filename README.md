@@ -4,6 +4,11 @@
 
 This is my personal blog, built using [Astro](https://github.com/withastro/astro).
 
+## Images
+
+Post images are hosted on `static.rex-tsou.com` (Cloudflare R2), not in this repo.
+See [docs/images.md](docs/images.md) for the upload workflow and path conventions.
+
 ## Theme
 
 Based on [astro-micro](https://github.com/trevortylerlee/astro-micro), which I have personally modified.
