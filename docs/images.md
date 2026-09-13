@@ -65,6 +65,21 @@ curl -sI https://static.rex-tsou.com/blog/<post-slug>/foo.png
 Free 方案每月 5,000 次**唯一**轉換免費（同一組參數 + 同一張圖只算一次）。
 超過額度時新的轉換會回錯誤，但不會計費。
 
+## 快取
+
+`static.rex-tsou.com` 的內容由 Cloudflare 邊緣快取，不需要額外設定 Cache Rule。
+`.png` / `.svg` / `.webp` 等圖片副檔名本來就在預設快取清單內。
+
+上傳時帶的 `Cache-Control: public, max-age=31536000, immutable` 會把邊緣與瀏覽器
+的快取時間從 Cloudflare 預設的 4 小時延長為 1 年，所以請照上面的指令帶上它。
+
+> 驗證快取時**要用 GET，不要用 `curl -I`**。R2 custom domain 對 HEAD 請求一律
+> 回報 `cf-cache-status: DYNAMIC`，會讓人誤以為快取沒生效。正確的測法是：
+>
+> ```sh
+> curl -s -D - -o /dev/null https://static.rex-tsou.com/blog/<post-slug>/foo.png | grep -i cf-cache-status
+> ```
+
 ## 注意事項
 
 **換圖一律換檔名。** 上傳時宣告的 `immutable` 告訴瀏覽器這個網址的內容永遠不會變，
