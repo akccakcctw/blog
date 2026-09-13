@@ -49,34 +49,47 @@ curl -sI https://static.rex-tsou.com/blog/<post-slug>/foo.png
 
 一律用 `https://`。用 `http://` 的話瀏覽器會以混合內容為由擋掉，圖片不會顯示。
 
-### 搭配 Image Transformations
+### Image Transformations 是自動的
 
-已對 `rex-tsou.com` 這個 zone 啟用。在路徑中插入轉換參數，即可由邊緣即時縮圖與轉檔：
+**你不需要手動寫轉換參數。** `src/plugins/rehype-r2-image.mjs` 這個 rehype plugin
+會在 build 時，把所有指向 `static.rex-tsou.com` 的 `<img>` 網址自動改寫成：
 
-```markdown
-![說明文字](https://static.rex-tsou.com/cdn-cgi/image/width=800,format=auto,quality=85/blog/<post-slug>/foo.png)
+```
+https://static.rex-tsou.com/cdn-cgi/image/width=1232,format=auto,quality=85/blog/<post-slug>/foo.png
 ```
 
-- `format=auto` — 依瀏覽器的 `Accept` 自動送 AVIF / WebP / 原格式
-- `width=800` — 文章版面寬度大約就是這個數字，超過沒有意義
-- `quality=85` — 通常肉眼看不出與原圖的差異
+所以文章裡只要照上面那樣寫原始網址就好。要調整參數或日後換掉 CDN，改那個 plugin
+一個檔案即可，不必動到任何一篇文章。
+
+參數的選擇理由：
+
+- `format=auto` — 依瀏覽器 `Accept` 自動送 AVIF / WebP / 原格式。轉換沒好處時
+  Cloudflare 會原樣回傳原圖，**不會有變大的風險**
+- `width=1232` — 這是**上限**不是固定值。Cloudflare 預設 `fit=scale-down` 不會放大，
+  所以比它窄的圖只會被轉檔、尺寸不變。1232 是文章容器（約 616px）的 2 倍，供 retina 使用
+- `quality=85` — 肉眼通常看不出與原圖的差異
+
+> 不要把 `width` 改成接近實際顯示寬度的數值。實測把 711px 的小截圖強制縮到 616px，
+> 檔案反而從 6.2 KB 變成 13.7 KB。
+
+**例外**：用原始 `<img>` HTML 標籤寫的圖片不會被改寫（rehype 預設不解析 raw HTML）。
+想讓圖片享有最佳化，請用 Markdown 的 `![]()` 語法。
 
 `format=auto` 會依 `Accept` 標頭自動降級（AVIF → WebP → JPEG），不需要自己處理
-相容性。以一張 146 KB 的 PNG 截圖實測：
+相容性。以現有 10 張圖實測，套用上述參數後：
 
-| 情境 | 格式 | 大小 | 省下 |
-|---|---|---|---|
-| 原圖 | PNG | 146,570 | — |
-| 支援 AVIF | AVIF | 26,181 | 82% |
-| 只支援 WebP | WebP | 28,862 | 80% |
-| 老瀏覽器 | JPEG | 37,313 | 75% |
-| 加上 `width=400` | AVIF | 9,254 | 94% |
+| | 大小 |
+|---|---|
+| 原圖合計 | 571,979 bytes |
+| 轉換後合計 | 185,099 bytes |
+| **省下** | **67%** |
+
+其中一張 711px 的小截圖被 Cloudflare 判定轉換無益而原樣回傳 PNG —— 這正是
+`format=auto` 的安全機制。
 
 Free 方案每月 5,000 次**唯一**轉換免費（同一組參數 + 同一張圖只算一次，之後走快取
-不重複計次）。超過額度時新的轉換會回錯誤，但不會計費。
-
-小圖（幾十 KB 的截圖）直接引用原圖就好；手機拍的照片這類大圖再加轉換參數，
-效益最明顯。
+不重複計次）。超過額度時新的轉換會回錯誤，但不會計費。以本站規模不會構成問題，
+但這是 plugin 全站套用的唯一風險。
 
 ## 快取
 

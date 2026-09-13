@@ -7,6 +7,8 @@ import netlify from "@astrojs/netlify";
 
 import tailwindcss from "@tailwindcss/vite";
 
+import { rehypeR2Image } from "./src/plugins/rehype-r2-image.mjs";
+
 // https://astro.build/config
 export default defineConfig({
   trailingSlash: 'never',
@@ -21,7 +23,8 @@ export default defineConfig({
   markdown: {
     shikiConfig: {
       theme: "css-variables"
-    }
+    },
+    rehypePlugins: [rehypeR2Image],
   },
 
   // or "server" to be SSR
